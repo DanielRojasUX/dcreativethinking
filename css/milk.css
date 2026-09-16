@@ -1,0 +1,512 @@
+/* ==========================================================================
+   dcreativethinking.com
+   styles.css  ::  tokens + reset + component 3 (.milk)
+
+   Test folder carries an identical copy of tokens + reset plus this one
+   component. The master keeps one copy of tokens + reset and strips the rest.
+   ========================================================================== */
+
+
+/* ===== BEGIN SHARED: tokens + reset ===== */
+
+/* --------------------------------------------------------------------------
+   TOKENS  ::  :root single source of truth
+
+   Values derived by measuring the three approved mockups, which are all
+   1439 / 768 / 320 wide by 774 tall. Names are final. Ratify the numbers
+   against Figma and only these lines change, no rule below moves.
+
+   Composition coordinates (tier offsets, panel widths, object-position,
+   frame height) are NOT tokens. They are one off placements for this single
+   frame rather than reusable design values, so they sit as literals in the
+   component tagged "geom" and sourced from the mockup measurements.
+   -------------------------------------------------------------------------- */
+:root {
+  /* brand + ink */
+  --color-pink: #ff124b;        /* brand pink, carried by the UX mark */
+  --color-poem: #e61044;        /* poem only, darkened for contrast */
+  --color-ink: #141414;         /* mission copy and social chips */
+  --color-white: #ffffff;
+
+  /* surfaces :: mobile carries a heavier fill because the type is smallest
+     there and sits over the busiest part of the photograph. Tablet and up
+     step back down to 0.6. */
+  --footer-panel-fill: rgba(255, 255, 255, 0.8);
+  --footer-chip-fill: var(--color-ink);
+  --footer-rule-color: var(--color-white);
+
+  /* type :: DM Sans */
+  --footer-font: "DM Sans", system-ui, sans-serif;
+  --footer-body-size: 0.6875rem;   /* 11px, mobile base */
+  --footer-body-line: 1.364;       /* 15px pitch */
+  --footer-label-weight: 700;
+  --footer-value-weight: 400;
+
+  /* metrics */
+  --footer-rule-weight: 1px;
+  --footer-chip-size: 1.75rem;     /* 28px, clears the 24px target floor */
+  --footer-chip-icon: 1rem;
+  --footer-chip-radius: 0.375rem;
+  --footer-chip-gap: 0.5rem;
+
+  /* panel padding */
+  --footer-info-pad-block: 0.3125rem;
+  --footer-info-pad-inline: 1.25rem;
+  --footer-info-gap: 0.9375rem;    /* paragraph step, one extra line box */
+
+  /* --------------------------------------------------------------------
+     PROPOSED ADDITIONS :: introduced by .milk, not yet ratified.
+     Master: fold in or rename as needed; --footer-font in particular
+     should probably lose the footer- prefix now that a second block
+     consumes it. Nothing below overrides a value above.
+     -------------------------------------------------------------------- */
+  --milk-hairline: rgba(20, 20, 20, 0.18);   /* --color-ink at low opacity, skill row dividers */
+  --milk-shadow: 0 10px 28px rgba(0, 0, 0, 0.32);  /* the "polaroid" frame shadow, shared by all 3 boxes */
+
+  /* mobile type scale — this block's own, reflows rather than scaling desktop's */
+  --milk-heading-size: 1.375rem;
+  --milk-row-size: 0.875rem;
+  --milk-body-size: 0.75rem;
+  --milk-body-line: 1.4;
+}
+
+@media (min-width: 768px) {
+  :root {
+    /* tablet == desktop, measured off both mockups identically */
+    --milk-heading-size: 1.75rem;
+    --milk-row-size: 1rem;
+    --milk-body-size: 0.8125rem;
+    --milk-body-line: 1.35;
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   RESET  ::  base rules. Element selectors are permitted here because this is
+   the shared reset, not component CSS. Component rules below are class only.
+   -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  font-family: var(--footer-font);
+  background: var(--color-ink);
+}
+
+img,
+svg,
+picture { display: block; max-width: 100%; }
+
+a { color: inherit; }
+
+ul { margin: 0; padding: 0; list-style: none; }
+
+dl,
+dd { margin: 0; }
+
+hr { border: 0; margin: 0; }
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+/* ===== END SHARED ===== */
+
+
+/* ==========================================================================
+   COMPONENT 3  ::  .milk
+   BEM block: .milk   (claimed, section 3 — resume, skills, contact)
+   Mobile first. Media queries are min-width only.
+
+   Three separate "carton tag" pieces stack in normal flow: the main card,
+   the email box, and the resume box — each its own white panel with the
+   same shadow (that shadow IS the frame; without it the white panel has
+   no visible edge against the photo behind it). No internal scrolling
+   anywhere — if "view more" grows the card, the section grows with it.
+
+   Mobile is its OWN measured layout (fluid width, fixed gutter, smaller
+   type), not the desktop card scaled down — confirmed against a real
+   mobile mock, not extrapolated.
+   ========================================================================== */
+.milk {
+  position: relative;
+  isolation: isolate;
+  min-height: 860px;                /* geom :: mobile, estimated off the mobile mock's
+                                        cropped export — flag against the real Figma value */
+  color: var(--color-ink);
+}
+
+/* The polaroid mat. A white border rather than padding, because an absolutely
+   positioned child with inset:0 resolves against the PADDING box — inside the
+   border — so .milk__bg lands in the photo window automatically. Mobile has no
+   mat: the mobile mock runs the photo full bleed.
+
+   From 768 up the whole polaroid also insets from the page (dark body shows
+   through the gutter) and casts the Figma drop shadow — it "lays" on the page.
+   The gutter is left/right only; top/bottom stay flush. */
+@media (min-width: 768px) {
+  .milk {
+    min-height: 997px;              /* geom :: Figma frame height, tablet == desktop */
+    border: 21px solid var(--color-white);   /* geom :: measured mat, top + both sides */
+    border-bottom-width: 142px;              /* geom :: polaroid caption strip */
+    margin-inline: 24px;            /* geom :: page gutter, tablet */
+    box-shadow: 0 0 18.3px rgba(0, 0, 0, 0.25);   /* Figma :: drop shadow on the polaroid */
+  }
+}
+
+@media (min-width: 1024px) {
+  .milk { margin-inline: 42px; }    /* geom :: page gutter, desktop */
+}
+
+/* background photo, full bleed behind everything */
+.milk__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.milk__bg picture {
+  position: absolute;               /* without this, picture's height stays auto/content-based,
+                                        so height:100% on the img below can't resolve — it falls
+                                        back to the image's 1:1 intrinsic ratio instead of covering */
+  inset: 0;
+}
+
+.milk__bg-media {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;         /* geom :: same crop reads correctly at every width */
+}
+
+/* content layer :: normal flow, three boxes stacked with a small gap
+   between each. Nothing here is fixed-height or scroll-contained. */
+.milk__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1439px;                 /* geom :: design frame, composition stops growing here */
+  margin-inline: auto;
+  padding-block: 48px 32px;           /* geom :: mobile card top, 48px below the photo edge */
+  padding-inline: 10.2%;              /* geom :: mobile mock's measured 36px gutter off the photo edge */
+}
+
+@media (min-width: 768px) {
+  .milk__inner {
+    padding-top: 33px;              /* geom :: card top sits 33px inside the photo window */
+    padding-bottom: 32px;
+    padding-inline: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* ---- the "carton tag" card ---------------------------------------------- */
+.milk__card {
+  width: 100%;
+  background: var(--color-white);
+  box-shadow: var(--milk-shadow);
+  padding: 20px;                     /* geom :: mobile */
+}
+
+@media (min-width: 768px) {
+  .milk__card {
+    max-width: 450px;                /* geom :: fixed label width, tablet == desktop */
+    padding: 28px;                   /* geom */
+  }
+}
+
+.milk__heading {
+  margin: 0;
+  font-family: var(--footer-font);
+  font-size: var(--milk-heading-size);   /* geom :: measured against mockup line height, verify w/ real font */
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.milk__rule {
+  height: 10px;                      /* geom :: mobile */
+  margin-top: 14px;                  /* geom :: mobile */
+  background: var(--color-ink);
+}
+
+@media (min-width: 768px) {
+  .milk__rule {
+    height: 14px;                    /* geom */
+    margin-top: 20px;                /* geom */
+  }
+}
+
+/* ---- skills list ---------------------------------------------------------
+   Each visible row is a real <button>, so hover/focus/keyboard activation
+   come for free. Hidden rows use the `hidden` attribute, toggled by JS. */
+.milk__skills { margin-top: 4px; }
+
+.milk__skill { border-bottom: 1px solid var(--milk-hairline); }
+
+.milk__skill-trigger {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding-block: 8px;                /* geom :: mobile row pitch */
+  text-align: left;
+  font-family: var(--footer-font);
+  font-size: var(--milk-row-size);
+  line-height: 1.25;
+}
+
+@media (min-width: 768px) {
+  .milk__skill-trigger { padding-block: 9px; }  /* geom :: 39px row pitch incl. 1px hairline */
+}
+
+.milk__skill-trigger:hover,
+.milk__skill-trigger:hover .milk__skill-name,
+.milk__skill-trigger:hover .milk__skill-years,
+.milk__skill-trigger:focus-visible .milk__skill-name,
+.milk__skill-trigger:focus-visible .milk__skill-years {
+  color: var(--color-pink);
+}
+
+.milk__skill-trigger:focus-visible {
+  outline: 2px solid var(--color-pink);
+  outline-offset: -2px;
+}
+
+.milk__skill-name,
+.milk__skill-years {
+  transition: color 120ms ease;
+}
+
+/* ---- view more / view less ----------------------------------------------*/
+.milk__more-toggle {
+  display: block;
+  margin-top: 10px;                  /* geom */
+  margin-left: auto;
+  font-family: var(--footer-font);
+  font-weight: 700;
+  font-size: var(--milk-body-size);
+}
+
+.milk__more-toggle:hover,
+.milk__more-toggle:focus-visible { color: var(--color-pink); }
+
+.milk__more-toggle:focus-visible { outline: 2px solid var(--color-pink); outline-offset: 2px; }
+
+/* ---- bio ------------------------------------------------------------------
+   Collapsed preview only lives in the card. "show more" opens the full
+   text in a modal instead of expanding in place. */
+.milk__bio {
+  margin-top: 16px;                  /* geom */
+  font-family: var(--footer-font);
+  font-size: var(--milk-body-size);
+  line-height: var(--milk-body-line);
+}
+
+.milk__bio-preview { margin: 0; }
+
+.milk__bio-toggle {
+  display: block;
+  margin-top: 10px;
+  margin-left: auto;
+  font-family: var(--footer-font);
+  font-weight: 700;
+  font-size: var(--milk-body-size);
+}
+
+.milk__bio-toggle:hover,
+.milk__bio-toggle:focus-visible { color: var(--color-pink); }
+
+.milk__bio-toggle:focus-visible { outline: 2px solid var(--color-pink); outline-offset: 2px; }
+
+/* ---- skill detail tooltip -------------------------------------------------
+   Click a row to open, mouse-out (rollout) to close. Opens ABOVE the row —
+   the user is scrolling down, so a tooltip opening below can land off-screen. */
+.milk__tooltip {
+  position: absolute;
+  z-index: 5;
+  max-width: 240px;
+  background: var(--color-ink);
+  color: var(--color-white);
+  padding: 10px 14px;
+  font-family: var(--footer-font);
+  font-size: 0.75rem;
+  line-height: 1.4;
+  pointer-events: none;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);   /* small — just enough to read as a floating tooltip */
+}
+
+.milk__tooltip[hidden] { display: none; }
+
+/* the tip, pointing down at the row the tooltip is anchored to (tooltip opens
+   above, so the caret points down, not up) */
+.milk__tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 16px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-top-color: var(--color-ink);
+}
+
+/* ---- email box, its own separate frame ----------------------------------- */
+.milk__email {
+  width: 100%;
+  margin-top: 12px;                  /* geom :: mobile gap between card and email box */
+  background: var(--color-white);
+  box-shadow: var(--milk-shadow);
+  padding: 16px 20px;                 /* geom :: mobile */
+}
+
+@media (min-width: 768px) {
+  .milk__email {
+    max-width: 450px;
+    margin-top: 16px;                /* geom */
+    padding: 18px 28px;              /* geom */
+  }
+}
+
+.milk__email-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--color-ink);
+  font-family: var(--footer-font);
+  font-size: var(--milk-body-size);
+  text-decoration: none;
+}
+
+.milk__email-icon {
+  flex-shrink: 0;
+  color: inherit;                   /* the icon's background rect uses fill="currentColor" */
+}
+
+.milk__email-link:hover,
+.milk__email-link:focus-visible {
+  color: var(--color-pink);
+}
+
+.milk__email-link:hover .milk__email-text,
+.milk__email-link:focus-visible .milk__email-text {
+  text-decoration: underline;
+}
+
+.milk__email-link:focus-visible {
+  outline: 2px solid var(--color-ink);
+  outline-offset: 2px;
+}
+
+/* ---- resume box, separate sibling below the email box -------------------- */
+.milk__resume {
+  width: 100%;
+  margin-top: 12px;                  /* geom :: mobile */
+  background: var(--color-white);
+  box-shadow: var(--milk-shadow);
+  padding-block: 16px;                /* geom :: mobile */
+  text-align: center;
+  text-decoration: none;
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .milk__resume {
+    max-width: 450px;
+    margin-top: 16px;                 /* geom */
+    padding-block: 20px;              /* geom */
+  }
+}
+
+.milk__resume-label {
+  font-family: var(--footer-font);
+  font-weight: 700;
+  font-size: var(--milk-body-size);
+}
+
+.milk__resume:hover .milk__resume-label,
+.milk__resume:focus-visible .milk__resume-label { color: var(--color-pink); }
+
+.milk__resume:focus-visible {
+  outline: 2px solid var(--color-pink);
+  outline-offset: -2px;
+}
+
+/* ---- bio modal ------------------------------------------------------------ */
+.milk__bio-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.milk__bio-modal:not([hidden]) {
+  display: flex;
+}
+
+.milk__bio-modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(20, 20, 20, 0.6);
+}
+
+.milk__bio-modal-panel {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 420px;
+  max-height: 80vh;
+  overflow-y: auto;                  /* the modal may scroll — the card itself never does */
+  background: var(--color-white);
+  padding: 32px 28px 28px;
+  box-shadow: var(--milk-shadow);
+  font-family: var(--footer-font);
+  font-size: var(--milk-body-size);
+  line-height: var(--milk-body-line);
+}
+
+.milk__bio-modal-panel p { margin: 0; }
+.milk__bio-modal-panel p + p { margin-top: 0.9em; }
+
+.milk__bio-modal-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.milk__bio-modal-close:hover,
+.milk__bio-modal-close:focus-visible { color: var(--color-pink); }
+
+.milk__bio-modal-close:focus-visible {
+  outline: 2px solid var(--color-pink);
+  outline-offset: 2px;
+}
+
+
+/* --------------------------------------------------------------------------
+   Reduced motion :: drop the hover/focus color transition.
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .milk__skill-name,
+  .milk__skill-years { transition: none; }
+}

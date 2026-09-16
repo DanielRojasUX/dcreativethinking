@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La Crème — Design System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#E5E5E5;
+    --bg-raised-hi:rgba(255,255,255,0.75);
+    --bg-raised-lo:rgba(140,148,158,0.32);
+    --ink:#3D4147;
+    --ink-strong:#23262B;
+    --ink-muted:#767B82;
+    --ink-faint:#A7ABB1;
+    --accent:#43637C;
+    --accent-tint:#E3E8EB;
+    --accent-text:#43637C;
+    --border:#D5D8DB;
+    --accent-shadow-lo:rgba(0,0,0,0.26);
+    --accent-shadow-hi:rgba(255,255,255,0.09);
+    --radius-s:10px;
+    --radius-m:14px;
+    --radius-l:20px;
+    --surface:#FFFFFF;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--ink-strong);min-height:100vh;}
+  button,input{font-family:inherit;}
+  code{font-family:'SFMono-Regular',Consolas,monospace;background:var(--accent-tint);color:var(--accent-text);padding:1px 6px;border-radius:4px;font-size:0.9em;}
+
+  .raised{background:var(--bg);box-shadow: 7px 7px 14px var(--bg-raised-lo), -7px -7px 14px var(--bg-raised-hi);}
+  .raised-sm{background:var(--bg);box-shadow: 4px 4px 8px var(--bg-raised-lo), -4px -4px 8px var(--bg-raised-hi);}
+  .inset{background:var(--bg);box-shadow: inset 4px 4px 8px var(--bg-raised-lo), inset -4px -4px 8px var(--bg-raised-hi);}
+  .deboss-demo:hover{box-shadow: inset 3px 3px 6px var(--bg-raised-lo), inset -3px -3px 6px var(--bg-raised-hi);}
+
+  /* ===== top bar ===== */
+  .topbar{position:sticky;top:0;z-index:40;background:var(--bg);box-shadow:0 1px 0 var(--border);}
+  .topbar-inner{max-width:1180px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:16px 24px;gap:16px;}
+  .brandmark{display:flex;align-items:center;gap:10px;cursor:pointer;flex-shrink:0;}
+  .brandmark svg{width:auto;height:16px;flex-shrink:0;}
+  .bm-sub{font-size:16px;font-weight:800;color:var(--ink-strong);letter-spacing:-0.01em;margin-left:2px;}
+
+  .searchTrigger{
+    display:flex;align-items:center;gap:10px;
+    background:var(--bg);border:none;border-radius:var(--radius-s);
+    padding:9px 14px;box-shadow: inset 3px 3px 6px var(--bg-raised-lo), inset -3px -3px 6px var(--bg-raised-hi);
+    color:var(--ink-muted);font-size:13px;cursor:pointer;min-width:200px;
+  }
+  .searchTrigger .kbd{margin-left:auto;font-size:10.5px;background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:1px 6px;color:var(--ink-faint);box-shadow:1px 1px 2px var(--bg-raised-lo);}
+  .searchTrigger:hover{color:var(--ink-strong);}
+
+  /* ===== tabs ===== */
+  .tabbar{position:sticky;top:65px;z-index:39;background:var(--bg);border-bottom:1px solid var(--border);overflow-x:auto;scrollbar-width:none;}
+  .tabbar::-webkit-scrollbar{display:none;}
+  .tabbar-inner{max-width:1180px;margin:0 auto;display:flex;gap:4px;padding:0 24px;}
+  .tabitem{
+    padding:14px 16px;font-size:13px;font-weight:600;color:var(--ink-muted);
+    cursor:pointer;white-space:nowrap;border-bottom:3px solid transparent;flex-shrink:0;
+  }
+  .tabitem:hover{color:var(--ink-strong);}
+  .tabitem.active{color:var(--accent-text);border-bottom-color:var(--accent);}
+
+  /* ===== layout ===== */
+  .page{max-width:1180px;margin:0 auto;padding:40px 24px 100px 24px;}
+  .tabpanel{display:none;}
+  .tabpanel.active{display:block;}
+
+  /* ===== overview ===== */
+  .hero{padding:20px 0 44px 0;}
+  .hero h1{font-size:44px;font-weight:800;margin:0 0 12px 0;letter-spacing:-0.01em;}
+  .hero p{font-size:15px;color:var(--ink-muted);max-width:620px;line-height:1.7;margin:0 0 24px 0;}
+  .hero .hero-search{max-width:440px;}
+
+  .overview-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;margin-top:8px;}
+  .overview-card{
+    background:var(--bg);border-radius:var(--radius-l);padding:22px;cursor:pointer;
+    box-shadow: 7px 7px 14px var(--bg-raised-lo), -7px -7px 14px var(--bg-raised-hi);
+    transition:box-shadow 0.15s ease;
+  }
+  .overview-card:hover{box-shadow: inset 3px 3px 6px var(--bg-raised-lo), inset -3px -3px 6px var(--bg-raised-hi);}
+  .overview-card .oc-icon{width:40px;height:40px;border-radius:12px;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;margin-bottom:14px;}
+  .overview-card h3{font-size:15px;font-weight:700;margin:0 0 6px 0;}
+  .overview-card p{font-size:12.5px;color:var(--ink-muted);margin:0 0 10px 0;line-height:1.5;}
+  .overview-card .oc-count{font-size:11px;font-weight:700;color:var(--accent-text);text-transform:uppercase;letter-spacing:0.04em;}
+
+  /* ===== section content ===== */
+  .ds-section-head{margin-bottom:28px;}
+  .ds-section-head h2{font-size:26px;font-weight:800;margin:0 0 6px 0;}
+  .ds-section-head p{font-size:13.5px;color:var(--ink-muted);margin:0;max-width:600px;line-height:1.6;}
+
+  .ds-subgroup{margin-bottom:40px;scroll-margin-top:150px;}
+  .ds-subgroup-title{font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-muted);margin-bottom:16px;padding-bottom:10px;border-bottom:1px solid var(--border);}
+
+  .ds-row{display:flex;gap:24px;flex-wrap:wrap;align-items:flex-start;}
+  .ds-item{display:flex;flex-direction:column;align-items:center;gap:10px;}
+  .ds-item .ds-caption{font-size:10.5px;color:var(--ink-faint);text-align:center;max-width:150px;line-height:1.5;}
+
+  .ds-swatch{width:88px;height:88px;border-radius:var(--radius-m);display:flex;align-items:center;justify-content:center;}
+  .ds-colorchip{width:120px;}
+  .ds-colorchip .swatchbox{width:120px;height:60px;border-radius:10px;margin-bottom:6px;border:1px solid var(--border);}
+  .ds-colorchip .swatch-label{font-size:11px;font-weight:600;color:var(--ink-strong);}
+  .ds-colorchip .swatch-hex{font-size:10px;color:var(--ink-muted);font-family:monospace;}
+
+  .ds-panel-demo{background:var(--bg);padding:24px;border-radius:var(--radius-l);}
+  .ds-flex-demo{display:flex;gap:16px;flex-wrap:wrap;align-items:center;}
+  .ds-mini-table{border-radius:var(--radius-l);overflow:hidden;padding:6px;width:100%;max-width:520px;}
+
+  .highlight-pulse{animation:hlpulse 1.6s ease 1;}
+  @keyframes hlpulse{ 0%{box-shadow:0 0 0 0 rgba(122,95,62,0.5);} 70%{box-shadow:0 0 0 14px rgba(122,95,62,0);} 100%{box-shadow:0 0 0 0 rgba(122,95,62,0);} }
+
+  /* ===== reused component styles (copied from the app system) ===== */
+  .btn{border:none;border-radius:var(--radius-s);padding:12px 18px;font-size:13.5px;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;}
+  .btn-primary{background:var(--accent);color:#fff;box-shadow:3px 3px 8px var(--bg-raised-lo);}
+  .btn-primary:hover{background:#364F63;}
+  .btn-outline{background:var(--bg);color:var(--ink-strong);box-shadow:3px 3px 7px var(--bg-raised-lo), -3px -3px 7px var(--bg-raised-hi);}
+  .btn-danger-outline{background:var(--bg);color:#A8324A;box-shadow:3px 3px 7px var(--bg-raised-lo), -3px -3px 7px var(--bg-raised-hi);}
+
+  .field-label{display:block;font-size:12px;font-weight:600;color:var(--ink-muted);margin-bottom:8px;}
+  .text-field{border-radius:var(--radius-s);padding:0 14px;height:44px;display:flex;align-items:center;gap:8px;}
+  .text-field input{border:none;background:transparent;outline:none;font-size:14px;color:var(--ink-strong);width:100%;font-family:inherit;}
+  .checkbox-row{display:flex;align-items:center;gap:9px;font-size:13px;color:var(--ink-muted);cursor:pointer;}
+  .checkbox-box{width:19px;height:19px;border-radius:6px;background:var(--bg);box-shadow: inset 3px 3px 6px var(--bg-raised-lo), inset -3px -3px 6px var(--bg-raised-hi);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .checkbox-box .chk{width:12px;height:12px;color:var(--accent);opacity:0;}
+  .checkbox-box.checked{box-shadow: 2px 2px 5px var(--bg-raised-lo), -2px -2px 5px var(--bg-raised-hi);}
+  .checkbox-box.checked .chk{opacity:1;}
+
+  .search-field{border-radius:var(--radius-s);padding:0 14px;display:flex;align-items:center;gap:8px;height:42px;}
+  .search-field svg{flex-shrink:0;color:var(--ink-faint);}
+  .search-field input{border:none;background:transparent;outline:none;font-size:13.5px;color:var(--ink-strong);width:100%;}
+
+  .dropdown{position:relative;display:inline-block;}
+  .dropdown-trigger{height:42px;padding:0 14px 0 16px;border:none;background:var(--bg);border-radius:var(--radius-s);display:flex;align-items:center;justify-content:space-between;gap:12px;font-size:13px;font-weight:500;color:var(--ink-strong);cursor:pointer;min-width:168px;box-shadow:4px 4px 8px var(--bg-raised-lo), -4px -4px 8px var(--bg-raised-hi);}
+  .dropdown-trigger .chevron{flex-shrink:0;color:var(--ink-muted);}
+  .dropdown-panel{background:var(--bg);border-radius:var(--radius-m);padding:8px;box-shadow: 12px 12px 26px rgba(90,96,104,0.28), -8px -8px 20px rgba(255,255,255,0.75);}
+  .dropdown-item{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:var(--radius-s);font-size:13.5px;color:var(--ink-strong);cursor:pointer;}
+  .dropdown-item .chk{width:15px;height:15px;flex-shrink:0;color:var(--accent);opacity:0;}
+  .dropdown-item.selected{background:var(--accent-tint);color:var(--accent-text);font-weight:600;}
+  .dropdown-item.selected .chk{opacity:1;}
+  .dropdown-item:hover:not(.selected){box-shadow: inset 3px 3px 6px var(--bg-raised-lo), inset -3px -3px 6px var(--bg-raised-hi);}
+
+  .view-toggle{display:flex;gap:2px;padding:3px;border-radius:12px;}
+  .view-toggle-btn{width:34px;height:34px;border:none;background:transparent;border-radius:9px;display:flex;align-items:center;justify-content:center;color:var(--ink-muted);cursor:pointer;}
+  .view-toggle-btn.active{background:var(--accent);color:#fff;}
+
+  .nav-item{padding:12px 14px;border-radius:var(--radius-s);font-size:13.5px;font-weight:500;color:var(--ink-muted);cursor:pointer;display:flex;align-items:center;justify-content:space-between;}
+  .nav-item.active{color:var(--accent-text);font-weight:600;}
+  .nav-item.active .nav-count{background:var(--accent);color:#fff;}
+  .nav-count{font-size:11px;background:var(--bg);color:var(--ink-muted);padding:2px 8px;border-radius:20px;}
+
+  .crumb-line{font-size:12.5px;font-weight:600;color:var(--ink-muted);}
+  .crumb-line .crumb-current{color:var(--ink-strong);}
+  .crumb-sep{margin:0 8px;color:var(--ink-faint);}
+
+  .pagination{display:flex;align-items:center;justify-content:center;gap:6px;flex-wrap:wrap;}
+  .page-btn{min-width:36px;height:36px;padding:0 10px;border-radius:10px;border:none;background:var(--bg);color:var(--ink-muted);font-size:13px;font-weight:600;cursor:pointer;box-shadow:3px 3px 7px var(--bg-raised-lo), -3px -3px 7px var(--bg-raised-hi);}
+  .page-btn.active{background:var(--accent);color:#fff;box-shadow:none;}
+  .page-btn:disabled{opacity:0.4;cursor:not-allowed;box-shadow:none;}
+  .page-numbers{display:flex;gap:6px;}
+
+  .avatar{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12.5px;font-weight:700;color:var(--ink-strong);background:var(--bg);flex-shrink:0;}
+  .badge{display:inline-flex;align-items:center;gap:7px;padding:6px 13px;border-radius:20px;font-size:11.5px;font-weight:600;background:var(--bg);}
+  .badge-dot{width:6px;height:6px;border-radius:50%;}
+  .badge.active-status{color:var(--accent-text);}
+  .badge.active-status .badge-dot{background:var(--accent);}
+  .badge.muted-status{color:var(--ink-muted);}
+  .badge.muted-status .badge-dot{background:var(--ink-faint);}
+
+  table{width:100%;border-collapse:collapse;}
+  thead th{text-align:left;font-size:11px;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;color:var(--ink-muted);padding:14px 16px 10px 16px;}
+  tbody tr{cursor:pointer;}
+  tbody tr:hover td{background:var(--bg);box-shadow: inset 3px 3px 6px var(--bg-raised-lo), inset -3px -3px 6px var(--bg-raised-hi);}
+  tbody td{padding:14px 16px;font-size:14px;vertical-align:middle;border-top:1px solid var(--border);}
+  .client-cell{display:flex;align-items:center;gap:12px;}
+  .client-name{font-weight:600;color:var(--ink-strong);}
+  .item-meta{color:var(--ink-muted);font-size:12.5px;}
+  .value-cell{font-variant-numeric:tabular-nums;font-weight:600;color:var(--ink-strong);}
+
+  .entity-card{border-radius:var(--radius-l);padding:20px;width:260px;}
+  .entity-card .e-top{display:flex;align-items:center;gap:12px;margin-bottom:14px;}
+  .entity-card .e-name{font-weight:600;font-size:14.5px;color:var(--ink-strong);}
+  .entity-card .e-sub{font-size:12px;color:var(--ink-muted);}
+  .entity-card .e-stats{display:flex;justify-content:space-between;font-size:12.5px;color:var(--ink-muted);padding-top:12px;border-top:1px solid var(--border);}
+  .entity-card .e-stats .n{font-weight:700;color:var(--ink-strong);}
+  .hint-row{display:flex;align-items:center;gap:6px;font-size:11.5px;font-weight:600;color:var(--accent-text);margin-top:12px;}
+
+  .tracker{display:flex;align-items:center;padding:20px 16px;border-radius:var(--radius-l);flex-wrap:wrap;gap:16px 0;}
+  .tstep{display:flex;flex-direction:column;align-items:center;flex:1;position:relative;min-width:70px;}
+  .tdot{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:var(--ink-faint);background:var(--bg);z-index:1;}
+  .tstep.done .tdot{color:#fff;background:var(--accent);}
+  .tstep.current .tdot{color:var(--accent-text);box-shadow: inset 2px 2px 4px var(--bg-raised-lo), inset -2px -2px 4px var(--bg-raised-hi);}
+  .tline{position:absolute;top:14px;left:-50%;width:100%;height:2px;background:var(--border);z-index:0;}
+  .tstep.done .tline{background:var(--accent);}
+  .tstep:first-child .tline{display:none;}
+  .tlabel{font-size:11px;font-weight:600;color:var(--ink-muted);margin-top:9px;text-align:center;max-width:92px;}
+  .tstep.current .tlabel, .tstep.done .tlabel{color:var(--ink-strong);}
+
+  .modal{background:var(--bg);border-radius:var(--radius-l);width:100%;max-width:380px;padding:28px;box-shadow: 12px 12px 26px rgba(90,96,104,0.32), -8px -8px 20px rgba(255,255,255,0.7);}
+  .modal h3{margin:0 0 10px 0;font-size:16px;font-weight:700;color:var(--ink-strong);}
+  .modal p{margin:0 0 20px 0;font-size:13.5px;color:var(--ink-muted);line-height:1.6;}
+  .amount-line{border-radius:var(--radius-s);padding:13px 16px;margin-bottom:20px;display:flex;justify-content:space-between;font-size:13.5px;font-weight:600;color:var(--ink-muted);}
+  .amount-line .v{font-weight:700;color:var(--accent-text);}
+  .modal-actions{display:flex;gap:10px;justify-content:flex-end;flex-wrap:wrap;}
+
+  .toast{background:var(--bg);color:var(--ink-strong);padding:14px 20px;border-radius:var(--radius-m);font-size:13.5px;font-weight:600;display:flex;align-items:center;gap:10px;box-shadow: 8px 8px 18px rgba(90,96,104,0.28), -6px -6px 16px rgba(255,255,255,0.7);}
+  .toast .tick{width:18px;height:18px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;flex-shrink:0;}
+
+  .empty-state{padding:48px 20px;text-align:center;}
+  .empty-state .e-title{font-weight:700;font-size:14px;color:var(--ink-strong);margin-bottom:6px;}
+  .empty-state .e-sub{font-size:13px;color:var(--ink-muted);margin-bottom:16px;}
+
+  /* ===== search modal ===== */
+  .searchOverlay{display:none;position:fixed;inset:0;background:rgba(35,38,43,0.45);z-index:200;align-items:flex-start;justify-content:center;padding:12vh 20px 20px 20px;}
+  .searchOverlay.open{display:flex;}
+  .searchModal{
+    width:100%;max-width:560px;background:var(--bg);border-radius:var(--radius-l);
+    box-shadow:0 30px 70px rgba(20,20,20,0.4);overflow:hidden;
+    max-height:70vh;display:flex;flex-direction:column;
+  }
+  .searchModal-input-row{display:flex;align-items:center;gap:12px;padding:16px 20px;border-bottom:1px solid var(--border);flex-shrink:0;}
+  .searchModal-input-row svg{color:var(--ink-faint);flex-shrink:0;}
+  .searchModal-input-row input{border:none;background:transparent;outline:none;font-size:16px;color:var(--ink-strong);width:100%;font-family:inherit;}
+  .searchModal-input-row .escHint{font-size:11px;color:var(--ink-faint);border:1px solid var(--border);border-radius:4px;padding:2px 7px;flex-shrink:0;}
+  .searchResults{overflow-y:auto;padding:8px;}
+  .searchResult{display:flex;align-items:center;gap:12px;padding:12px 12px;border-radius:var(--radius-s);cursor:pointer;}
+  .searchResult:hover, .searchResult.active-result{box-shadow: inset 3px 3px 6px var(--bg-raised-lo), inset -3px -3px 6px var(--bg-raised-hi);}
+  .searchResult .sr-icon{width:32px;height:32px;border-radius:8px;background:var(--accent-tint);color:var(--accent-text);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:13px;font-weight:700;}
+  .searchResult .sr-name{font-size:13.5px;font-weight:600;color:var(--ink-strong);}
+  .searchResult .sr-desc{font-size:12px;color:var(--ink-muted);}
+  .searchResult .sr-tag{margin-left:auto;font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;color:var(--ink-faint);flex-shrink:0;}
+  .searchEmpty{padding:40px 20px;text-align:center;font-size:13px;color:var(--ink-muted);}
+
+  /* ===== responsive ===== */
+  @media (max-width:720px){
+    .topbar-inner{flex-wrap:wrap;}
+    .searchTrigger{min-width:0;flex:1;}
+    .brandmark .bm-sub{font-size:14px;}
+    .hero h1{font-size:32px;}
+    .overview-grid{grid-template-columns:1fr 1fr;}
+    .ds-row, .ds-flex-demo{gap:14px;}
+    .page{padding:28px 16px 80px 16px;}
+    .searchOverlay{padding:8vh 12px 12px 12px;}
+  }
+  @media (max-width:460px){
+    .overview-grid{grid-template-columns:1fr;}
+    .ds-colorchip, .ds-item{width:auto;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="brandmark" onclick="goTab('overview')">
+      <svg width="110" height="13" viewBox="0 0 254 29" fill="none" aria-label="Creme Insurance" style="fill:var(--accent);width:auto;height:13px;">
+        <g>
+          <path d="M8.83473 25.854C4.61107 23.7733 1.70403 19.4711 1.70403 14.5117C1.70403 9.55229 4.61107 5.25011 8.83473 3.17221V1.32104C3.644 3.51662 0 8.60231 0 14.5117C0 20.4211 3.644 25.5068 8.83473 27.7023V25.8512V25.854Z"/>
+          <path d="M20.2891 1.31799V3.16916C24.5156 5.24706 27.4256 9.55211 27.4256 14.5144C27.4256 19.4767 24.5156 23.7817 20.2891 25.8596V27.7108C25.4827 25.5152 29.1296 20.4266 29.1296 14.5144C29.1296 8.60213 25.4827 3.51357 20.2891 1.31799Z"/>
+          <path d="M8.8344 22.014C6.52741 20.2977 5.0302 17.574 5.0302 14.5117C5.0302 11.4494 6.5245 8.72573 8.8344 7.00945V4.99182C5.53995 6.92335 3.32617 10.4678 3.32617 14.5117C3.32617 18.5556 5.53995 22.1001 8.8344 24.0316V22.014Z"/>
+          <path d="M20.2871 4.98584V7.00347C22.5999 8.71975 24.0971 11.4463 24.0971 14.5115C24.0971 17.5767 22.5999 20.3032 20.2871 22.0195V24.0371C23.5874 22.1056 25.8012 18.5582 25.8012 14.5115C25.8012 10.4647 23.5845 6.91737 20.2871 4.98584Z"/>
+          <path d="M17.3754 5.72632V0.723862C16.8482 0.620541 16.3093 0.54592 15.7617 0.5V5.37618C16.3152 5.44506 16.854 5.5656 17.3754 5.72632Z"/>
+          <path d="M13.1523 5.40493V0.520142C12.6368 0.571802 12.127 0.649293 11.6289 0.752614V5.76368C12.1212 5.60296 12.628 5.48242 13.1523 5.40493Z"/>
+          <path d="M17.0231 23.3569C17.0231 23.3569 17.0027 23.3627 16.994 23.3655C16.8717 23.3971 16.7464 23.4287 16.6241 23.4545C16.6124 23.4545 16.5978 23.4602 16.5862 23.4631C16.4609 23.4889 16.3357 23.5148 16.2075 23.5377C16.1988 23.5377 16.19 23.5377 16.1813 23.5406C16.0502 23.5636 15.9191 23.5837 15.7852 23.6009V28.5C16.3328 28.457 16.8687 28.3795 17.3989 28.2762V23.2507C17.2736 23.288 17.1484 23.3254 17.0231 23.3598V23.3569Z"/>
+          <path d="M12.7902 23.5291C12.7756 23.5291 12.7611 23.5234 12.7436 23.5205C12.6241 23.4976 12.5076 23.4717 12.3911 23.4459C12.3824 23.4459 12.3707 23.4402 12.362 23.4402C12.1144 23.3799 11.8697 23.311 11.6309 23.2335V28.2676C12.129 28.3709 12.6387 28.4484 13.1543 28.5V23.5923C13.0319 23.5751 12.9125 23.5521 12.7902 23.5291Z"/>
+          <path d="M17.2549 17.3815C16.5471 18.0273 15.6004 18.4234 14.5634 18.4234C12.3758 18.4234 10.5961 16.6698 10.5961 14.5144C10.5961 12.359 12.3758 10.6054 14.5634 10.6054C15.6091 10.6054 16.5616 11.0072 17.2695 11.6616L19.2502 9.69559C18.0326 8.54471 16.381 7.83582 14.5634 7.83582C10.8262 7.83582 7.78516 10.8321 7.78516 14.5144C7.78516 18.1966 10.8262 21.1929 14.5634 21.1929C16.3694 21.1929 18.0093 20.4926 19.224 19.3561L17.2549 17.3815Z"/>
+          <path d="M43.218 18.7849C42.5917 19.1351 41.8926 19.3073 41.1266 19.3073C40.4624 19.3073 39.8536 19.1753 39.3002 18.9141C38.7468 18.6529 38.272 18.2999 37.8729 17.8551C37.4738 17.4131 37.168 16.8965 36.9553 16.3052C36.7427 15.7169 36.6349 15.0941 36.6349 14.4397C36.6349 13.7854 36.7427 13.1626 36.9553 12.5742C37.168 11.9858 37.4767 11.4692 37.8729 11.0244C38.272 10.5824 38.7468 10.2294 39.3002 9.96535C39.8536 9.70418 40.4624 9.57215 41.1266 9.57215C41.8926 9.57215 42.5976 9.76158 43.2413 10.1404C43.885 10.5193 44.3802 10.9842 44.7356 11.5353L47.6805 9.57215C46.897 8.52459 45.9444 7.7296 44.8143 7.18429C43.6841 6.63899 42.4577 6.36633 41.1295 6.36633C39.9935 6.36633 38.9274 6.58159 37.9311 7.00922C36.9349 7.43972 36.0669 8.01947 35.33 8.7542C34.593 9.48892 34.0075 10.3442 33.5822 11.3171C33.154 12.2929 32.9414 13.3319 32.9414 14.4369C32.9414 15.5418 33.1599 16.6066 33.5939 17.5881C34.0279 18.5697 34.6192 19.425 35.3649 20.1511C36.1106 20.8772 36.9757 21.4541 37.9661 21.8731C38.9536 22.295 40.0109 22.5045 41.1324 22.5045C41.7965 22.5045 42.4461 22.4241 43.0811 22.2634C43.7161 22.1027 44.322 21.8788 44.8958 21.5861C45.4726 21.2962 46.0056 20.9403 46.5008 20.5184C46.996 20.0965 47.4358 19.623 47.8174 19.1006L44.7618 17.3126C44.3628 17.9383 43.8501 18.4262 43.2238 18.7735L43.218 18.7849Z"/>
+          <path d="M61.5598 16.2651C61.988 15.9379 62.358 15.5562 62.6667 15.1199C62.9755 14.6837 63.2173 14.2102 63.3862 13.7022C63.5552 13.1942 63.6425 12.6546 63.6425 12.0892C63.6425 11.3487 63.5027 10.6571 63.2202 10.017C62.9405 9.37702 62.556 8.82024 62.0696 8.34955C61.5831 7.876 61.0151 7.50289 60.3656 7.22737C59.716 6.95185 59.0227 6.81409 58.2858 6.81409H51.7988V22.0826H55.3409V17.3701H56.1157L60.2112 22.0826H64.5514L60.1675 17.0429C60.6685 16.8534 61.1346 16.5951 61.5628 16.268L61.5598 16.2651ZM59.7888 12.9502C59.6694 13.22 59.5092 13.4553 59.3024 13.6591C59.0956 13.8629 58.8567 14.0236 58.5829 14.1384C58.3091 14.2561 58.0178 14.3135 57.709 14.3135H55.3409V9.86493H57.709C58.0178 9.86493 58.3091 9.92233 58.5829 10.04C58.8567 10.1577 59.0956 10.3155 59.3024 10.5193C59.5092 10.7231 59.6723 10.9584 59.7888 11.2282C59.9053 11.498 59.9665 11.785 59.9665 12.0892C59.9665 12.3934 59.9082 12.6804 59.7888 12.9502Z"/>
+          <path d="M72.0753 15.9723H76.4125V12.9186H72.0753V9.86487H78.804V6.81116H68.5332V22.0797H79.3574V19.026H72.0753V15.9723Z"/>
+          <path d="M91.09 13.2458L86.8838 6.81116H83.3418V22.0797H86.8838V12.9387L90.1375 17.4762H92.0425L95.3195 12.9387V22.0797H98.8616V6.81116H95.3195L91.09 13.2458Z"/>
+          <path d="M107.718 19.026V15.9723H112.055V12.9186H107.718V9.86487H114.447V6.81116H104.176V22.0797H115V19.026H107.718Z"/>
+          <path d="M73.6815 4.15355L71.3396 0.5L68.9277 1.64514L71.3862 4.15355H73.6815Z"/>
+        </g>
+        <rect width="1" height="29" transform="translate(127)" fill="var(--ink-strong)"/>
+        <path d="M141.404 21V8.4H145.364C146.336 8.4 147.14 8.562 147.776 8.886C148.412 9.198 148.88 9.63 149.18 10.182C149.48 10.722 149.63 11.34 149.63 12.036C149.63 12.72 149.48 13.338 149.18 13.89C148.88 14.442 148.412 14.88 147.776 15.204C147.152 15.528 146.348 15.69 145.364 15.69H142.664V21H141.404ZM142.664 14.61H145.346C146.426 14.61 147.194 14.382 147.65 13.926C148.106 13.458 148.334 12.828 148.334 12.036C148.334 11.22 148.106 10.59 147.65 10.146C147.194 9.69 146.426 9.462 145.346 9.462H142.664V14.61ZM149.278 21L153.922 8.4H155.218L159.862 21H158.53L154.57 10.056L150.592 21H149.278ZM151.402 17.598L151.78 16.554H157.342L157.72 17.598H151.402ZM161.865 21V8.4H165.753C166.725 8.4 167.517 8.562 168.129 8.886C168.753 9.21 169.209 9.648 169.497 10.2C169.785 10.74 169.929 11.358 169.929 12.054C169.929 12.726 169.779 13.344 169.479 13.908C169.179 14.46 168.717 14.904 168.093 15.24C167.469 15.564 166.659 15.726 165.663 15.726H163.125V21H161.865ZM168.561 21L165.735 15.33H167.175L170.073 21H168.561ZM163.125 14.7H165.663C166.683 14.7 167.433 14.454 167.913 13.962C168.393 13.47 168.633 12.834 168.633 12.054C168.633 11.25 168.399 10.62 167.931 10.164C167.463 9.696 166.701 9.462 165.645 9.462H163.125V14.7ZM175.363 21V9.444H171.583V8.4H180.403V9.444H176.623V21H175.363ZM182.361 21V8.4H183.621L190.587 18.894V8.4H191.847V21H190.587L183.621 10.488V21H182.361ZM194.648 21V8.4H202.298V9.444H195.908V14.142H201.758V15.186H195.908V19.956H202.298V21H194.648ZM204.756 21V8.4H208.644C209.616 8.4 210.408 8.562 211.02 8.886C211.644 9.21 212.1 9.648 212.388 10.2C212.676 10.74 212.82 11.358 212.82 12.054C212.82 12.726 212.67 13.344 212.37 13.908C212.07 14.46 211.608 14.904 210.984 15.24C210.36 15.564 209.55 15.726 208.554 15.726H206.016V21H204.756ZM211.452 21L208.626 15.33H210.066L212.964 21H211.452ZM206.016 14.7H208.554C209.574 14.7 210.324 14.454 210.804 13.962C211.284 13.47 211.524 12.834 211.524 12.054C211.524 11.25 211.29 10.62 210.822 10.164C210.354 9.696 209.592 9.462 208.536 9.462H206.016V14.7ZM228.359 21V8.4H229.619V21H228.359ZM220.277 21V8.4H221.537V21H220.277ZM221.249 15.114V14.07H228.719V15.114H221.249ZM236.852 21.216C236 21.216 235.226 21.048 234.53 20.712C233.846 20.376 233.3 19.854 232.892 19.146C232.484 18.426 232.28 17.514 232.28 16.41V8.4H233.54V16.428C233.54 17.28 233.678 17.982 233.954 18.534C234.242 19.074 234.638 19.47 235.142 19.722C235.646 19.974 236.222 20.1 236.87 20.1C237.53 20.1 238.106 19.974 238.598 19.722C239.09 19.47 239.474 19.074 239.75 18.534C240.026 17.982 240.164 17.28 240.164 16.428V8.4H241.424V16.41C241.424 17.514 241.22 18.426 240.812 19.146C240.404 19.854 239.852 20.376 239.156 20.712C238.472 21.048 237.704 21.216 236.852 21.216ZM244.095 21V8.4H248.325C249.213 8.4 249.945 8.544 250.521 8.832C251.097 9.12 251.523 9.504 251.799 9.984C252.087 10.464 252.231 10.998 252.231 11.586C252.231 12.234 252.087 12.774 251.799 13.206C251.523 13.638 251.157 13.968 250.701 14.196C250.257 14.424 249.789 14.568 249.297 14.628L249.531 14.448C250.059 14.46 250.551 14.604 251.007 14.88C251.463 15.156 251.829 15.528 252.105 15.996C252.381 16.452 252.519 16.974 252.519 17.562C252.519 18.186 252.363 18.762 252.051 19.29C251.751 19.806 251.301 20.22 250.701 20.532C250.101 20.844 249.351 21 248.451 21H244.095ZM245.355 19.938H248.361C249.273 19.938 249.975 19.722 250.467 19.29C250.971 18.858 251.223 18.264 251.223 17.508C251.223 16.752 250.959 16.152 250.431 15.708C249.915 15.252 249.207 15.024 248.307 15.024H245.355V19.938ZM245.355 13.98H248.289C249.141 13.98 249.795 13.776 250.251 13.368C250.707 12.96 250.935 12.408 250.935 11.712C250.935 11.04 250.713 10.5 250.269 10.092C249.825 9.672 249.147 9.462 248.235 9.462H245.355V13.98Z" fill="var(--ink-strong)"/>
+      </svg>
+      <span class="bm-sub">La Crème</span>
+    </div>
+    <button class="searchTrigger" onclick="openSearch()">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      Search components...
+      <span class="kbd">/</span>
+    </button>
+  </div>
+  <div class="tabbar">
+    <div class="tabbar-inner" id="tabbar-inner">
+      <div class="tabitem active" data-tab="overview" onclick="goTab('overview')">Overview</div>
+      <div class="tabitem" data-tab="foundations" onclick="goTab('foundations')">Foundations</div>
+      <div class="tabitem" data-tab="controls" onclick="goTab('controls')">Controls</div>
+      <div class="tabitem" data-tab="navigation" onclick="goTab('navigation')">Navigation</div>
+      <div class="tabitem" data-tab="data" onclick="goTab('data')">Data display</div>
+      <div class="tabitem" data-tab="feedback" onclick="goTab('feedback')">Feedback</div>
+    </div>
+  </div>
+</div>
+
+<div class="page">
+
+  <!-- ================= OVERVIEW ================= -->
+  <div class="tabpanel active" id="tab-overview">
+    <div class="hero">
+      <h1>La Crème</h1>
+      <p>The design system behind Crème Insurance's partner tools. One warm neutral surface, one accent, depth built entirely from light and shadow — raise, recess, and press instead of borders and flat cards.</p>
+      <button class="searchTrigger hero-search" onclick="openSearch()">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        Search components, tokens, patterns...
+        <span class="kbd">/</span>
+      </button>
+    </div>
+
+    <div class="overview-grid">
+      <div class="overview-card" onclick="goTab('foundations')">
+        <div class="oc-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect></svg></div>
+        <h3>Foundations</h3>
+        <p>Elevation, color, radius, and type — the tokens everything else is built from.</p>
+        <div class="oc-count">4 groups</div>
+      </div>
+      <div class="overview-card" onclick="goTab('controls')">
+        <div class="oc-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="8" rx="4"></rect></svg></div>
+        <h3>Controls</h3>
+        <p>Buttons, fields, checkboxes, dropdowns, and the grid/list toggle.</p>
+        <div class="oc-count">5 components</div>
+      </div>
+      <div class="overview-card" onclick="goTab('navigation')">
+        <div class="oc-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg></div>
+        <h3>Navigation</h3>
+        <p>Sidebar nav, breadcrumbs, and pagination.</p>
+        <div class="oc-count">3 components</div>
+      </div>
+      <div class="overview-card" onclick="goTab('data')">
+        <div class="oc-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle></svg></div>
+        <h3>Data display</h3>
+        <p>Avatars, badges, tables, cards, and the process tracker.</p>
+        <div class="oc-count">5 components</div>
+      </div>
+      <div class="overview-card" onclick="goTab('feedback')">
+        <div class="oc-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></div>
+        <h3>Feedback</h3>
+        <p>Modals, toasts, and empty states.</p>
+        <div class="oc-count">3 components</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= FOUNDATIONS ================= -->
+  <div class="tabpanel" id="tab-foundations">
+    <div class="ds-section-head"><h2>Foundations</h2><p>The base tokens: how surfaces gain depth, the palette, the radius scale, and the type scale.</p></div>
+
+    <div class="ds-subgroup" id="s-elevation">
+      <div class="ds-subgroup-title">Elevation — raise / recess / press</div>
+      <div class="ds-row">
+        <div class="ds-item"><div class="ds-swatch" style="background:var(--bg);border:1px dashed var(--border);"></div><div class="ds-caption">Base<br>flat surface, no shadow</div></div>
+        <div class="ds-item"><div class="ds-swatch raised"></div><div class="ds-caption">Raised — <code>.raised</code><br>cards, buttons</div></div>
+        <div class="ds-item"><div class="ds-swatch raised-sm"></div><div class="ds-caption">Raised small — <code>.raised-sm</code><br>avatars, chips</div></div>
+        <div class="ds-item"><div class="ds-swatch inset"></div><div class="ds-caption">Inset — <code>.inset</code><br>trackers, search fields</div></div>
+        <div class="ds-item"><div class="ds-swatch deboss-demo" style="cursor:pointer;"></div><div class="ds-caption">Deboss (hover me)<br>table rows, dropdown items</div></div>
+      </div>
+    </div>
+
+    <div class="ds-subgroup" id="s-color">
+      <div class="ds-subgroup-title">Color</div>
+      <div class="ds-row">
+        <div class="ds-colorchip"><div class="swatchbox" style="background:var(--bg);"></div><div class="swatch-label">Surface</div><div class="swatch-hex">#E5E5E5</div></div>
+        <div class="ds-colorchip"><div class="swatchbox" style="background:var(--ink-strong);"></div><div class="swatch-label">Ink strong</div><div class="swatch-hex">#23262B</div></div>
+        <div class="ds-colorchip"><div class="swatchbox" style="background:var(--ink-muted);"></div><div class="swatch-label">Ink muted</div><div class="swatch-hex">#767B82</div></div>
+        <div class="ds-colorchip"><div class="swatchbox" style="background:var(--ink-faint);"></div><div class="swatch-label">Ink faint</div><div class="swatch-hex">#A7ABB1</div></div>
+        <div class="ds-colorchip"><div class="swatchbox" style="background:var(--border);"></div><div class="swatch-label">Border</div><div class="swatch-hex">#D5D8DB</div></div>
+        <div class="ds-colorchip"><div class="swatchbox" style="background:var(--accent);"></div><div class="swatch-label">Accent</div><div class="swatch-hex">#43637C</div></div>
+        <div class="ds-colorchip"><div class="swatchbox" style="background:var(--accent-tint);"></div><div class="swatch-label">Accent tint</div><div class="swatch-hex">#E3E8EB</div></div>
+      </div>
+    </div>
+
+    <div class="ds-subgroup" id="s-radius">
+      <div class="ds-subgroup-title">Radius scale</div>
+      <div class="ds-row">
+        <div class="ds-item"><div style="width:60px;height:60px;border-radius:var(--radius-s);" class="raised-sm"></div><div class="ds-caption">10px — <code>--radius-s</code></div></div>
+        <div class="ds-item"><div style="width:60px;height:60px;border-radius:var(--radius-m);" class="raised-sm"></div><div class="ds-caption">14px — <code>--radius-m</code></div></div>
+        <div class="ds-item"><div style="width:60px;height:60px;border-radius:var(--radius-l);" class="raised-sm"></div><div class="ds-caption">20px — <code>--radius-l</code></div></div>
+        <div class="ds-item"><div style="width:60px;height:60px;border-radius:50%;" class="raised-sm"></div><div class="ds-caption">Full<br>avatars, icon buttons</div></div>
+      </div>
+    </div>
+
+    <div class="ds-subgroup" id="s-type">
+      <div class="ds-subgroup-title">Typography</div>
+      <div class="ds-panel-demo">
+        <div style="font-size:36px;font-weight:700;margin-bottom:8px;">Page title — 36/700</div>
+        <div style="font-size:20px;font-weight:700;margin-bottom:8px;">Section title — 20/700</div>
+        <div style="font-size:14px;font-weight:600;margin-bottom:8px;">Body semibold — 14/600</div>
+        <div style="font-size:14px;font-weight:400;color:var(--ink-muted);margin-bottom:8px;">Body regular, muted — 14/400</div>
+        <div style="font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--ink-muted);">Eyebrow / label — 11/700 uppercase</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= CONTROLS ================= -->
+  <div class="tabpanel" id="tab-controls">
+    <div class="ds-section-head"><h2>Controls</h2><p>Interactive input elements — every state derives from the same raise/recess language.</p></div>
+
+    <div class="ds-subgroup" id="s-buttons">
+      <div class="ds-subgroup-title">Buttons</div>
+      <div class="ds-flex-demo">
+        <div class="ds-item"><button class="btn btn-primary">Approve settlement</button><div class="ds-caption">Primary</div></div>
+        <div class="ds-item"><button class="btn btn-outline">Cancel</button><div class="ds-caption">Outline</div></div>
+        <div class="ds-item"><button class="btn btn-danger-outline">Deny claim</button><div class="ds-caption">Danger outline</div></div>
+      </div>
+    </div>
+
+    <div class="ds-subgroup" id="s-textfield">
+      <div class="ds-subgroup-title">Text field &amp; checkbox</div>
+      <div class="ds-panel-demo">
+        <div style="display:flex;gap:24px;align-items:flex-end;flex-wrap:wrap;">
+          <div style="width:240px;">
+            <label class="field-label">Email address</label>
+            <div class="text-field inset"><input type="text" placeholder="you@cremeinsurance.com"></div>
+          </div>
+          <label class="checkbox-row">
+            <span class="checkbox-box checked"><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg></span>
+            Remember me
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="ds-subgroup" id="s-searchfield">
+      <div class="ds-subgroup-title">Search field</div>
+      <div class="ds-panel-demo">
+        <div class="search-field inset" style="max-width:280px;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <input type="text" placeholder="Search by client or item">
+        </div>
+      </div>
+    </div>
+
+    <div class="ds-subgroup" id="s-dropdown">
+      <div class="ds-subgroup-title">Dropdown</div>
+      <div class="ds-panel-demo">
+        <div class="dropdown">
+          <button class="dropdown-trigger"><span>All statuses</span>
+            <svg class="chevron" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+          </button>
+          <div class="dropdown-panel" style="margin-top:8px;width:220px;">
+            <div class="dropdown-item selected"><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>All statuses</div>
+            <div class="dropdown-item"><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Submitted</div>
+            <div class="dropdown-item"><svg class="chk" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>Specialist review</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ds-subgroup" id="s-viewtoggle">
+      <div class="ds-subgroup-title">View toggle</div>
+      <div class="ds-panel-demo">
+        <div class="view-toggle raised-sm" style="width:fit-content;">
+          <button class="view-toggle-btn active"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect></svg></button>
+          <button class="view-toggle-btn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="6" x2="20" y2="6"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="18" x2="20" y2="18"></line></svg></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= NAVIGATION ================= -->
+  <div class="tabpanel" id="tab-navigation">
+    <div class="ds-section-head"><h2>Navigation</h2><p>Wayfinding components — sidebar, breadcrumbs, pagination.</p></div>
+
+    <div class="ds-subgroup" id="s-navitem">
+      <div class="ds-subgroup-title">Sidebar nav item</div>
+      <div class="ds-panel-demo" style="max-width:240px;">
+        <div class="nav-item active raised-sm" style="margin-bottom:8px;">Claims queue <span class="nav-count">40</span></div>
+        <div class="nav-item">Clients</div>
+      </div>
+    </div>
+
+    <div class="ds-subgroup" id="s-breadcrumb">
+      <div class="ds-subgroup-title">Breadcrumb + page title</div>
+      <div class="ds-panel-demo">
+        <div class="crumb-line">Crème Insurance <span class="crumb-sep">/</span> <span class="crumb-current">Claims queue</span></div>
+        <h1 style="font-size:26px;margin:8px 0 0 0;">Claims queue</h1>
+      </div>
+    </div>
+
+    <div class="ds-subgroup" id="s-pagination">
+      <div class="ds-subgroup-title">Pagination</div>
+      <div class="ds-panel-demo">
+        <div class="pagination">
+          <button class="page-btn" disabled>Prev</button>
+          <div class="page-numbers"><button class="page-btn active">1</button><button class="page-btn">2</button><button class="page-btn">3</button></div>
+          <button class="page-btn">Next</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= DATA DISPLAY ================= -->
+  <div class="tabpanel" id="tab-data">
+    <div class="ds-section-head"><h2>Data display</h2><p>How records, status, and structured content get shown.</p></div>
+
+    <div class="ds-subgroup" id="s-avatar">
+      <div class="ds-subgroup-title">Avatar &amp; badges</div>
+      <div class="ds-flex-demo">
+        <div class="ds-item"><div class="avatar raised-sm">EM</div><div class="ds-caption">Avatar</div></div>
+        <div class="ds-item"><span class="badge active-status"><span class="badge-dot"></span>Specialist review</span><div class="ds-caption">Active status</div></div>
+        <div class="ds-item"><span class="badge muted-status"><span class="badge-dot"></span>Closed</span><div class="ds-caption">Muted status</div></div>
+      </div>
+    </div>
+
+    <div class="ds-subgroup" id="s-table">
+      <div class="ds-subgroup-title">Table row (hover to see deboss)</div>
+      <div class="ds-mini-table raised">
+        <table>
+          <thead><tr><th>Client</th><th>Item</th><th>Value</th><th>Stage</th></tr></thead>
+          <tbody><tr><td><div class="client-cell"><div class="avatar raised-sm">RW</div><div class="client-name">Whitfield, R.</div></div></td><td><div>Klimt study, oil on canvas</div><div class="item-meta">Fine art</div></td><td class="value-cell">$1,250,000</td><td><span class="badge muted-status"><span class="badge-dot"></span>Submitted</span></td></tr></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="ds-subgroup" id="s-entitycard">
+      <div class="ds-subgroup-title">Entity card</div>
+      <div class="ds-flex-demo">
+        <div class="entity-card raised">
+          <div class="e-top"><div class="avatar raised-sm">RW</div><div><div class="e-name">Whitfield, R.</div><div class="e-sub">Fine art</div></div></div>
+          <div class="e-stats"><span>3 claims</span><span class="n">$5,215,000</span></div>
+          <div class="hint-row">View claims &rarr;</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ds-subgroup" id="s-tracker">
+      <div class="ds-subgroup-title">Process tracker</div>
+      <div class="tracker inset">
+        <div class="tstep done"><div class="tline"></div><div class="tdot">&#10003;</div><div class="tlabel">Submitted</div></div>
+        <div class="tstep current"><div class="tline"></div><div class="tdot">2</div><div class="tlabel">Specialist review</div></div>
+        <div class="tstep"><div class="tline"></div><div class="tdot">3</div><div class="tlabel">Underwriting</div></div>
+        <div class="tstep"><div class="tline"></div><div class="tdot">4</div><div class="tlabel">Settlement</div></div>
+        <div class="tstep"><div class="tline"></div><div class="tdot">5</div><div class="tlabel">Closed</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= FEEDBACK ================= -->
+  <div class="tabpanel" id="tab-feedback">
+    <div class="ds-section-head"><h2>Feedback</h2><p>System responses to user actions — confirmations, toasts, and empty results.</p></div>
+
+    <div class="ds-subgroup" id="s-modal">
+      <div class="ds-subgroup-title">Modal confirmation</div>
+      <div class="ds-panel-demo" style="display:flex;justify-content:center;">
+        <div class="modal">
+          <h3>Approve settlement?</h3>
+          <p>This confirms settlement for Whitfield, R. on the Klimt study. This action notifies the relationship manager and cannot be reversed from this screen.</p>
+          <div class="amount-line inset"><span>Settlement amount</span><span class="v">$1,250,000</span></div>
+          <div class="modal-actions"><button class="btn btn-outline">Cancel</button><button class="btn btn-primary">Confirm settlement</button></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ds-subgroup" id="s-toast">
+      <div class="ds-subgroup-title">Toast</div>
+      <div class="ds-panel-demo">
+        <div class="toast" style="display:inline-flex;"><span class="tick">&#10003;</span><span>Settlement confirmed for Whitfield, R.</span></div>
+      </div>
+    </div>
+
+    <div class="ds-subgroup" id="s-emptystate">
+      <div class="ds-subgroup-title">Empty state</div>
+      <div class="ds-mini-table raised">
+        <div class="empty-state">
+          <div class="e-title">No claims match your filters</div>
+          <div class="e-sub">Try a different search term or reset your filters.</div>
+          <button class="btn btn-outline">Clear filters</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ================= SEARCH MODAL ================= -->
+<div class="searchOverlay" id="searchOverlay" onclick="if(event.target===this)closeSearch();">
+  <div class="searchModal">
+    <div class="searchModal-input-row">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+      <input type="text" id="searchInput" placeholder="Search components, tokens, patterns..." autocomplete="off">
+      <span class="escHint">esc</span>
+    </div>
+    <div class="searchResults" id="searchResults"></div>
+  </div>
+</div>
+
+<script>
+const COMPONENTS = [
+  {name:"Elevation — raise / recess / press", tab:"foundations", id:"s-elevation", desc:"How surfaces gain depth: raised, inset, and deboss on hover.", tag:"Token"},
+  {name:"Color palette", tab:"foundations", id:"s-color", desc:"Surface, ink scale, border, and accent colors.", tag:"Token"},
+  {name:"Radius scale", tab:"foundations", id:"s-radius", desc:"10 / 14 / 20px, plus full-round for circles.", tag:"Token"},
+  {name:"Typography", tab:"foundations", id:"s-type", desc:"Type scale from page titles down to eyebrow labels.", tag:"Token"},
+  {name:"Buttons", tab:"controls", id:"s-buttons", desc:"Primary, outline, and danger-outline.", tag:"Control"},
+  {name:"Text field & checkbox", tab:"controls", id:"s-textfield", desc:"Inset text input and the custom checkbox.", tag:"Control"},
+  {name:"Search field", tab:"controls", id:"s-searchfield", desc:"Inset field with a leading search icon.", tag:"Control"},
+  {name:"Dropdown", tab:"controls", id:"s-dropdown", desc:"Custom select with checkmark-style selection.", tag:"Control"},
+  {name:"View toggle", tab:"controls", id:"s-viewtoggle", desc:"Grid / list segmented control.", tag:"Control"},
+  {name:"Sidebar nav item", tab:"navigation", id:"s-navitem", desc:"Active and resting nav states with a count pill.", tag:"Navigation"},
+  {name:"Breadcrumb", tab:"navigation", id:"s-breadcrumb", desc:"Breadcrumb trail paired with the page title.", tag:"Navigation"},
+  {name:"Pagination", tab:"navigation", id:"s-pagination", desc:"Prev / numbered / Next, filled active page.", tag:"Navigation"},
+  {name:"Avatar & badges", tab:"data", id:"s-avatar", desc:"Initials avatar plus active/muted status badges.", tag:"Data"},
+  {name:"Table row", tab:"data", id:"s-table", desc:"Data table with hover deboss on rows.", tag:"Data"},
+  {name:"Entity card", tab:"data", id:"s-entitycard", desc:"Card used for clients and specialists.", tag:"Data"},
+  {name:"Process tracker", tab:"data", id:"s-tracker", desc:"Multi-step status tracker for claim stages.", tag:"Data"},
+  {name:"Modal confirmation", tab:"feedback", id:"s-modal", desc:"Confirmation dialog for high-stakes actions.", tag:"Feedback"},
+  {name:"Toast", tab:"feedback", id:"s-toast", desc:"Transient confirmation message.", tag:"Feedback"},
+  {name:"Empty state", tab:"feedback", id:"s-emptystate", desc:"No-results pattern with a clear-filters action.", tag:"Feedback"}
+];
+
+function goTab(tab){
+  document.querySelectorAll('.tabpanel').forEach(p=>p.classList.remove('active'));
+  document.getElementById('tab-'+tab).classList.add('active');
+  document.querySelectorAll('.tabitem').forEach(t=>t.classList.toggle('active', t.dataset.tab===tab));
+  window.scrollTo({top:0,behavior:'instant'});
+}
+
+function goToComponent(tab, id){
+  closeSearch();
+  goTab(tab);
+  requestAnimationFrame(()=>{
+    const el = document.getElementById(id);
+    if(el){
+      el.scrollIntoView({behavior:'smooth', block:'start'});
+      el.classList.remove('highlight-pulse');
+      void el.offsetWidth;
+      el.classList.add('highlight-pulse');
+    }
+  });
+}
+
+let searchActiveIndex = 0;
+let currentResults = [];
+
+function openSearch(){
+  document.getElementById('searchOverlay').classList.add('open');
+  const input = document.getElementById('searchInput');
+  input.value = '';
+  renderResults('');
+  setTimeout(()=>input.focus(), 30);
+}
+function closeSearch(){
+  document.getElementById('searchOverlay').classList.remove('open');
+}
+
+function renderResults(q){
+  q = q.trim().toLowerCase();
+  currentResults = COMPONENTS.filter(c => !q || c.name.toLowerCase().includes(q) || c.desc.toLowerCase().includes(q) || c.tag.toLowerCase().includes(q));
+  searchActiveIndex = 0;
+  const box = document.getElementById('searchResults');
+  if(currentResults.length===0){
+    box.innerHTML = '<div class="searchEmpty">No components match "'+q+'"</div>';
+    return;
+  }
+  box.innerHTML = currentResults.map((c,i)=>`
+    <div class="searchResult ${i===0?'active-result':''}" onclick="goToComponent('${c.tab}','${c.id}')" data-idx="${i}">
+      <div class="sr-icon">${c.name.charAt(0)}</div>
+      <div><div class="sr-name">${c.name}</div><div class="sr-desc">${c.desc}</div></div>
+      <div class="sr-tag">${c.tag}</div>
+    </div>
+  `).join('');
+}
+
+document.getElementById('searchInput').addEventListener('input', (e)=> renderResults(e.target.value));
+
+document.addEventListener('keydown', (e)=>{
+  const overlay = document.getElementById('searchOverlay');
+  const isOpen = overlay.classList.contains('open');
+  if(!isOpen && e.key==='/' && document.activeElement.tagName!=='INPUT'){
+    e.preventDefault(); openSearch(); return;
+  }
+  if(!isOpen && (e.metaKey||e.ctrlKey) && e.key.toLowerCase()==='k'){
+    e.preventDefault(); openSearch(); return;
+  }
+  if(isOpen){
+    if(e.key==='Escape'){ closeSearch(); }
+    else if(e.key==='ArrowDown'){
+      e.preventDefault();
+      searchActiveIndex = Math.min(searchActiveIndex+1, currentResults.length-1);
+      updateActiveResult();
+    } else if(e.key==='ArrowUp'){
+      e.preventDefault();
+      searchActiveIndex = Math.max(searchActiveIndex-1, 0);
+      updateActiveResult();
+    } else if(e.key==='Enter'){
+      if(currentResults[searchActiveIndex]){
+        const c = currentResults[searchActiveIndex];
+        goToComponent(c.tab, c.id);
+      }
+    }
+  }
+});
+
+function updateActiveResult(){
+  document.querySelectorAll('.searchResult').forEach((el,i)=>{
+    el.classList.toggle('active-result', i===searchActiveIndex);
+    if(i===searchActiveIndex) el.scrollIntoView({block:'nearest'});
+  });
+}
+</script>
+
+</body>
+</html>

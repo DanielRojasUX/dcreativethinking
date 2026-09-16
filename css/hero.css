@@ -1,0 +1,419 @@
+/* ==========================================================================
+   dcreativethinking.com
+   styles.css  ::  tokens + reset + component 1 (.hero / .nav)
+
+   Test folder carries an identical copy of tokens + reset plus this one
+   component. The master keeps one copy of tokens + reset and strips the rest.
+
+   NOTE FOR MASTER: the SHARED block below is reproduced verbatim from the
+   footer delivery (the copy I was given). If milk/process/my-work have since
+   grown SHARED, use the master's current SHARED and only fold in the
+   --hero-* / --nav-* additions declared at the top of the BLOCK region.
+   ========================================================================== */
+
+
+/* ===== BEGIN SHARED: tokens + reset ===== */
+:root {
+  /* brand + ink */
+  --color-pink: #ff124b;        /* brand pink, carried by the UX mark */
+  --color-poem: #e61044;        /* poem only, darkened for contrast */
+  --color-ink: #141414;         /* mission copy and social chips */
+  --color-white: #ffffff;
+
+  /* surfaces :: mobile carries a heavier fill because the type is smallest
+     there and sits over the busiest part of the photograph. Tablet and up
+     step back down to 0.6. */
+  --footer-panel-fill: rgba(255, 255, 255, 0.8);
+  --footer-chip-fill: var(--color-ink);
+  --footer-rule-color: var(--color-white);
+
+  /* type :: DM Sans */
+  --footer-font: "DM Sans", system-ui, sans-serif;
+  --footer-body-size: 0.6875rem;   /* 11px, mobile base */
+  --footer-body-line: 1.364;       /* 15px pitch */
+  --footer-label-weight: 700;
+  --footer-value-weight: 400;
+
+  /* metrics */
+  --footer-rule-weight: 1px;
+  --footer-chip-size: 1.75rem;     /* 28px, clears the 24px target floor */
+  --footer-chip-icon: 1rem;
+  --footer-chip-radius: 0.375rem;
+  --footer-chip-gap: 0.5rem;
+
+  /* panel padding */
+  --footer-info-pad-block: 0.3125rem;
+  --footer-info-pad-inline: 1.25rem;
+  --footer-info-gap: 0.9375rem;    /* paragraph step, one extra line box */
+}
+
+
+/* --------------------------------------------------------------------------
+   RESET  ::  base rules. Element selectors are permitted here because this is
+   the shared reset, not component CSS. Component rules below are class only.
+   -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  font-family: var(--footer-font);
+  background: var(--color-ink);
+}
+
+img,
+svg,
+picture { display: block; max-width: 100%; }
+
+a { color: inherit; }
+
+ul { margin: 0; padding: 0; list-style: none; }
+
+dl,
+dd { margin: 0; }
+
+hr { border: 0; margin: 0; }
+/* ===== END SHARED ===== */
+
+
+/* ===== BEGIN BLOCK: .hero / .nav ===== */
+
+/* ==========================================================================
+   COMPONENT 1  ::  .hero / .nav
+   BEM blocks: .hero  and  .nav  (nav nested inside hero, its own block)
+   Mobile first. Media queries are min-width only.
+
+   Layout model: a rounded-top pink PANEL inset from the viewport by a white
+   gutter, with the looping video full-bleed behind it (clipped by the panel's
+   rounded corners + overflow). Content is a bottom-open flex column: nav row
+   at the top, the name+taglines intro placed below it, and the WELCOME
+   wordmark anchored to the bottom where it bleeds off the panel edges.
+   Nothing carrying text is absolutely positioned.
+
+   TOKENS INTRODUCED (flagged for master to fold into shared :root):
+     --hero-crimson, --hero-cream  ::  likely belong as shared --color-* values
+     --hero-nav-*, --hero-tag-*  ::  DM Sans sizing/weights for nav + taglines
+   ========================================================================== */
+
+/* ---- new tokens (BLOCK-local until master folds them) ------------------- */
+:root {
+  /* colours measured off the mockups */
+  --hero-crimson: #e5093e;                    /* nav band + tagline highlight */
+  --hero-cream:   #fff79e;                     /* tagline text */
+
+  /* type :: DM Sans for the whole block. Nav links 400 (active 700),
+     taglines 700. Tagline boxes + nav are content-sized, so weights/sizes
+     drive width, not fixed geometry. */
+  --hero-nav-font: "DM Sans", system-ui, sans-serif;
+  --hero-tag-font: "DM Sans", system-ui, sans-serif;
+  --hero-nav-weight: 400;
+  --hero-nav-weight-active: 700;
+  --hero-tag-weight: 700;
+
+  /* type sizes, mobile base; overridden per tier below */
+  --hero-nav-size: 0.9375rem;   /* 15px */
+  --hero-tag-size: 1rem;        /* 16px */
+  --hero-tag-line: 1.25;
+}
+
+/* ---- section + panel ---------------------------------------------------- */
+.hero {
+  background: var(--color-white);
+  padding: 8px 8px 43px;          /* geom :: side gutters + measured white merge zone below */
+}
+
+.hero__panel {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--color-pink);   /* fallback under the video / poster gap */
+  border-radius: 7px;              /* geom :: rounded on all four corners */
+  min-height: 396px;               /* geom :: mobile frame 412 - 8 top gutter */
+}
+
+/* full-bleed looping video behind everything */
+.hero__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;        /* geom :: mobile crop */
+  z-index: 0;
+}
+
+/* content layer */
+.hero__inner {
+  position: relative;
+  z-index: 1;
+  min-height: 396px;               /* geom */
+  display: flex;
+  flex-direction: column;
+  padding: 14px 16px 0;            /* geom :: mobile content gutter */
+}
+
+.hero__sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* ---- nav (its own BEM block) -------------------------------------------- */
+.nav {
+  display: flex;
+  align-items: center;
+  position: relative;              /* anchor for the mobile flyout */
+}
+
+.nav__logo {
+  order: 2;                        /* geom :: mobile logo sits top-right */
+  margin-left: auto;
+  width: 22px;                     /* geom */
+  height: auto;
+}
+
+.nav__toggle {
+  order: 1;                        /* geom :: mobile hamburger sits top-left */
+  display: grid;
+  place-items: center;
+  width: 34px;                     /* geom */
+  height: 34px;                    /* geom */
+  padding: 0;
+  border: 0;
+  border-radius: 6px;              /* geom */
+  background: var(--hero-crimson);
+  cursor: pointer;
+}
+
+.nav__toggle:focus-visible {
+  outline: 2px solid var(--color-white);
+  outline-offset: 2px;
+}
+
+.nav__toggle-icon {
+  width: 16px;                     /* geom */
+  height: 16px;                    /* geom */
+}
+
+/* mobile: menu is a FLYOUT that floats over the hero from the hamburger,
+   not part of the top bar. Open-menu styling is EXTRAPOLATED (no mockup);
+   the flyout behaviour itself is per Daniel. */
+.nav__list {
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;                        /* geom */
+}
+
+.nav__list--open {
+  display: flex;
+  position: absolute;
+  top: calc(100% + 10px);          /* geom :: floats just below the bar */
+  left: 0;                         /* geom :: aligns to the hamburger side */
+  z-index: 5;
+  min-width: 210px;                /* geom */
+  gap: 12px;                       /* geom */
+  padding: 14px 18px;              /* geom */
+  border-radius: 10px;             /* geom */
+  background: var(--hero-crimson);
+  box-shadow: 0 14px 30px rgba(20, 20, 20, 0.3);   /* geom :: lifts off content */
+}
+
+.nav__item {
+  display: flex;
+  align-items: center;
+}
+
+.nav__link {
+  color: var(--color-white);
+  font-family: var(--hero-nav-font);
+  font-weight: var(--hero-nav-weight);
+  font-size: var(--hero-nav-size);
+  text-decoration: none;
+  padding: 4px 2px;
+}
+
+.nav__link--active { font-weight: var(--hero-nav-weight-active); }
+
+.nav__link:hover { text-decoration: underline; }
+
+.nav__link:focus-visible {
+  outline: 2px solid var(--color-white);
+  outline-offset: 2px;
+}
+
+/* ---- intro :: name + taglines ------------------------------------------- */
+.hero__intro {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 34px;                /* geom :: mobile */
+  margin-left: 8%;                 /* geom :: mobile intro indent */
+}
+
+.hero__name {
+  display: flex;
+  align-items: flex-start;
+  margin: 0;
+}
+
+.hero__name-word {
+  height: 82px;                    /* geom :: estimated, mobile combined wordmark (178x102) */
+  width: auto;
+}
+
+.hero__taglines {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;                        /* geom :: mobile step between chips */
+  margin-top: 14px;                /* geom */
+}
+
+.hero__tagline {
+  display: inline-block;
+  background: var(--hero-crimson);
+  color: var(--hero-cream);
+  font-family: var(--hero-tag-font);
+  font-weight: var(--hero-tag-weight);
+  font-size: var(--hero-tag-size);
+  line-height: var(--hero-tag-line);
+  padding: 0.12em 0.45em;          /* hugs the text, font-agnostic */
+}
+
+/* ---- WELCOME wordmark ---------------------------------------------------
+   The SVG asset (Welcome.svg) now has the merge-into-white trim baked into
+   the artwork itself -- no more negative-margin bleed math needed. This is
+   just: centered horizontally, flush to the base of the panel (0px gap),
+   letting margin-top:auto in the flex column push it to the bottom exactly. */
+.hero__welcome {
+  align-self: center;               /* horizontal centering in the flex column */
+  width: calc(100% + 16px);         /* geom :: measured ~8px margin each side vs 16px inner pad */
+  max-width: none;
+  height: auto;
+  margin-top: auto;                 /* pushes flush to the base of the panel, 0px gap */
+  margin-bottom: 0;
+}
+
+
+/* --------------------------------------------------------------------------
+   >= 768px  ::  tablet composition
+   Logo returns to the left, real nav band (crimson pill) sits top-right,
+   name goes to one line, intro shifts toward centre.
+   -------------------------------------------------------------------------- */
+@media (min-width: 768px) {
+  :root {
+    --hero-nav-size: 0.9375rem;    /* 15px */
+    --hero-tag-size: 1.25rem;      /* 20px */
+  }
+
+  .hero { padding: 22px 22px 64px; }  /* geom :: gutter + measured white merge zone below */
+
+  .hero__panel {
+    border-radius: 21px;            /* geom :: rounded on all four corners */
+    min-height: 690px;             /* geom :: tablet frame 712 - 22 */
+  }
+
+  .hero__inner {
+    min-height: 690px;             /* geom */
+    padding: 20px 24px 0;          /* geom */
+  }
+
+  .nav__toggle { display: none; }
+
+  .nav__logo {
+    order: 0;
+    margin-left: 0;
+    width: 30px;                   /* geom */
+  }
+
+  .nav__list {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    order: 2;
+    margin-left: auto;
+    margin-right: -24px;           /* geom :: band bleeds to the panel right edge */
+    padding: 8px 24px 8px 18px;    /* geom */
+    border-radius: 8px 0 0 8px;    /* geom :: pill, rounded left, flush right */
+    background: var(--hero-crimson);
+  }
+
+  .nav__item:not(:first-child)::before {
+    content: "|";
+    margin: 0 0.55em;
+    color: var(--color-white);
+    opacity: 0.6;
+  }
+
+  /* if the flyout was left open on mobile, revert it to the inline band here */
+  .nav__list--open {
+    position: static;
+    top: auto;
+    left: auto;
+    z-index: auto;
+    min-width: 0;
+    padding: 8px 24px 8px 18px;    /* geom :: matches the band */
+    border-radius: 8px 0 0 8px;    /* geom */
+    box-shadow: none;
+  }
+
+  .hero__intro {
+    margin-top: 150px;             /* geom :: places name ~y=210 in frame */
+    margin-left: 35%;              /* geom :: intro left ~272 of 768 */
+  }
+
+  .hero__name-word { height: 52px; }   /* geom :: estimated, desktop/tablet wordmark (397x56) */
+
+  .hero__taglines { gap: 8px; margin-top: 18px; }   /* geom */
+
+  .hero__welcome { width: calc(100% + 14px); }  /* geom :: measured ~17px margin each side */
+}
+
+
+/* --------------------------------------------------------------------------
+   >= 1024px  ::  desktop composition, matched to the 1440 frame
+   -------------------------------------------------------------------------- */
+@media (min-width: 1024px) {
+  :root {
+    --hero-nav-size: 1.0625rem;    /* 17px */
+    --hero-tag-size: 1.625rem;     /* 26px */
+  }
+
+  .hero { padding-bottom: 72px; }       /* geom :: measured white merge zone at desktop */
+
+  .hero__panel { min-height: 810px; }   /* geom :: desktop frame 832 - 22 */
+
+  .hero__inner {
+    min-height: 810px;
+    padding: 26px 40px 0;          /* geom */
+  }
+
+  .nav__logo { width: 34px; }      /* geom */
+
+  .nav__list {
+    margin-right: -40px;           /* geom :: bleed to panel right */
+    padding: 10px 40px 10px 22px;  /* geom */
+  }
+
+  .hero__intro {
+    margin-top: 158px;             /* geom :: name top ~y180 in 832 frame */
+    margin-left: 44%;              /* geom :: intro left ~635 of 1440 */
+  }
+
+  .hero__name-word { height: 58px; }   /* geom :: estimated, desktop/tablet wordmark (397x56) */
+
+  .hero__taglines { gap: 11px; margin-top: 22px; }   /* geom */
+
+  .hero__welcome { width: calc(100% - 38px); }  /* geom :: measured ~59px margin each side */
+}
+/* ===== END BLOCK ===== */

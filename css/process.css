@@ -1,0 +1,399 @@
+/* ==========================================================================
+   dcreativethinking.com
+   styles.css  ::  tokens + reset + component 4 (.process)
+
+   Test folder carries an identical copy of tokens + reset plus this one
+   component. The master keeps one copy of tokens + reset and strips the rest.
+   ========================================================================== */
+
+
+/* ===== BEGIN SHARED: tokens + reset ===================================== */
+/* Carried verbatim from the ratified footer build. Byte-identical across
+   every block so the master can keep one copy and strip the duplicates.
+   Do not edit to suit this block; new values live in the BLOCK region below
+   and are flagged for the master to fold in. */
+
+/* --------------------------------------------------------------------------
+   TOKENS  ::  :root single source of truth
+
+   Values derived by measuring the three approved mockups, which are all
+   1439 / 768 / 320 wide by 774 tall. Names are final. Ratify the numbers
+   against Figma and only these lines change, no rule below moves.
+
+   Composition coordinates (tier offsets, panel widths, object-position,
+   frame height) are NOT tokens. They are one off placements for this single
+   frame rather than reusable design values, so they sit as literals in the
+   component tagged "geom" and sourced from the mockup measurements.
+   -------------------------------------------------------------------------- */
+:root {
+  /* brand + ink */
+  --color-pink: #ff124b;        /* brand pink, carried by the UX mark */
+  --color-poem: #e61044;        /* poem only, darkened for contrast */
+  --color-ink: #141414;         /* mission copy and social chips */
+  --color-white: #ffffff;
+
+  /* surfaces :: mobile carries a heavier fill because the type is smallest
+     there and sits over the busiest part of the photograph. Tablet and up
+     step back down to 0.6. */
+  --footer-panel-fill: rgba(255, 255, 255, 0.8);
+  --footer-chip-fill: var(--color-ink);
+  --footer-rule-color: var(--color-white);
+
+  /* type :: DM Sans */
+  --footer-font: "DM Sans", system-ui, sans-serif;
+  --footer-body-size: 0.6875rem;   /* 11px, mobile base */
+  --footer-body-line: 1.364;       /* 15px pitch */
+  --footer-label-weight: 700;
+  --footer-value-weight: 400;
+
+  /* metrics */
+  --footer-rule-weight: 1px;
+  --footer-chip-size: 1.75rem;     /* 28px, clears the 24px target floor */
+  --footer-chip-icon: 1rem;
+  --footer-chip-radius: 0.375rem;
+  --footer-chip-gap: 0.5rem;
+
+  /* panel padding */
+  --footer-info-pad-block: 0.3125rem;
+  --footer-info-pad-inline: 1.25rem;
+  --footer-info-gap: 0.9375rem;    /* paragraph step, one extra line box */
+}
+
+
+/* --------------------------------------------------------------------------
+   RESET  ::  base rules. Element selectors are permitted here because this is
+   the shared reset, not component CSS. Component rules below are class only.
+   -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  font-family: var(--footer-font);
+  background: var(--color-ink);
+}
+
+img,
+svg,
+picture { display: block; max-width: 100%; }
+
+a { color: inherit; }
+
+ul { margin: 0; padding: 0; list-style: none; }
+
+dl,
+dd { margin: 0; }
+
+hr { border: 0; margin: 0; }
+
+/* ===== END SHARED ====================================================== */
+
+
+/* ===== BEGIN BLOCK: .process =========================================== */
+
+/* ==========================================================================
+   COMPONENT 4  ::  .process
+   BEM block: .process
+   Mobile first. Media queries are min-width only.
+
+   NEW TOKENS INTRODUCED BY THIS BLOCK  (flagged for the master to fold into
+   the shared :root so every block stays byte-identical):
+     --process-font, --process-paper-fallback, --process-chevron,
+     --process-hairline, --process-biblio, --process-rule-weight,
+     --process-hairline-weight, --process-weight-bold, --process-weight-reg,
+     and the per-tier size tokens re-declared in the media queries.
+   --process-font ideally becomes a shared --font-sans; it duplicates the DM
+   Sans stack already held by --footer-font.
+
+   Layout model: single column on mobile/tablet (everything inset by a shared
+   side gutter). At >=1024 the hero lockup lifts out of flow (absolute, and it
+   carries no live text so it cannot break reflow) into a left zone while the
+   accordion, bio and bibliography stay in flow. Composition offsets are geom
+   literals from the measured mockups; desktop was measured precisely, tablet
+   and mobile off noisier exports (flagged in the build notes).
+   ========================================================================== */
+:root {
+  /* type stack */
+  --process-font: "DM Sans", system-ui, sans-serif;
+
+  /* colour (only values not already in the shared set) */
+  --process-paper-fallback: #dbdad4;  /* flat fill if the paper image fails */
+  --process-chevron: #3c3c3c;          /* row disclosure caret, from asset */
+  --process-hairline: #969696;         /* bio / bibliography divider */
+  --process-biblio: #474746;           /* bibliography italic grey */
+
+  /* weights */
+  --process-weight-bold: 700;
+  --process-weight-reg: 400;
+
+  /* metrics */
+  --process-rule-weight: 1px;          /* red phase underline */
+  --process-hairline-weight: 1px;      /* grey divider */
+
+  /* type sizes :: mobile base */
+  --process-phase-size: 0.9375rem;     /* 15px */
+  --process-row-size: 0.9375rem;       /* 15px */
+  --process-bio-size: 0.875rem;        /* 14px */
+  --process-biblio-size: 0.75rem;      /* 12px */
+}
+
+.process {
+  position: relative;
+  isolation: isolate;                 /* contains the hero multiply so it
+                                         cannot blend onto the block above,
+                                         which overlaps this block's top gap */
+  color: var(--color-ink);
+  font-family: var(--process-font);
+  background: var(--process-paper-fallback);
+  overflow: hidden;
+}
+
+/* paper texture, full bleed behind everything */
+.process__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.process__bg-media {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+
+/* content layer */
+.process__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 1439px;                  /* geom :: design frame, composition stops growing here */
+  margin-inline: auto;
+  padding-top: 217px;                 /* geom :: mobile top gap, overlay zone for the block above */
+  padding-bottom: 40px;               /* geom :: mobile base */
+  padding-inline: 16%;                /* geom :: mobile side gutter */
+}
+
+/* ---- hero lockup -------------------------------------------------------- */
+.process__hero {
+  width: 100%;
+  height: auto;
+  margin-inline: auto;
+  mix-blend-mode: multiply;           /* baked lockup sits into the paper */
+}
+
+/* ---- accordion ---------------------------------------------------------- */
+.process__phases {
+  margin-top: 26px;                   /* geom :: hero -> first phase, mobile */
+}
+
+.process__phase { margin-top: 30px; } /* geom :: section gap between phases */
+
+.process__phase:first-child { margin-top: 0; }
+
+.process__phase-head {
+  margin: 0;
+  padding-bottom: 5px;                /* geom :: label -> red rule */
+  border-bottom: var(--process-rule-weight) solid var(--color-pink);
+  color: var(--color-pink);
+  font-size: var(--process-phase-size);
+  font-weight: var(--process-weight-bold);
+  line-height: 1.2;
+}
+
+.process__list { margin-top: 16px; }  /* geom :: red rule -> first row */
+
+.process__item { border: 0; }
+
+.process__trigger {
+  width: 100%;
+  margin: 0;
+  padding: 5px 0;                     /* geom :: sets the row pitch */
+  border: 0;
+  background: none;
+  color: inherit;
+  font-family: inherit;
+  font-size: var(--process-row-size);
+  font-weight: var(--process-weight-reg);
+  line-height: 1.35;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.process__trigger:focus-visible {
+  outline: 2px solid var(--color-ink);
+  outline-offset: 2px;
+}
+
+.process__row-label { display: block; }
+
+.process__chevron {
+  flex: none;
+  width: 13px;                        /* geom :: caret ~15px asset, seated 16px inside the rule */
+  height: auto;
+  margin-right: 2px;
+  color: var(--process-chevron);
+  transition: transform 200ms ease;
+}
+
+.process__trigger[aria-expanded="true"] .process__chevron { transform: rotate(180deg); }
+
+/* disclosure panel :: animates open via a 0fr -> 1fr grid row.
+   EXTRAPOLATED open state — no mockup exists for the expanded row. */
+.process__panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 220ms ease;
+}
+
+.process__panel-inner { overflow: hidden; }
+
+.process__trigger[aria-expanded="true"] + .process__panel { grid-template-rows: 1fr; }
+
+.process__panel-line {
+  margin: 0;
+  padding-top: 6px;
+  color: var(--color-ink);
+  font-size: var(--process-bio-size);
+  font-weight: var(--process-weight-reg);
+  line-height: 1.5;
+}
+
+.process__panel-inner .process__panel-line:first-child { padding-top: 10px; }
+
+.process__panel-key { font-weight: var(--process-weight-bold); }
+
+/* ---- bio + bibliography ------------------------------------------------- */
+.process__bio {
+  margin: 32px 0 0;                   /* geom :: accordion -> bio, mobile */
+  color: var(--color-ink);
+  font-size: var(--process-bio-size);
+  font-weight: var(--process-weight-reg);
+  line-height: 1.5;
+}
+
+.process__rule {
+  height: var(--process-hairline-weight);
+  margin-top: 18px;                   /* geom */
+  background: var(--process-hairline);
+}
+
+.process__biblio {
+  margin: 14px 0 0;                   /* geom */
+  color: var(--process-biblio);
+  font-size: var(--process-biblio-size);
+  font-style: italic;
+  line-height: 1.5;
+}
+
+/* read more / read less :: injected by the script on the mobile tier only.
+   Desktop and tablet show the full copy and never mount the control. */
+.process__more {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  font-weight: var(--process-weight-bold);
+  cursor: pointer;
+}
+
+.process__more:focus-visible {
+  outline: 2px solid var(--color-ink);
+  outline-offset: 2px;
+}
+
+
+/* --------------------------------------------------------------------------
+   >= 768px  ::  tablet. Still a single column; the top gap deepens and the
+   type steps up. Layout is inherited from the mobile rules.
+   -------------------------------------------------------------------------- */
+@media (min-width: 768px) {
+  :root {
+    --process-phase-size: 1rem;        /* 16px */
+    --process-row-size: 1rem;          /* 16px */
+    --process-bio-size: 0.9375rem;     /* 15px */
+    --process-biblio-size: 0.8125rem;  /* 13px */
+  }
+
+  .process__inner {
+    padding-top: 372px;                /* geom :: tablet top gap / overlay zone */
+    padding-bottom: 48px;              /* geom */
+    padding-inline: 15.8%;             /* geom */
+  }
+
+  .process__phases { margin-top: 34px; }   /* geom */
+  .process__bio { margin-top: 40px; }      /* geom */
+}
+
+
+/* --------------------------------------------------------------------------
+   >= 1024px  ::  desktop, matched to the 1439 frame. Two columns: the hero
+   lockup lifts out of flow on the left, the accordion runs in the right half,
+   bio / rule / bibliography span the full gutter width beneath both.
+   -------------------------------------------------------------------------- */
+@media (min-width: 1024px) {
+  :root {
+    --process-phase-size: 1.0625rem;   /* 17px */
+    --process-row-size: 1.0625rem;     /* 17px */
+    --process-bio-size: 0.9375rem;     /* 15px */
+    --process-biblio-size: 0.8125rem;  /* 13px */
+  }
+
+  .process__inner {
+    padding-top: 348px;                /* geom :: desktop top gap / overlay zone, hero box top */
+    padding-bottom: 88px;              /* geom :: bibliography -> frame base */
+    padding-inline: 0;                 /* desktop positions children by measured % instead */
+  }
+
+  .process__hero {
+    position: absolute;                /* no live text -> safe out of flow */
+    top: 348px;                        /* geom :: aligns with the flow top */
+    left: 9.4%;                        /* geom */
+    width: 36.8%;                      /* geom :: right edge lands ~46.5% */
+    margin: 0;
+  }
+
+  .process__phases {
+    margin-top: 0;
+    margin-left: 49.9%;                /* geom :: right column left edge */
+    margin-right: 12.2%;               /* geom :: right column right edge */
+  }
+
+  .process__trigger { padding: 4px 0; }    /* geom :: ~31px row pitch at 17px */
+  .process__list { margin-top: 18px; }     /* geom */
+  .process__phase { margin-top: 34px; }    /* geom */
+
+  .process__bio {
+    margin-top: 117px;                 /* geom :: clears the absolute hero and sets bio y */
+    margin-inline: 7.3%;               /* geom :: shared desktop gutter */
+  }
+
+  .process__rule {
+    margin-top: 26px;                  /* geom */
+    margin-inline: 7.3%;               /* geom */
+  }
+
+  .process__biblio {
+    margin-top: 16px;                  /* geom */
+    margin-inline: 7.3%;               /* geom */
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   Reduced motion :: drop the panel and caret transitions so nothing animates.
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .process__panel { transition: none; }
+  .process__chevron { transition: none; }
+}
+
+/* ===== END BLOCK ======================================================= */

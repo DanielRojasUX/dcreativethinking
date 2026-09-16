@@ -1,0 +1,327 @@
+/* ==========================================================================
+   dcreativethinking.com
+   styles.css  ::  tokens + reset + component 6 (.footer)
+
+   Test folder carries an identical copy of tokens + reset plus this one
+   component. The master keeps one copy of tokens + reset and strips the rest.
+   ========================================================================== */
+
+
+/* --------------------------------------------------------------------------
+   TOKENS  ::  :root single source of truth
+
+   Values derived by measuring the three approved mockups, which are all
+   1439 / 768 / 320 wide by 774 tall. Names are final. Ratify the numbers
+   against Figma and only these lines change, no rule below moves.
+
+   Composition coordinates (tier offsets, panel widths, object-position,
+   frame height) are NOT tokens. They are one off placements for this single
+   frame rather than reusable design values, so they sit as literals in the
+   component tagged "geom" and sourced from the mockup measurements.
+   -------------------------------------------------------------------------- */
+:root {
+  /* brand + ink */
+  --color-pink: #ff124b;        /* brand pink, carried by the UX mark */
+  --color-poem: #e61044;        /* poem only, darkened for contrast */
+  --color-ink: #141414;         /* mission copy and social chips */
+  --color-white: #ffffff;
+
+  /* surfaces :: mobile carries a heavier fill because the type is smallest
+     there and sits over the busiest part of the photograph. Tablet and up
+     step back down to 0.6. */
+  --footer-panel-fill: rgba(255, 255, 255, 0.8);
+  --footer-chip-fill: var(--color-ink);
+  --footer-rule-color: var(--color-white);
+
+  /* type :: DM Sans */
+  --footer-font: "DM Sans", system-ui, sans-serif;
+  --footer-body-size: 0.6875rem;   /* 11px, mobile base */
+  --footer-body-line: 1.364;       /* 15px pitch */
+  --footer-label-weight: 700;
+  --footer-value-weight: 400;
+
+  /* metrics */
+  --footer-rule-weight: 1px;
+  --footer-chip-size: 1.75rem;     /* 28px, clears the 24px target floor */
+  --footer-chip-icon: 1rem;
+  --footer-chip-radius: 0.375rem;
+  --footer-chip-gap: 0.5rem;
+
+  /* panel padding */
+  --footer-info-pad-block: 0.3125rem;
+  --footer-info-pad-inline: 1.25rem;
+  --footer-info-gap: 0.9375rem;    /* paragraph step, one extra line box */
+}
+
+
+/* --------------------------------------------------------------------------
+   RESET  ::  base rules. Element selectors are permitted here because this is
+   the shared reset, not component CSS. Component rules below are class only.
+   -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  font-family: var(--footer-font);
+  background: var(--color-ink);
+}
+
+img,
+svg,
+picture { display: block; max-width: 100%; }
+
+a { color: inherit; }
+
+ul { margin: 0; padding: 0; list-style: none; }
+
+dl,
+dd { margin: 0; }
+
+hr { border: 0; margin: 0; }
+
+
+/* ==========================================================================
+   COMPONENT 6  ::  .footer
+   BEM block: .footer   (claimed, section 8)
+   Mobile first. Media queries are min-width only.
+
+   Layout model: the content stack is a flex column anchored to the bottom
+   of the frame, so every element keeps its measured distance from the base
+   while the block still grows upward if the copy reflows or the user zooms.
+   Nothing carrying text is absolutely positioned. The UX mark is the single
+   absolutely positioned element from 768 up, and it is decorative with no
+   text, so it cannot break reflow.
+   ========================================================================== */
+.footer {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  min-height: 774px;              /* geom :: mockup frame height, a floor not a fix */
+  color: var(--color-ink);
+}
+
+/* background loop, full bleed behind everything */
+.footer__bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.footer__bg-media {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;       /* geom :: mobile crop */
+}
+
+/* content layer */
+.footer__inner {
+  position: relative;
+  z-index: 1;
+  min-height: 774px;              /* geom */
+  max-width: 1439px;              /* geom :: design frame, composition stops growing here */
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: 74px;           /* geom :: mobile base gutter */
+}
+
+.footer__sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* ---- UX mark ------------------------------------------------------------ */
+.footer__mark {
+  width: 56.6%;                   /* geom */
+  height: auto;
+  margin-top: 168px;              /* geom */
+  margin-left: 21.25%;            /* geom */
+}
+
+/* ---- mission block ------------------------------------------------------ */
+.footer__info {
+  margin-top: 2px;                /* geom */
+  padding: var(--footer-info-pad-block) var(--footer-info-pad-inline);
+  background: var(--footer-panel-fill);
+  font-size: var(--footer-body-size);
+  line-height: var(--footer-body-line);
+  display: flex;
+  flex-direction: column;
+}
+
+.footer__row { margin-top: var(--footer-info-gap); }
+
+.footer__row:first-child { margin-top: 0; }
+
+.footer__row--tight { margin-top: 0; }
+
+.footer__label {
+  display: inline;
+  font-weight: var(--footer-label-weight);
+  text-transform: uppercase;
+}
+
+.footer__value {
+  display: inline;
+  font-weight: var(--footer-value-weight);
+}
+
+.footer__link {
+  color: var(--color-ink);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.footer__link:hover { text-decoration-thickness: 2px; }
+
+.footer__link:focus-visible {
+  outline: 2px solid var(--color-ink);
+  outline-offset: 2px;
+}
+
+/* ---- rule --------------------------------------------------------------- */
+.footer__rule {
+  height: var(--footer-rule-weight);
+  margin-top: 56px;               /* geom */
+  background: var(--footer-rule-color);
+}
+
+/* ---- social chips ------------------------------------------------------- */
+.footer__social {
+  display: flex;
+  gap: var(--footer-chip-gap);
+  margin-top: 21px;               /* geom */
+  margin-left: auto;
+  margin-right: 11%;              /* geom */
+}
+
+.footer__social-link {
+  display: grid;
+  place-items: center;
+  width: var(--footer-chip-size);
+  height: var(--footer-chip-size);
+  border-radius: var(--footer-chip-radius);
+  background: var(--footer-chip-fill);
+  color: var(--color-white);
+}
+
+.footer__social-link:hover { background: var(--color-pink); }
+
+.footer__social-link:focus-visible {
+  outline: 2px solid var(--color-white);
+  outline-offset: 2px;
+}
+
+.footer__social-icon {
+  width: var(--footer-chip-icon);
+  height: var(--footer-chip-icon);
+}
+
+
+/* --------------------------------------------------------------------------
+   >= 768px  ::  tablet composition
+   Mark lifts out of flow and sits left. Poem panel runs to the right edge.
+   -------------------------------------------------------------------------- */
+@media (min-width: 768px) {
+  :root {
+    --footer-panel-fill: rgba(255, 255, 255, 0.6);
+    --footer-body-size: 0.8125rem;          /* 13px */
+    --footer-body-line: 1.385;              /* 18px pitch */
+    --footer-info-pad-block: 0.75rem;
+    --footer-info-pad-inline: 0.1875rem;
+    --footer-info-gap: 1.125rem;
+  }
+
+  .footer__bg-media { object-position: 50% 50%; }   /* geom */
+
+  .footer__inner { padding-bottom: 44px; }          /* geom */
+
+  .footer__mark {
+    position: absolute;
+    left: 10.03%;                 /* geom */
+    top: 41.03%;                  /* geom :: ink top 336 */
+    width: 43.4%;                 /* geom */
+    margin: 0;
+  }
+
+    .footer__info {
+    margin-top: 20px;             /* geom */
+    margin-left: 31.90%;          /* geom :: 245 of 768 */
+    margin-right: 8.07%;          /* geom :: right edge 706 */
+  }
+
+  .footer__rule {
+    margin-top: 16px;             /* geom */
+    margin-right: 7.8%;           /* geom */
+  }
+
+  .footer__social {
+    margin-top: 18px;             /* geom */
+    margin-right: 14.06%;         /* geom */
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   >= 1024px  ::  desktop composition, matched to the 1439 frame
+   -------------------------------------------------------------------------- */
+@media (min-width: 1024px) {
+  :root {
+    --footer-body-size: 1.0625rem;          /* 17px */
+    --footer-body-line: 1.353;              /* 23px pitch */
+    --footer-info-pad-block: 0.4375rem;
+    --footer-info-pad-inline: 0.3125rem;
+    --footer-info-gap: 1.4375rem;
+  }
+
+  .footer__bg-media { object-position: 50% 50%; }   /* geom */
+
+  .footer__inner { padding-bottom: 116px; }         /* geom */
+
+  .footer__mark {
+    left: 23.00%;                 /* geom :: 331 of 1439 */
+    top: 38.4%;                   /* geom */
+    width: 32.66%;                /* geom */
+  }
+
+    .footer__info {
+    margin-top: 31px;             /* geom */
+    width: 34.4%;                 /* geom :: 495 of 1439 */
+    margin-left: auto;
+    margin-right: 7.3%;           /* geom */
+  }
+
+  .footer__rule {
+    margin-top: 83px;             /* geom :: lifts the mission panel to y360 */
+    width: 69.15%;                /* geom :: 995 of 1439 */
+    margin-left: auto;
+    margin-right: 7.3%;           /* geom */
+  }
+
+  .footer__social {
+    margin-top: 12px;             /* geom */
+    margin-right: 10.7%;          /* geom */
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   Reduced motion :: the still frame is swapped in by <picture>. Drop the
+   chip transition here so no state animates either.
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: no-preference) {
+  .footer__social-link { transition: background-color 120ms ease; }
+}
