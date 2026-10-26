@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daniel | LiveWire Dashboard</title>
+  <link rel="icon" href="../../assets/img/favicon.ico?v=20261024j" sizes="any">
+  <link rel="icon" type="image/svg+xml" href="../../assets/img/favicon.svg?v=20261024j">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/img/favicon-32.png?v=20261024j">
+  <link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png?v=20261024j">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Inter+Tight:wght@800;900&family=Montserrat:wght@500;600&display=swap" rel="stylesheet">
+
+  <!-- Homepage card component (More case studies) -->
+  <link rel="stylesheet" href="../../css/my-work.css?v=20261026b">
+  <link rel="stylesheet" href="../../css/case-study.css?v=20261026b">
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../index.html">Home</a> / <a href="../../index.html#work">Work</a> / <span>LiveWire Dashboard</span>
+    </nav>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle Dark Mode">
+      <svg id="themeIcon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      </svg>
+    </button>
+  </div>
+
+  <!-- HERO -->
+  <header class="hero">
+    <video class="hero__video" autoplay muted loop playsinline poster="livewire-demo/img/moto.jpg" aria-hidden="true">
+      <source src="livewire-demo/img/videomoto.mp4" type="video/mp4">
+    </video>
+    <span class="chip chip--light hero__chip hero__chip--l">Case Study 07</span>
+    <span class="chip chip--light hero__chip hero__chip--r">Livewire</span>
+
+    <div class="hero__body">
+      <div>
+        <h1 class="display display--xl hero__title">Dashboard<br>Redesign</h1>
+        <p class="hero__subtitle">Modernizing a Power BI analytics dashboard into a custom SaaS monitoring platform, featuring grouped navigation, tab favoriting, an AI-generated background video engine, and a background dimmer control.</p>
+        <div class="actions"><button class="btn" type="button" data-demo>Launch Interactive Demo &rarr;</button></div>
+      </div>
+      <div class="hero__info">
+        <div><b>Role :</b> Lead UI Designer &amp; Developer</div>
+        <div><b>Org :</b> Livewire</div>
+        <div><b>Scope :</b> Power BI Redesign, Livewire Design System, AI Video Gen (Claude, Gemini &amp; Kling), Custom Dimmer &amp; Tab Favoriting</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- OWNERSHIP -->
+  <div class="owner"><span class="owner__label">My part</span><p class="owner__text">I designed and built this end to end: the information architecture, the design system, the front end and the AI video pipeline (Claude, Gemini and Kling).</p></div>
+
+  <main>
+    <!-- 01 : THE PROBLEM (image left) -->
+    <section class="sec split split--ui" id="problem">
+      <span class="chip sec__chip">01 / The Problem</span>
+      <div class="split__grid">
+        <div class="split__media">
+            <figure class="figure figure--framed">
+              <img src="livewire-demo/img/lw-before1.png" alt="Legacy Power BI Livewire Dashboard View 1">
+              <figcaption class="figure__caption">
+                <span>Legacy Power BI Livewire Dashboard View 1</span>
+                <span class="chip">Fig. 01</span>
+              </figcaption>
+            </figure>
+            <figure class="figure figure--framed">
+              <img src="livewire-demo/img/lw-before2.png" alt="Legacy Power BI Livewire Dashboard View 2">
+              <figcaption class="figure__caption">
+                <span>Legacy Power BI Livewire Dashboard View 2</span>
+                <span class="chip">Fig. 02</span>
+              </figcaption>
+            </figure>
+            <figure class="figure figure--framed">
+              <div class="figure__grid">
+                <img src="livewire-demo/img/moto.jpg" alt="Source Motorcycle Studio Photograph">
+                <video autoplay muted loop playsinline poster="livewire-demo/img/moto.jpg"><source src="livewire-demo/img/videomoto.mp4" type="video/mp4"></video>
+              </div>
+              <figcaption class="figure__caption">
+                <span>Source studio photograph, and the looping background video generated from it.</span>
+                <span class="chip">Fig. 03</span>
+              </figcaption>
+            </figure>
+        </div>
+        <div class="split__text">
+          <h2 class="display display--lg">The<br>Problem</h2>
+            <div class="beat">
+              <h3 class="beat__title">Outdated Power BI Interface</h3>
+              <p class="lead">The original Livewire dashboard was created in Power BI, suffering from high cognitive load, unorganized tab clutter, and rigid iframe-style layout limitations. Monitoring live metrics required constant scrolling across flat tables, resulting in visual fatigue for operators seeking real-time telemetry.</p>
+            </div>
+            <div class="beat">
+              <h3 class="beat__title">Information Architecture &amp; Customization</h3>
+              <p class="lead">A primary challenge was organizing data density while providing personalization. To streamline daily workflows, we grouped scattered metrics into logical category tabs, added tab favoriting capabilities, and engineered a custom background dimmer so users can adjust the video intensity or hide it completely for an ultra-focused view.</p>
+            </div>
+            <div class="beat">
+              <h3 class="beat__title">Generative Motion Engineering</h3>
+              <p class="lead">To give the platform a premium brand atmosphere, I transformed a static motorcycle studio photograph into a perfectly looping, ambient background video using a multi-prompt generative pipeline across Claude, Gemini, and Kling AI.</p>
+            </div>
+        </div>
+      </div>
+    </section>
+    <!-- 02 : THE DECISION -->
+    <section class="sec" id="decision">
+      <span class="chip sec__chip">02 / The Decision</span>
+      <div class="duo">
+        <p class="statement">I replaced Power BI with a custom web App Shell featuring grouped navigation, tab favoriting, and a user-controlled background dimmer.</p>
+        <p class="lead">By decoupling dashboard widgets into grouped tab categories, allowing operators to pin favorite views, and adding an opacity dimmer slider for the AI-generated video background, I created a tailored monitoring environment balancing high-impact branding with zero-distraction legibility.</p>
+      </div>
+    </section>
+    <!-- 03 : THE BUILD -->
+    <section class="sec sec--gray split split--ui split--reverse" id="prototyping">
+      <span class="chip sec__chip">03 / The Build</span>
+      <div class="split__grid">
+        <div class="split__media">
+            <figure class="figure figure--framed">
+              <img src="livewire-demo/img/livewire-login.png" alt="Livewire Redesigned Sign-in Screen">
+              <figcaption class="figure__caption">
+                <span>Livewire Redesigned Sign-in Screen</span>
+                <span class="chip">Fig. 04</span>
+              </figcaption>
+            </figure>
+            <figure class="figure figure--framed">
+              <img src="livewire-demo/img/livewire-dasboard-1.png" alt="Livewire Redesigned Main Dashboard Analytics">
+              <figcaption class="figure__caption">
+                <span>Livewire Redesigned Main Dashboard Analytics</span>
+                <span class="chip">Fig. 05</span>
+              </figcaption>
+            </figure>
+            <figure class="figure figure--framed">
+              <img src="livewire-demo/img/livewire-dasboard-2.png" alt="Livewire Redesigned Metrics &amp; Data Detail View">
+              <figcaption class="figure__caption">
+                <span>Livewire Redesigned Metrics &amp; Data Detail View</span>
+                <span class="chip">Fig. 06</span>
+              </figcaption>
+            </figure>
+        </div>
+        <div class="split__text">
+          <h2 class="display display--md">The Redesigned<br>Application</h2>
+          <p class="lead">The final system powers a working, interactive web application, featuring an authenticated sign-in flow, grouped navigation tabs with favoriting logic, interactive Chart.js widgets, and a background dimmer control. All screens draw from the dedicated Livewire Design System.</p>
+          <div class="actions"><button class="btn" type="button" data-demo>Launch Interactive Demo &rarr;</button></div>
+        </div>
+      </div>
+    </section>
+    <!-- 04 : DESIGN SYSTEM -->
+    <section class="sec split split--ui" id="design-system">
+      <span class="chip sec__chip">04 / Design System</span>
+      <div class="split__grid">
+        <div class="split__media">
+            <figure class="figure figure--framed">
+              <div class="figure__grid">
+                <img src="livewire-demo/img/LW-designSys-1.png" alt="Livewire Design System Overview - Palette &amp; Tokens">
+                <img src="livewire-demo/img/LW-designSys-2.png" alt="Livewire Design System Overview - Components &amp; Specs">
+              </div>
+              <figcaption class="figure__caption">
+                <span>Livewire Design System Overview - Palette &amp; Tokens; Livewire Design System Overview - Components &amp; Specs</span>
+                <span class="chip">Fig. 07</span>
+              </figcaption>
+            </figure>
+        </div>
+        <div class="split__text">
+          <h2 class="display display--md">Livewire Design System<br>&amp; Component Tokens</h2>
+          <p class="lead">To support ongoing scalability and maintain UI consistency, I authored a comprehensive design system covering color palettes, typography scales, card container classes, and interactive component specs.</p>
+          <div class="actions"><a class="btn btn--ghost" href="livewire-demo/livewire-design-system.html" target="_blank" rel="noopener">Open Design System Site &rarr;</a></div>
+        </div>
+      </div>
+    </section>
+    <!-- 05 : IN DEPTH -->
+    <section class="sec sec--gray" id="delivery">
+      <span class="chip sec__chip">05 / In Depth</span>
+      <div class="duo">
+        <div>
+          <h2 class="display display--md">System &amp; Technical<br>Execution</h2>
+          <p class="lead" style="margin-top:clamp(16px,2vw,24px)">Detailed breakdown of how the UI design, AI video pipeline, component tokenization, and frontend implementation were structured and shipped.</p>
+        </div>
+        <div class="rows rows--top">
+          <div class="row">
+            <div class="row__label">AI Generative Video Pipeline (Claude, Gemini &amp; Kling)</div>
+            <div class="row__text"><p>Starting from a raw studio photograph of the Livewire motorcycle, I engineered prompt sequences across Claude and Gemini to define camera motion, lighting trajectories, and environmental speed effects. The motion sequence was rendered using Kling AI to produce a seamless, perfect loop video for the dashboard background.</p></div>
+          </div>
+          <div class="row">
+            <div class="row__label">Grouped Navigation &amp; Tab Favoriting</div>
+            <div class="row__text"><p>Replaced flat Power BI tabs with structured category groups in the left sidebar. Users can pin frequently accessed tabs to a dedicated "Favorites" section at the top of the navigation, saving custom layout preferences in client-side state.</p></div>
+          </div>
+          <div class="row">
+            <div class="row__label">Background Video Dimmer Control</div>
+            <div class="row__text"><p>Built a custom opacity dimmer control that adjusts the alpha overlay of the background video in real time. Users can dial down the video brightness or disable it entirely for a minimalist, high-contrast workspace.</p></div>
+          </div>
+          <div class="row">
+            <div class="row__label">Tokenized Layout &amp; Livewire Design System</div>
+            <div class="row__text"><p>Standardized card containers, status badges, and color tokens defined via CSS custom properties. View the live implementation at <a href="livewire-demo/livewire-design-system.html" rel="noopener" target="_blank">livewire-design-system.html</a>.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- 06 : REFLECTION -->
+    <section class="reflection" id="reflection" style="background-image: url('livewire-demo/img/moto.jpg')">
+      <div class="reflection__inner">
+        <div class="reflection__top">
+          <span class="chip chip--light">06 / Reflection</span>
+          <span class="chip chip--light">Livewire</span>
+        </div>
+        <h2 class="display display--lg">Looking<br>Back</h2>
+        <div class="reflection__cols">
+          <div>
+            <h3>What Went Well?</h3>
+            <p><strong>Power BI to Custom SaaS</strong>Successfully migrated flat Power BI analytics into a high-performance web App Shell with grouped navigation and tab favoriting.</p>
+            <p><strong>Generative AI Motion Integration</strong>Combining Claude, Gemini, and Kling AI enabled the creation of a high-end, perfectly looping video background directly from a single static product photo.</p>
+            <p><strong>User Customization</strong>The background dimmer slider provided instant accessibility control, ensuring branding never compromised chart legibility.</p>
+          </div>
+          <div>
+            <h3>What Could I Have Done Better?</h3>
+            <p><strong>Automated CI/CD Contrast Auditing</strong>While contrast scales were manually calibrated during design, integrating an automated contrast-linter directly into the build pipeline would ensure automated compliance checks across all dynamic states.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- DEMO DISCLAIMER -->
+  <div class="modal-overlay" id="demoModal" role="dialog" aria-modal="true" aria-labelledby="demoTitle">
+    <div class="modal-box">
+      <h3 id="demoTitle">Interactive Demo Environment</h3>
+      <p>You are about to enter a live, sandbox demonstration of the Livewire Dashboard. Please note:</p>
+      <ul>
+        <li>This is an offline client-side prototype.</li>
+        <li>No data entered, including email or password on the sign-in screen, is transmitted or stored.</li>
+        <li>You may click "Sign In" with dummy credentials to explore the full dashboard.</li>
+      </ul>
+      <div class="modal-actions">
+        <a class="btn" href="livewire-demo/index.html" target="_blank" rel="noopener">Enter Demo &rarr;</a>
+        <button class="modal-cancel" type="button" id="modalCancel">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MORE CASE STUDIES (cards from js/projects.js, same component as the homepage) -->
+  <section class="more" id="more" aria-labelledby="more-title">
+    <div class="more__head">
+      <h2 id="more-title" class="display display--md">More Case<br>Studies</h2>
+      <div class="more__filters" role="tablist" aria-label="Filter case studies">
+        <button class="more__filter is-active" type="button" role="tab" aria-selected="true" data-more-filter="related">Related</button>
+        <button class="more__filter" type="button" role="tab" aria-selected="false" data-more-filter="all">View all</button>
+      </div>
+    </div>
+    <div class="more__grid" data-projects="more" data-base="../../" data-current="livewire"></div>
+    <div class="more__contact">
+      <ul class="more__links">
+        <li><a href="mailto:daniel@dcreativethinking.com">daniel@dcreativethinking.com</a></li>
+        <li><a href="tel:+18019219885">+1 801-921-9885</a></li>
+        <li><a href="../../assets/docs/Daniel_Rojas_Resume_2026_v2.pdf" download="Daniel_Rojas_Resume_2026.pdf">Download resume</a></li>
+      </ul>
+      <ul class="more__social" aria-label="Social profiles">
+        <li><a class="more__social-link" href="https://www.linkedin.com/in/dcreativethinking/" aria-label="LinkedIn" target="_blank" rel="noopener"><svg class="more__social-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"> <path d="M20.45 3H3.55A.55.55 0 0 0 3 3.55v16.9c0 .3.25.55.55.55h16.9c.3 0 .55-.25.55-.55V3.55A.55.55 0 0 0 20.45 3ZM8.8 18.34H5.87V9.75H8.8v8.59ZM7.34 8.47a1.7 1.7 0 1 1 0-3.4 1.7 1.7 0 0 1 0 3.4Zm11 9.87h-2.93v-4.18c0-1-.02-2.28-1.39-2.28-1.39 0-1.6 1.09-1.6 2.21v4.25H9.5V9.75h2.81v1.17h.04c.39-.74 1.35-1.52 2.77-1.52 2.97 0 3.52 1.95 3.52 4.49v4.45Z" fill="currentColor"/> </svg></a></li>
+        <li><a class="more__social-link" href="https://www.instagram.com/dani.el.ux/" aria-label="Instagram" target="_blank" rel="noopener"><svg class="more__social-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"> <path d="M12 2.16c3.2 0 3.58.02 4.85.07 1.17.06 1.8.25 2.23.42.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.84 0 3.2-.01 3.58-.07 4.85-.06 1.17-.25 1.8-.42 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42-.16-1.06.36-2.23.41-1.27.06-1.65.07-4.84.07-3.2 0-3.58-.01-4.85-.07-1.17-.06-1.8-.25-2.23-.42-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12c0-3.2.01-3.58.07-4.85.06-1.17.25-1.8.42-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16ZM12 0C8.74 0 8.33.02 7.05.07 5.78.13 4.9.33 4.14.63c-.79.31-1.46.72-2.13 1.38C1.35 2.68.94 3.35.63 4.14c-.3.77-.5 1.64-.56 2.91C.01 8.33 0 8.74 0 12s.02 3.67.07 4.95c.06 1.27.26 2.14.56 2.91.31.79.72 1.46 1.38 2.13.67.66 1.34 1.07 2.13 1.38.77.3 1.64.5 2.91.56C8.33 23.98 8.74 24 12 24s3.67-.02 4.95-.07c1.27-.06 2.14-.26 2.91-.56.79-.31 1.46-.72 2.13-1.38.66-.67 1.07-1.34 1.38-2.13.3-.77.5-1.64.56-2.91.05-1.28.07-1.69.07-4.95s-.02-3.67-.07-4.95c-.06-1.27-.26-2.14-.56-2.91a5.9 5.9 0 0 0-1.38-2.13A5.9 5.9 0 0 0 19.86.63c-.77-.3-1.64-.5-2.91-.56C15.67.02 15.26 0 12 0Zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32ZM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm7.85-10.41a1.44 1.44 0 1 1-2.88 0 1.44 1.44 0 0 1 2.88 0Z" fill="currentColor"/> </svg></a></li>
+        <li><a class="more__social-link" href="https://www.behance.net/mlkmx" aria-label="Behance - mlkmx" target="_blank" rel="noopener"><svg class="more__social-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"> <path d="M8.64 7c.5 0 .95.05 1.37.15.41.1.76.26 1.05.48.29.22.52.52.68.89.16.37.24.83.24 1.37 0 .59-.12 1.08-.36 1.48-.24.39-.6.71-1.07.96.64.21 1.12.57 1.44 1.09.32.52.47 1.15.47 1.88 0 .59-.1 1.11-.31 1.54-.19.42-.47.79-.82 1.06-.36.28-.76.48-1.19.6-.44.14-.9.2-1.37.2H2V7h6.64Zm-.4 4.61c.41 0 .75-.11 1.02-.33.27-.22.39-.57.39-1.06 0-.27-.04-.5-.13-.68a.94.94 0 0 0-.36-.41 1.4 1.4 0 0 0-.51-.21c-.2-.04-.4-.06-.6-.06H4.82v2.75h3.42Zm.19 4.84c.23 0 .44-.03.65-.08.2-.05.39-.13.54-.25.16-.12.29-.28.37-.47.09-.2.14-.46.14-.78 0-.62-.16-1.06-.47-1.33-.31-.26-.72-.4-1.23-.4H4.82v3.31h3.61ZM16.13 16.47c.38.41.92.62 1.63.62.51 0 .95-.14 1.32-.43.37-.29.6-.59.68-.91h2.09c-.34 1.16-.85 1.99-1.54 2.49-.7.51-1.53.76-2.51.76-.69 0-1.3-.12-1.85-.37a4.2 4.2 0 0 1-1.4-1.04 4.7 4.7 0 0 1-.89-1.62 6.1 6.1 0 0 1-.29-2.08c0-.74.1-1.42.32-2.06.2-.6.51-1.16.91-1.63a4.2 4.2 0 0 1 1.4-1.08 4.4 4.4 0 0 1 1.81-.39c.73 0 1.37.15 1.92.47.53.31.99.75 1.34 1.28.36.54.61 1.15.76 1.84.16.68.21 1.4.17 2.15h-6.25c.03.91.24 1.59.62 2Zm2.91-5.44c-.3-.37-.81-.57-1.42-.57-.4 0-.73.08-.99.23-.27.15-.48.34-.64.56a2 2 0 0 0-.34.74c-.06.21-.1.42-.11.64h3.87c-.06-.68-.24-1.23-.54-1.6ZM14.86 7h4.9v1.2h-4.9V7Z" fill="currentColor"/> </svg></a></li>
+        <li><a class="more__social-link" href="https://www.behance.net/MalikODaniel" aria-label="Behance - MalikODaniel" target="_blank" rel="noopener"><svg class="more__social-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"> <path d="M8.64 7c.5 0 .95.05 1.37.15.41.1.76.26 1.05.48.29.22.52.52.68.89.16.37.24.83.24 1.37 0 .59-.12 1.08-.36 1.48-.24.39-.6.71-1.07.96.64.21 1.12.57 1.44 1.09.32.52.47 1.15.47 1.88 0 .59-.1 1.11-.31 1.54-.19.42-.47.79-.82 1.06-.36.28-.76.48-1.19.6-.44.14-.9.2-1.37.2H2V7h6.64Zm-.4 4.61c.41 0 .75-.11 1.02-.33.27-.22.39-.57.39-1.06 0-.27-.04-.5-.13-.68a.94.94 0 0 0-.36-.41 1.4 1.4 0 0 0-.51-.21c-.2-.04-.4-.06-.6-.06H4.82v2.75h3.42Zm.19 4.84c.23 0 .44-.03.65-.08.2-.05.39-.13.54-.25.16-.12.29-.28.37-.47.09-.2.14-.46.14-.78 0-.62-.16-1.06-.47-1.33-.31-.26-.72-.4-1.23-.4H4.82v3.31h3.61ZM16.13 16.47c.38.41.92.62 1.63.62.51 0 .95-.14 1.32-.43.37-.29.6-.59.68-.91h2.09c-.34 1.16-.85 1.99-1.54 2.49-.7.51-1.53.76-2.51.76-.69 0-1.3-.12-1.85-.37a4.2 4.2 0 0 1-1.4-1.04 4.7 4.7 0 0 1-.89-1.62 6.1 6.1 0 0 1-.29-2.08c0-.74.1-1.42.32-2.06.2-.6.51-1.16.91-1.63a4.2 4.2 0 0 1 1.4-1.08 4.4 4.4 0 0 1 1.81-.39c.73 0 1.37.15 1.92.47.53.31.99.75 1.34 1.28.36.54.61 1.15.76 1.84.16.68.21 1.4.17 2.15h-6.25c.03.91.24 1.59.62 2Zm2.91-5.44c-.3-.37-.81-.57-1.42-.57-.4 0-.73.08-.99.23-.27.15-.48.34-.64.56a2.2 2.2 0 0 0-.34.74c-.06.21-.1.42-.11.64h3.87c-.06-.68-.24-1.23-.54-1.6ZM14.86 7h4.9v1.2h-4.9V7Z" fill="currentColor"/> </svg></a></li>
+      </ul>
+    </div>
+  </section>
+
+
+  <!-- LIGHTBOX & GALLERY SCRIPT -->
+  <div id="lightbox">
+    <button id="lightbox-close" aria-label="Close Lightbox">&times;</button>
+    <button id="lightbox-prev" class="lightbox-nav" aria-label="Previous Image">&#10094;</button>
+    <img id="lightbox-img" src="" alt="Enlarged view">
+    <button id="lightbox-next" class="lightbox-nav" aria-label="Next Image">&#10095;</button>
+  </div>
+
+  <script>
+    // Theme Toggle Logic
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    const body = document.body;
+
+    if (localStorage.getItem('theme') === 'dark') {
+      body.classList.add('dark-theme');
+      setSunIcon();
+    }
+
+    themeToggle.addEventListener('click', () => {
+      body.classList.toggle('dark-theme');
+      if (body.classList.contains('dark-theme')) {
+        localStorage.setItem('theme', 'dark');
+        setSunIcon();
+      } else {
+        localStorage.setItem('theme', 'light');
+        setMoonIcon();
+      }
+    });
+
+    function setSunIcon() {
+      themeIcon.innerHTML = '<circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>';
+    }
+
+    function setMoonIcon() {
+      themeIcon.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>';
+    }
+
+    // Lightbox & Gallery Logic
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxClose = document.getElementById('lightbox-close');
+    const prevBtn = document.getElementById('lightbox-prev');
+    const nextBtn = document.getElementById('lightbox-next');
+    
+    const clickableImages = Array.from(document.querySelectorAll('main img:not(.no-lightbox)'));
+    let currentIndex = 0;
+
+    function updateLightboxImage() {
+      lightboxImg.src = clickableImages[currentIndex].src;
+    }
+
+    clickableImages.forEach((img, index) => {
+      img.addEventListener('click', () => {
+        currentIndex = index;
+        updateLightboxImage();
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    const closeLightbox = () => {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    };
+
+    // Navigation Controls
+    prevBtn.addEventListener('click', (e) => {
+      e.stopPropagation(); 
+      currentIndex = (currentIndex > 0) ? currentIndex - 1 : clickableImages.length - 1;
+      updateLightboxImage();
+    });
+
+    nextBtn.addEventListener('click', (e) => {
+      e.stopPropagation(); 
+      currentIndex = (currentIndex < clickableImages.length - 1) ? currentIndex + 1 : 0;
+      updateLightboxImage();
+    });
+
+    // Close on background click
+    lightbox.addEventListener('click', (e) => {
+      if (e.target !== lightboxImg && e.target !== prevBtn && e.target !== nextBtn) {
+        closeLightbox();
+      }
+    });
+
+    lightboxClose.addEventListener('click', closeLightbox);
+
+    // Keyboard controls for Gallery & Close
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox.classList.contains('active')) return;
+      
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') {
+        currentIndex = (currentIndex > 0) ? currentIndex - 1 : clickableImages.length - 1;
+        updateLightboxImage();
+      }
+      if (e.key === 'ArrowRight') {
+        currentIndex = (currentIndex < clickableImages.length - 1) ? currentIndex + 1 : 0;
+        updateLightboxImage();
+      }
+    });
+  </script>
+
+  <script>
+    (function () {
+      var modal = document.getElementById('demoModal');
+      document.querySelectorAll('[data-demo]').forEach(function (b) {
+        b.addEventListener('click', function () { modal.classList.add('active'); });
+      });
+      document.getElementById('modalCancel').addEventListener('click', function () { modal.classList.remove('active'); });
+      modal.addEventListener('click', function (e) { if (e.target === modal) modal.classList.remove('active'); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') modal.classList.remove('active'); });
+    })();
+  </script>
+  <script src="../../js/projects.js?v=20261026b"></script>
+</body>
+</html>

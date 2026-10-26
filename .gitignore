@@ -1,0 +1,6 @@
+# Never ship working folders. Backups live in PortfolioNEW/_backups, outside this site.
+_backups/
+_to_delete/
+
+# macOS folder metadata
+.DS_Store

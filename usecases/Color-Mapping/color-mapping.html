@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daniel | Color Mapping</title>
+  <link rel="icon" href="../../assets/img/favicon.ico?v=20261024j" sizes="any">
+  <link rel="icon" type="image/svg+xml" href="../../assets/img/favicon.svg?v=20261024j">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/img/favicon-32.png?v=20261024j">
+  <link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png?v=20261024j">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Inter+Tight:wght@800;900&family=Montserrat:wght@500;600&display=swap" rel="stylesheet">
+
+  <!-- Homepage card component (More case studies) -->
+  <link rel="stylesheet" href="../../css/my-work.css?v=20261026b">
+  <link rel="stylesheet" href="../../css/case-study.css?v=20261026b">
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../index.html">Home</a> / <a href="../../index.html#work">Work</a> / <span>Color Mapping</span>
+    </nav>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle Dark Mode">
+      <svg id="themeIcon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      </svg>
+    </button>
+  </div>
+
+  <!-- HERO -->
+  <header class="hero" style="background-image: url('assets/img/Colors-hero.png')">
+    <span class="chip chip--light hero__chip hero__chip--l">Case Study 03</span>
+    <span class="chip chip--light hero__chip hero__chip--r">Kyndryl / IBM</span>
+
+    <div class="hero__body">
+      <div>
+        <img class="hero__logo no-lightbox" src="assets/img/Logo-IBMKindryl.svg" alt="IBM / Kyndryl">
+        <h1 class="display display--xl hero__title">Color<br>Mapping</h1>
+        <p class="hero__subtitle">Translating an atmospheric, marketing-driven brand identity into a scalable, accessible enterprise design system.</p>
+      </div>
+      <div class="hero__info">
+        <div><b>Role :</b> Sr Lead UX Designer</div>
+        <div><b>Org :</b> IBM / Kyndryl</div>
+        <div><b>Scope :</b> Carbon Design System Integration, 40+ UI Components, WCAG 2.1 AA Compliance, Dual-Theme Tokenization</div>
+        <div><b>Impact :</b> 95% WCAG 2.1 alignment</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- OWNERSHIP -->
+  <div class="owner"><span class="owner__label">My part</span><p class="owner__text">I designed the token architecture and validated every pairing against WCAG. Front end engineering implemented the variable matrix across the platform.</p></div>
+
+  <main>
+    <!-- 01 : THE PROBLEM (image left) -->
+    <section class="sec split split--ui" id="problem">
+      <span class="chip sec__chip">01 / The Problem</span>
+      <div class="split__grid">
+        <div class="split__media">
+            <figure class="figure figure--diagram">
+              <div class="figure__panel"><svg fill="none" style="color:var(--text-main)" viewbox="0 0 380 460" xmlns="http://www.w3.org/2000/svg">
+<rect fill="none" height="70" rx="8" stroke="currentColor" stroke-width="1.5" width="320" x="30" y="15"></rect>
+<text fill="currentColor" font-family="DM Sans, sans-serif" font-size="11" font-weight="700" text-anchor="middle" x="190" y="43">TIER 1 · BRAND PALETTE</text>
+<text fill="currentColor" font-family="DM Sans, sans-serif" font-size="10" opacity="0.85" text-anchor="middle" x="190" y="63">Raw global hex values</text>
+<line stroke="currentColor" stroke-width="1.5" x1="190" x2="190" y1="85" y2="125"></line>
+<path d="M184 117 L190 127 L196 117" fill="none" stroke="currentColor" stroke-width="1.5"></path>
+<rect fill="none" height="90" rx="8" stroke="currentColor" stroke-width="2" width="320" x="30" y="130"></rect>
+<text fill="currentColor" font-family="DM Sans, sans-serif" font-size="11" font-weight="700" text-anchor="middle" x="190" y="155">TIER 2 · SEMANTIC TOKENS</text>
+<text fill="currentColor" font-family="DM Sans, sans-serif" font-size="9.5" opacity="0.85" text-anchor="middle" x="190" y="175">$ui-background</text>
+<text fill="currentColor" font-family="DM Sans, sans-serif" font-size="9.5" opacity="0.85" text-anchor="middle" x="190" y="192">$support-error · $text-primary</text>
+<text fill="currentColor" font-family="DM Sans, sans-serif" font-size="9" opacity="0.6" text-anchor="middle" x="190" y="209">resolves per active theme</text>
+<line stroke="currentColor" stroke-width="1.5" x1="190" x2="190" y1="220" y2="260"></line>
+<path d="M184 252 L190 262 L196 252" fill="none" stroke="currentColor" stroke-width="1.5"></path>
+<rect fill="none" height="90" rx="8" stroke="currentColor" stroke-width="1.5" width="150" x="30" y="265"></rect>
+<text fill="currentColor" font-family="DM Sans, sans-serif" font-size="10" font-weight="700" text-anchor="middle" x="105" y="290">GRAY 10</text>
+<text fill="currentColor" font-family="DM Sans, sans-serif" font-size="9" opacity="0.8" text-anchor="middle" x="105" y="306">Light theme</text>
+<rect fill="none" height="26" rx="4" stroke="currentColor" stroke-width="1.2" width="120" x="45" y="315"></rect>
+<text fill="currentColor" font-family="DM Sans, sans-serif" font-size="8.5" text-anchor="middle" x="105" y="332">component output</text>
+<rect fill="none" height="90" rx="8" stroke="currentColor" stroke-width="1.5" width="150" x="200" y="265"></rect>
+<text fill="currentColor" font-family="DM Sans, sans-serif" font-size="10" font-weight="700" text-anchor="middle" x="275" y="290">GRAY 100</text>
+<text fill="currentColor" font-family="DM Sans, sans-serif" font-size="9" opacity="0.8" text-anchor="middle" x="275" y="306">Dark theme</text>
+<rect fill="none" height="26" rx="4" stroke="currentColor" stroke-width="1.2" width="120" x="215" y="315"></rect>
+<text fill="currentColor" font-family="DM Sans, sans-serif" font-size="8.5" text-anchor="middle" x="275" y="332">component output</text>
+<line opacity="0.5" stroke="currentColor" stroke-dasharray="3 3" stroke-width="1" x1="105" x2="105" y1="220" y2="262"></line>
+<line opacity="0.5" stroke="currentColor" stroke-dasharray="3 3" stroke-width="1" x1="275" x2="275" y1="220" y2="262"></line>
+<rect fill="none" height="46" rx="6" stroke="currentColor" stroke-dasharray="5 3" stroke-width="1.5" width="240" x="70" y="380"></rect>
+<text fill="currentColor" font-family="DM Sans, sans-serif" font-size="9.5" text-anchor="middle" x="190" y="408">40+ Carbon components, one source of truth</text>
+</svg></div>
+              <figcaption class="figure__caption">
+                <span>One brand palette, resolved through a semantic layer, into two fully compliant themes.</span>
+                <span class="chip">Fig. 01</span>
+              </figcaption>
+            </figure>
+        </div>
+        <div class="split__text">
+          <h2 class="display display--lg">The<br>Problem</h2>
+            <div class="beat">
+              <span class="beat__label">The brief</span>
+              <h3 class="beat__title">Update the palette to match the new brand</h3>
+              <p class="lead">Following the spin-off from IBM, Kyndryl introduced a new brand identity built around nature, warm sunsets, and atmospheric gradients. The ask was simple on its face: update the software palette to match the new corporate brand.</p>
+            </div>
+            <div class="beat">
+              <span class="beat__label">Where it broke</span>
+              <h3 class="beat__title">Marketing color and functional color don&#x27;t play by the same rules</h3>
+              <p class="lead">Marketing relies on soft tones and atmospheric warmth. Enterprise software needs strict, unambiguous, high-contrast color for critical states, success, warning, error, interactive, that a user has to read correctly in a fraction of a second. The platform's front end was also built on IBM's Carbon Design System, specifically its Gray 10 light and Gray 100 dark themes. Swapping in soft marketing hex values directly would break component contrast, collapse the visual hierarchy, and fail accessibility outright.</p>
+            </div>
+            <div class="beat">
+              <span class="beat__label">The test</span>
+              <h3 class="beat__title">A direct swap was never going to work</h3>
+              <p class="lead">Testing the brand's actual hex values against Carbon's structural requirements confirmed it: a literal, one-to-one color replacement was mathematically incompatible with WCAG contrast minimums. Color couldn't be treated as a visual asset dropped into components. It had to be treated as a data pipeline.</p>
+            </div>
+            <div class="beat">
+              <span class="beat__label">The way out</span>
+              <h3 class="beat__title">Decouple the brand from the components entirely</h3>
+              <p class="lead">Instead of hardcoding hex values into components, the fix was a layer of indirection: a semantic token system that could resolve brand intent into whatever concrete value each theme actually needed.</p>
+            </div>
+        </div>
+      </div>
+    </section>
+    <!-- 02 : THE DECISION -->
+    <section class="sec" id="decision">
+      <span class="chip sec__chip">02 / The Decision</span>
+      <div class="duo">
+        <p class="statement">I bypassed hardcoded color swaps and engineered a three-tiered semantic token system instead.</p>
+        <p class="lead">Raw brand hex values got decoupled from component styling entirely. A dynamic mapping layer translated Kyndryl's core brand palette into strict, WCAG AA-compliant Carbon tokens automatically, so the brand and the interface could each change independently without breaking the other.</p>
+      </div>
+    </section>
+    <!-- 03 : THE BUILD -->
+    <section class="sec sec--gray split split--ui split--reverse" id="validation">
+      <span class="chip sec__chip">03 / The Build</span>
+      <div class="split__grid">
+        <div class="split__media">
+            <figure class="figure figure--framed">
+              <div class="figure__grid">
+                <img src="assets/img/Color-Carbon-Structure 4.png" alt="Token architecture from global brand colors to semantic UI tokens">
+                <img src="assets/img/Colors-sheet.png" alt="Finalized CSS variable matrix handed off to engineering">
+                <img src="assets/img/Color-Contrast1.png" alt="Button and notification contrast testing in light theme">
+                <img src="assets/img/Color-Contrast2.png" alt="Button and notification contrast testing in dark theme">
+              </div>
+              <figcaption class="figure__caption">
+                <span>The system, built</span>
+                <span class="chip">Fig. 02</span>
+              </figcaption>
+            </figure>
+        </div>
+        <div class="split__text">
+          <h2 class="display display--md">Three Token<br>Tiers</h2>
+          <p class="lead">Three token layers made this work. Global tokens hold the raw brand palette. Semantic tokens describe intent, <code>$ui-background</code>, <code>$interactive-primary</code>, <code>$support-error</code>, rather than a specific color. Component tokens apply those semantic aliases to individual UI elements. A single token like <code>$text-primary</code> resolves to a dark gray in light mode and a light gray in dark mode automatically, so engineering never has to make a manual color decision again.</p>
+        </div>
+      </div>
+    </section>
+    <!-- 04 : IN DEPTH -->
+    <section class="sec" id="delivery">
+      <span class="chip sec__chip">04 / In Depth</span>
+      <div class="duo">
+        <div>
+          <h2 class="display display--md">Under the<br>Tokens</h2>
+          <p class="lead" style="margin-top:clamp(16px,2vw,24px)">How the tokens resolve, and how each pairing was verified.</p>
+        </div>
+        <div class="rows rows--top">
+          <div class="row">
+            <div class="row__label">Overwriting Carbon&#x27;s Gray 10/100 foundations</div>
+            <div class="row__text"><p>Carbon relies on rigid color tokens for layout, container, and field states. Rather than rebuilding components from scratch, I mapped Kyndryl's core and support colors directly against Carbon's native Gray 10 light and Gray 100 dark structural logic. That inherited Carbon's already battle-tested layout math while replacing its identity wholesale.</p></div>
+          </div>
+          <div class="row">
+            <div class="row__label">The three-tiered token architecture</div>
+            <div class="row__text"><ul>
+<li><strong>Global tokens:</strong> the raw brand palette, as defined by the brand team.</li>
+<li><strong>Semantic tokens:</strong> intent aliases like <code>$ui-background</code>, <code>$support-error</code>, <code>$text-primary</code>.</li>
+<li><strong>Component tokens:</strong> specific applications of those aliases to individual UI elements.</li>
+</ul><p>A single semantic token resolves to a different concrete value depending on the active theme, shielding engineering from ever having to make a manual color choice.</p></div>
+          </div>
+          <div class="row">
+            <div class="row__label">Mathematical WCAG contrast verification</div>
+            <div class="row__text"><p>Every semantic token pairing went through mathematical validation against strict contrast ratio gates: a minimum of 4.5:1 for standard text and interactive controls, and 3:1 for large display text and structural borders. Support colors, reds, greens, ambers, got their luminance calibrated until every state passed WCAG 2.1 AA in both light and dark.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- 05 : RESULTS -->
+    <section class="sec sec--gray" id="results" aria-label="Results">
+      <span class="chip sec__chip">05 / What Changed</span>
+      <div class="metrics__grid">
+          <div class="metric">
+            <div class="metric__value">95%</div>
+            <div class="metric__label">WCAG 2.1 Alignment</div>
+            <p class="metric__text">Accessibility alignment across the platform's components, in both light and dark themes.</p>
+          </div>
+          <div class="metric">
+            <div class="metric__value">&minus;30%</div>
+            <div class="metric__label">Usability Issues</div>
+            <p class="metric__text">Fewer usability issues as one semantic token language scaled across every modular app.</p>
+          </div>
+          <div class="metric">
+            <div class="metric__value metric__value--word">Zero-Friction</div>
+            <div class="metric__label">Handoff</div>
+            <p class="metric__text">A clean CSS variable matrix handed to engineering, no hardcoded hex values and no theme regressions.</p>
+          </div>
+      </div>
+    </section>
+    <!-- 06 : REFLECTION -->
+    <section class="reflection" id="reflection" style="background-image: url('assets/img/Color-Bottonm-her.png')">
+      <div class="reflection__inner">
+        <div class="reflection__top">
+          <span class="chip chip--light">06 / Reflection</span>
+          <span class="chip chip--light">Kyndryl / IBM</span>
+        </div>
+        <h2 class="display display--lg">Looking<br>Back</h2>
+        <div class="reflection__cols">
+          <div>
+            <h3>What Went Well?</h3>
+            <p><strong>Bridging Brand and Product</strong>Took a highly atmospheric, marketing-driven brand identity and translated it into a strict, functional, accessible product UI system without losing the brand's core essence.</p>
+            <p><strong>Systematic Scalability</strong>The semantic CSS token architecture meant any future brand update or theme addition could be implemented globally by updating base variables, rather than hunting down hardcoded hex values.</p>
+            <p><strong>Developer Alignment</strong>A clear, spreadsheet-driven mapping of Carbon's Gray 10/100 themes to the new semantic tokens gave engineering a frictionless, unambiguous handoff.</p>
+          </div>
+          <div>
+            <h3>What Could I Have Done Better?</h3>
+            <p><strong>Automated Pipeline Integration</strong>Manual Figma contrast testing drove 95% WCAG 2.1 alignment at the design phase, but integrating an automated contrast-checking linter directly into the CI/CD pipeline would have prevented accessibility regressions during future code updates.</p>
+            <p><strong>Color-Blindness Empathy Testing</strong>Mathematical contrast ratios passed for standard vision, but earlier qualitative testing with color-blind users specifically could have optimized the exact hues chosen for critical error and success states much faster.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- MORE CASE STUDIES (cards from js/projects.js, same component as the homepage) -->
+  <section class="more" id="more" aria-labelledby="more-title">
+    <div class="more__head">
+      <h2 id="more-title" class="display display--md">More Case<br>Studies</h2>
+      <div class="more__filters" role="tablist" aria-label="Filter case studies">
+        <button class="more__filter is-active" type="button" role="tab" aria-selected="true" data-more-filter="related">Related</button>
+        <button class="more__filter" type="button" role="tab" aria-selected="false" data-more-filter="all">View all</button>
+      </div>
+    </div>
+    <div class="more__grid" data-projects="more" data-base="../../" data-current="color"></div>
+    <div class="more__contact">
+      <ul class="more__links">
+        <li><a href="mailto:daniel@dcreativethinking.com">daniel@dcreativethinking.com</a></li>
+        <li><a href="tel:+18019219885">+1 801-921-9885</a></li>
+        <li><a href="../../assets/docs/Daniel_Rojas_Resume_2026_v2.pdf" download="Daniel_Rojas_Resume_2026.pdf">Download resume</a></li>
+      </ul>
+      <ul class="more__social" aria-label="Social profiles">
+        <li><a class="more__social-link" href="https://www.linkedin.com/in/dcreativethinking/" aria-label="LinkedIn" target="_blank" rel="noopener"><svg class="more__social-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"> <path d="M20.45 3H3.55A.55.55 0 0 0 3 3.55v16.9c0 .3.25.55.55.55h16.9c.3 0 .55-.25.55-.55V3.55A.55.55 0 0 0 20.45 3ZM8.8 18.34H5.87V9.75H8.8v8.59ZM7.34 8.47a1.7 1.7 0 1 1 0-3.4 1.7 1.7 0 0 1 0 3.4Zm11 9.87h-2.93v-4.18c0-1-.02-2.28-1.39-2.28-1.39 0-1.6 1.09-1.6 2.21v4.25H9.5V9.75h2.81v1.17h.04c.39-.74 1.35-1.52 2.77-1.52 2.97 0 3.52 1.95 3.52 4.49v4.45Z" fill="currentColor"/> </svg></a></li>
+        <li><a class="more__social-link" href="https://www.instagram.com/dani.el.ux/" aria-label="Instagram" target="_blank" rel="noopener"><svg class="more__social-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"> <path d="M12 2.16c3.2 0 3.58.02 4.85.07 1.17.06 1.8.25 2.23.42.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.84 0 3.2-.01 3.58-.07 4.85-.06 1.17-.25 1.8-.42 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42-.16-1.06.36-2.23.41-1.27.06-1.65.07-4.84.07-3.2 0-3.58-.01-4.85-.07-1.17-.06-1.8-.25-2.23-.42-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12c0-3.2.01-3.58.07-4.85.06-1.17.25-1.8.42-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16ZM12 0C8.74 0 8.33.02 7.05.07 5.78.13 4.9.33 4.14.63c-.79.31-1.46.72-2.13 1.38C1.35 2.68.94 3.35.63 4.14c-.3.77-.5 1.64-.56 2.91C.01 8.33 0 8.74 0 12s.02 3.67.07 4.95c.06 1.27.26 2.14.56 2.91.31.79.72 1.46 1.38 2.13.67.66 1.34 1.07 2.13 1.38.77.3 1.64.5 2.91.56C8.33 23.98 8.74 24 12 24s3.67-.02 4.95-.07c1.27-.06 2.14-.26 2.91-.56.79-.31 1.46-.72 2.13-1.38.66-.67 1.07-1.34 1.38-2.13.3-.77.5-1.64.56-2.91.05-1.28.07-1.69.07-4.95s-.02-3.67-.07-4.95c-.06-1.27-.26-2.14-.56-2.91a5.9 5.9 0 0 0-1.38-2.13A5.9 5.9 0 0 0 19.86.63c-.77-.3-1.64-.5-2.91-.56C15.67.02 15.26 0 12 0Zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32ZM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm7.85-10.41a1.44 1.44 0 1 1-2.88 0 1.44 1.44 0 0 1 2.88 0Z" fill="currentColor"/> </svg></a></li>
+        <li><a class="more__social-link" href="https://www.behance.net/mlkmx" aria-label="Behance - mlkmx" target="_blank" rel="noopener"><svg class="more__social-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"> <path d="M8.64 7c.5 0 .95.05 1.37.15.41.1.76.26 1.05.48.29.22.52.52.68.89.16.37.24.83.24 1.37 0 .59-.12 1.08-.36 1.48-.24.39-.6.71-1.07.96.64.21 1.12.57 1.44 1.09.32.52.47 1.15.47 1.88 0 .59-.1 1.11-.31 1.54-.19.42-.47.79-.82 1.06-.36.28-.76.48-1.19.6-.44.14-.9.2-1.37.2H2V7h6.64Zm-.4 4.61c.41 0 .75-.11 1.02-.33.27-.22.39-.57.39-1.06 0-.27-.04-.5-.13-.68a.94.94 0 0 0-.36-.41 1.4 1.4 0 0 0-.51-.21c-.2-.04-.4-.06-.6-.06H4.82v2.75h3.42Zm.19 4.84c.23 0 .44-.03.65-.08.2-.05.39-.13.54-.25.16-.12.29-.28.37-.47.09-.2.14-.46.14-.78 0-.62-.16-1.06-.47-1.33-.31-.26-.72-.4-1.23-.4H4.82v3.31h3.61ZM16.13 16.47c.38.41.92.62 1.63.62.51 0 .95-.14 1.32-.43.37-.29.6-.59.68-.91h2.09c-.34 1.16-.85 1.99-1.54 2.49-.7.51-1.53.76-2.51.76-.69 0-1.3-.12-1.85-.37a4.2 4.2 0 0 1-1.4-1.04 4.7 4.7 0 0 1-.89-1.62 6.1 6.1 0 0 1-.29-2.08c0-.74.1-1.42.32-2.06.2-.6.51-1.16.91-1.63a4.2 4.2 0 0 1 1.4-1.08 4.4 4.4 0 0 1 1.81-.39c.73 0 1.37.15 1.92.47.53.31.99.75 1.34 1.28.36.54.61 1.15.76 1.84.16.68.21 1.4.17 2.15h-6.25c.03.91.24 1.59.62 2Zm2.91-5.44c-.3-.37-.81-.57-1.42-.57-.4 0-.73.08-.99.23-.27.15-.48.34-.64.56a2 2 0 0 0-.34.74c-.06.21-.1.42-.11.64h3.87c-.06-.68-.24-1.23-.54-1.6ZM14.86 7h4.9v1.2h-4.9V7Z" fill="currentColor"/> </svg></a></li>
+        <li><a class="more__social-link" href="https://www.behance.net/MalikODaniel" aria-label="Behance - MalikODaniel" target="_blank" rel="noopener"><svg class="more__social-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"> <path d="M8.64 7c.5 0 .95.05 1.37.15.41.1.76.26 1.05.48.29.22.52.52.68.89.16.37.24.83.24 1.37 0 .59-.12 1.08-.36 1.48-.24.39-.6.71-1.07.96.64.21 1.12.57 1.44 1.09.32.52.47 1.15.47 1.88 0 .59-.1 1.11-.31 1.54-.19.42-.47.79-.82 1.06-.36.28-.76.48-1.19.6-.44.14-.9.2-1.37.2H2V7h6.64Zm-.4 4.61c.41 0 .75-.11 1.02-.33.27-.22.39-.57.39-1.06 0-.27-.04-.5-.13-.68a.94.94 0 0 0-.36-.41 1.4 1.4 0 0 0-.51-.21c-.2-.04-.4-.06-.6-.06H4.82v2.75h3.42Zm.19 4.84c.23 0 .44-.03.65-.08.2-.05.39-.13.54-.25.16-.12.29-.28.37-.47.09-.2.14-.46.14-.78 0-.62-.16-1.06-.47-1.33-.31-.26-.72-.4-1.23-.4H4.82v3.31h3.61ZM16.13 16.47c.38.41.92.62 1.63.62.51 0 .95-.14 1.32-.43.37-.29.6-.59.68-.91h2.09c-.34 1.16-.85 1.99-1.54 2.49-.7.51-1.53.76-2.51.76-.69 0-1.3-.12-1.85-.37a4.2 4.2 0 0 1-1.4-1.04 4.7 4.7 0 0 1-.89-1.62 6.1 6.1 0 0 1-.29-2.08c0-.74.1-1.42.32-2.06.2-.6.51-1.16.91-1.63a4.2 4.2 0 0 1 1.4-1.08 4.4 4.4 0 0 1 1.81-.39c.73 0 1.37.15 1.92.47.53.31.99.75 1.34 1.28.36.54.61 1.15.76 1.84.16.68.21 1.4.17 2.15h-6.25c.03.91.24 1.59.62 2Zm2.91-5.44c-.3-.37-.81-.57-1.42-.57-.4 0-.73.08-.99.23-.27.15-.48.34-.64.56a2.2 2.2 0 0 0-.34.74c-.06.21-.1.42-.11.64h3.87c-.06-.68-.24-1.23-.54-1.6ZM14.86 7h4.9v1.2h-4.9V7Z" fill="currentColor"/> </svg></a></li>
+      </ul>
+    </div>
+  </section>
+
+
+  <!-- LIGHTBOX & GALLERY SCRIPT -->
+  <div id="lightbox">
+    <button id="lightbox-close" aria-label="Close Lightbox">&times;</button>
+    <button id="lightbox-prev" class="lightbox-nav" aria-label="Previous Image">&#10094;</button>
+    <img id="lightbox-img" src="" alt="Enlarged view">
+    <button id="lightbox-next" class="lightbox-nav" aria-label="Next Image">&#10095;</button>
+  </div>
+
+  <script>
+    // Theme Toggle Logic
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    const body = document.body;
+
+    if (localStorage.getItem('theme') === 'dark') {
+      body.classList.add('dark-theme');
+      setSunIcon();
+    }
+
+    themeToggle.addEventListener('click', () => {
+      body.classList.toggle('dark-theme');
+      if (body.classList.contains('dark-theme')) {
+        localStorage.setItem('theme', 'dark');
+        setSunIcon();
+      } else {
+        localStorage.setItem('theme', 'light');
+        setMoonIcon();
+      }
+    });
+
+    function setSunIcon() {
+      themeIcon.innerHTML = '<circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>';
+    }
+
+    function setMoonIcon() {
+      themeIcon.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>';
+    }
+
+    // Lightbox & Gallery Logic
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxClose = document.getElementById('lightbox-close');
+    const prevBtn = document.getElementById('lightbox-prev');
+    const nextBtn = document.getElementById('lightbox-next');
+    
+    const clickableImages = Array.from(document.querySelectorAll('main img:not(.no-lightbox)'));
+    let currentIndex = 0;
+
+    function updateLightboxImage() {
+      lightboxImg.src = clickableImages[currentIndex].src;
+    }
+
+    clickableImages.forEach((img, index) => {
+      img.addEventListener('click', () => {
+        currentIndex = index;
+        updateLightboxImage();
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    const closeLightbox = () => {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    };
+
+    // Navigation Controls
+    prevBtn.addEventListener('click', (e) => {
+      e.stopPropagation(); 
+      currentIndex = (currentIndex > 0) ? currentIndex - 1 : clickableImages.length - 1;
+      updateLightboxImage();
+    });
+
+    nextBtn.addEventListener('click', (e) => {
+      e.stopPropagation(); 
+      currentIndex = (currentIndex < clickableImages.length - 1) ? currentIndex + 1 : 0;
+      updateLightboxImage();
+    });
+
+    // Close on background click
+    lightbox.addEventListener('click', (e) => {
+      if (e.target !== lightboxImg && e.target !== prevBtn && e.target !== nextBtn) {
+        closeLightbox();
+      }
+    });
+
+    lightboxClose.addEventListener('click', closeLightbox);
+
+    // Keyboard controls for Gallery & Close
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox.classList.contains('active')) return;
+      
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') {
+        currentIndex = (currentIndex > 0) ? currentIndex - 1 : clickableImages.length - 1;
+        updateLightboxImage();
+      }
+      if (e.key === 'ArrowRight') {
+        currentIndex = (currentIndex < clickableImages.length - 1) ? currentIndex + 1 : 0;
+        updateLightboxImage();
+      }
+    });
+  </script>
+  <script src="../../js/projects.js?v=20261026b"></script>
+</body>
+</html>

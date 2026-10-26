@@ -1,7 +1,7 @@
 /* ==========================================================================
    main.js  ::  component 1 (.hero / .nav)
 
-   Two behaviours live here:
+   Three behaviours live here (3: profile versions by URL hash, see below):
      1. Hero background video autoplay (the Dionne iOS fix), gated so it does
         NOT run under prefers-reduced-motion -- reduced-motion users keep the
         poster still, matching the footer's accessibility handling.
@@ -77,5 +77,53 @@
       if (e.key === "Escape") { setOpen(false); }
     });
   }
+
+  /* ---- 3. profile versions by URL hash (e.g. /#uxproduct) ---------------
+     The default headline, statement and resume live in the HTML so search
+     engines and no-JS visitors always get them. Add a key below to create a
+     version: visiting /#key swaps the hero copy and the resume link. Section
+     anchors (#work, #contact...) are not keys, so jumping around the page
+     keeps whichever version was loaded. */
+  var HERO_PROFILES = {
+    /* example, fill in when the version copy is ready:
+    uxproduct: {
+      headline: ["AI Native Systems Builder", "Lead Product Designer"],
+      statement: "One or two lines for this profile.",
+      resume: "assets/docs/Daniel_Rojas_Resume_UXProduct.pdf"
+    },
+    */
+  };
+
+  var headlineEl = document.querySelector(".js-hero-headline");
+  var statementEl = document.querySelector(".js-hero-statement");
+  var resumeEl = document.querySelector(".milk__resume");
+
+  var applyProfile = function () {
+    var key = (window.location.hash || "").replace("#", "").toLowerCase();
+    var profile = HERO_PROFILES[key];
+    if (!profile) { return; }
+
+    if (headlineEl && profile.headline && profile.headline.length) {
+      headlineEl.textContent = "";
+      profile.headline.forEach(function (part, i) {
+        if (i > 0) {
+          var sep = document.createElement("span");
+          sep.className = "hero__headline-sep" + (i === 1 ? " hero__headline-sep--role" : "");
+          sep.setAttribute("aria-hidden", "true");
+          sep.textContent = "\u00a0/ ";
+          headlineEl.appendChild(sep);
+        }
+        var span = document.createElement("span");
+        span.className = "hero__headline-part" + (i === 0 ? " hero__headline-part--role" : "");
+        span.textContent = part;
+        headlineEl.appendChild(span);
+      });
+    }
+    if (statementEl && profile.statement) { statementEl.textContent = profile.statement; }
+    if (resumeEl && profile.resume) { resumeEl.setAttribute("href", profile.resume); }
+  };
+
+  applyProfile();
+  window.addEventListener("hashchange", applyProfile);
 })();
 /* ===== END BLOCK ===== */

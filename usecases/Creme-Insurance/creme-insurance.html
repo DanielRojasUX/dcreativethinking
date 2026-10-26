@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daniel | Crème Insurance</title>
+  <link rel="icon" href="../../assets/img/favicon.ico?v=20261024j" sizes="any">
+  <link rel="icon" type="image/svg+xml" href="../../assets/img/favicon.svg?v=20261024j">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/img/favicon-32.png?v=20261024j">
+  <link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png?v=20261024j">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Inter+Tight:wght@800;900&family=Montserrat:wght@500;600&display=swap" rel="stylesheet">
+
+  <!-- Homepage card component (More case studies) -->
+  <link rel="stylesheet" href="../../css/my-work.css?v=20261026b">
+  <link rel="stylesheet" href="../../css/case-study.css?v=20261026b">
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../index.html">Home</a> / <a href="../../index.html#work">Work</a> / <span>Crème Insurance</span>
+    </nav>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle Dark Mode">
+      <svg id="themeIcon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      </svg>
+    </button>
+  </div>
+
+  <!-- HERO -->
+  <header class="hero" style="background-image: url('creme/img/creme-dashboard.png')">
+    <span class="chip chip--light hero__chip hero__chip--l">Case Study 06</span>
+    <span class="chip chip--light hero__chip hero__chip--r">Crème Insurance</span>
+
+    <div class="hero__body">
+      <div>
+        <h1 class="display display--xl hero__title">Partner Hub<br>Redesign</h1>
+        <p class="hero__subtitle">Modernizing a legacy claims portal into a high-touch enterprise SaaS platform, executed through hands-on UI design, system tokenization, and AI-assisted development (Claude &amp; Gemini).</p>
+        <div class="actions"><button class="btn" type="button" data-demo>Launch Interactive Demo &rarr;</button></div>
+      </div>
+      <div class="hero__info">
+        <div><b>Role :</b> Lead UI Designer &amp; Developer</div>
+        <div><b>Org :</b> Crème Insurance</div>
+        <div><b>Scope :</b> Legacy UI Redesign, Neumorphic Design System, AI-Assisted UI Dev (Claude &amp; Gemini), WCAG AA Compliance</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- OWNERSHIP -->
+  <div class="owner"><span class="owner__label">My part</span><p class="owner__text">I designed and built this end to end, from the token architecture to the working front end, using Claude and Gemini as collaborative tools.</p></div>
+
+  <main>
+    <!-- 01 : THE PROBLEM (image left) -->
+    <section class="sec split split--ui" id="problem">
+      <span class="chip sec__chip">01 / The Problem</span>
+      <div class="split__grid">
+        <div class="split__media">
+            <figure class="figure figure--framed">
+              <img src="creme/img/Before-login.png" alt="Legacy login screen from 2010">
+              <figcaption class="figure__caption">
+                <span>Legacy login screen from 2010</span>
+                <span class="chip">Fig. 01</span>
+              </figcaption>
+            </figure>
+            <figure class="figure figure--framed">
+              <img src="creme/img/Before-table.png" alt="Legacy claims table dashboard from 2010">
+              <figcaption class="figure__caption">
+                <span>Legacy claims table dashboard from 2010</span>
+                <span class="chip">Fig. 02</span>
+              </figcaption>
+            </figure>
+        </div>
+        <div class="split__text">
+          <h2 class="display display--lg">The<br>Problem</h2>
+            <div class="beat">
+              <h3 class="beat__title">Outdated Legacy Architecture</h3>
+              <p class="lead">The legacy Crème Insurance portal relied on obsolete 2010 skeuomorphic patterns, heavy glossy gradients, rigid 980px table layouts, and fragmented popup alerts. Managing high-value claims required high visual effort, slowing down senior adjusters during critical evaluation workflows.</p>
+            </div>
+            <div class="beat">
+              <h3 class="beat__title">Conflict Between Tactile Softness and Legibility</h3>
+              <p class="lead">Designing a modern soft-neumorphic interface presented an immediate technical challenge: soft surface elevation and high-contrast WCAG legibility frequently fought each other. If raised cards and inset fields were kept visually soft, text contrast and icon visibility risked being compromised.</p>
+            </div>
+            <div class="beat">
+              <h3 class="beat__title">Separating Surface Elevation from Ink Contrast</h3>
+              <p class="lead">The solution was decoupling visual depth from typographic contrast entirely. Surface elevation (depth, tactility, shadows) needed to be managed by one independent token system, while text and status indicators (ink, contrast, legibility) were controlled by a separate, strict WCAG-compliant color scale.</p>
+            </div>
+        </div>
+      </div>
+    </section>
+    <!-- 02 : THE DECISION -->
+    <section class="sec" id="decision">
+      <span class="chip sec__chip">02 / The Decision</span>
+      <div class="duo">
+        <p class="statement">I engineered two independent CSS token systems: one for surface elevation and one for semantic contrast.</p>
+        <p class="lead">Collaborating with AI tools (Claude & Gemini) for rapid layout exploration, token architecture, and code implementation, I established an elevation scale (<code>.raised</code>, <code>.raised-sm</code>, <code>.inset</code>) for physical depth alongside a separate contrast scale for typography. Elevation remained soft without sacrificing reading clarity.</p>
+      </div>
+    </section>
+    <!-- 03 : THE BUILD -->
+    <section class="sec sec--gray split split--ui split--reverse" id="prototyping">
+      <span class="chip sec__chip">03 / The Build</span>
+      <div class="split__grid">
+        <div class="split__media">
+            <figure class="figure figure--framed">
+              <img src="creme/img/creme-login.png" alt="Neumorphic sign-in screen for the Partner Hub">
+              <figcaption class="figure__caption">
+                <span>Neumorphic sign-in screen for the Partner Hub</span>
+                <span class="chip">Fig. 03</span>
+              </figcaption>
+            </figure>
+            <figure class="figure figure--framed">
+              <img src="creme/img/creme-detail.png" alt="Specialist network view with category filtering and pagination">
+              <figcaption class="figure__caption">
+                <span>Specialist network view with category filtering and pagination</span>
+                <span class="chip">Fig. 04</span>
+              </figcaption>
+            </figure>
+            <figure class="figure figure--framed">
+              <img src="creme/img/creme-dashboard.png" alt="Main claims queue dashboard inside the working application">
+              <figcaption class="figure__caption">
+                <span>Main claims queue dashboard inside the working application</span>
+                <span class="chip">Fig. 05</span>
+              </figcaption>
+            </figure>
+        </div>
+        <div class="split__text">
+          <h2 class="display display--md">The Implemented<br>Partner Hub</h2>
+          <p class="lead">The final system powers a live, fully working client-side application, featuring an authenticated sign-in flow, a claims queue with status tracking, a specialist network with category filters, and a settlement history. All views run on the unified, dual-token design system documented in code.</p>
+          <div class="actions"><button class="btn" type="button" data-demo>Launch Interactive Demo &rarr;</button></div>
+        </div>
+      </div>
+    </section>
+    <!-- 04 : DESIGN SYSTEM -->
+    <section class="sec split split--ui" id="design-system">
+      <span class="chip sec__chip">04 / Design System</span>
+      <div class="split__grid">
+        <div class="split__media">
+            <figure class="figure figure--framed">
+              <div class="figure__grid">
+                <img src="creme/img/DesignSystem-1.png" alt="Design system overview showing color tokens and typography">
+                <img src="creme/img/DesignSystem-2.png" alt="Design system component spec showing button states and elevation tokens">
+              </div>
+              <figcaption class="figure__caption">
+                <span>Design system overview showing color tokens and typography; Design system component spec showing button states and elevation tokens</span>
+                <span class="chip">Fig. 06</span>
+              </figcaption>
+            </figure>
+        </div>
+        <div class="split__text">
+          <h2 class="display display--md">Neumorphic Design System<br>&amp; Component Tokens</h2>
+          <p class="lead">To ensure total UI consistency across components, I established a dedicated design system specifying spatial elevation rules, typography scales, interactive states, and soft dual-shadow CSS custom properties.</p>
+          <div class="actions"><a class="btn btn--ghost" href="creme/design-system.html" target="_blank" rel="noopener">Open Design System Site &rarr;</a></div>
+        </div>
+      </div>
+    </section>
+    <!-- 05 : IN DEPTH -->
+    <section class="sec sec--gray" id="delivery">
+      <span class="chip sec__chip">05 / In Depth</span>
+      <div class="duo">
+        <div>
+          <h2 class="display display--md">System &amp; Technical<br>Execution</h2>
+          <p class="lead" style="margin-top:clamp(16px,2vw,24px)">Detailed breakdown of how the UI design, component tokenization, and frontend implementation were structured and shipped.</p>
+        </div>
+        <div class="rows rows--top">
+          <div class="row">
+            <div class="row__label">AI-Assisted UI Design &amp; Frontend Development</div>
+            <div class="row__text"><p>I utilized AI models (Claude and Gemini) as collaborative tools across every phase of the project: iterating on layout concepts, generating semantic CSS tokens, authoring Vanilla JS state management for dynamic views, and building comprehensive design system documentation alongside the code.</p></div>
+          </div>
+          <div class="row">
+            <div class="row__label">Tokenized Elevation &amp; Neumorphic Design System</div>
+            <div class="row__text"><p>Overwriting legacy 2010 skeuomorphism required building a repeatable component architecture: three elevation classes (<code>.raised</code>, <code>.raised-sm</code>, <code>.inset</code>) using dual light/dark box-shadow CSS variables, paired with a consistent border-radius scale (<code>--radius-s</code> at 10px through 20px) to guarantee tactile consistency across all UI components. View the live implementation at <a href="creme/design-system.html" rel="noopener" target="_blank">design-system.html</a>.</p></div>
+          </div>
+          <div class="row">
+            <div class="row__label">App Shell &amp; Sidebar Information Architecture</div>
+            <div class="row__text"><p>Replaced rigid top tabs with a unified App Shell featuring a persistent left sidebar. This expanded workspace houses four distinct views, Claims Queue, Clients, Specialist Network, and Settlement History, complete with real-time category filtering, sort controls, and dynamic grid/list layout toggles.</p></div>
+          </div>
+          <div class="row">
+            <div class="row__label">Micro-Interactions &amp; Contextual Action Feedback</div>
+            <div class="row__text"><p>Eliminated disruptive native browser alert popups by implementing a client-side toast notification system and modal confirmation overlay. Actions like settlement approval, document requests, and specialist reassignments trigger immediate in-app visual feedback without breaking workflow continuity.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- 06 : REFLECTION -->
+    <section class="reflection" id="reflection">
+      <div class="reflection__inner">
+        <div class="reflection__top">
+          <span class="chip chip--light">06 / Reflection</span>
+          <span class="chip chip--light">Crème Insurance</span>
+        </div>
+        <h2 class="display display--lg">Looking<br>Back</h2>
+        <div class="reflection__cols">
+          <div>
+            <h3>What Went Well?</h3>
+            <p><strong>End-to-End Delivery</strong>Successfully redesigned and developed the full system from initial architecture to a working, responsive application, complete with interactive navigation, filtering, and modal flows.</p>
+            <p><strong>AI-Accelerated Workflow</strong>Leveraging AI tools (Claude & Gemini) significantly streamlined visual iteration, CSS design token architecture, and Javascript frontend implementation.</p>
+            <p><strong>Systematized Neumorphism</strong>Decoupling depth elevation from typographic contrast allowed the UI to maintain its tactile character while adhering to WCAG AA legibility standards.</p>
+          </div>
+          <div>
+            <h3>What Could I Have Done Better?</h3>
+            <p><strong>Automated CI/CD Contrast Auditing</strong>While contrast scales were manually calibrated during design, integrating an automated contrast-linter directly into the build pipeline would ensure automated compliance checks across all dynamic states.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- DEMO DISCLAIMER -->
+  <div class="modal-overlay" id="demoModal" role="dialog" aria-modal="true" aria-labelledby="demoTitle">
+    <div class="modal-box">
+      <h3 id="demoTitle">Interactive Demo Environment</h3>
+      <p>You are about to enter a live, sandbox demonstration of the Crème Insurance Partner Hub. Please note:</p>
+      <ul>
+        <li>This is an offline client-side prototype.</li>
+        <li>No data entered, including email or password on the sign-in screen, is transmitted or stored.</li>
+        <li>You may click "Sign In" with dummy credentials to explore the full dashboard.</li>
+      </ul>
+      <div class="modal-actions">
+        <a class="btn" href="creme/index.html" target="_blank" rel="noopener">Enter Demo &rarr;</a>
+        <button class="modal-cancel" type="button" id="modalCancel">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MORE CASE STUDIES (cards from js/projects.js, same component as the homepage) -->
+  <section class="more" id="more" aria-labelledby="more-title">
+    <div class="more__head">
+      <h2 id="more-title" class="display display--md">More Case<br>Studies</h2>
+      <div class="more__filters" role="tablist" aria-label="Filter case studies">
+        <button class="more__filter is-active" type="button" role="tab" aria-selected="true" data-more-filter="related">Related</button>
+        <button class="more__filter" type="button" role="tab" aria-selected="false" data-more-filter="all">View all</button>
+      </div>
+    </div>
+    <div class="more__grid" data-projects="more" data-base="../../" data-current="creme"></div>
+    <div class="more__contact">
+      <ul class="more__links">
+        <li><a href="mailto:daniel@dcreativethinking.com">daniel@dcreativethinking.com</a></li>
+        <li><a href="tel:+18019219885">+1 801-921-9885</a></li>
+        <li><a href="../../assets/docs/Daniel_Rojas_Resume_2026_v2.pdf" download="Daniel_Rojas_Resume_2026.pdf">Download resume</a></li>
+      </ul>
+      <ul class="more__social" aria-label="Social profiles">
+        <li><a class="more__social-link" href="https://www.linkedin.com/in/dcreativethinking/" aria-label="LinkedIn" target="_blank" rel="noopener"><svg class="more__social-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"> <path d="M20.45 3H3.55A.55.55 0 0 0 3 3.55v16.9c0 .3.25.55.55.55h16.9c.3 0 .55-.25.55-.55V3.55A.55.55 0 0 0 20.45 3ZM8.8 18.34H5.87V9.75H8.8v8.59ZM7.34 8.47a1.7 1.7 0 1 1 0-3.4 1.7 1.7 0 0 1 0 3.4Zm11 9.87h-2.93v-4.18c0-1-.02-2.28-1.39-2.28-1.39 0-1.6 1.09-1.6 2.21v4.25H9.5V9.75h2.81v1.17h.04c.39-.74 1.35-1.52 2.77-1.52 2.97 0 3.52 1.95 3.52 4.49v4.45Z" fill="currentColor"/> </svg></a></li>
+        <li><a class="more__social-link" href="https://www.instagram.com/dani.el.ux/" aria-label="Instagram" target="_blank" rel="noopener"><svg class="more__social-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"> <path d="M12 2.16c3.2 0 3.58.02 4.85.07 1.17.06 1.8.25 2.23.42.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.84 0 3.2-.01 3.58-.07 4.85-.06 1.17-.25 1.8-.42 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42-.16-1.06.36-2.23.41-1.27.06-1.65.07-4.84.07-3.2 0-3.58-.01-4.85-.07-1.17-.06-1.8-.25-2.23-.42-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12c0-3.2.01-3.58.07-4.85.06-1.17.25-1.8.42-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16ZM12 0C8.74 0 8.33.02 7.05.07 5.78.13 4.9.33 4.14.63c-.79.31-1.46.72-2.13 1.38C1.35 2.68.94 3.35.63 4.14c-.3.77-.5 1.64-.56 2.91C.01 8.33 0 8.74 0 12s.02 3.67.07 4.95c.06 1.27.26 2.14.56 2.91.31.79.72 1.46 1.38 2.13.67.66 1.34 1.07 2.13 1.38.77.3 1.64.5 2.91.56C8.33 23.98 8.74 24 12 24s3.67-.02 4.95-.07c1.27-.06 2.14-.26 2.91-.56.79-.31 1.46-.72 2.13-1.38.66-.67 1.07-1.34 1.38-2.13.3-.77.5-1.64.56-2.91.05-1.28.07-1.69.07-4.95s-.02-3.67-.07-4.95c-.06-1.27-.26-2.14-.56-2.91a5.9 5.9 0 0 0-1.38-2.13A5.9 5.9 0 0 0 19.86.63c-.77-.3-1.64-.5-2.91-.56C15.67.02 15.26 0 12 0Zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32ZM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm7.85-10.41a1.44 1.44 0 1 1-2.88 0 1.44 1.44 0 0 1 2.88 0Z" fill="currentColor"/> </svg></a></li>
+        <li><a class="more__social-link" href="https://www.behance.net/mlkmx" aria-label="Behance - mlkmx" target="_blank" rel="noopener"><svg class="more__social-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"> <path d="M8.64 7c.5 0 .95.05 1.37.15.41.1.76.26 1.05.48.29.22.52.52.68.89.16.37.24.83.24 1.37 0 .59-.12 1.08-.36 1.48-.24.39-.6.71-1.07.96.64.21 1.12.57 1.44 1.09.32.52.47 1.15.47 1.88 0 .59-.1 1.11-.31 1.54-.19.42-.47.79-.82 1.06-.36.28-.76.48-1.19.6-.44.14-.9.2-1.37.2H2V7h6.64Zm-.4 4.61c.41 0 .75-.11 1.02-.33.27-.22.39-.57.39-1.06 0-.27-.04-.5-.13-.68a.94.94 0 0 0-.36-.41 1.4 1.4 0 0 0-.51-.21c-.2-.04-.4-.06-.6-.06H4.82v2.75h3.42Zm.19 4.84c.23 0 .44-.03.65-.08.2-.05.39-.13.54-.25.16-.12.29-.28.37-.47.09-.2.14-.46.14-.78 0-.62-.16-1.06-.47-1.33-.31-.26-.72-.4-1.23-.4H4.82v3.31h3.61ZM16.13 16.47c.38.41.92.62 1.63.62.51 0 .95-.14 1.32-.43.37-.29.6-.59.68-.91h2.09c-.34 1.16-.85 1.99-1.54 2.49-.7.51-1.53.76-2.51.76-.69 0-1.3-.12-1.85-.37a4.2 4.2 0 0 1-1.4-1.04 4.7 4.7 0 0 1-.89-1.62 6.1 6.1 0 0 1-.29-2.08c0-.74.1-1.42.32-2.06.2-.6.51-1.16.91-1.63a4.2 4.2 0 0 1 1.4-1.08 4.4 4.4 0 0 1 1.81-.39c.73 0 1.37.15 1.92.47.53.31.99.75 1.34 1.28.36.54.61 1.15.76 1.84.16.68.21 1.4.17 2.15h-6.25c.03.91.24 1.59.62 2Zm2.91-5.44c-.3-.37-.81-.57-1.42-.57-.4 0-.73.08-.99.23-.27.15-.48.34-.64.56a2 2 0 0 0-.34.74c-.06.21-.1.42-.11.64h3.87c-.06-.68-.24-1.23-.54-1.6ZM14.86 7h4.9v1.2h-4.9V7Z" fill="currentColor"/> </svg></a></li>
+        <li><a class="more__social-link" href="https://www.behance.net/MalikODaniel" aria-label="Behance - MalikODaniel" target="_blank" rel="noopener"><svg class="more__social-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"> <path d="M8.64 7c.5 0 .95.05 1.37.15.41.1.76.26 1.05.48.29.22.52.52.68.89.16.37.24.83.24 1.37 0 .59-.12 1.08-.36 1.48-.24.39-.6.71-1.07.96.64.21 1.12.57 1.44 1.09.32.52.47 1.15.47 1.88 0 .59-.1 1.11-.31 1.54-.19.42-.47.79-.82 1.06-.36.28-.76.48-1.19.6-.44.14-.9.2-1.37.2H2V7h6.64Zm-.4 4.61c.41 0 .75-.11 1.02-.33.27-.22.39-.57.39-1.06 0-.27-.04-.5-.13-.68a.94.94 0 0 0-.36-.41 1.4 1.4 0 0 0-.51-.21c-.2-.04-.4-.06-.6-.06H4.82v2.75h3.42Zm.19 4.84c.23 0 .44-.03.65-.08.2-.05.39-.13.54-.25.16-.12.29-.28.37-.47.09-.2.14-.46.14-.78 0-.62-.16-1.06-.47-1.33-.31-.26-.72-.4-1.23-.4H4.82v3.31h3.61ZM16.13 16.47c.38.41.92.62 1.63.62.51 0 .95-.14 1.32-.43.37-.29.6-.59.68-.91h2.09c-.34 1.16-.85 1.99-1.54 2.49-.7.51-1.53.76-2.51.76-.69 0-1.3-.12-1.85-.37a4.2 4.2 0 0 1-1.4-1.04 4.7 4.7 0 0 1-.89-1.62 6.1 6.1 0 0 1-.29-2.08c0-.74.1-1.42.32-2.06.2-.6.51-1.16.91-1.63a4.2 4.2 0 0 1 1.4-1.08 4.4 4.4 0 0 1 1.81-.39c.73 0 1.37.15 1.92.47.53.31.99.75 1.34 1.28.36.54.61 1.15.76 1.84.16.68.21 1.4.17 2.15h-6.25c.03.91.24 1.59.62 2Zm2.91-5.44c-.3-.37-.81-.57-1.42-.57-.4 0-.73.08-.99.23-.27.15-.48.34-.64.56a2.2 2.2 0 0 0-.34.74c-.06.21-.1.42-.11.64h3.87c-.06-.68-.24-1.23-.54-1.6ZM14.86 7h4.9v1.2h-4.9V7Z" fill="currentColor"/> </svg></a></li>
+      </ul>
+    </div>
+  </section>
+
+
+  <!-- LIGHTBOX & GALLERY SCRIPT -->
+  <div id="lightbox">
+    <button id="lightbox-close" aria-label="Close Lightbox">&times;</button>
+    <button id="lightbox-prev" class="lightbox-nav" aria-label="Previous Image">&#10094;</button>
+    <img id="lightbox-img" src="" alt="Enlarged view">
+    <button id="lightbox-next" class="lightbox-nav" aria-label="Next Image">&#10095;</button>
+  </div>
+
+  <script>
+    // Theme Toggle Logic
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    const body = document.body;
+
+    if (localStorage.getItem('theme') === 'dark') {
+      body.classList.add('dark-theme');
+      setSunIcon();
+    }
+
+    themeToggle.addEventListener('click', () => {
+      body.classList.toggle('dark-theme');
+      if (body.classList.contains('dark-theme')) {
+        localStorage.setItem('theme', 'dark');
+        setSunIcon();
+      } else {
+        localStorage.setItem('theme', 'light');
+        setMoonIcon();
+      }
+    });
+
+    function setSunIcon() {
+      themeIcon.innerHTML = '<circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>';
+    }
+
+    function setMoonIcon() {
+      themeIcon.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>';
+    }
+
+    // Lightbox & Gallery Logic
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxClose = document.getElementById('lightbox-close');
+    const prevBtn = document.getElementById('lightbox-prev');
+    const nextBtn = document.getElementById('lightbox-next');
+    
+    const clickableImages = Array.from(document.querySelectorAll('main img:not(.no-lightbox)'));
+    let currentIndex = 0;
+
+    function updateLightboxImage() {
+      lightboxImg.src = clickableImages[currentIndex].src;
+    }
+
+    clickableImages.forEach((img, index) => {
+      img.addEventListener('click', () => {
+        currentIndex = index;
+        updateLightboxImage();
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    const closeLightbox = () => {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    };
+
+    // Navigation Controls
+    prevBtn.addEventListener('click', (e) => {
+      e.stopPropagation(); 
+      currentIndex = (currentIndex > 0) ? currentIndex - 1 : clickableImages.length - 1;
+      updateLightboxImage();
+    });
+
+    nextBtn.addEventListener('click', (e) => {
+      e.stopPropagation(); 
+      currentIndex = (currentIndex < clickableImages.length - 1) ? currentIndex + 1 : 0;
+      updateLightboxImage();
+    });
+
+    // Close on background click
+    lightbox.addEventListener('click', (e) => {
+      if (e.target !== lightboxImg && e.target !== prevBtn && e.target !== nextBtn) {
+        closeLightbox();
+      }
+    });
+
+    lightboxClose.addEventListener('click', closeLightbox);
+
+    // Keyboard controls for Gallery & Close
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox.classList.contains('active')) return;
+      
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') {
+        currentIndex = (currentIndex > 0) ? currentIndex - 1 : clickableImages.length - 1;
+        updateLightboxImage();
+      }
+      if (e.key === 'ArrowRight') {
+        currentIndex = (currentIndex < clickableImages.length - 1) ? currentIndex + 1 : 0;
+        updateLightboxImage();
+      }
+    });
+  </script>
+
+  <script>
+    (function () {
+      var modal = document.getElementById('demoModal');
+      document.querySelectorAll('[data-demo]').forEach(function (b) {
+        b.addEventListener('click', function () { modal.classList.add('active'); });
+      });
+      document.getElementById('modalCancel').addEventListener('click', function () { modal.classList.remove('active'); });
+      modal.addEventListener('click', function (e) { if (e.target === modal) modal.classList.remove('active'); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') modal.classList.remove('active'); });
+    })();
+  </script>
+  <script src="../../js/projects.js?v=20261026b"></script>
+</body>
+</html>

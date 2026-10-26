@@ -137,7 +137,7 @@ hr { border: 0; margin: 0; }
   --process-phase-size: 0.9375rem;     /* 15px */
   --process-row-size: 0.9375rem;       /* 15px */
   --process-bio-size: 0.875rem;        /* 14px */
-  --process-biblio-size: 0.75rem;      /* 12px */
+  --process-biblio-size: 0.875rem;     /* 14px, was 12px */
 }
 
 .process {
@@ -305,6 +305,19 @@ hr { border: 0; margin: 0; }
   cursor: pointer;
 }
 
+.process__more { position: relative; }
+
+/* target size (WCAG 2.5.8): 24x24 minimum hit area, no visual change */
+.process__more::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: max(100%, 24px);
+  height: max(100%, 24px);
+  transform: translate(-50%, -50%);
+}
+
 .process__more:focus-visible {
   outline: 2px solid var(--color-ink);
   outline-offset: 2px;
@@ -320,7 +333,7 @@ hr { border: 0; margin: 0; }
     --process-phase-size: 1rem;        /* 16px */
     --process-row-size: 1rem;          /* 16px */
     --process-bio-size: 0.9375rem;     /* 15px */
-    --process-biblio-size: 0.8125rem;  /* 13px */
+    --process-biblio-size: 0.875rem;   /* 14px, was 13px */
   }
 
   .process__inner {
@@ -344,7 +357,7 @@ hr { border: 0; margin: 0; }
     --process-phase-size: 1.0625rem;   /* 17px */
     --process-row-size: 1.0625rem;     /* 17px */
     --process-bio-size: 0.9375rem;     /* 15px */
-    --process-biblio-size: 0.8125rem;  /* 13px */
+    --process-biblio-size: 0.875rem;   /* 14px, was 13px */
   }
 
   .process__inner {

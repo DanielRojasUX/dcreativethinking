@@ -35,7 +35,7 @@
 
   /* type :: DM Sans */
   --footer-font: "DM Sans", system-ui, sans-serif;
-  --footer-body-size: 0.6875rem;   /* 11px, mobile base */
+  --footer-body-size: 0.875rem;    /* 14px mobile base, was 11px */
   --footer-body-line: 1.364;       /* 15px pitch */
   --footer-label-weight: 700;
   --footer-value-weight: 400;
@@ -187,6 +187,15 @@ hr { border: 0; margin: 0; }
 
 .footer__link:hover { text-decoration-thickness: 2px; }
 
+/* target size (WCAG 2.5.8): the email and phone sit on consecutive lines,
+   so an invisible hit area would overlap the neighbour. Each link gets its
+   own 24px line box instead. */
+.footer__link {
+  display: inline-block;
+  min-height: 24px;
+  line-height: 24px;
+}
+
 .footer__link:focus-visible {
   outline: 2px solid var(--color-ink);
   outline-offset: 2px;
@@ -238,7 +247,7 @@ hr { border: 0; margin: 0; }
 @media (min-width: 768px) {
   :root {
     --footer-panel-fill: rgba(255, 255, 255, 0.6);
-    --footer-body-size: 0.8125rem;          /* 13px */
+    --footer-body-size: 0.875rem;           /* 14px, was 13px */
     --footer-body-line: 1.385;              /* 18px pitch */
     --footer-info-pad-block: 0.75rem;
     --footer-info-pad-inline: 0.1875rem;

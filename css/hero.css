@@ -115,8 +115,17 @@ hr { border: 0; margin: 0; }
 
   /* type sizes, mobile base; overridden per tier below */
   --hero-nav-size: 0.9375rem;   /* 15px */
-  --hero-tag-size: 1rem;        /* 16px */
+  --hero-tag-size: 1.25rem;     /* 20px :: AA large text (bold >= 18.66px) on crimson */
   --hero-tag-line: 1.25;
+
+  /* name lockup :: one centred stack, every size in name ems (F) */
+  --hero-name-color: var(--color-white);        /* white: passes 3:1 large text over the video */
+  --hero-name-size: 26vw;                       /* F :: name fills the mobile panel */
+  --hero-name-baseline: -0.065em;               /* next block starts on the baseline (Inter Tight, lh 0.86) */
+  --hero-bar-size: max(1rem, calc(var(--hero-name-size) * 0.135));  /* tagline, 16px floor */
+  --hero-statement-bg: #c9143f;                 /* white on it is 5.74:1, AA normal text */
+  --hero-statement-size: 0.875rem;              /* mobile 14px = card description; proportional from 768 up */
+  --hero-statement-width: calc(var(--hero-name-size) * 2.97);   /* 90% of the name */
 }
 
 /* ---- section + panel ---------------------------------------------------- */
@@ -172,6 +181,7 @@ hr { border: 0; margin: 0; }
   display: flex;
   align-items: center;
   position: relative;              /* anchor for the mobile flyout */
+  z-index: 2;                      /* above the name: its line box reaches up into the nav row */
 }
 
 .nav__logo {
@@ -251,58 +261,84 @@ hr { border: 0; margin: 0; }
   outline-offset: 2px;
 }
 
-/* ---- intro :: name + taglines ------------------------------------------- */
+/* ---- intro :: name lockup ------------------------------------------------
+   One centred stack: name, tagline box, statement box, all on the panel's
+   centre line. DANIEL is white on mobile and crimson multiplied over the
+   video from 768 up (see the name colour block at the end).
+   The grid column is the name's width. The tagline box overlaps the base of
+   the letters with its bottom on the baseline. Full name "Daniel Rojas"
+   stays in the h1 for screen readers and search. */
 .hero__intro {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  margin-top: 34px;                /* geom :: mobile */
-  margin-left: 8%;                 /* geom :: mobile intro indent */
+  display: grid;
+  grid-template-columns: min-content;   /* the name sets the width */
+  justify-content: center;
+  justify-items: center;
+  max-width: 100%;
+  margin: 28px auto 0;             /* geom :: mobile */
 }
 
 .hero__name {
-  display: flex;
-  align-items: flex-start;
-  margin: 0;
+  margin: 0 0 var(--hero-name-baseline);
+  font-family: "Inter Tight", var(--hero-tag-font);   /* case study .display */
+  font-weight: 900;
+  font-size: var(--hero-name-size);
+  line-height: 0.86;
+  letter-spacing: -0.045em;
+  color: var(--hero-name-color);
+  text-transform: uppercase;
+  white-space: nowrap;
+  /* optical centring, measured on rendered pixels: the letters' ink runs
+     from 0.036em inside the box on the left to 0.021em past it on the
+     right, so the ink centre sits 0.028em right of the box centre. */
+  transform: translateX(-0.028em);
 }
 
-.hero__name-word {
-  height: 82px;                    /* geom :: estimated, mobile combined wordmark (178x102) */
-  width: auto;
-}
+.hero__name-word { display: block; }
 
-.hero__taglines {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 6px;                        /* geom :: mobile step between chips */
-  margin-top: 14px;                /* geom */
-}
-
-.hero__tagline {
-  display: inline-block;
-  background: var(--hero-crimson);
-  color: var(--hero-cream);
+/* ---- tagline :: white box, crimson text ----------------------------------
+   Crimson #e5093e on white is 4.73:1, AA for normal text. One line is
+   1.5 x its font size tall (1.2 line + 0.15em padding top and bottom); the
+   negative top margin of the same amount lands its bottom on the baseline. */
+.hero__headline {
+  position: relative;              /* paints over the name */
+  z-index: 1;
+  justify-self: stretch;
+  contain: inline-size;            /* never widens the column: the name sets it */
+  max-width: none;
+  /* the box spans exactly the letters' ink, from the D's left edge to the
+     L's foot, so the white bar and the letters read as one block */
+  margin: calc(var(--hero-bar-size) * -1.5) calc(var(--hero-name-size) * 0.0075) 0;
+  padding: 0.15em 0.3em;
+  background: var(--color-white);
+  color: var(--hero-crimson);
   font-family: var(--hero-tag-font);
   font-weight: var(--hero-tag-weight);
-  font-size: var(--hero-tag-size);
-  line-height: var(--hero-tag-line);
-  padding: 0.12em 0.45em;          /* hugs the text, font-agnostic */
+  font-size: var(--hero-bar-size);
+  line-height: 1.2;
+  text-align: center;
 }
 
-/* ---- WELCOME wordmark ---------------------------------------------------
-   The SVG asset (Welcome.svg) now has the merge-into-white trim baked into
-   the artwork itself -- no more negative-margin bleed math needed. This is
-   just: centered horizontally, flush to the base of the panel (0px gap),
-   letting margin-top:auto in the flex column push it to the bottom exactly. */
-.hero__welcome {
-  align-self: center;               /* horizontal centering in the flex column */
-  width: calc(100% + 16px);         /* geom :: measured ~8px margin each side vs 16px inner pad */
-  max-width: none;
-  height: auto;
-  margin-top: auto;                 /* pushes flush to the base of the panel, 0px gap */
-  margin-bottom: 0;
+/* mobile: one role per line, split at the slash */
+.hero__headline-part { display: block; }
+.hero__headline-sep { display: none; }
+
+/* ---- statement :: one solid box, white text -----------------------------
+   Mobile matches the card descriptions (14px, regular, 1.45). From 768 up
+   it is bold and sized in proportion to the name. */
+.hero__statement {
+  box-sizing: border-box;
+  width: min(100%, var(--hero-statement-width));
+  margin: 16px 0 28px;
+  padding: 0.5em 0.75em;
+  background: var(--hero-statement-bg);
+  font-family: var(--hero-tag-font);
+  font-weight: 400;
+  font-size: var(--hero-statement-size);
+  line-height: 1.45;
+  color: var(--color-white);
 }
+
+.hero__statement-text { margin: 0; }
 
 
 /* --------------------------------------------------------------------------
@@ -314,17 +350,19 @@ hr { border: 0; margin: 0; }
   :root {
     --hero-nav-size: 0.9375rem;    /* 15px */
     --hero-tag-size: 1.25rem;      /* 20px */
+    --hero-name-size: 21vw;        /* name ~70% of the panel */
+    --hero-bar-size: calc(var(--hero-name-size) * 0.128);   /* a touch smaller on tablet so the line fits the bar */
   }
 
   .hero { padding: 22px 22px 64px; }  /* geom :: gutter + measured white merge zone below */
 
   .hero__panel {
     border-radius: 21px;            /* geom :: rounded on all four corners */
-    min-height: 690px;             /* geom :: tablet frame 712 - 22 */
+    min-height: 420px;             /* geom :: content-driven since WELCOME was removed */
   }
 
   .hero__inner {
-    min-height: 690px;             /* geom */
+    min-height: 420px;             /* geom */
     padding: 20px 24px 0;          /* geom */
   }
 
@@ -367,16 +405,19 @@ hr { border: 0; margin: 0; }
     box-shadow: none;
   }
 
-  .hero__intro {
-    margin-top: 150px;             /* geom :: places name ~y=210 in frame */
-    margin-left: 35%;              /* geom :: intro left ~272 of 768 */
-  }
+  .hero__intro { margin-top: 40px; }   /* geom */
 
-  .hero__name-word { height: 52px; }   /* geom :: estimated, desktop/tablet wordmark (397x56) */
+  .hero__statement { margin-bottom: 44px; }   /* geom */
 
-  .hero__taglines { gap: 8px; margin-top: 18px; }   /* geom */
+  :root { --hero-statement-size: max(0.875rem, calc(var(--hero-name-size) * 0.057)); }   /* mockup ratio, 14px floor */
 
-  .hero__welcome { width: calc(100% + 14px); }  /* geom :: measured ~17px margin each side */
+  .hero__statement { font-weight: 700; line-height: 1.5; }
+
+  /* one line from tablet up, centred inside the bar */
+  .hero__headline { white-space: nowrap; }
+
+  .hero__headline-part,
+  .hero__headline-sep { display: inline; }
 }
 
 
@@ -387,14 +428,15 @@ hr { border: 0; margin: 0; }
   :root {
     --hero-nav-size: 1.0625rem;    /* 17px */
     --hero-tag-size: 1.625rem;     /* 26px */
+    --hero-name-size: clamp(9rem, 19.5vw, 22.5rem);   /* name ink ~66% of the panel, as in the mockup; 360px cap */
   }
 
-  .hero { padding-bottom: 72px; }       /* geom :: measured white merge zone at desktop */
+  .hero { padding-bottom: 40px; }       /* geom :: white gap above My Work */
 
-  .hero__panel { min-height: 810px; }   /* geom :: desktop frame 832 - 22 */
+  .hero__panel { min-height: 460px; }   /* geom :: shorter hero so the first card shows at 1366x768 */
 
   .hero__inner {
-    min-height: 810px;
+    min-height: 460px;
     padding: 26px 40px 0;          /* geom */
   }
 
@@ -405,15 +447,24 @@ hr { border: 0; margin: 0; }
     padding: 10px 40px 10px 22px;  /* geom */
   }
 
-  .hero__intro {
-    margin-top: 158px;             /* geom :: name top ~y180 in 832 frame */
-    margin-left: 44%;              /* geom :: intro left ~635 of 1440 */
+  .hero__intro { margin-top: 22px; }   /* geom */
+
+  .hero__statement { margin-bottom: 40px; }   /* geom */
+}
+@media (min-width: 1280px) {
+  :root { --hero-bar-size: calc(var(--hero-name-size) * 0.135); }   /* mockup ratio */
+}
+/* --------------------------------------------------------------------------
+   Name colour: white on mobile (under 768), crimson multiplied over the
+   video from 768 up. Multiply only reaches the video when .hero__inner does
+   not create a stacking context, so its z-index is dropped there.
+   -------------------------------------------------------------------------- */
+@media (min-width: 768px) {
+  .hero__inner { z-index: auto; }
+
+  .hero__name {
+    color: var(--hero-crimson);
+    mix-blend-mode: multiply;
   }
-
-  .hero__name-word { height: 58px; }   /* geom :: estimated, desktop/tablet wordmark (397x56) */
-
-  .hero__taglines { gap: 11px; margin-top: 22px; }   /* geom */
-
-  .hero__welcome { width: calc(100% - 38px); }  /* geom :: measured ~59px margin each side */
 }
 /* ===== END BLOCK ===== */

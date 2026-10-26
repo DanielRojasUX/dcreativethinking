@@ -66,8 +66,9 @@
   /* mobile type scale — this block's own, reflows rather than scaling desktop's */
   --milk-heading-size: 1.375rem;
   --milk-row-size: 0.875rem;
-  --milk-body-size: 0.75rem;
+  --milk-body-size: 0.875rem;   /* 14px, was 12px */
   --milk-body-line: 1.4;
+  --milk-accent-text: #e5093e;   /* hover text on white: 4.73:1 (brand pink is 3.86:1) */
 }
 
 @media (min-width: 768px) {
@@ -75,7 +76,7 @@
     /* tablet == desktop, measured off both mockups identically */
     --milk-heading-size: 1.75rem;
     --milk-row-size: 1rem;
-    --milk-body-size: 0.8125rem;
+    --milk-body-size: 0.9375rem;   /* 15px, was 13px */
     --milk-body-line: 1.35;
   }
 }
@@ -153,18 +154,37 @@ button {
    From 768 up the whole polaroid also insets from the page (dark body shows
    through the gutter) and casts the Figma drop shadow — it "lays" on the page.
    The gutter is left/right only; top/bottom stay flush. */
+/* The gutter around the polaroid shows the same paper texture as the
+   Design Process block below it, instead of the page colour. So the gutter
+   is padding on .milk (painted with the paper), and the white mat plus its
+   drop shadow is drawn by .milk::before. The photo window is inset by
+   gutter + mat, exactly where the old border put it. */
 @media (min-width: 768px) {
   .milk {
+    --milk-gutter: 24px;            /* geom :: page gutter, tablet */
+    --milk-mat: 21px;               /* geom :: measured mat, top + both sides */
+    --milk-caption: 142px;          /* geom :: polaroid caption strip */
     min-height: 997px;              /* geom :: Figma frame height, tablet == desktop */
-    border: 21px solid var(--color-white);   /* geom :: measured mat, top + both sides */
-    border-bottom-width: 142px;              /* geom :: polaroid caption strip */
-    margin-inline: 24px;            /* geom :: page gutter, tablet */
+    padding: var(--milk-mat) calc(var(--milk-gutter) + var(--milk-mat)) var(--milk-caption);
+    background: #dbdad4 url("../assets/img/revolicion-paper.avif") center / cover no-repeat;
+  }
+
+  .milk::before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    inset: 0 var(--milk-gutter);
+    background: var(--color-white);
     box-shadow: 0 0 18.3px rgba(0, 0, 0, 0.25);   /* Figma :: drop shadow on the polaroid */
+  }
+
+  .milk .milk__bg {
+    inset: var(--milk-mat) calc(var(--milk-gutter) + var(--milk-mat)) var(--milk-caption);
   }
 }
 
 @media (min-width: 1024px) {
-  .milk { margin-inline: 42px; }    /* geom :: page gutter, desktop */
+  .milk { --milk-gutter: 42px; }    /* geom :: page gutter, desktop */
 }
 
 /* background photo, full bleed behind everything */
@@ -276,7 +296,7 @@ button {
 .milk__skill-trigger:hover .milk__skill-years,
 .milk__skill-trigger:focus-visible .milk__skill-name,
 .milk__skill-trigger:focus-visible .milk__skill-years {
-  color: var(--color-pink);
+  color: var(--milk-accent-text);
 }
 
 .milk__skill-trigger:focus-visible {
@@ -300,7 +320,7 @@ button {
 }
 
 .milk__more-toggle:hover,
-.milk__more-toggle:focus-visible { color: var(--color-pink); }
+.milk__more-toggle:focus-visible { color: var(--milk-accent-text); }
 
 .milk__more-toggle:focus-visible { outline: 2px solid var(--color-pink); outline-offset: 2px; }
 
@@ -326,7 +346,7 @@ button {
 }
 
 .milk__bio-toggle:hover,
-.milk__bio-toggle:focus-visible { color: var(--color-pink); }
+.milk__bio-toggle:focus-visible { color: var(--milk-accent-text); }
 
 .milk__bio-toggle:focus-visible { outline: 2px solid var(--color-pink); outline-offset: 2px; }
 
@@ -341,13 +361,28 @@ button {
   color: var(--color-white);
   padding: 10px 14px;
   font-family: var(--footer-font);
-  font-size: 0.75rem;
+  font-size: 0.875rem;   /* 14px, was 12px */
   line-height: 1.4;
   pointer-events: none;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);   /* small — just enough to read as a floating tooltip */
 }
 
 .milk__tooltip[hidden] { display: none; }
+
+/* target size (WCAG 2.5.8): 24x24 minimum hit area, no visual change */
+.milk__more-toggle,
+.milk__bio-toggle { position: relative; }
+
+.milk__more-toggle::after,
+.milk__bio-toggle::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: max(100%, 24px);
+  height: max(100%, 24px);
+  transform: translate(-50%, -50%);
+}
 
 /* the tip, pointing down at the row the tooltip is anchored to (tooltip opens
    above, so the caret points down, not up) */
@@ -389,6 +424,14 @@ button {
   text-decoration: none;
 }
 
+.milk__email-text { min-width: 0; overflow-wrap: anywhere; }
+
+/* mobile: the heading wraps naturally instead of at the forced break */
+@media (max-width: 767px) {
+  .milk__heading br { display: none; }
+  .milk__heading { text-wrap: balance; }
+}   /* never spills past the box at 320 */
+
 .milk__email-icon {
   flex-shrink: 0;
   color: inherit;                   /* the icon's background rect uses fill="currentColor" */
@@ -396,7 +439,7 @@ button {
 
 .milk__email-link:hover,
 .milk__email-link:focus-visible {
-  color: var(--color-pink);
+  color: var(--milk-accent-text);
 }
 
 .milk__email-link:hover .milk__email-text,
@@ -436,7 +479,7 @@ button {
 }
 
 .milk__resume:hover .milk__resume-label,
-.milk__resume:focus-visible .milk__resume-label { color: var(--color-pink); }
+.milk__resume:focus-visible .milk__resume-label { color: var(--milk-accent-text); }
 
 .milk__resume:focus-visible {
   outline: 2px solid var(--color-pink);
@@ -495,7 +538,7 @@ button {
 }
 
 .milk__bio-modal-close:hover,
-.milk__bio-modal-close:focus-visible { color: var(--color-pink); }
+.milk__bio-modal-close:focus-visible { color: var(--milk-accent-text); }
 
 .milk__bio-modal-close:focus-visible {
   outline: 2px solid var(--color-pink);

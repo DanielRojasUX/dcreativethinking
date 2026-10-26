@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Primary Meta Tags -->
+  <title>Daniel Rojas | AI Native Systems Builder / Lead Product Designer</title>
+  <meta name="title" content="Daniel Rojas | AI Native Systems Builder / Lead Product Designer">
+  <meta name="description" content="Daniel Rojas, AI Native Systems Builder and Lead Product Designer. I design, architect and build systems that untangle complex problems, for B2B SaaS teams and small businesses. 18 years in design, 4 of them at IBM.">
+  <meta name="keywords" content="Daniel Rojas, UX Designer, Product Designer, Lead Product Designer, B2B SaaS, Design Systems, AI-Augmented Design, Information Architecture, Former IBM, Kyndryl">
+  <meta name="author" content="Daniel Rojas">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="canonical" href="https://dcreativethinking.com/">
+
+  <!-- Favicon -->
+  <link rel="icon" href="assets/img/favicon.ico?v=20261024j" sizes="any">
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg?v=20261024j">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32.png?v=20261024j">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png?v=20261024j">
+
+  <!-- Open Graph / Facebook / LinkedIn -->
+  <meta property="og:type" content="profile">
+  <meta property="og:site_name" content="Daniel Rojas">
+  <meta property="profile:first_name" content="Daniel">
+  <meta property="profile:last_name" content="Rojas">
+  <meta property="og:url" content="https://dcreativethinking.com/">
+  <meta property="og:title" content="Daniel Rojas | AI Native Systems Builder / Lead Product Designer">
+  <meta property="og:description" content="Daniel Rojas, AI Native Systems Builder and Lead Product Designer. I design, architect and build systems that untangle complex problems, for B2B SaaS teams and small businesses. 18 years in design, 4 of them at IBM.">
+  <meta property="og:image" content="https://dcreativethinking.com/assets/img/hero-poster.jpg">
+
+  <!-- Twitter Card -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://dcreativethinking.com/">
+  <meta property="twitter:title" content="Daniel Rojas | AI Native Systems Builder / Lead Product Designer">
+  <meta property="twitter:description" content="Daniel Rojas, AI Native Systems Builder and Lead Product Designer. I design, architect and build systems that untangle complex problems, for B2B SaaS teams and small businesses. 18 years in design, 4 of them at IBM.">
+  <meta property="twitter:image" content="https://dcreativethinking.com/assets/img/hero-poster.jpg">
+
+  <!-- AI / Search Engine Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Daniel Rojas",
+    "givenName": "Daniel",
+    "familyName": "Rojas",
+    "jobTitle": "AI Native Systems Builder / Lead Product Designer",
+    "url": "https://dcreativethinking.com",
+    "email": "mailto:daniel@dcreativethinking.com",
+    "telephone": "+1-801-921-9885",
+    "description": "AI Native Systems Builder and Lead Product Designer with 18 years of design experience, 8 in enterprise B2B SaaS and 4 at IBM. Designs, architects and builds systems that untangle complex problems for B2B SaaS teams and small businesses.",
+    "sameAs": [
+      "https://www.linkedin.com/in/dcreativethinking/",
+      "https://www.instagram.com/dani.el.ux/",
+      "https://www.behance.net/mlkmx",
+      "https://www.behance.net/MalikODaniel"
+    ],
+    "knowsAbout": [
+      "UX/Product Design",
+      "Visual Design",
+      "Systems Thinking",
+      "Design Systems",
+      "Information Architecture",
+      "AI-Augmented Design",
+      "Prototyping",
+      "Accessibility WCAG 2.1 AA",
+      "B2B SaaS"
+    ],
+    "alumniOf": [
+      {
+        "@type": "Organization",
+        "name": "IBM"
+      },
+      {
+        "@type": "Organization",
+        "name": "Kyndryl"
+      }
+    ]
+  }
+  </script>
+
+  <!-- Unified Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400;1,9..40,700&family=Lora:ital,wght@0,400;0,700;1,400;1,700&family=Inter+Tight:wght@800;900&display=swap" rel="stylesheet">
+
+  <!-- Consolidated Stylesheets -->
+  <link rel="stylesheet" href="css/hero.css?v=20261024s">
+  <link rel="stylesheet" href="css/my-work.css?v=20261026b">
+  <link rel="stylesheet" href="css/milk.css?v=20261024r">
+  <link rel="stylesheet" href="css/process.css?v=20261024q">
+  <link rel="stylesheet" href="css/testimonials.css?v=20261024r">
+  <link rel="stylesheet" href="css/footer.css?v=20261024q">
+
+  <style>
+    /* =========================================================
+       GLOBAL LAYOUT, OVERLAPS & NAV INTERACTIVITY
+    ========================================================= */
+    /* Smooth scrolling for anchor links */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: #ffffff;
+      margin: 0;
+      padding: 0;
+      font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+    }
+
+    /* Navigation Hover States */
+    .nav__link {
+      transition: color 0.3s ease;
+    }
+
+    .nav__link:hover {
+      color: #FFD700; /* Yellow hover state matching title accents */
+      text-decoration: underline;
+      text-underline-offset: 6px;
+      text-decoration-thickness: 2px;
+    }
+
+    /* Section Overlaps */
+    .milk {
+      position: relative;
+      z-index: 10;
+      background-color: #ffffff;   /* mobile; from 768 up milk.css paints the paper texture in the gutter */
+    }
+
+    @media (min-width: 768px) {
+      .milk { background-color: transparent; }
+    }
+
+    .process {
+      /* Cuts 218px from top of process block to tuck under Milk block */
+      margin-top: -218px; 
+      position: relative;
+      z-index: 5;
+    }
+
+    /* Swap View Icon Logic */
+    .swap-icon-2 {
+      display: none;
+    }
+    .my-work__swap[aria-pressed="true"] .swap-icon-1 {
+      display: none;
+    }
+    .my-work__swap[aria-pressed="true"] .swap-icon-2 {
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===================== 1. HERO BLOCK ===================== -->
+  <section class="hero" id="hero-top">
+    <div class="hero__panel">
+
+      <video class="hero__bg" id="heroVideo"
+             autoplay muted loop playsinline webkit-playsinline preload="auto"
+             poster="assets/img/hero-poster.jpg">
+        <source src="assets/video/hero.webm?v=20261024i" type="video/webm">
+        <source src="assets/video/hero.mp4?v=20261024i" type="video/mp4">
+      </video>
+
+      <div class="hero__inner">
+
+        <nav class="nav" aria-label="Primary">
+          <img class="nav__logo" src="assets/img/Top-MASK.svg" alt="Daniel Rojas Logo" width="34" height="51">
+
+          <button class="nav__toggle js-nav-toggle" type="button"
+                  aria-expanded="false" aria-controls="hero-nav" aria-label="Toggle Navigation Menu">
+            <img class="nav__toggle-icon" src="assets/img/hamburger.svg" alt="" aria-hidden="true">
+          </button>
+
+          <ul class="nav__list js-nav-list" id="hero-nav">
+            <li class="nav__item"><a class="nav__link nav__link--active" href="#work">My Work</a></li>
+            <li class="nav__item"><a class="nav__link" href="#skills">Skills</a></li>
+            <li class="nav__item"><a class="nav__link" href="#process">Design Process</a></li>
+            <li class="nav__item"><a class="nav__link" href="#testimonials">Testimonials</a></li>
+            <li class="nav__item"><a class="nav__link" href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+
+        <div class="hero__intro">
+          <h1 class="hero__name">
+            <span class="hero__name-word">Daniel</span><span class="hero__sr-only"> Rojas</span>
+          </h1>
+
+          <p class="hero__headline js-hero-headline">
+            <span class="hero__headline-part hero__headline-part--role">AI Native Systems Builder</span><span class="hero__headline-sep hero__headline-sep--role" aria-hidden="true">&nbsp;/ </span><span class="hero__headline-part">Lead Product Designer</span>
+          </p>
+
+          <div class="hero__statement">
+            <p class="hero__statement-text js-hero-statement">I design, architect and build systems that untangle complex problems, for B2B SaaS teams and small businesses. 18 years in design, 4 of them at IBM.</p>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 2. MY WORK BLOCK ===================== -->
+  <section class="my-work" id="work">
+    <div class="my-work__panel">
+
+      <header class="my-work__head">
+        <h2 class="my-work__title">My Work</h2>
+      </header>
+
+      <div class="my-work__controls">
+        <nav class="my-work__tabs js-tabs" aria-label="Filter work by category">
+          <button class="my-work__tabs-trigger js-tabs-trigger" type="button" aria-expanded="false">
+            <svg class="my-work__filter-icon" aria-hidden="true" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g clip-path="url(#clip0_1662_28855)">
+              <g clip-path="url(#clip1_1662_28855)">
+              <path d="M11.9997 5.352C11.9997 4.56 11.5029 3.8856 10.8056 3.624V0H9.6116V3.5892C8.86533 3.8244 8.32324 4.5252 8.32324 5.352C8.32324 6.1788 8.86533 6.8808 9.6116 7.1148V11.9988H10.8056V7.08C11.5029 6.8172 11.9997 6.144 11.9997 5.352ZM10.3352 3.5136C10.2779 3.5076 10.2194 3.5052 10.1609 3.5052C10.1023 3.5052 10.0474 3.5088 9.9913 3.5136C10.0474 3.5088 10.1035 3.5052 10.1609 3.5052C10.2182 3.5052 10.2779 3.5088 10.3352 3.5136ZM10.654 3.5748C10.654 3.5748 10.648 3.5736 10.6444 3.5724C10.648 3.5724 10.6504 3.5736 10.654 3.5748ZM10.4988 3.5376C10.482 3.534 10.4665 3.5328 10.4498 3.5304C10.4665 3.5328 10.4832 3.5352 10.4988 3.5376ZM9.76921 3.5484C9.72265 3.558 9.67727 3.57 9.63309 3.5832C9.67727 3.57 9.72384 3.558 9.76921 3.5484ZM9.9913 7.1916C10.0474 7.1964 10.1035 7.2 10.1609 7.2C10.2182 7.2 10.2779 7.1964 10.3352 7.1916C10.2779 7.1976 10.2194 7.2 10.1609 7.2C10.1023 7.2 10.0474 7.1964 9.9913 7.1916ZM9.63309 7.122C9.67727 7.1352 9.72384 7.1472 9.76921 7.1568C9.72265 7.1472 9.67727 7.1352 9.63309 7.122ZM10.6444 7.1328C10.6444 7.1328 10.6504 7.1316 10.654 7.1304C10.6504 7.1304 10.648 7.1316 10.6444 7.1328ZM10.4498 7.1748C10.4665 7.1724 10.4832 7.17 10.4988 7.1676C10.482 7.1712 10.4665 7.1724 10.4498 7.1748ZM10.1609 6.36C9.60802 6.36 9.15787 5.9076 9.15787 5.352C9.15787 4.7964 9.60802 4.344 10.1609 4.344C10.7137 4.344 11.1638 4.7964 11.1638 5.352C11.1638 5.9076 10.7137 6.36 10.1609 6.36Z" fill="currentColor"/>
+              <path d="M6.62647 7.182V0H5.43244V7.182C4.70408 7.4316 4.17871 8.124 4.17871 8.9412C4.17871 9.7584 4.70289 10.4496 5.43244 10.7004V12.0012H6.62647V10.7004C7.35483 10.4508 7.8802 9.7584 7.8802 8.9412C7.8802 8.124 7.35602 7.4328 6.62647 7.182ZM5.56617 10.7388C5.56617 10.7388 5.57811 10.7412 5.58289 10.7436C5.57692 10.7424 5.57095 10.7412 5.56617 10.7388ZM5.70468 10.77C5.72617 10.7736 5.74886 10.7772 5.77035 10.7796C5.74767 10.776 5.72617 10.7736 5.70468 10.77ZM6.47483 10.7436C6.47483 10.7436 6.48677 10.7412 6.49155 10.7388C6.48558 10.74 6.47961 10.7412 6.47483 10.7436ZM6.28737 10.7796C6.31005 10.776 6.33155 10.7736 6.35304 10.77C6.33155 10.7736 6.30886 10.7772 6.28737 10.7796ZM6.02946 9.954C5.47304 9.954 5.0205 9.4992 5.0205 8.94C5.0205 8.3808 5.47304 7.926 6.02946 7.926C6.58588 7.926 7.03841 8.3808 7.03841 8.94C7.03841 9.4992 6.58588 9.954 6.02946 9.954Z" fill="currentColor"/>
+              <path d="M2.44776 1.3908V0H1.25373V1.3848C1.32179 1.3632 1.39224 1.3452 1.46388 1.332C0.62806 1.5096 0 2.256 0 3.1488C0 3.966 0.524179 4.6572 1.25373 4.908V12H2.44776V4.908C3.17612 4.6584 3.70149 3.966 3.70149 3.1488C3.70149 2.3316 3.17731 1.6404 2.44776 1.3896V1.3908ZM1.57731 1.3116C1.54985 1.3152 1.52119 1.3188 1.49373 1.3248C1.52119 1.32 1.54866 1.3152 1.57731 1.3116ZM1.85075 4.1628C1.29433 4.1628 0.841791 3.708 0.841791 3.1488C0.841791 2.5896 1.29433 2.1348 1.85075 2.1348C2.40716 2.1348 2.8597 2.5896 2.8597 3.1488C2.8597 3.708 2.40716 4.1628 1.85075 4.1628Z" fill="currentColor"/>
+              </g>
+              </g>
+              <defs>
+              <clipPath id="clip0_1662_28855">
+              <rect width="12" height="12" fill="white"/>
+              </clipPath>
+              <clipPath id="clip1_1662_28855">
+              <rect width="12" height="12" fill="white"/>
+              </clipPath>
+              </defs>
+            </svg>
+            <span class="js-tabs-trigger-label">all</span>
+          </button>
+          <div class="my-work__tabs-list js-tabs-list">
+            <button class="my-work__tab is-active" type="button" data-filter="all" aria-selected="true">all</button>
+            <button class="my-work__tab" type="button" data-filter="ux-product" aria-selected="false">ux/product</button>
+            <button class="my-work__tab" type="button" data-filter="visual" aria-selected="false">visual</button>
+            <button class="my-work__tab" type="button" data-filter="strategy" aria-selected="false">strategy</button>
+            <button class="my-work__tab" type="button" data-filter="other" aria-selected="false">other</button>
+          </div>
+        </nav>
+
+        <div class="my-work__views">
+          <button class="my-work__swap js-swap" type="button" aria-pressed="true" aria-label="Change view">
+            <span class="my-work__toolbar-label">change view</span>
+            <img src="assets/img/swap-1.svg" alt="" aria-hidden="true" class="my-work__toolbar-icon swap-icon-1">
+            <img src="assets/img/swap-2.svg" alt="" aria-hidden="true" class="my-work__toolbar-icon swap-icon-2">
+          </button>
+          <span class="my-work__divider" aria-hidden="true">|</span>
+          <button class="my-work__more js-more-top" type="button" aria-disabled="false">
+            <span class="my-work__toolbar-label js-more-top-label">view more</span>
+            <svg class="my-work__toolbar-icon js-more-top-plus" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M11 5.5H6.5V1H5.5V5.5H1V6.5H5.5V11H6.5V6.5H11V5.5Z" fill="currentColor"/>
+            </svg>
+            <svg class="my-work__toolbar-icon js-more-top-minus" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" hidden>
+              <path d="M11 5.5H1V6.5H11V5.5Z" fill="currentColor"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="my-work__grid js-grid">
+        <!-- Card 1: Dashboard Landing -->
+        <article class="card card--brand" data-category="ux-product strategy">
+          <div class="card__badges">
+            <img class="card__glyph" src="assets/img/glyph-1.svg" alt="" aria-hidden="true">
+            <img class="card__glyph" src="assets/img/glyph-2.svg" alt="" aria-hidden="true">
+            <img class="card__glyph" src="assets/img/glyph-3.svg" alt="" aria-hidden="true">
+          </div>
+          <figure class="card__figure">
+            <img class="card__illustration" src="assets/img/illus-dashboard.png" alt="Dashboard Landing illustration">
+          </figure>
+          <div class="card__hero">
+            <picture class="card__hero-media">
+              <img class="card__hero-img" src="assets/img/brand-dashboard.png" alt="">
+            </picture>
+            <img class="card__logo" src="assets/img/logo-ibm.svg" alt="Kyndryl / IBM">
+          </div>
+          <div class="card__body">
+            <h3 class="card__title"><a class="card__link" href="usecases/Dashboard-Landing/dashboard-landing.html">Dashboard Landing</a></h3>
+            <p class="card__desc">Redefining static landing page into a dynamic personalized dashboard</p>
+            <hr class="card__rule">
+            <dl class="card__meta">
+              <div><span class="card__meta-label">ORG:</span> Kyndryl / IBM</div>
+              <div><span class="card__meta-label">ROLE:</span> Strategy, executive pitch, design ops.</div>
+              <div><span class="card__meta-label">OUTCOME:</span> Static link page rebuilt as a modular dashboard across 5+ apps.</div>
+            </dl>
+          </div>
+        </article>
+
+        <!-- Card 2: Navigation Patterns -->
+        <article class="card card--brand" data-category="ux-product">
+          <div class="card__badges">
+            <img class="card__glyph" src="assets/img/glyph-1.svg" alt="" aria-hidden="true">
+            <img class="card__glyph" src="assets/img/glyph-2.svg" alt="" aria-hidden="true">
+            <img class="card__glyph" src="assets/img/glyph-4.svg" alt="" aria-hidden="true">
+          </div>
+          <figure class="card__figure">
+            <img class="card__illustration" src="assets/img/illus-navigation.png" alt="Navigation Patterns illustration">
+          </figure>
+          <div class="card__hero">
+            <picture class="card__hero-media">
+              <img class="card__hero-img" src="assets/img/brand-navigation.png" alt="">
+            </picture>
+            <img class="card__logo" src="assets/img/logo-ibm.svg" alt="Kyndryl / IBM">
+          </div>
+          <div class="card__body">
+            <h3 class="card__title"><a class="card__link" href="usecases/Navigation-Patterns/navigation-patterns.html">Navigation Patterns</a></h3>
+            <p class="card__desc">Streamline exploration, improving discoverability, ensuring consistency</p>
+            <hr class="card__rule">
+            <dl class="card__meta">
+              <div><span class="card__meta-label">ORG:</span> Kyndryl / IBM</div>
+              <div><span class="card__meta-label">ROLE:</span> Information architecture, prototyping, testing.</div>
+              <div><span class="card__meta-label">OUTCOME:</span> 25% increase in task completion across key journeys.</div>
+            </dl>
+          </div>
+        </article>
+
+        <!-- Card 3: Color Mapping -->
+        <article class="card card--brand" data-category="ux-product visual">
+          <div class="card__badges">
+            <img class="card__glyph" src="assets/img/glyph-1.svg" alt="" aria-hidden="true">
+            <img class="card__glyph" src="assets/img/glyph-3.svg" alt="" aria-hidden="true">
+            <img class="card__glyph" src="assets/img/glyph-5.svg" alt="" aria-hidden="true">
+          </div>
+          <figure class="card__figure">
+            <img class="card__illustration" src="assets/img/illus-colors.png" alt="Color Mapping illustration">
+          </figure>
+          <div class="card__hero">
+            <picture class="card__hero-media">
+              <img class="card__hero-img" src="assets/img/brand-colors.png" alt="">
+            </picture>
+            <img class="card__logo" src="assets/img/logo-ibm.svg" alt="Kyndryl / IBM">
+          </div>
+          <div class="card__body">
+            <h3 class="card__title"><a class="card__link" href="usecases/Color-Mapping/color-mapping.html">Color Mapping</a></h3>
+            <p class="card__desc">Transitioning colors while ensuring WCAG 2.1 AA accessibility</p>
+            <hr class="card__rule">
+            <dl class="card__meta">
+              <div><span class="card__meta-label">ORG:</span> Kyndryl / IBM</div>
+              <div><span class="card__meta-label">ROLE:</span> Design system, token architecture, accessibility.</div>
+              <div><span class="card__meta-label">OUTCOME:</span> 95% WCAG 2.1 alignment, 30% fewer usability issues.</div>
+            </dl>
+          </div>
+        </article>
+
+        <!-- Card 4: Improving Check-in -->
+        <article class="card card--brand" data-category="strategy ux-product">
+          <div class="card__badges">
+            <img class="card__glyph" src="assets/img/glyph-2.svg" alt="" aria-hidden="true">
+            <img class="card__glyph" src="assets/img/glyph-3.svg" alt="" aria-hidden="true">
+            <img class="card__glyph" src="assets/img/glyph-5.svg" alt="" aria-hidden="true">
+          </div>
+          <figure class="card__figure">
+            <img class="card__illustration" src="assets/img/illus-arcos.png" alt="Improving Check-in illustration">
+          </figure>
+          <div class="card__hero">
+            <picture class="card__hero-media">
+              <img class="card__hero-img" src="assets/img/brand-arcos.png" alt="">
+            </picture>
+            <img class="card__logo card__logo--glyph" src="assets/img/logo-arcos.svg" alt="ARCOS">
+          </div>
+          <div class="card__body">
+            <h3 class="card__title"><a class="card__link" href="usecases/Improving-CheckIn/improving-checkin.html">Improving Check-in</a></h3>
+            <p class="card__desc">Transforming fragmented on-site check-in process with digital solutions</p>
+            <hr class="card__rule">
+            <dl class="card__meta">
+              <div><span class="card__meta-label">ORG:</span> ARCOS</div>
+              <div><span class="card__meta-label">ROLE:</span> Journey mapping, service design, high fidelity UI.</div>
+              <div><span class="card__meta-label">OUTCOME:</span> Check-in about 80% faster, paper tracking eliminated.</div>
+            </dl>
+          </div>
+        </article>
+
+        <!-- Card 5: Hotel Next -->
+        <article class="card card--brand" data-category="ux-product strategy">
+          <div class="card__badges">
+            <img class="card__glyph" src="assets/img/glyph-1.svg" alt="" aria-hidden="true">
+            <img class="card__glyph" src="assets/img/glyph-2.svg" alt="" aria-hidden="true">
+            <img class="card__glyph" src="assets/img/glyph-3.svg" alt="" aria-hidden="true">
+          </div>
+          <figure class="card__figure">
+            <img class="card__illustration" src="assets/img/illus-hotelnext.png" alt="Hotel Next illustration">
+          </figure>
+          <div class="card__hero">
+            <picture class="card__hero-media">
+              <img class="card__hero-img" src="assets/img/brand-hotelnext.png" alt="">
+            </picture>
+            <img class="card__logo" src="assets/img/HN-logo.svg" alt="Hotel Next">
+          </div>
+          <div class="card__body">
+            <h3 class="card__title"><a class="card__link" href="usecases/Hotel-Next/hotel-digital-experience.html">Hotel Next</a></h3>
+            <p class="card__desc">A fully digital hotel stay across a Digital Ecosystem</p>
+            <hr class="card__rule">
+            <dl class="card__meta">
+              <div><span class="card__meta-label">ORG:</span> Hotel Next / True Omni</div>
+              <div><span class="card__meta-label">ROLE:</span> Requirements, ecosystem design, prototyping.</div>
+              <div><span class="card__meta-label">OUTCOME:</span> App, kiosks and video walls running on one shared CMS.</div>
+            </dl>
+          </div>
+        </article>
+
+        <!-- Card 6: Crème Insurance -->
+        <article class="card card--brand" data-category="ux-product visual">
+          <div class="card__badges">
+            <img class="card__glyph" src="assets/img/glyph-1.svg" alt="" aria-hidden="true">
+            <img class="card__glyph" src="assets/img/glyph-3.svg" alt="" aria-hidden="true">
+            <img class="card__glyph" src="assets/img/glyph-5.svg" alt="" aria-hidden="true">
+          </div>
+          <figure class="card__figure">
+            <img class="card__illustration" src="assets/img/illus-creme.png" alt="Crème Insurance illustration">
+          </figure>
+          <div class="card__hero">
+            <picture class="card__hero-media">
+              <img class="card__hero-img" src="assets/img/brand-creme.png" alt="">
+            </picture>
+            <img class="card__logo" src="assets/img/logo-creme.svg" alt="Crème Insurance">
+          </div>
+          <div class="card__body">
+            <h3 class="card__title"><a class="card__link" href="usecases/Creme-Insurance/creme-insurance.html">Crème Insurance</a></h3>
+            <p class="card__desc">Modernizing a legacy claims portal into a high-touch enterprise SaaS platform</p>
+            <hr class="card__rule">
+            <dl class="card__meta">
+              <div><span class="card__meta-label">ORG:</span> Self directed concept</div>
+              <div><span class="card__meta-label">ROLE:</span> UI design, design system, front end.</div>
+              <div><span class="card__meta-label">OUTCOME:</span> Legacy claims portal rebuilt as a working coded prototype.</div>
+            </dl>
+          </div>
+        </article>
+
+        <!-- Card 7: LiveWire Dashboard -->
+        <article class="card card--brand" data-category="visual ux-product">
+          <div class="card__badges">
+            <img class="card__glyph" src="assets/img/glyph-1.svg" alt="" aria-hidden="true">
+            <img class="card__glyph" src="assets/img/glyph-3.svg" alt="" aria-hidden="true">
+            <img class="card__glyph" src="assets/img/glyph-5.svg" alt="" aria-hidden="true">
+          </div>
+          <figure class="card__figure">
+            <img class="card__illustration" src="assets/img/illus-livewire.png" alt="LiveWire Dashboard illustration">
+          </figure>
+          <div class="card__hero">
+            <picture class="card__hero-media">
+              <img class="card__hero-img" src="assets/img/brand-livewire.png" alt="">
+            </picture>
+            <img class="card__logo" src="assets/img/logo-livewire.svg" alt="LiveWire">
+          </div>
+          <div class="card__body">
+            <h3 class="card__title"><a class="card__link" href="usecases/LiveWire/livewire-dashboard.html">LiveWire Dashboard</a></h3>
+            <p class="card__desc">Modernizing a Power BI analytics dashboard into a custom SaaS monitoring platform</p>
+            <hr class="card__rule">
+            <dl class="card__meta">
+              <div><span class="card__meta-label">ORG:</span> Livewire</div>
+              <div><span class="card__meta-label">ROLE:</span> UI design, data visualization, front end.</div>
+              <div><span class="card__meta-label">OUTCOME:</span> Power BI report replaced by a custom web app shell.</div>
+            </dl>
+          </div>
+        </article>
+
+        <!-- Card 8: NUCU Boutique Studio -->
+        <article class="card card--brand" data-category="visual strategy">
+          <div class="card__badges">
+            <img class="card__glyph" src="assets/img/glyph-1.svg" alt="" aria-hidden="true">
+            <img class="card__glyph" src="assets/img/glyph-3.svg" alt="" aria-hidden="true">
+            <img class="card__glyph" src="assets/img/glyph-5.svg" alt="" aria-hidden="true">
+          </div>
+          <figure class="card__figure">
+            <img class="card__illustration" src="assets/img/illus-nucu.jpg" alt="NUCU black gift bag">
+          </figure>
+          <div class="card__hero">
+            <picture class="card__hero-media">
+              <img class="card__hero-img" src="assets/img/brand-nucu.jpg" alt="">
+            </picture>
+            <img class="card__logo card__logo--mark" src="assets/img/logo-nucu.png" alt="NUCU">
+          </div>
+          <div class="card__body">
+            <h3 class="card__title"><a class="card__link" href="usecases/NUCU-Branding/nucu-branding.html">NUCU Boutique Studio</a></h3>
+            <p class="card__desc">Co-founded a handmade bag brand in Chiapas and built its brand, product line and production</p>
+            <hr class="card__rule">
+            <dl class="card__meta">
+              <div><span class="card__meta-label">ORG:</span> NUCU, Chiapas</div>
+              <div><span class="card__meta-label">ROLE:</span> Co-owner and Creative Director.</div>
+              <div><span class="card__meta-label">OUTCOME:</span> Sold across Mexico and exported to Europe and the US by year two.</div>
+            </dl>
+          </div>
+        </article>
+      </div>
+
+      <button class="my-work__expand js-more-bottom" type="button" aria-label="Reveal more" aria-expanded="false">
+        <span class="my-work__expand-rule" aria-hidden="true"></span>
+        <svg class="my-work__expand-icon" viewBox="0 0 24 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M11.4146 12L0 0H4.74146L12 7.85106L19.2585 0H24L12.5854 12H11.4146Z" fill="currentColor"/>
+        </svg>
+        <span class="my-work__expand-label js-expand-label">view more</span>
+        <span class="my-work__expand-rule" aria-hidden="true"></span>
+      </button>
+
+    </div>
+  </section>
+
+  <!-- ===================== 3. MILK BLOCK ===================== -->
+  <section class="milk" id="skills">
+
+    <div class="milk__bg">
+      <picture>
+        <source media="(min-width: 768px)" srcset="assets/img/ioCuad-1600.jpg">
+        <img class="milk__bg-media" src="assets/img/ioCuad-900.jpg" alt="Daniel Rojas Portrait" loading="lazy" width="900" height="900">
+      </picture>
+    </div>
+
+    <div class="milk__inner">
+
+      <div class="milk__card">
+
+        <h2 class="milk__heading">AI Native Systems Builder /<br>Lead Product Designer</h2>
+
+        <div class="milk__rule" aria-hidden="true"></div>
+
+        <ul class="milk__skills js-milk-skills">
+
+          <li class="milk__skill">
+            <button type="button" class="milk__skill-trigger js-milk-skill-trigger"
+              data-skill-name="Visual Design" data-skill-years="18 yrs"
+              data-skill-detail="Brand, packaging, and interface craft from print origins through enterprise product surfaces.">
+              <span class="milk__skill-name">Visual Design</span>
+              <span class="milk__skill-years">18 yrs</span>
+            </button>
+          </li>
+
+          <li class="milk__skill">
+            <button type="button" class="milk__skill-trigger js-milk-skill-trigger"
+              data-skill-name="Systems Thinking" data-skill-years="10 yrs"
+              data-skill-detail="Designing for platforms where one change propagates across surfaces, teams, and user types.">
+              <span class="milk__skill-name">Systems Thinking</span>
+              <span class="milk__skill-years">10 yrs</span>
+            </button>
+          </li>
+
+          <li class="milk__skill">
+            <button type="button" class="milk__skill-trigger js-milk-skill-trigger"
+              data-skill-name="Research and Validation" data-skill-years="10 yrs"
+              data-skill-detail="50+ moderated tests and critiques used to stress-test direction before it ships.">
+              <span class="milk__skill-name">Research and Validation</span>
+              <span class="milk__skill-years">10 yrs</span>
+            </button>
+          </li>
+
+          <li class="milk__skill">
+            <button type="button" class="milk__skill-trigger js-milk-skill-trigger"
+              data-skill-name="UX/Product Design" data-skill-years="08 yrs"
+              data-skill-detail="End-to-end ownership of product areas in complex B2B SaaS, discovery through launch.">
+              <span class="milk__skill-name">UX/Product Design</span>
+              <span class="milk__skill-years">08 yrs</span>
+            </button>
+          </li>
+
+          <li class="milk__skill">
+            <button type="button" class="milk__skill-trigger js-milk-skill-trigger"
+              data-skill-name="Information Architecture" data-skill-years="08 yrs"
+              data-skill-detail="Restructured platform IA for multiple user types, raising task completion by 25%.">
+              <span class="milk__skill-name">Information Architecture</span>
+              <span class="milk__skill-years">08 yrs</span>
+            </button>
+          </li>
+
+          <li class="milk__skill">
+            <button type="button" class="milk__skill-trigger js-milk-skill-trigger"
+              data-skill-name="AI-Augmented Design" data-skill-years="04 yrs"
+              data-skill-detail="AI integrated across research, option generation, and documentation since late 2022. Judgment stays human-owned.">
+              <span class="milk__skill-name">AI-Augmented Design</span>
+              <span class="milk__skill-years">04 yrs</span>
+            </button>
+          </li>
+
+          <li class="milk__skill">
+            <button type="button" class="milk__skill-trigger js-milk-skill-trigger"
+              data-skill-name="AI Native Systems Building" data-skill-years="02 yrs"
+              data-skill-detail="Websites, PWAs, and prototypes designed and built with Claude Code and Gemini, from Figma to deployed product.">
+              <span class="milk__skill-name">AI Native Systems Building</span>
+              <span class="milk__skill-years">02 yrs</span>
+            </button>
+          </li>
+
+          <!-- revealed by "view more" -->
+
+          <li class="milk__skill milk__skill--extra" hidden>
+            <button type="button" class="milk__skill-trigger js-milk-skill-trigger"
+              data-skill-name="Design Systems" data-skill-years="08 yrs"
+              data-skill-detail="Built and scaled systems reaching 95% WCAG 2.1 alignment and 30% fewer usability issues.">
+              <span class="milk__skill-name">Design Systems</span>
+              <span class="milk__skill-years">08 yrs</span>
+            </button>
+          </li>
+
+          <li class="milk__skill milk__skill--extra" hidden>
+            <button type="button" class="milk__skill-trigger js-milk-skill-trigger"
+              data-skill-name="Interaction Design" data-skill-years="08 yrs"
+              data-skill-detail="Patterns for touchscreen, self-service, and multi-state enterprise workflows under real constraints.">
+              <span class="milk__skill-name">Interaction Design</span>
+              <span class="milk__skill-years">08 yrs</span>
+            </button>
+          </li>
+
+          <li class="milk__skill milk__skill--extra" hidden>
+            <button type="button" class="milk__skill-trigger js-milk-skill-trigger"
+              data-skill-name="Prototyping" data-skill-years="08 yrs"
+              data-skill-detail="Functional code-generated prototypes handed to engineering instead of static mockup specs.">
+              <span class="milk__skill-name">Prototyping</span>
+              <span class="milk__skill-years">08 yrs</span>
+            </button>
+          </li>
+
+          <li class="milk__skill milk__skill--extra" hidden>
+            <button type="button" class="milk__skill-trigger js-milk-skill-trigger"
+              data-skill-name="UX Strategy" data-skill-years="06 yrs"
+              data-skill-detail="Turning vague product goals into prioritized design direction leadership can act on.">
+              <span class="milk__skill-name">UX Strategy</span>
+              <span class="milk__skill-years">06 yrs</span>
+            </button>
+          </li>
+
+          <li class="milk__skill milk__skill--extra" hidden>
+            <button type="button" class="milk__skill-trigger js-milk-skill-trigger"
+              data-skill-name="Accessibility WCAG 2.1 AA" data-skill-years="06 yrs"
+              data-skill-detail="Accessibility treated as structure, not audit cleanup, across an enterprise platform.">
+              <span class="milk__skill-name">Accessibility WCAG 2.1 AA</span>
+              <span class="milk__skill-years">06 yrs</span>
+            </button>
+          </li>
+
+          <li class="milk__skill milk__skill--extra" hidden>
+            <button type="button" class="milk__skill-trigger js-milk-skill-trigger"
+              data-skill-name="Brand and Identity" data-skill-years="18 yrs"
+              data-skill-detail="Identity systems for 20+ businesses, from corporate image work to independent product brands.">
+              <span class="milk__skill-name">Brand and Identity</span>
+              <span class="milk__skill-years">18 yrs</span>
+            </button>
+          </li>
+
+          <li class="milk__skill milk__skill--extra" hidden>
+            <button type="button" class="milk__skill-trigger js-milk-skill-trigger"
+              data-skill-name="Creative Direction" data-skill-years="10 yrs"
+              data-skill-detail="Directed designers, developers, and photography across e-learning, product, and campaign work.">
+              <span class="milk__skill-name">Creative Direction</span>
+              <span class="milk__skill-years">10 yrs</span>
+            </button>
+          </li>
+
+        </ul>
+
+        <button type="button" class="milk__more-toggle js-milk-more" aria-expanded="false">view more</button>
+
+        <div class="milk__bio">
+          <p class="milk__bio-preview">
+            For the last 8 years I&#8217;ve been deep in B2B SaaS UX, untangling complex systems and designing clarity into products with the user at the center and the business goals as a beacon. Before that, 10 years across the full spectrum of design, from brand and visual to product and systems&#8230;
+          </p>
+          <button type="button" class="milk__bio-toggle js-milk-bio-open">show more</button>
+        </div>
+
+        <div class="milk__tooltip js-milk-tooltip" role="tooltip" hidden>
+          <p class="milk__tooltip-body js-milk-tooltip-body"></p>
+        </div>
+
+      </div>
+
+      <div class="milk__email">
+        <a class="milk__email-link" href="mailto:daniel@dcreativethinking.com">
+          <svg class="milk__email-icon" width="22" height="25" viewBox="0 0 22 25" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect width="22" height="25" rx="1" fill="currentColor"/>
+            <g clip-path="url(#milkEmailIconClip)">
+              <path d="M14.7011 17.1351L14.1884 20.2979L11.0791 20.9999L7.87018 20.2116L7.22874 17.0944L8.273 16.9496L7.559 16.3065L8.80605 14.7323L5.97596 14.5328L5 8.3728L7.91006 9.18805L10.9028 12.531L14.1951 9.30126L17 8.46546L16.3208 14.5539L13.0228 14.7237L14.6139 16.408L13.821 16.9518L14.7011 17.1351ZM9.3792 14.1796L9.30877 12.025L6.3845 10.3142L6.38302 12.2483L9.3792 14.1796ZM12.6783 14.095L15.5559 12.3999L15.6713 10.3168L12.676 12.1972L12.6783 14.095ZM12.5432 16.5923L12.7771 15.1522L11.0002 13.0338L9.01817 15.3376L9.37771 16.5933L12.5432 16.5923ZM13.2832 18.7198C13.2782 18.5907 13.268 18.442 13.23 18.3288C13.0529 18.1276 12.8495 17.9723 12.6342 17.8051C11.8769 17.951 11.1476 18.0742 10.3738 17.9676C10.0088 17.9173 9.67362 17.8472 9.30114 17.7533L8.89748 18.3921C8.7702 18.5986 8.83957 18.8172 9.04532 18.9618L11.0566 19.9176L13.0221 19.0668C13.174 19.001 13.2629 18.8971 13.2832 18.7198Z" fill="white"/>
+              <path d="M11.7937 9.95916L10.3337 9.96491L9.70605 3.09302C10.2694 3.01269 10.8167 2.9905 11.3712 3.00344C11.8026 3.01351 12.2214 3.06652 12.6467 3.1787L11.7935 9.95916H11.7937Z" fill="white"/>
+            </g>
+            <defs>
+              <clipPath id="milkEmailIconClip">
+                <rect width="12" height="18" fill="white" transform="translate(5 3)"/>
+              </clipPath>
+            </defs>
+          </svg>
+          <span class="milk__email-text">daniel@dcreativethinking.com</span>
+        </a>
+      </div>
+
+      <a class="milk__resume" href="assets/docs/Daniel_Rojas_Resume_2026_v2.pdf" download="Daniel_Rojas_Resume_2026.pdf" target="_blank" rel="noopener">
+        <span class="milk__resume-label">download full resume</span>
+      </a>
+
+    </div>
+
+    <div class="milk__bio-modal js-milk-bio-modal" hidden>
+      <div class="milk__bio-modal-overlay js-milk-bio-close"></div>
+      <div class="milk__bio-modal-panel" role="dialog" aria-modal="true" aria-label="Full bio">
+        <button type="button" class="milk__bio-modal-close js-milk-bio-close" aria-label="Close">&times;</button>
+        <p>For the last 8 years I&#8217;ve been deep in B2B SaaS UX, untangling complex systems and designing clarity into products with the user at the center and the business goals as a beacon. Before that, 10 years across the full spectrum of design, from brand and visual to product and systems. All of it leading to one thing: products where the stakes are high, the systems are tangled, and users need clarity that wasn&#8217;t originally built in.</p>
+        <p>I work at the intersection of systems thinking, UX strategy, and AI-amplified design operations. I don&#8217;t just design screens. I untangle information architecture, build scalable design systems, and establish the operational rituals that help teams ship better work, faster. At IBM and Kyndryl, I led platform-wide redesigns that improved task completion by 25% and drove 95% WCAG 2.1 alignment across a product used by enterprise teams globally.</p>
+        <p>Today I integrate AI into the design process in ways that are practical and human-led. I&#8217;ve built and taught AI workflow methodology to senior design leads, because I believe AI should amplify design judgment, not replace it.</p>
+        <p>I lead with clarity. I design for people. And I build things that scale. If you&#8217;re working on a complex product that needs strategic UX leadership, or a team that needs to move faster without losing craft, let&#8217;s talk.</p>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ===================== 4. PROCESS BLOCK ===================== -->
+  <section class="process" id="process">
+    <picture class="process__bg">
+      <img class="process__bg-media" src="assets/img/revolicion-paper.avif" alt="" aria-hidden="true" decoding="async">
+    </picture>
+
+    <div class="process__inner">
+
+      <img class="process__hero"
+           src="assets/img/design-process-hero.png"
+           alt="Design Process"
+           width="573" height="453" decoding="async">
+
+      <div class="process__phases">
+
+        <div class="process__phase">
+          <h3 class="process__phase-head">Phase 1: RESEARCH</h3>
+          <ul class="process__list">
+            <li class="process__item">
+              <button class="process__trigger js-accordion" type="button" aria-expanded="false" aria-controls="process-panel-1">
+                <span class="process__row-label">1. Requirements Assessment</span>
+                <svg class="process__chevron" viewBox="0 0 15 9" aria-hidden="true" focusable="false"><path d="M14.0596 0.0523256L7.52461 7.00031L0.94041 0L0 0.999843L6.5842 8.00016L7.52461 9L8.46502 8.00016L15 1.05217L14.0596 0.0523256Z" fill="currentColor"/></svg>
+              </button>
+              <div class="process__panel" id="process-panel-1">
+                <div class="process__panel-inner">
+                  <p class="process__panel-line"><span class="process__panel-key">Purpose:</span> Define context, constraints, and stakeholder goals.</p>
+                  <p class="process__panel-line"><span class="process__panel-key">Key Outputs:</span> Initial assumptions, stakeholder map, system dependencies.</p>
+                </div>
+              </div>
+            </li>
+            <li class="process__item">
+              <button class="process__trigger js-accordion" type="button" aria-expanded="false" aria-controls="process-panel-2">
+                <span class="process__row-label">2. Discovery</span>
+                <svg class="process__chevron" viewBox="0 0 15 9" aria-hidden="true" focusable="false"><path d="M14.0596 0.0523256L7.52461 7.00031L0.94041 0L0 0.999843L6.5842 8.00016L7.52461 9L8.46502 8.00016L15 1.05217L14.0596 0.0523256Z" fill="currentColor"/></svg>
+              </button>
+              <div class="process__panel" id="process-panel-2">
+                <div class="process__panel-inner">
+                  <p class="process__panel-line"><span class="process__panel-key">Purpose:</span> Understand real world needs and process friction points.</p>
+                  <p class="process__panel-line"><span class="process__panel-key">Key Outputs:</span> Interviews, workflow mapping, pain point synthesis.</p>
+                </div>
+              </div>
+            </li>
+            <li class="process__item">
+              <button class="process__trigger js-accordion" type="button" aria-expanded="false" aria-controls="process-panel-3">
+                <span class="process__row-label">3. Diagnosis</span>
+                <svg class="process__chevron" viewBox="0 0 15 9" aria-hidden="true" focusable="false"><path d="M14.0596 0.0523256L7.52461 7.00031L0.94041 0L0 0.999843L6.5842 8.00016L7.52461 9L8.46502 8.00016L15 1.05217L14.0596 0.0523256Z" fill="currentColor"/></svg>
+              </button>
+              <div class="process__panel" id="process-panel-3">
+                <div class="process__panel-inner">
+                  <p class="process__panel-line"><span class="process__panel-key">Purpose:</span> Translate evidence into user needs and opportunity areas.</p>
+                  <p class="process__panel-line"><span class="process__panel-key">Key Outputs:</span> Problem definition, empathy maps, validated personas.</p>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="process__phase">
+          <h3 class="process__phase-head">Phase 2: UX</h3>
+          <ul class="process__list">
+            <li class="process__item">
+              <button class="process__trigger js-accordion" type="button" aria-expanded="false" aria-controls="process-panel-4">
+                <span class="process__row-label">4. Solution Projection</span>
+                <svg class="process__chevron" viewBox="0 0 15 9" aria-hidden="true" focusable="false"><path d="M14.0596 0.0523256L7.52461 7.00031L0.94041 0L0 0.999843L6.5842 8.00016L7.52461 9L8.46502 8.00016L15 1.05217L14.0596 0.0523256Z" fill="currentColor"/></svg>
+              </button>
+              <div class="process__panel" id="process-panel-4">
+                <div class="process__panel-inner">
+                  <p class="process__panel-line"><span class="process__panel-key">Purpose:</span> Explore structural and experiential solutions.</p>
+                  <p class="process__panel-line"><span class="process__panel-key">Key Outputs:</span> Early flows, architecture sketches, MVP framing.</p>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="process__phase">
+          <h3 class="process__phase-head">Phase 3: UX &amp; UI</h3>
+          <ul class="process__list">
+            <li class="process__item">
+              <button class="process__trigger js-accordion" type="button" aria-expanded="false" aria-controls="process-panel-5">
+                <span class="process__row-label">5. Iteration &amp; Testing</span>
+                <svg class="process__chevron" viewBox="0 0 15 9" aria-hidden="true" focusable="false"><path d="M14.0596 0.0523256L7.52461 7.00031L0.94041 0L0 0.999843L6.5842 8.00016L7.52461 9L8.46502 8.00016L15 1.05217L14.0596 0.0523256Z" fill="currentColor"/></svg>
+              </button>
+              <div class="process__panel" id="process-panel-5">
+                <div class="process__panel-inner">
+                  <p class="process__panel-line"><span class="process__panel-key">Purpose:</span> Validate and refine through rapid feedback.</p>
+                  <p class="process__panel-line"><span class="process__panel-key">Key Outputs:</span> Interactive prototypes, iteration logs.</p>
+                </div>
+              </div>
+            </li>
+            <li class="process__item">
+              <button class="process__trigger js-accordion" type="button" aria-expanded="false" aria-controls="process-panel-6">
+                <span class="process__row-label">6. Delivery 1.0</span>
+                <svg class="process__chevron" viewBox="0 0 15 9" aria-hidden="true" focusable="false"><path d="M14.0596 0.0523256L7.52461 7.00031L0.94041 0L0 0.999843L6.5842 8.00016L7.52461 9L8.46502 8.00016L15 1.05217L14.0596 0.0523256Z" fill="currentColor"/></svg>
+              </button>
+              <div class="process__panel" id="process-panel-6">
+                <div class="process__panel-inner">
+                  <p class="process__panel-line"><span class="process__panel-key">Purpose:</span> Package the solution for real world deployment.</p>
+                  <p class="process__panel-line"><span class="process__panel-key">Key Outputs:</span> MVP modules, design documentation, next phase plan.</p>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <p class="process__bio" data-collapse="305">Eighteen years of practice, eight inside enterprise SaaS, where the elegant loops in the textbooks rarely survive contact with a procurement process. I started with the Double Diamond and kept flattening it, because clients do not buy diamonds, they buy phases with names, outputs, and dates. Three changes stuck: Requirements Assessment at the front, since most projects fail before research begins; Diagnosis instead of Define, because the work is closer to clinical reasoning; and Delivery 1.0, because nothing ships finished.</p>
+
+      <hr class="process__rule">
+
+      <p class="process__biblio" data-collapse="135">ISO 9241-210, Contextual Design, Double Diamond, About Face, Change by Design, Wicked Problems in Design Thinking, Mapping Experiences, The Field Guide to Human-Centered Design, Sprint, Co-creation and the New Landscapes of Design, Usability Engineering, Lean UX, The Lean Startup, HEART Framework, The Design of Everyday Things</p>
+
+    </div>
+  </section>
+
+  <!-- ===================== 5. TESTIMONIALS BLOCK ===================== -->
+  <section class="tst" id="testimonials" aria-labelledby="tst-title">
+    <div class="tst__inner">
+      <h2 id="tst-title" class="tst__title">Testimonials</h2>
+
+      <div class="tst__grid" data-tst-grid>
+      
+      <article class="tst-card" data-tst-card>
+        <div class="tst-card__paper">
+          <img class="tst-card__staple" src="assets/img/staple.png" alt="" aria-hidden="true" width="36" height="3">
+          <div class="tst-card__head">
+            <h3 class="tst-card__name">Meghna Mukerjee</h3>
+            <p class="tst-card__role">Senior Lead UX Designer At Kyndryl</p>
+          </div>
+          <hr class="tst-card__rule" aria-hidden="true">
+          <div class="tst-card__text">
+            <p class="tst-card__body">I have had the pleasure of working with Daniel for the last three years and find him to be a very talented, creative, knowledgeable and strategic UX Designer. As a Senior Lead of UX Design, Daniel has been instrumental in ensuring smooth collaboration across a global team, sharing designs, concepts, research, best practices and results effortlessly. Daniel spearheaded redesign of dashboards across multiple applications and drove it to flawless execution.<br><br>Throughout our collaboration, Daniel demonstrated an ever ready attitude to help, mentor and share with the team, always fostering an environment where creativity and innovation can thrive.<br><br>Daniel crafts complex user journeys and designs and communicates his vision with clarity. What sets Daniel apart is his combination of design expertise, technical acumen, and strong strategic thinking.<br><br>He has been translating user insights into actionable design solutions that enhance the user experience.<br><br>Daniel is an invaluable asset to any team. His passion for design and dedication to user-centered solutions make him a standout in the field. I highly recommend Daniel to anyone looking for a top-tier UX design leader.</p>
+          </div>
+          <button class="tst-card__more" type="button" aria-expanded="false" data-tst-more>
+            <span class="tst-card__more-open">-----&#8595; Read More &#8595;-----</span>
+            <span class="tst-card__more-close">-----&#8593; Read Less &#8593;-----</span>
+          </button>
+        </div>
+        <img class="tst-card__tear" src="assets/img/Vector.svg" aria-hidden="true" alt="">
+      </article>
+      
+      <article class="tst-card" data-tst-card>
+        <div class="tst-card__paper">
+          <img class="tst-card__staple" src="assets/img/staple.png" alt="" aria-hidden="true" width="36" height="3">
+          <div class="tst-card__head">
+            <h3 class="tst-card__name">Rigoberto Gonzalez</h3>
+            <p class="tst-card__role">Assoc. Dir. Product Mngmt At Kyndryl</p>
+          </div>
+          <hr class="tst-card__rule" aria-hidden="true">
+          <div class="tst-card__text">
+            <p class="tst-card__body">I am writing to highly recommend Daniel for any position that requires a skilled and dedicated UX Designer. Over the past three years, I have had the pleasure of working closely with Daniel on numerous projects, particularly on the Kyndryl Bridge platform. His designs for new functionalities and the advisory support he provided have been instrumental in enhancing the user experience.<br><br>Daniel consistently demonstrated exceptional skills in UX design, bringing innovative solutions that significantly improved our platform&#x27;s usability and aesthetics. His ability to understand user needs and translate them into intuitive and engaging designs has been a tremendous asset to our team.<br><br>Moreover, Daniel&#x27;s experience in team management has been invaluable. As a key team member, he effectively coordinated with various stakeholders, ensuring that projects were completed on time and to the highest standards.<br><br>His leadership and collaborative spirit fostered a productive and positive work environment.<br><br>In summary, Daniel&#x27;s expertise in UX design and his proven track record in team management make him an outstanding candidate for any role. I am confident that he will continue to excel and contribute significantly to any organization he joins.</p>
+          </div>
+          <button class="tst-card__more" type="button" aria-expanded="false" data-tst-more>
+            <span class="tst-card__more-open">-----&#8595; Read More &#8595;-----</span>
+            <span class="tst-card__more-close">-----&#8593; Read Less &#8593;-----</span>
+          </button>
+        </div>
+        <img class="tst-card__tear" src="assets/img/Vector.svg" aria-hidden="true" alt="">
+      </article>
+      <article class="tst-card" data-tst-card>
+        <div class="tst-card__paper">
+          <img class="tst-card__staple" src="assets/img/staple.png" alt="" aria-hidden="true" width="36" height="3">
+          <div class="tst-card__head">
+            <h3 class="tst-card__name">Brooks Protzmann</h3>
+            <p class="tst-card__role">Manager Design Team At IBM</p>
+          </div>
+          <hr class="tst-card__rule" aria-hidden="true">
+          <div class="tst-card__text">
+            <p class="tst-card__body">I had the pleasure of hiring Daniel while at IBM as a UX designer. From day one, Daniel demonstrated a keen ability to integrate into our team and quickly adapt to the corporate culture. His ability to drive projects independently, while collaborating seamlessly with developers and project managers, was impressive. He consistently delivered high-quality results and had a genuine impact on the success of our initiatives.<br><br>Daniel is a creative force who brings fresh ideas and innovative solutions to the table. Beyond his strong design skills, what truly sets him apart is his intellectual curiosity and easygoing nature. He was always eager to learn, share insights, and contribute to discussions, which made him an invaluable team member.<br><br>Any team would be lucky to have Daniel. He’s a pleasure to work with, and I have no doubt he will continue to excel and make meaningful contributions wherever his career takes him.</p>
+          </div>
+          <button class="tst-card__more" type="button" aria-expanded="false" data-tst-more>
+            <span class="tst-card__more-open">-----&#8595; Read More &#8595;-----</span>
+            <span class="tst-card__more-close">-----&#8593; Read Less &#8593;-----</span>
+          </button>
+        </div>
+        <img class="tst-card__tear" src="assets/img/Vector.svg" aria-hidden="true" alt="">
+      </article>
+      
+      <article class="tst-card" data-tst-card>
+        <div class="tst-card__paper">
+          <img class="tst-card__staple" src="assets/img/staple.png" alt="" aria-hidden="true" width="36" height="3">
+          <div class="tst-card__head">
+            <h3 class="tst-card__name">Richard Esmonde</h3>
+            <p class="tst-card__role">Assoc. Dir. Design Strategy At Kyndryl</p>
+          </div>
+          <hr class="tst-card__rule" aria-hidden="true">
+          <div class="tst-card__text">
+            <p class="tst-card__body">I worked with Daniel for about two years at Kyndryl. Over this time, we worked on a wide range of challenges. I can attest to his exceptional qualities both as a professional and as a colleague. Daniel&#x27;s organizational abilities are outstanding. He consistently demonstrates a remarkable talent for managing multiple projects simultaneously. His systematic approach to work ensures that deadlines are met and quality standards exceeded. He has a laudable work ethic and approaches every task with dedication and purpose. His self-starting nature means he needs minimal supervision; he identifies what needs to be done and takes initiative to accomplish it efficiently.<br><br>In our collaborative environment, Daniel proved to be an invaluable team player. His natural sociability and genuine interest in others make him a pleasure to work with. He has a unique ability to foster positive relationships across departments, contributing to a more cohesive work environment. His amiable nature never compromises his professionalism; rather, it enhances his effectiveness in group settings. Whether working on complex projects or routine tasks, he maintains high standards of accuracy and thoroughness. This precision, combined with his collaborative approach, makes him an asset in any professional setting.<br><br>Overall, Daniel has a great awareness of the bigger picture. On several occasions his keen eye for identifying potential issues and implementing effective solutions has saved time and resources. This skill, combined with his proactive approach, has ensured that projects were completed with precision and foresight. I have no doubt that he would be an excellent addition to any team. His competence and interpersonal skills make him an exceptional candidate.<br><br>I recommend him warmly and without reservation.</p>
+          </div>
+          <button class="tst-card__more" type="button" aria-expanded="false" data-tst-more>
+            <span class="tst-card__more-open">-----&#8595; Read More &#8595;-----</span>
+            <span class="tst-card__more-close">-----&#8593; Read Less &#8593;-----</span>
+          </button>
+        </div>
+        <img class="tst-card__tear" src="assets/img/Vector.svg" aria-hidden="true" alt="">
+      </article>
+      
+      <article class="tst-card" data-tst-card>
+        <div class="tst-card__paper">
+          <img class="tst-card__staple" src="assets/img/staple.png" alt="" aria-hidden="true" width="36" height="3">
+          <div class="tst-card__head">
+            <h3 class="tst-card__name">Carlos Armijo</h3>
+            <p class="tst-card__role">Assoc. Dir. Product Mngmt At Kyndryl</p>
+          </div>
+          <hr class="tst-card__rule" aria-hidden="true">
+          <div class="tst-card__text">
+            <p class="tst-card__body">I am pleased to highly recommend Daniel, who has been an invaluable collaborator on multiple projects over the past few years. From the outset, he demonstrated exceptional commitment and engagement, consistently exceeding my expectations in delivering both innovative and user-centered designs.<br><br>Daniel has a strong foundation in UX research and demonstrates an impressive ability to transform complex user needs into intuitive, effective solutions. He follows industry standards and best practices, ensuring that the experiences created are not only visually compelling but also highly functional and accessible.<br><br>One of his standout qualities is a keen eye for detail, paired with a deep understanding of user behavior and experience flows. This has been instrumental in our ability to deliver products that not only meet but often surpass user expectations. Daniel actively engages in every stage of the design process, from initial research and ideation to prototyping and final implementation, and always brings a proactive approach to problem-solving.<br><br>Beyond his technical skills, Daniel is a pleasure to work with. He brings enthusiasm, adaptability, and professionalism to every project, making him a reliable team player. I wholeheartedly recommend Daniel for any UX design role and am confident that he will continue to produce world-class work wherever he goes.</p>
+          </div>
+          <button class="tst-card__more" type="button" aria-expanded="false" data-tst-more>
+            <span class="tst-card__more-open">-----&#8595; Read More &#8595;-----</span>
+            <span class="tst-card__more-close">-----&#8593; Read Less &#8593;-----</span>
+          </button>
+        </div>
+        <img class="tst-card__tear" src="assets/img/Vector.svg" aria-hidden="true" alt="">
+      </article>
+      
+      <article class="tst-card" data-tst-card>
+        <div class="tst-card__paper">
+          <img class="tst-card__staple" src="assets/img/staple.png" alt="" aria-hidden="true" width="36" height="3">
+          <div class="tst-card__head">
+            <h3 class="tst-card__name">Natalia Bieschasnova</h3>
+            <p class="tst-card__role">Assoc. Dir. UX Design At Kyndryl</p>
+          </div>
+          <hr class="tst-card__rule" aria-hidden="true">
+          <div class="tst-card__text">
+            <p class="tst-card__body">Daniel has been a key part of our design team at Kyndryl. He is a delight to work with - a team player with a positive, can-do attitude all the way. He’s not only a talented designer but also a strong leader and a positive force in any collaborative environment.<br><br>Daniel is great at taking complex challenges and brainstorming creative, user-focused solutions. He is always ready to make a number of key recommendations, making sure every idea is considered, and always keeps the bigger picture in mind. He is also focused on achieving the best possible outcome for the user and the business.<br><br>What really stands out about Daniel is his ability to balance goal-oriented approach and being a fantastic team player. He’s always willing to share his expertise and help others. His positive energy, approachable personality, and enthusiasm for design create a motivating environment for everyone around him.<br><br>On top of all that, Daniel is incredibly hard-working. He consistently delivers high-quality designs on time, never losing sight of the project’s objectives.<br><br>His ability to pivot, adapt, and tackle problems from various perspectives has consistently resulted in practical, user-centered solutions that align with project goals.</p>
+          </div>
+          <button class="tst-card__more" type="button" aria-expanded="false" data-tst-more>
+            <span class="tst-card__more-open">-----&#8595; Read More &#8595;-----</span>
+            <span class="tst-card__more-close">-----&#8593; Read Less &#8593;-----</span>
+          </button>
+        </div>
+        <img class="tst-card__tear" src="assets/img/Vector.svg" aria-hidden="true" alt="">
+      </article>
+      
+      <article class="tst-card" data-tst-card>
+        <div class="tst-card__paper">
+          <img class="tst-card__staple" src="assets/img/staple.png" alt="" aria-hidden="true" width="36" height="3">
+          <div class="tst-card__head">
+            <h3 class="tst-card__name">Jimmy Jimenez</h3>
+            <p class="tst-card__role">Product Manager At Kyndryl</p>
+          </div>
+          <hr class="tst-card__rule" aria-hidden="true">
+          <div class="tst-card__text">
+            <p class="tst-card__body">I had the pleasure of working very closely with Daniel during my time as a Product Manager at Kyndryl, and I can confidently say he is one of the most dedicated and talented UX designers I&#x27;ve ever collaborated with. From day one, he impressed everyone with his powerful designs and his unwavering commitment to putting the user experience first. His expertise and involvement from the earliest stages of product development were invaluable, consistently providing insights that helped shape our product in ways that prioritized both usability and aesthetics.<br><br>Working side-by-side, I saw firsthand how Daniel is not only a skilled designer but also a phenomenal team player. His collaboration skills are on point—he always communicates proactively, eagerly brings his best ideas to the table, and is open to feedback to ensure the final product meets the highest standards. His positive attitude, warm personality, and friendly approach make him a joy to work with, and his responsibility and enthusiasm create an inspiring work environment for everyone around him.<br><br>I highly recommend Daniel to any team looking for a UX designer who goes above and beyond to enhance user experience and who brings both creativity and positivity to the workplace. He would be an asset to any organization.</p>
+          </div>
+          <button class="tst-card__more" type="button" aria-expanded="false" data-tst-more>
+            <span class="tst-card__more-open">-----&#8595; Read More &#8595;-----</span>
+            <span class="tst-card__more-close">-----&#8593; Read Less &#8593;-----</span>
+          </button>
+        </div>
+        <img class="tst-card__tear" src="assets/img/Vector.svg" aria-hidden="true" alt="">
+      </article>
+      
+      <article class="tst-card" data-tst-card>
+        <div class="tst-card__paper">
+          <img class="tst-card__staple" src="assets/img/staple.png" alt="" aria-hidden="true" width="36" height="3">
+          <div class="tst-card__head">
+            <h3 class="tst-card__name">Natalie Silva</h3>
+            <p class="tst-card__role">UX Designer At Kyndryl</p>
+          </div>
+          <hr class="tst-card__rule" aria-hidden="true">
+          <div class="tst-card__text">
+            <p class="tst-card__body">I am pleased to recommend Daniel for any opportunities that may come his way. Having had the pleasure of working alongside him, I can confidently say that he is one of the most dedicated and hardworking individuals I&#x27;ve encountered. He consistently goes above and beyond to support teammates, making him a true asset in any collaborative environment. Daniel is always willing to lend a helping hand, whether it&#x27;s sharing insights or offering guidance during challenging projects.<br><br>During our design critiques, he provided invaluable input that often sparked innovative ideas and solutions. His ability to give constructive feedback while remaining open to others&#x27; perspectives exemplifies his collaborative spirit and commitment to team success.<br><br>Moreover, Daniel is known for his kindness and approachability. He creates an inclusive atmosphere where everyone feels encouraged to contribute, which is essential in fostering creative collaboration.<br><br>I wholeheartedly recommend Daniel for any role that values hard work, collaboration, and a positive attitude. I am confident that he will continue to excel and inspire others in any future endeavor.</p>
+          </div>
+          <button class="tst-card__more" type="button" aria-expanded="false" data-tst-more>
+            <span class="tst-card__more-open">-----&#8595; Read More &#8595;-----</span>
+            <span class="tst-card__more-close">-----&#8593; Read Less &#8593;-----</span>
+          </button>
+        </div>
+        <img class="tst-card__tear" src="assets/img/Vector.svg" aria-hidden="true" alt="">
+      </article>
+      
+      <article class="tst-card" data-tst-card>
+        <div class="tst-card__paper">
+          <img class="tst-card__staple" src="assets/img/staple.png" alt="" aria-hidden="true" width="36" height="3">
+          <div class="tst-card__head">
+            <h3 class="tst-card__name">Carl Wright</h3>
+            <p class="tst-card__role">Senior Lead UX Designer At Kyndryl</p>
+          </div>
+          <hr class="tst-card__rule" aria-hidden="true">
+          <div class="tst-card__text">
+            <p class="tst-card__body">As a UX colleague of Daniel&#x27;s on the Kyndryl Bridge platform, UX team within the CTO organization at Kyndryl, I have had the privilege to collaborate and learn from his experience as a fellow senior UX designer. I highly recommend Daniel for his consistent drive to deliver innovative UX solutions. He is always researching and exploring new ways to enhance user patterns and add value to the business outcomes.<br><br>While his UX skills are strong and valuable I would like to highlight his soft skills as a culture affirming team member. Daniel brings a positive outlook to his collaboration and support of those he interacts with. He is always willing to help where needed and goes above and beyond to bring success to his team. He leads by example and fosters relationships through empathy.<br><br>With his passion, work ethic and drive for innovation Daniel is an asset to any creative/design solution team and I am privileged to have had the opportunity to work alongside him.</p>
+          </div>
+          <button class="tst-card__more" type="button" aria-expanded="false" data-tst-more>
+            <span class="tst-card__more-open">-----&#8595; Read More &#8595;-----</span>
+            <span class="tst-card__more-close">-----&#8593; Read Less &#8593;-----</span>
+          </button>
+        </div>
+        <img class="tst-card__tear" src="assets/img/Vector.svg" aria-hidden="true" alt="">
+      </article>
+      
+      <article class="tst-card" data-tst-card>
+        <div class="tst-card__paper">
+          <img class="tst-card__staple" src="assets/img/staple.png" alt="" aria-hidden="true" width="36" height="3">
+          <div class="tst-card__head">
+            <h3 class="tst-card__name">Eduardo Carrillo</h3>
+            <p class="tst-card__role">Senior Developer At True Omni</p>
+          </div>
+          <hr class="tst-card__rule" aria-hidden="true">
+          <div class="tst-card__text">
+            <p class="tst-card__body">Daniel is an extraordinary designer and a superb team player and leader. He adapts quickly to changes in the requirements and always comes on top with the best solutions. He works very well with engineers and can understand their needs and explain his ideas.<br><br>Any team would be lucky to have Daniel as their leader and any company will see rapidly the value he creates.</p>
+          </div>
+          <button class="tst-card__more" type="button" aria-expanded="false" data-tst-more>
+            <span class="tst-card__more-open">-----&#8595; Read More &#8595;-----</span>
+            <span class="tst-card__more-close">-----&#8593; Read Less &#8593;-----</span>
+          </button>
+        </div>
+        <img class="tst-card__tear" src="assets/img/Vector.svg" aria-hidden="true" alt="">
+      </article>
+      
+      <article class="tst-card" data-tst-card>
+        <div class="tst-card__paper">
+          <img class="tst-card__staple" src="assets/img/staple.png" alt="" aria-hidden="true" width="36" height="3">
+          <div class="tst-card__head">
+            <h3 class="tst-card__name">Joemi Aoh</h3>
+            <p class="tst-card__role">UX Researcher At Kyndryl</p>
+          </div>
+          <hr class="tst-card__rule" aria-hidden="true">
+          <div class="tst-card__text">
+            <p class="tst-card__body">Daniel is a team player that brings energy and enthusiasm towards his work. Our team experienced how he single-handedly designed the main landing pages (internal and external) for the flagship project kyndryl bridge. Its a project that brought him major recognition on XXL effort and not for the faint of heart. It took determination and grit to accomplish this monumental project. If you are looking for a outstanding person and amazing designer, Daniel is your guy.</p>
+          </div>
+          <button class="tst-card__more" type="button" aria-expanded="false" data-tst-more>
+            <span class="tst-card__more-open">-----&#8595; Read More &#8595;-----</span>
+            <span class="tst-card__more-close">-----&#8593; Read Less &#8593;-----</span>
+          </button>
+        </div>
+        <img class="tst-card__tear" src="assets/img/Vector.svg" aria-hidden="true" alt="">
+      </article>
+      
+      <article class="tst-card" data-tst-card>
+        <div class="tst-card__paper">
+          <img class="tst-card__staple" src="assets/img/staple.png" alt="" aria-hidden="true" width="36" height="3">
+          <div class="tst-card__head">
+            <h3 class="tst-card__name">Kia Mostaghimi</h3>
+            <p class="tst-card__role">VP Innovation &amp; Design At Algentra</p>
+          </div>
+          <hr class="tst-card__rule" aria-hidden="true">
+          <div class="tst-card__text">
+            <p class="tst-card__body">Daniel is one of the most creative and innovative people I&#x27;ve worked with. He is independent, an out of box thinker, a team player and a big picture initiator. He would be a positive influence in any organization who is able to leverage his creative mind.</p>
+          </div>
+          <button class="tst-card__more" type="button" aria-expanded="false" data-tst-more>
+            <span class="tst-card__more-open">-----&#8595; Read More &#8595;-----</span>
+            <span class="tst-card__more-close">-----&#8593; Read Less &#8593;-----</span>
+          </button>
+        </div>
+        <img class="tst-card__tear" src="assets/img/Vector.svg" aria-hidden="true" alt="">
+      </article>
+      </div>
+
+      <div class="tst__footer">
+        <button class="tst__viewall" type="button" aria-expanded="false" data-tst-viewall>
+          <span class="tst__viewall-open">View all</span>
+          <span class="tst__viewall-close">View less</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <script>
+  (function () {
+    "use strict";
+    var root = document.currentScript && document.currentScript.previousElementSibling
+      ? document.querySelector(".tst") : document.querySelector(".tst");
+    if (!root) return;
+
+    // Per-card Read More / Read Less
+    root.addEventListener("click", function (e) {
+      var btn = e.target.closest("[data-tst-more]");
+      if (!btn) return;
+      var card = btn.closest("[data-tst-card]");
+      var open = card.classList.toggle("is-open");
+      btn.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+
+    // Roles wrap to as many lines as they need; every visible card reserves
+    // the height of the tallest one so names, rules and bodies stay aligned.
+    var roles = root.querySelectorAll(".tst-card__role");
+    var equalizeRoles = function () {
+      var max = 0;
+      Array.prototype.forEach.call(roles, function (r) { r.style.minHeight = ""; });
+      Array.prototype.forEach.call(roles, function (r) {
+        if (r.offsetParent !== null) { max = Math.max(max, r.offsetHeight); }
+      });
+      Array.prototype.forEach.call(roles, function (r) { r.style.minHeight = max ? max + "px" : ""; });
+    };
+    var queued = false;
+    var queueEqualize = function () {
+      if (queued) { return; }
+      queued = true;
+      window.requestAnimationFrame(function () { queued = false; equalizeRoles(); });
+    };
+    equalizeRoles();
+    window.addEventListener("resize", queueEqualize);
+    window.addEventListener("load", queueEqualize);
+    if (document.fonts && document.fonts.ready) { document.fonts.ready.then(queueEqualize); }
+
+    // Section-level View all / View less
+    var grid = root.querySelector("[data-tst-grid]");
+    var viewBtn = root.querySelector("[data-tst-viewall]");
+    if (grid && viewBtn) {
+      viewBtn.addEventListener("click", function () {
+        var all = grid.classList.toggle("is-all");
+        viewBtn.setAttribute("aria-expanded", all ? "true" : "false");
+        queueEqualize();
+      });
+    }
+  })();
+  </script>
+
+  <!-- ===================== 6. FOOTER BLOCK ===================== -->
+  <footer class="footer" id="contact" aria-labelledby="footer-heading">
+    <h2 id="footer-heading" class="footer__sr-only">About and contact</h2>
+
+    <div class="footer__bg">
+      <video class="footer__bg-media" id="footerVideo"
+             autoplay muted loop playsinline webkit-playsinline preload="auto"
+             poster="assets/img/footer-poster.png" aria-hidden="true">
+        <source src="assets/video/footer.mp4" type="video/mp4">
+      </video>
+    </div>
+
+    <div class="footer__inner">
+
+      <img class="footer__mark" src="assets/img/UX.png" alt="" aria-hidden="true">
+
+      <dl class="footer__info">
+        <div class="footer__row">
+          <dt class="footer__label">Mission:</dt>
+          <dd class="footer__value"> To be a problem solver, seeking clarity through complexity with business needs as a beacon.</dd>
+        </div>
+        <div class="footer__row">
+          <dt class="footer__label">Vision:</dt>
+          <dd class="footer__value"> Always seek to enhance human interaction.</dd>
+        </div>
+        <div class="footer__row">
+          <dt class="footer__label">Email:</dt>
+          <dd class="footer__value"> <a class="footer__link" href="mailto:daniel@dcreativethinking.com">daniel@dcreativethinking.com</a></dd>
+        </div>
+        <div class="footer__row footer__row--tight">
+          <dt class="footer__label">Phone:</dt>
+          <dd class="footer__value"> <a class="footer__link" href="tel:+18019219885">+1 801-921-9885</a></dd>
+        </div>
+      </dl>
+
+      <hr class="footer__rule">
+
+      <ul class="footer__social">
+        <li class="footer__social-item">
+          <a class="footer__social-link" href="https://www.linkedin.com/in/dcreativethinking/" aria-label="LinkedIn" target="_blank" rel="noopener">
+            <svg class="footer__social-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20.45 3H3.55A.55.55 0 0 0 3 3.55v16.9c0 .3.25.55.55.55h16.9c.3 0 .55-.25.55-.55V3.55A.55.55 0 0 0 20.45 3ZM8.8 18.34H5.87V9.75H8.8v8.59ZM7.34 8.47a1.7 1.7 0 1 1 0-3.4 1.7 1.7 0 0 1 0 3.4Zm11 9.87h-2.93v-4.18c0-1-.02-2.28-1.39-2.28-1.39 0-1.6 1.09-1.6 2.21v4.25H9.5V9.75h2.81v1.17h.04c.39-.74 1.35-1.52 2.77-1.52 2.97 0 3.52 1.95 3.52 4.49v4.45Z" fill="currentColor"/>
+            </svg>
+          </a>
+        </li>
+        <li class="footer__social-item">
+          <a class="footer__social-link" href="https://www.instagram.com/dani.el.ux/" aria-label="Instagram" target="_blank" rel="noopener">
+            <svg class="footer__social-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2.16c3.2 0 3.58.02 4.85.07 1.17.06 1.8.25 2.23.42.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.84 0 3.2-.01 3.58-.07 4.85-.06 1.17-.25 1.8-.42 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42-.16-1.06.36-2.23.41-1.27.06-1.65.07-4.84.07-3.2 0-3.58-.01-4.85-.07-1.17-.06-1.8-.25-2.23-.42-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12c0-3.2.01-3.58.07-4.85.06-1.17.25-1.8.42-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16ZM12 0C8.74 0 8.33.02 7.05.07 5.78.13 4.9.33 4.14.63c-.79.31-1.46.72-2.13 1.38C1.35 2.68.94 3.35.63 4.14c-.3.77-.5 1.64-.56 2.91C.01 8.33 0 8.74 0 12s.02 3.67.07 4.95c.06 1.27.26 2.14.56 2.91.31.79.72 1.46 1.38 2.13.67.66 1.34 1.07 2.13 1.38.77.3 1.64.5 2.91.56C8.33 23.98 8.74 24 12 24s3.67-.02 4.95-.07c1.27-.06 2.14-.26 2.91-.56.79-.31 1.46-.72 2.13-1.38.66-.67 1.07-1.34 1.38-2.13.3-.77.5-1.64.56-2.91.05-1.28.07-1.69.07-4.95s-.02-3.67-.07-4.95c-.06-1.27-.26-2.14-.56-2.91a5.9 5.9 0 0 0-1.38-2.13A5.9 5.9 0 0 0 19.86.63c-.77-.3-1.64-.5-2.91-.56C15.67.02 15.26 0 12 0Zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32ZM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm7.85-10.41a1.44 1.44 0 1 1-2.88 0 1.44 1.44 0 0 1 2.88 0Z" fill="currentColor"/>
+            </svg>
+          </a>
+        </li>
+        <li class="footer__social-item">
+          <a class="footer__social-link" href="https://www.behance.net/mlkmx" aria-label="Behance - mlkmx" target="_blank" rel="noopener">
+            <svg class="footer__social-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8.64 7c.5 0 .95.05 1.37.15.41.1.76.26 1.05.48.29.22.52.52.68.89.16.37.24.83.24 1.37 0 .59-.12 1.08-.36 1.48-.24.39-.6.71-1.07.96.64.21 1.12.57 1.44 1.09.32.52.47 1.15.47 1.88 0 .59-.1 1.11-.31 1.54-.19.42-.47.79-.82 1.06-.36.28-.76.48-1.19.6-.44.14-.9.2-1.37.2H2V7h6.64Zm-.4 4.61c.41 0 .75-.11 1.02-.33.27-.22.39-.57.39-1.06 0-.27-.04-.5-.13-.68a.94.94 0 0 0-.36-.41 1.4 1.4 0 0 0-.51-.21c-.2-.04-.4-.06-.6-.06H4.82v2.75h3.42Zm.19 4.84c.23 0 .44-.03.65-.08.2-.05.39-.13.54-.25.16-.12.29-.28.37-.47.09-.2.14-.46.14-.78 0-.62-.16-1.06-.47-1.33-.31-.26-.72-.4-1.23-.4H4.82v3.31h3.61ZM16.13 16.47c.38.41.92.62 1.63.62.51 0 .95-.14 1.32-.43.37-.29.6-.59.68-.91h2.09c-.34 1.16-.85 1.99-1.54 2.49-.7.51-1.53.76-2.51.76-.69 0-1.3-.12-1.85-.37a4.2 4.2 0 0 1-1.4-1.04 4.7 4.7 0 0 1-.89-1.62 6.1 6.1 0 0 1-.29-2.08c0-.74.1-1.42.32-2.06.2-.6.51-1.16.91-1.63a4.2 4.2 0 0 1 1.4-1.08 4.4 4.4 0 0 1 1.81-.39c.73 0 1.37.15 1.92.47.53.31.99.75 1.34 1.28.36.54.61 1.15.76 1.84.16.68.21 1.4.17 2.15h-6.25c.03.91.24 1.59.62 2Zm2.91-5.44c-.3-.37-.81-.57-1.42-.57-.4 0-.73.08-.99.23-.27.15-.48.34-.64.56a2 2 0 0 0-.34.74c-.06.21-.1.42-.11.64h3.87c-.06-.68-.24-1.23-.54-1.6ZM14.86 7h4.9v1.2h-4.9V7Z" fill="currentColor"/>
+            </svg>
+          </a>
+        </li>
+        <li class="footer__social-item">
+          <a class="footer__social-link" href="https://www.behance.net/MalikODaniel" aria-label="Behance - MalikODaniel" target="_blank" rel="noopener">
+            <svg class="footer__social-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8.64 7c.5 0 .95.05 1.37.15.41.1.76.26 1.05.48.29.22.52.52.68.89.16.37.24.83.24 1.37 0 .59-.12 1.08-.36 1.48-.24.39-.6.71-1.07.96.64.21 1.12.57 1.44 1.09.32.52.47 1.15.47 1.88 0 .59-.1 1.11-.31 1.54-.19.42-.47.79-.82 1.06-.36.28-.76.48-1.19.6-.44.14-.9.2-1.37.2H2V7h6.64Zm-.4 4.61c.41 0 .75-.11 1.02-.33.27-.22.39-.57.39-1.06 0-.27-.04-.5-.13-.68a.94.94 0 0 0-.36-.41 1.4 1.4 0 0 0-.51-.21c-.2-.04-.4-.06-.6-.06H4.82v2.75h3.42Zm.19 4.84c.23 0 .44-.03.65-.08.2-.05.39-.13.54-.25.16-.12.29-.28.37-.47.09-.2.14-.46.14-.78 0-.62-.16-1.06-.47-1.33-.31-.26-.72-.4-1.23-.4H4.82v3.31h3.61ZM16.13 16.47c.38.41.92.62 1.63.62.51 0 .95-.14 1.32-.43.37-.29.6-.59.68-.91h2.09c-.34 1.16-.85 1.99-1.54 2.49-.7.51-1.53.76-2.51.76-.69 0-1.3-.12-1.85-.37a4.2 4.2 0 0 1-1.4-1.04 4.7 4.7 0 0 1-.89-1.62 6.1 6.1 0 0 1-.29-2.08c0-.74.1-1.42.32-2.06.2-.6.51-1.16.91-1.63a4.2 4.2 0 0 1 1.4-1.08 4.4 4.4 0 0 1 1.81-.39c.73 0 1.37.15 1.92.47.53.31.99.75 1.34 1.28.36.54.61 1.15.76 1.84.16.68.21 1.4.17 2.15h-6.25c.03.91.24 1.59.62 2Zm2.91-5.44c-.3-.37-.81-.57-1.42-.57-.4 0-.73.08-.99.23-.27.15-.48.34-.64.56a2.2 2.2 0 0 0-.34.74c-.06.21-.1.42-.11.64h3.87c-.06-.68-.24-1.23-.54-1.6ZM14.86 7h4.9v1.2h-4.9V7Z" fill="currentColor"/>
+            </svg>
+          </a>
+        </li>
+      </ul>
+
+    </div>
+  </footer>
+
+  <!-- Consolidated Scripts -->
+  <script src="js/hero.js?v=20261024p"></script>
+  <script src="js/my-work.js?v=20261026a"></script>
+  <script src="js/milk.js"></script>
+  <script src="js/process.js"></script>
+  <script src="js/footer.js"></script>
+
+</body>
+</html>

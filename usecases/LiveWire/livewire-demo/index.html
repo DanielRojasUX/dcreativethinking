@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LiveWire · Fleet Intelligence</title>
+<link rel="icon" type="image/svg+xml" href="assets/logo/livewire-isotype.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css?v=20261025c">
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFB19F"/>
+      <stop offset="100%" stop-color="#FF826A"/>
+    </linearGradient>
+  </defs>
+</svg>
+
+<div class="atmosphere">
+  <video class="bg-video" autoplay muted loop playsinline poster="assets/images/bg-poster.webp">
+    <source src="assets/video/bkg-loop.mp4" type="video/mp4">
+  </video>
+  <div class="dimmer-overlay" id="dimmerOverlay"></div>
+  <div class="veil"></div>
+</div>
+
+<div class="login-screen" id="loginScreen">
+  <div class="login-card" id="loginCard">
+    <div class="login-mark"><img src="assets/logo/livewire-isotype.svg" alt="LiveWire"></div>
+    <div class="login-head">
+      <h1>Sign in</h1>
+      <p>LiveWire Fleet Intelligence · VDP 2.6</p>
+    </div>
+
+    <form class="login-form" id="loginForm" novalidate>
+      <div class="login-field">
+        <label for="loginEmail">Email</label>
+        <input type="text" id="loginEmail" name="email" value="jmason@livewire.com" readonly autocomplete="off">
+      </div>
+      <div class="login-field">
+        <label for="loginPassword">Password</label>
+        <input type="password" id="loginPassword" name="password" value="demo-access" readonly autocomplete="off">
+      </div>
+      
+      <div class="login-options">
+        <label class="remember-me">
+          <input type="checkbox" id="loginRemember" checked>
+          <span class="checkbox-custom"></span>
+          <span>Remember me</span>
+        </label>
+        <a href="#" class="forgot-pwd" onclick="alert('Password reset link sent to your email (demo).')">Forgot your password?</a>
+      </div>
+
+      <p class="login-demo-note" role="note">This is a demo. No account needed, just click <strong>Sign in</strong>.</p>
+
+      <button type="submit" class="login-submit" id="loginSubmit">
+        <span class="login-submit-label">Sign in</span>
+        <span class="login-spinner"></span>
+      </button>
+    </form>
+
+    <div class="login-success" id="loginSuccess">
+      <div class="login-success-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M4 12l5 5L20 6"/></svg>
+      </div>
+      <div class="login-success-text">Welcome back</div>
+    </div>
+  </div>
+</div>
+
+<div class="app" id="appRoot">
+  <!-- RAIL -->
+  <aside class="rail">
+    <div class="rail-panel" id="railPanel">
+      <div class="mark-wrap">
+        <div class="mark-collapsed"><img src="assets/logo/livewire-isotype.svg" alt="LiveWire" style="width:100%;height:auto;display:block;"></div>
+        <div class="mark-expanded">
+          <div class="wordmark-full"><img src="assets/logo/livewire-full.svg" alt="LiveWire" style="height:100%;width:auto;display:block;"></div>
+          <div class="mark-caption">Fleet Intelligence · VDP 2.6</div>
+        </div>
+      </div>
+
+      <div class="rail-row" title="Favorites" data-group="favorites">
+        <span class="rail-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12 3l2.6 5.9 6.4.6-4.8 4.4 1.4 6.3L12 17l-5.6 3.2 1.4-6.3-4.8-4.4 6.4-.6L12 3z"/></svg></span>
+        <span class="rail-label">Favorites</span>
+      </div>
+      <div id="railFavItems"></div>
+
+      <div class="rail-sep"></div>
+
+      <div class="rail-row active" title="Fleet" data-group="fleet">
+        <span class="rail-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="3" width="7" height="9" rx="2"/><rect x="14" y="3" width="7" height="5" rx="2"/><rect x="14" y="12" width="7" height="9" rx="2"/><rect x="3" y="16" width="7" height="5" rx="2"/></svg></span>
+        <span class="rail-label">Fleet</span>
+      </div>
+      <div class="rail-row" title="Performance" data-group="performance">
+        <span class="rail-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></span>
+        <span class="rail-label">Performance</span>
+      </div>
+      <div class="rail-row" title="Diagnostics" data-group="diagnostics">
+        <span class="rail-ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/><circle cx="12" cy="12" r="3.2"/></svg></span>
+        <span class="rail-label">Diagnostics</span>
+      </div>
+
+      <div class="rail-spacer"></div>
+      <div class="rail-mark-ghost"><img src="assets/logo/livewire-isotype.svg" alt="" style="width:100%;height:auto;display:block;"></div>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <div class="main">
+    <header class="topbar">
+      <div class="tabs-wrap" id="tabsWrap">
+        <div class="tab-pill" id="tabPill"></div>
+      </div>
+      <div class="group-label" id="groupLabel">Pinned for you</div>
+
+      <div class="topbar-spacer"></div>
+
+      <div class="topbar-controls">
+        <div class="pill-select" onclick="alert('TCU Selection Dialog')">TCU · <b>15542000086714</b></div>
+        
+        <div class="dropdown-wrapper">
+          <div class="pill-select" id="rangeToggle">Range · <b id="rangeValue">Jan 1 21 – Jul 29 22</b></div>
+          <div class="dropdown-menu range-menu" id="rangeDropdown">
+            <div class="dropdown-header">Time Range</div>
+            <div class="dropdown-item filter-trigger" data-range="Jan 1 21 – Jul 29 22">Jan 1 21 – Jul 29 22</div>
+            <div class="dropdown-item filter-trigger" data-range="Last 7 Days">Last 7 Days</div>
+            <div class="dropdown-item filter-trigger" data-range="Last 30 Days">Last 30 Days</div>
+            <div class="dropdown-item filter-trigger" data-range="Year to Date">Year to Date</div>
+            <div class="dropdown-item filter-trigger" data-range="All Time">All Time</div>
+          </div>
+        </div>
+
+        <div class="dropdown-wrapper">
+          <div class="icon-btn" id="notifToggle">
+            <span class="dot" id="notifDot"></span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 8a6 6 0 10-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 01-3.4 0"/></svg>
+          </div>
+          <div class="dropdown-menu notif-menu" id="notifDropdown">
+            <div class="dropdown-header">Notifications <span class="notif-count">8 New</span></div>
+            <div class="notif-list-dd">
+              <div class="dropdown-item notif-item unread" data-target-group="diagnostics" data-target-view="telltales">
+                <span class="event-tag warn">ALARM</span>
+                <div>
+                  <div class="notif-title">Theft alert triggered</div>
+                  <div class="notif-sub">TCU 15542000002638 · 2m ago</div>
+                </div>
+              </div>
+              <div class="dropdown-item notif-item unread" data-target-group="performance" data-target-view="battery">
+                <span class="event-tag warn">E-3</span>
+                <div>
+                  <div class="notif-title">Charge fault detected</div>
+                  <div class="notif-sub">TCU 353915080106927 · 1h ago</div>
+                </div>
+              </div>
+              <div class="dropdown-item notif-item unread" data-target-group="fleet" data-target-view="sales">
+                <span class="event-tag info">INFO</span>
+                <div>
+                  <div class="notif-title">Weekly sales report ready</div>
+                  <div class="notif-sub">System · 3h ago</div>
+                </div>
+              </div>
+              <div class="dropdown-item notif-item unread" data-target-group="diagnostics" data-target-view="telltales">
+                <span class="event-tag warn">TEMP</span>
+                <div>
+                  <div class="notif-title">Battery overheat warning</div>
+                  <div class="notif-sub">TCU 20981100034456 · 5h ago</div>
+                </div>
+              </div>
+              <div class="dropdown-item notif-item unread" data-target-group="diagnostics" data-target-view="details">
+                <span class="event-tag dim">COMM</span>
+                <div>
+                  <div class="notif-title">Lost GPS signal</div>
+                  <div class="notif-sub">TCU 17795500098871 · 6h ago</div>
+                </div>
+              </div>
+              <div class="dropdown-item notif-item unread" data-target-group="performance" data-target-view="battery">
+                <span class="event-tag warn">BATT</span>
+                <div>
+                  <div class="notif-title">Low 12V Battery</div>
+                  <div class="notif-sub">TCU 15542000002638 · 8h ago</div>
+                </div>
+              </div>
+              <div class="dropdown-item notif-item unread" data-target-group="fleet" data-target-view="daily">
+                <span class="event-tag info">INFO</span>
+                <div>
+                  <div class="notif-title">Firmware Updated V2.6</div>
+                  <div class="notif-sub">TCU 353915080106927 · 12h ago</div>
+                </div>
+              </div>
+              <div class="dropdown-item notif-item unread" data-target-group="performance" data-target-view="ride">
+                <span class="event-tag info">INFO</span>
+                <div>
+                  <div class="notif-title">New long ride logged</div>
+                  <div class="notif-sub">TCU 17795500012211 · 14h ago</div>
+                </div>
+              </div>
+            </div>
+            <div class="dropdown-footer" id="btnSeeAllNotifs">See all notifications</div>
+          </div>
+        </div>
+
+        <div class="dropdown-wrapper">
+          <div class="avatar" id="profileToggle">JM</div>
+          <div class="dropdown-menu profile-menu" id="profileDropdown">
+            <div class="dropdown-header">Justin Mason</div>
+            <div class="dropdown-item" id="btnSettings">Settings</div>
+            <div class="dropdown-item" id="btnPreferences">Preferences</div>
+            <div class="dropdown-item" id="btnSignoutPrompt" style="color: var(--red);">Sign out</div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="viewport" id="viewport">
+      <section class="view" id="view-favorites"><div class="view-head">
+  <div>
+    <h1>Favorites</h1>
+    <p>Your pinned tabs, gathered from across the platform</p>
+  </div>
+</div>
+
+<div id="favoritesContent"></div>
+</section>
+      <section class="view" id="view-fleet-overview"><div class="view-head">
+  <div>
+    <h1>Fleet overview</h1>
+    <p>Aggregated charge, ride and security telemetry for the LiveWire ONE fleet</p>
+  </div>
+  <div class="filter-row">
+    <div class="chip on filter-trigger"><span class="sw"></span> Live</div>
+    <button class="btn-fluid" onclick="alert('Exporting fleet report...')">Export report</button>
+  </div>
+</div>
+
+<div class="stack">
+
+  <div class="glass hero-bike">
+    <div class="hero-bike-text">
+      <div class="card-label">CONNECTED FLEET · TELEMATICS CONTROL UNITS</div>
+      <div class="hero-bike-num">688<span class="unit">bikes reporting</span></div>
+      <div class="hero-bike-chips">
+        <div class="chip on"><span class="sw" style="background:var(--green)"></span>645 healthy</div>
+        <div class="chip on" style="color:var(--amber-soft)"><span class="sw" style="background:var(--amber)"></span>43 faulted</div>
+        <div class="chip on" style="color:var(--cyan)"><span class="sw" style="background:var(--cyan)"></span>52 charge cycles today</div>
+      </div>
+      <p class="hero-bike-sub">Refreshed nightly from the TCU stream across the connected fleet.</p>
+    </div>
+    <div class="hero-bike-img"></div>
+  </div>
+
+  <div class="kpi-row">
+    <div class="glass kpi">
+      <div class="card-label">TOTAL CHARGE TIME</div>
+      <div class="val">236.78<span class="unit">hrs</span></div>
+      <div class="mini-bar"><i style="width:74%; background:var(--amber);"></i></div>
+    </div>
+    <div class="glass kpi">
+      <div class="card-label">TOTAL AC CHARGE</div>
+      <div class="val">41,404</div>
+      <div class="mini-bar"><i style="width:88%; background:var(--cyan);"></i></div>
+    </div>
+    <div class="glass kpi">
+      <div class="card-label">TOTAL DC CHARGE</div>
+      <div class="val">5,482</div>
+      <div class="mini-bar"><i style="width:26%; background:var(--cyan);"></i></div>
+    </div>
+    <div class="glass kpi">
+      <div class="card-label">FAULT RATE</div>
+      <div class="val">6.2<span class="unit">%</span></div>
+      <div class="mini-bar"><i style="width:6%; background:var(--red);"></i></div>
+    </div>
+  </div>
+
+  <div class="g-2col">
+    <div class="glass">
+      <div class="chart-head">
+        <div>
+          <div class="card-label" style="margin-bottom:2px;">CHARGE SESSIONS BY MONTH</div>
+          <div class="chart-sub">AC vs DC · 2021 — 2022</div>
+        </div>
+        <div class="legend-row">
+          <span><i style="background:var(--amber)"></i>AC</span>
+          <span><i style="background:var(--cyan)"></i>DC</span>
+        </div>
+      </div>
+      <div class="chart-box h-md"><canvas id="chartFleetMonthly"></canvas></div>
+    </div>
+
+    <div class="glass" style="position:relative; overflow:hidden;">
+      <div class="hero-bike-img" style="position:absolute; inset:0; opacity:0.16; background-position:70% 60%;"></div>
+      <div style="position:relative; padding:20px 22px 22px; display:flex; flex-direction:column; gap:14px;">
+        <div style="font-size:17px; font-weight:600;">Fleet health</div>
+        <div class="row-item"><span>12V battery OK</span><b style="color:var(--green);">681</b></div>
+        <div class="row-item"><span>Charger faulted</span><b style="color:var(--amber-soft);">43</b></div>
+        <div class="row-item"><span>Immobilized</span><b>0</b></div>
+        <div class="row-item"><span>Reported stolen</span><b>0</b></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</section>
+      <section class="view" id="view-sales"><div class="view-head">
+  <div>
+    <h1>Sales</h1>
+    <p>Units delivered, regional demand and TCU activation across the network</p>
+  </div>
+  <div class="filter-row">
+    <div class="pill-select filter-trigger" id="salesRegionToggle">Region · <b>All</b></div>
+  </div>
+</div>
+
+<div class="g-2col">
+
+  <div class="glass" style="padding:28px 30px; display:flex; flex-direction:column; gap:22px;">
+    <div>
+      <div class="card-label">UNITS DELIVERED</div>
+      <div class="hero-bike-num" style="font-size:56px;">688</div>
+    </div>
+    <div class="chart-box h-lg" style="padding:0;"><canvas id="chartSalesQuarter"></canvas></div>
+  </div>
+
+  <div class="stack">
+    <div class="glass" style="position:relative; overflow:hidden; padding:24px 26px; min-height:190px; display:flex; flex-direction:column; gap:14px;">
+      <div class="hero-bike-img" style="position:absolute; inset:0; opacity:0.14; background-position:80% 70%;"></div>
+      <div style="position:relative; font-size:17px; font-weight:600;">Top regions</div>
+      <div class="bar-list" style="padding:0;" id="topRegions"></div>
+    </div>
+    <div class="kpi-row" style="grid-template-columns:1fr 1fr;">
+      <div class="glass kpi">
+        <div class="card-label">ACTIVATED TCUS</div>
+        <div class="val">671</div>
+      </div>
+      <div class="glass kpi">
+        <div class="card-label">ATTACH RATE</div>
+        <div class="val">97.5<span class="unit">%</span></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</section>
+      <section class="view" id="view-daily"><div class="view-head">
+  <div>
+    <h1>Daily bike status</h1>
+    <p>Fleet reporting cadence over the last 30 days</p>
+  </div>
+</div>
+
+<div class="stack">
+
+  <div class="kpi-row">
+    <div class="glass kpi">
+      <div class="card-label">NO. OF TCUS</div>
+      <div class="val">688</div>
+    </div>
+    <div class="glass kpi">
+      <div class="card-label">FAULTED TODAY</div>
+      <div class="val" style="color:var(--amber-soft);">1</div>
+    </div>
+    <div class="glass kpi">
+      <div class="card-label">REPORTING IN 24H</div>
+      <div class="val">612</div>
+    </div>
+    <div class="glass kpi">
+      <div class="card-label">SILENT &gt; 7 DAYS</div>
+      <div class="val">31</div>
+    </div>
+  </div>
+
+  <div class="glass">
+    <div class="chart-head">
+      <div>
+        <div class="card-label" style="margin-bottom:2px;">DAILY REPORTING BIKES</div>
+        <div class="chart-sub">Last 30 days</div>
+      </div>
+    </div>
+    <div class="chart-box h-lg"><canvas id="chartDaily"></canvas></div>
+  </div>
+
+  <div class="g-2col">
+    <div class="glass kpi">
+      <div class="card-label">AVERAGE DAILY ACTIVE UNITS</div>
+      <div class="val">492</div>
+      <div class="mini-bar"><i style="width:71%; background:var(--cyan);"></i></div>
+    </div>
+    <div class="glass kpi">
+      <div class="card-label">WEEKEND VS WEEKDAY ENGAGEMENT</div>
+      <div class="val">+12.4<span class="unit">%</span></div>
+      <div class="mini-bar"><i style="width:58%; background:var(--green);"></i></div>
+    </div>
+  </div>
+
+</div>
+</section>
+      <section class="view" id="view-summary"><div class="view-head">
+  <div>
+    <h1>Summary</h1>
+    <p>TCU 15542000086714 · charge cycle overview</p>
+  </div>
+</div>
+
+<div class="stack">
+
+  <div class="kpi-row">
+    <div class="glass kpi">
+      <div class="card-label">AVG TIME PER CYCLE</div>
+      <div class="val">4.55<span class="unit">hrs</span></div>
+    </div>
+    <div class="glass kpi">
+      <div class="card-label">TOTAL NO. OF CYCLES</div>
+      <div class="val">52</div>
+    </div>
+    <div class="glass kpi">
+      <div class="card-label">LAST TOTAL CHARGE TIME</div>
+      <div class="val">9.55<span class="unit">hrs</span></div>
+    </div>
+    <div class="glass kpi">
+      <div class="card-label">AVG TIME PER % CHARGE</div>
+      <div class="val">7.54<span class="unit">min</span></div>
+    </div>
+  </div>
+
+  <div class="g-2col">
+    <div class="glass hero-bike" style="min-height:280px;">
+      <div class="hero-bike-img" style="position:absolute; inset:0; opacity:1; background-position:20% 55%;"></div>
+      <div style="position:relative; z-index:2; padding:28px 30px; display:flex; flex-direction:column; justify-content:space-between; width:100%;">
+        <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+          <div style="display:flex; flex-direction:column; gap:6px;">
+            <div class="card-label" style="margin:0;">LAST CHARGE SESSION</div>
+            <div style="font-size:17px; font-weight:600;">Battery state of charge</div>
+          </div>
+          <div class="status-pill ok"><span class="sw"></span>PLUG MATED</div>
+        </div>
+        <div style="display:flex; align-items:flex-end; gap:28px; margin:18px 0;">
+          <div>
+            <div style="font-size:56px; font-weight:700; line-height:0.9; color:var(--ink-dim);">28%</div>
+            <div class="card-label" style="margin-top:6px;">START</div>
+          </div>
+          <div style="font-size:26px; color:var(--ink-faint); padding-bottom:16px;">→</div>
+          <div>
+            <div style="font-size:56px; font-weight:700; line-height:0.9;">100%</div>
+            <div class="card-label" style="margin-top:6px;">END</div>
+          </div>
+        </div>
+        <div class="mini-bar" style="height:7px;"><i style="width:28%; background:var(--ink-dim);"></i></div>
+      </div>
+    </div>
+
+    <div class="stack">
+      <div class="glass" style="padding:22px 24px; display:flex; flex-direction:column; gap:14px;">
+        <div style="font-size:16px; font-weight:600;">Onboard charger</div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+          <div class="row-item" style="flex-direction:column; align-items:flex-start; gap:6px;">
+            <div class="card-label" style="margin:0;">CHARGE TYPE</div>
+            <div style="font-size:19px; font-weight:600;">AC</div>
+          </div>
+          <div class="row-item" style="flex-direction:column; align-items:flex-start; gap:6px;">
+            <div class="card-label" style="margin:0;">12V BATTERY</div>
+            <div style="font-size:19px; font-weight:600; color:var(--green);">OK</div>
+          </div>
+          <div class="row-item" style="flex-direction:column; align-items:flex-start; gap:6px;">
+            <div class="card-label" style="margin:0;">NO. OF FAULTED</div>
+            <div style="font-size:19px; font-weight:600; color:var(--ink-dim);">0</div>
+          </div>
+          <div class="row-item" style="flex-direction:column; align-items:flex-start; gap:6px;">
+            <div class="card-label" style="margin:0;">PLUG STATUS</div>
+            <div style="font-size:19px; font-weight:600;">Mated</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="glass" style="padding:22px 24px; display:flex; flex-direction:column; gap:14px;">
+        <div style="display:flex; justify-content:space-between; align-items:baseline;">
+          <div style="font-size:16px; font-weight:600;">AC vs DC Sessions</div>
+        </div>
+        <div class="chart-box h-sm" style="padding:0;">
+           <canvas id="chartSummaryAcDc"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</section>
+      <section class="view" id="view-battery"><div class="view-head">
+  <div>
+    <h1>Battery status</h1>
+    <p>State of charge, 12V health and session breakdown</p>
+  </div>
+</div>
+
+<div class="g-2col-r">
+
+  <div class="glass" style="position:relative; overflow:hidden; padding:30px 32px; display:flex; flex-direction:column; justify-content:space-between; min-height:400px;">
+    <div class="hero-bike-img" style="position:absolute; inset:0; opacity:0.22; background-position:82% 40%;"></div>
+    <div class="card-label" style="position:relative; margin:0;">STATE OF CHARGE · END OF LAST SESSION</div>
+    <div class="ring-wrap" style="width:210px; height:210px; margin:10px auto;">
+      <svg viewBox="0 0 160 160" class="ring-svg">
+        <circle cx="80" cy="80" r="68" class="ring-track"/>
+        <circle cx="80" cy="80" r="68" class="ring-value" data-offset="0" style="stroke-dashoffset:0;"/>
+      </svg>
+      <div class="ring-center">
+        <span class="ring-num" style="font-size:44px;">100<span style="font-size:18px; color:var(--ink-dim);">%</span></span>
+      </div>
+    </div>
+    <div style="position:relative; display:flex; flex-direction:column; gap:12px;">
+      <div class="mini-bar" style="height:8px;"><i style="width:100%; background:var(--amber);"></i></div>
+      <div style="display:flex; justify-content:space-between; font-family:var(--font-mono); font-size:10px; color:var(--ink-faint);">
+        <span>START 28%</span><span>9.55 HRS</span><span>END 100%</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="stack">
+    <div class="kpi-row" style="grid-template-columns:1fr 1fr;">
+      <div class="glass kpi">
+        <div class="card-label">12V BATTERY</div>
+        <div class="val" style="color:var(--green); font-size:32px;">OK</div>
+      </div>
+      <div class="glass kpi">
+        <div class="card-label">TOTAL CHARGE TIME</div>
+        <div class="val" style="font-size:32px;">236.78<span class="unit">h</span></div>
+      </div>
+      <div class="glass kpi">
+        <div class="card-label">AC SESSIONS</div>
+        <div class="val" style="font-size:32px;">39</div>
+      </div>
+      <div class="glass kpi">
+        <div class="card-label">DC SESSIONS</div>
+        <div class="val" style="font-size:32px;">13</div>
+      </div>
+    </div>
+    <div class="glass" style="flex:1; display:flex; flex-direction:column;">
+      <div class="chart-head">
+        <div>
+          <div class="card-label" style="margin-bottom:2px;">CHARGE CURVE</div>
+        </div>
+        <div class="chart-sub">7.54 min per %</div>
+      </div>
+      <div class="chart-box h-sm" style="flex:1;"><canvas id="chartCurve"></canvas></div>
+    </div>
+  </div>
+
+</div>
+</section>
+      <section class="view" id="view-mileage"><div class="view-head">
+  <div>
+    <h1>Mileage summary</h1>
+    <p>Fleet distance, efficiency and monthly trend</p>
+  </div>
+</div>
+
+<div class="stack">
+
+  <div class="glass" style="position:relative; overflow:hidden; padding:32px 34px; display:flex; align-items:center; justify-content:space-between; min-height:200px;">
+    <div class="hero-bike-img" style="position:absolute; inset:0; opacity:0.2; background-position:88% 65%;"></div>
+    <div style="position:relative; display:flex; flex-direction:column; gap:10px;">
+      <div class="card-label" style="margin:0;">FLEET DISTANCE · INSTRUMENT CLUSTER TOTAL</div>
+      <div style="font-size:72px; font-weight:700; line-height:0.9; letter-spacing:-0.03em;">255,456<span style="font-size:20px; font-weight:400; color:var(--ink-dim);"> mi</span></div>
+      <div style="font-size:13px; color:var(--ink-dim);">Highest single-unit odometer · TCU 353915080106927</div>
+    </div>
+  </div>
+
+  <div class="kpi-row">
+    <div class="glass kpi">
+      <div class="card-label">AVG PER BIKE</div>
+      <div class="val">1,742<span class="unit">mi</span></div>
+    </div>
+    <div class="glass kpi">
+      <div class="card-label">EST. RANGE INST.</div>
+      <div class="val">176,976</div>
+    </div>
+    <div class="glass kpi">
+      <div class="card-label">FUEL RANGE CODE</div>
+      <div class="val">E-3</div>
+    </div>
+    <div class="glass kpi">
+      <div class="card-label">MILES / KWH</div>
+      <div class="val">4.1</div>
+    </div>
+  </div>
+
+  <div class="glass">
+    <div class="chart-head">
+      <div>
+        <div class="card-label" style="margin-bottom:2px;">MONTHLY DISTANCE TREND</div>
+      </div>
+    </div>
+    <div class="chart-box h-md"><canvas id="chartMileage"></canvas></div>
+  </div>
+
+</div>
+</section>
+      <section class="view" id="view-ride"><div class="view-head">
+  <div>
+    <h1>Ride summary</h1>
+    <p>Ride duration patterns and the most recent trips logged</p>
+  </div>
+</div>
+
+<div class="stack">
+
+  <div class="g-3col">
+    <div class="glass span2">
+      <div class="chart-head">
+        <div>
+          <div class="card-label" style="margin-bottom:2px;">RIDE DURATION DISTRIBUTION</div>
+          <div class="chart-sub">52 cycles · avg 4.55 hrs between charges</div>
+        </div>
+      </div>
+      <div class="chart-box h-md"><canvas id="chartRideDist"></canvas></div>
+    </div>
+    <div class="stack">
+      <div class="glass kpi">
+        <div class="card-label">RIDES LOGGED</div>
+        <div class="val">1,204</div>
+      </div>
+      <div class="glass kpi">
+        <div class="card-label">AVG RIDE</div>
+        <div class="val">22<span class="unit">mi</span></div>
+      </div>
+      <div class="glass kpi">
+        <div class="card-label">LONGEST RIDE</div>
+        <div class="val">142<span class="unit">mi</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="glass" style="padding:26px 28px;">
+    <div style="font-size:17px; font-weight:600; margin-bottom:16px;">Latest rides</div>
+    <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:14px;">
+      <div class="row-item" style="flex-direction:column; align-items:flex-start; gap:8px; padding:18px 20px;">
+        <div class="chart-sub" style="margin:0;">01 SEP 2021 · 08:42</div>
+        <div style="font-size:22px; font-weight:600;">31.4 mi</div>
+        <div class="chart-sub" style="margin:0;">SOC 92% → 41%</div>
+      </div>
+      <div class="row-item" style="flex-direction:column; align-items:flex-start; gap:8px; padding:18px 20px;">
+        <div class="chart-sub" style="margin:0;">12 AUG 2021 · 17:05</div>
+        <div style="font-size:22px; font-weight:600;">18.7 mi</div>
+        <div class="chart-sub" style="margin:0;">SOC 78% → 52%</div>
+      </div>
+      <div class="row-item" style="flex-direction:column; align-items:flex-start; gap:8px; padding:18px 20px;">
+        <div class="chart-sub" style="margin:0;">09 AUG 2021 · 12:31</div>
+        <div style="font-size:22px; font-weight:600;">44.2 mi</div>
+        <div class="chart-sub" style="margin:0;">SOC 100% → 28%</div>
+      </div>
+      <div class="row-item" style="flex-direction:column; align-items:flex-start; gap:8px; padding:18px 20px;">
+        <div class="chart-sub" style="margin:0;">20 FEB 2021 · 09:14</div>
+        <div style="font-size:22px; font-weight:600;">12.9 mi</div>
+        <div class="chart-sub" style="margin:0;">SOC 64% → 47%</div>
+      </div>
+      <div class="row-item" style="flex-direction:column; align-items:flex-start; gap:8px; padding:18px 20px;">
+        <div class="chart-sub" style="margin:0;">14 FEB 2021 · 11:20</div>
+        <div style="font-size:22px; font-weight:600;">29.0 mi</div>
+        <div class="chart-sub" style="margin:0;">SOC 80% → 32%</div>
+      </div>
+      <div class="row-item" style="flex-direction:column; align-items:flex-start; gap:8px; padding:18px 20px;">
+        <div class="chart-sub" style="margin:0;">10 JAN 2021 · 14:45</div>
+        <div style="font-size:22px; font-weight:600;">55.1 mi</div>
+        <div class="chart-sub" style="margin:0;">SOC 100% → 15%</div>
+      </div>
+      <div class="row-item" style="flex-direction:column; align-items:flex-start; gap:8px; padding:18px 20px;">
+        <div class="chart-sub" style="margin:0;">03 JAN 2021 · 07:30</div>
+        <div style="font-size:22px; font-weight:600;">14.5 mi</div>
+        <div class="chart-sub" style="margin:0;">SOC 55% → 22%</div>
+      </div>
+      <div class="row-item" style="flex-direction:column; align-items:flex-start; gap:8px; padding:18px 20px;">
+        <div class="chart-sub" style="margin:0;">28 DEC 2020 · 16:15</div>
+        <div style="font-size:22px; font-weight:600;">38.8 mi</div>
+        <div class="chart-sub" style="margin:0;">SOC 98% → 30%</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</section>
+      <section class="view" id="view-telltales"><div class="view-head">
+  <div>
+    <h1>Telltales</h1>
+    <p>Fault density by GPS position across the fleet</p>
+  </div>
+  <div class="filter-row">
+    <div class="chip solid filter-trigger" id="chipTelltaleFaulted">Faulted</div>
+    <div class="chip filter-trigger" id="chipTelltaleAll">All</div>
+  </div>
+</div>
+
+<div class="g-2col-r" style="align-items:stretch;">
+
+  <div class="glass" style="min-height:520px; display:flex; flex-direction:column;">
+    <div class="chart-head">
+      <div>
+        <div class="card-label" style="margin-bottom:2px;">FAULT DENSITY BY GPS POSITION</div>
+        <div class="chart-sub">TCUID · fault datetime · avg SOC at fault</div>
+      </div>
+    </div>
+    <div class="radar" id="radar" style="flex:1;">
+      <div class="map-legend">
+        <span class="chart-sub" style="margin:0;">Map layer</span>
+        <span style="font-size:12px;">Global · 43 fault events</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="stack">
+    <div class="kpi-row" style="grid-template-columns:1fr 1fr;">
+      <div class="glass kpi">
+        <div class="card-label">NO. OF TCUS</div>
+        <div class="val">17</div>
+      </div>
+      <div class="glass kpi">
+        <div class="card-label">FAULTED</div>
+        <div class="val" style="color:var(--amber-soft);">43</div>
+      </div>
+    </div>
+    <div class="glass" style="flex:1;">
+      <div style="font-size:16px; font-weight:600; padding:20px 20px 0;">Recent telltales</div>
+      <div class="event-list">
+        <div class="event-row">
+          <div class="top-line"><span>Charger faulted</span><span class="event-tag warn">E-3</span></div>
+          <div class="event-sub">15542000002638 · 20 Feb 2021</div>
+        </div>
+        <div class="event-row">
+          <div class="top-line"><span>SOC drop at fault</span><span class="event-tag dim">28%</span></div>
+          <div class="event-sub">353915080106927 · 09 Aug 2021</div>
+        </div>
+        <div class="event-row">
+          <div class="top-line"><span>Security disarmed</span><span class="event-tag info">INFO</span></div>
+          <div class="event-sub">15542000002638 · 20 Feb 2021</div>
+        </div>
+        <div class="event-row">
+          <div class="top-line"><span>Alarm triggered</span><span class="event-tag warn">ALARM</span></div>
+          <div class="event-sub">15542000002638 · 20 Feb 2021</div>
+        </div>
+        <div class="event-row">
+          <div class="top-line"><span>Lost GPS signal</span><span class="event-tag dim">COMM</span></div>
+          <div class="event-sub">17795500098871 · 18 Feb 2021</div>
+        </div>
+        <div class="event-row">
+          <div class="top-line"><span>Overheat Warning</span><span class="event-tag warn">TEMP</span></div>
+          <div class="event-sub">20981100034456 · 15 Feb 2021</div>
+        </div>
+        <div class="event-row">
+          <div class="top-line"><span>Firmware Updated</span><span class="event-tag info">INFO</span></div>
+          <div class="event-sub">353915080106927 · 14 Feb 2021</div>
+        </div>
+        <div class="event-row">
+          <div class="top-line"><span>Low 12V Battery</span><span class="event-tag warn">BATT</span></div>
+          <div class="event-sub">15542000002638 · 10 Feb 2021</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</section>
+      <section class="view" id="view-details"><div class="view-head">
+  <div>
+    <h1>Mileage details</h1>
+    <p>Per-unit security, distance and fuel range log</p>
+  </div>
+</div>
+
+<div class="stack">
+
+  <div class="filter-row">
+    <div class="chip solid filter-trigger" id="chipNotStolen">Not stolen</div>
+    <div class="chip filter-trigger" id="chipStolen">Stolen</div>
+    <div class="chip-sep"></div>
+    <div class="chip solid filter-trigger" id="chipNotImmob">Not immobilized</div>
+    <div class="chip filter-trigger" id="chipImmob">Immobilized</div>
+    <div class="chip-sep"></div>
+    <div class="chip filter-trigger">Vehicle security · All</div>
+  </div>
+
+  <div class="glass">
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr><th>TCUID</th><th>Date</th><th>Stolen</th><th>Immobilization</th><th>Security</th><th>Est. range</th><th>Fuel</th></tr>
+        </thead>
+        <tbody id="detailsBody"></tbody>
+      </table>
+    </div>
+    <div class="table-foot">
+      <div class="chart-sub" style="margin:0;">36 OF 4,312 ROWS</div>
+      <div style="display:flex; gap:8px;">
+        <div class="chip disabled">Prev</div>
+        <div class="chip solid filter-trigger">Next</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</section>
+    </div>
+  </div>
+</div>
+
+<!-- Background Dimmer Widget (Repositioned and Toggleable) -->
+<div class="dimmer-wrapper open" id="dimmerWrapper">
+  <div class="dimmer-panel" id="dimmerPanel">
+    <div class="dimmer-header">
+      <label for="dimmerSlider">Bg Dimmer</label>
+      <button class="dimmer-close" id="dimmerCloseBtn" title="Close Dimmer">&times;</button>
+    </div>
+    <input type="range" id="dimmerSlider" class="dimmer-slider" min="0" max="1" step="0.05" value="0.4">
+  </div>
+  <button class="dimmer-toggle-btn" id="dimmerToggleBtn" title="Background Settings">
+    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <circle cx="12" cy="12" r="5"></circle>
+      <line x1="12" y1="1" x2="12" y2="3"></line>
+      <line x1="12" y1="21" x2="12" y2="23"></line>
+      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+      <line x1="1" y1="12" x2="3" y2="12"></line>
+      <line x1="21" y1="12" x2="23" y2="12"></line>
+      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+    </svg>
+  </button>
+</div>
+
+<!-- ================= Modals Overlay ================= -->
+<div class="modal-backdrop" id="modalBackdrop">
+  
+  <!-- Sign Out Modal -->
+  <div class="modal" id="modalSignout">
+    <div class="modal-head">
+      <h2>Sign Out</h2>
+      <button class="modal-close">&times;</button>
+    </div>
+    <div class="modal-body">
+      <p>Are you sure you want to sign out of LiveWire Fleet Intelligence?</p>
+    </div>
+    <div class="modal-foot">
+      <button class="btn-ghost" data-modal-close>Cancel</button>
+      <button class="btn-fluid" id="confirmSignout">Sign Out</button>
+    </div>
+  </div>
+
+  <!-- Settings Modal -->
+  <div class="modal" id="modalSettings">
+    <div class="modal-head">
+      <h2>Settings</h2>
+      <button class="modal-close">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div class="login-field" style="margin-bottom:14px;">
+        <label>Display Name</label>
+        <input type="text" value="Justin Mason" readonly>
+      </div>
+      <div class="login-field">
+        <label>Email Address</label>
+        <input type="text" value="jmason@livewire.com" readonly>
+      </div>
+    </div>
+    <div class="modal-foot">
+      <button class="btn-fluid" data-modal-close>Close</button>
+    </div>
+  </div>
+
+  <!-- Preferences Modal -->
+  <div class="modal" id="modalPreferences">
+    <div class="modal-head">
+      <h2>Preferences</h2>
+      <button class="modal-close">&times;</button>
+    </div>
+    <div class="modal-body">
+      <p>Default Region: <strong>Global</strong></p>
+      <p style="margin-top:10px;">Timezone: <strong>UTC -05:00</strong></p>
+    </div>
+    <div class="modal-foot">
+      <button class="btn-fluid" data-modal-close>Save & Close</button>
+    </div>
+  </div>
+
+  <!-- All Notifications Modal -->
+  <div class="modal modal-lg" id="modalAllNotifs">
+    <div class="modal-head">
+      <h2>All Notifications</h2>
+      <button class="modal-close">&times;</button>
+    </div>
+    <div class="notif-filter-bar">
+      <div class="filter-tabs">
+        <div class="filter-tab active" id="tabNotifAll">All</div>
+        <div class="filter-tab" id="tabNotifUnread">Unread</div>
+      </div>
+      <button class="btn-ghost btn-sm" id="btnMarkAllRead">Mark all as read</button>
+    </div>
+    <div class="modal-body notif-list-lg" id="allNotifsList">
+      <!-- Generated via JS -->
+    </div>
+  </div>
+
+</div>
+
+<!-- Use JSDelivr so Chart.js correctly loads -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="js/app.js?v=20261025a"></script>
+</body>
+</html>

@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daniel | Improving Check-in</title>
+  <link rel="icon" href="../../assets/img/favicon.ico?v=20261024j" sizes="any">
+  <link rel="icon" type="image/svg+xml" href="../../assets/img/favicon.svg?v=20261024j">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/img/favicon-32.png?v=20261024j">
+  <link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png?v=20261024j">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Inter+Tight:wght@800;900&family=Montserrat:wght@500;600&display=swap" rel="stylesheet">
+
+  <!-- Homepage card component (More case studies) -->
+  <link rel="stylesheet" href="../../css/my-work.css?v=20261026b">
+  <link rel="stylesheet" href="../../css/case-study.css?v=20261026b">
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../index.html">Home</a> / <a href="../../index.html#work">Work</a> / <span>Improving Check-in</span>
+    </nav>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle Dark Mode">
+      <svg id="themeIcon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      </svg>
+    </button>
+  </div>
+
+  <!-- HERO -->
+  <header class="hero">
+    <span class="chip chip--light hero__chip hero__chip--l">Case Study 04</span>
+    <span class="chip chip--light hero__chip hero__chip--r">Arcos Staging Site</span>
+
+    <div class="hero__body">
+      <div>
+        <h1 class="display display--xl hero__title">Checking In,<br>Reimagined</h1>
+        <p class="hero__subtitle">Accelerating emergency power restoration by turning gate congestion into a distributed, pre-flight credentialing system.</p>
+      </div>
+      <div class="hero__info">
+        <div><b>Role :</b> Lead Product Designer</div>
+        <div><b>Org :</b> Arcos / Staging Site</div>
+        <div><b>Scope :</b> High-Stakes Emergency Response, 4 to 8 Person Squads, Distributed Service Design, Paperless Credentialing</div>
+        <div><b>Impact :</b> -80% check-in time</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- OWNERSHIP -->
+  <div class="owner"><span class="owner__label">My part</span><p class="owner__text">I took this from field research and journey mapping through high fidelity flows and delivery. <strong>Status:</strong> delivered and in use; the check-in times below are measured.</p></div>
+
+  <main>
+    <!-- 01 : THE PROBLEM (image left) -->
+    <section class="sec split split--ui" id="problem">
+      <span class="chip sec__chip">01 / The Problem</span>
+      <div class="split__grid">
+        <div class="split__media">
+            <figure class="figure figure--diagram">
+              <div class="figure__panel"><svg fill="none" style="color:var(--accent)" viewbox="0 0 380 420" xmlns="http://www.w3.org/2000/svg">
+<rect fill="none" height="70" rx="8" stroke="currentColor" stroke-width="1.5" width="320" x="30" y="20"></rect>
+<text fill="currentColor" font-family="DM Sans, sans-serif" font-size="11" font-weight="700" text-anchor="middle" x="190" y="48">STAGE 1 · PRE-DEPARTURE</text>
+<text fill="currentColor" font-family="DM Sans, sans-serif" font-size="10" opacity="0.85" text-anchor="middle" x="190" y="68">Crew Lead verifies squad credentials via app</text>
+<line stroke="currentColor" stroke-width="1.5" x1="190" x2="190" y1="90" y2="130"></line>
+<path d="M184 122 L190 132 L196 122" fill="none" stroke="currentColor" stroke-width="1.5"></path>
+<rect fill="none" height="70" rx="8" stroke="currentColor" stroke-width="2" width="320" x="30" y="135"></rect>
+<text fill="currentColor" font-family="DM Sans, sans-serif" font-size="11" font-weight="700" text-anchor="middle" x="190" y="163">STAGE 2 · GATE ARRIVAL</text>
+<text fill="currentColor" font-family="DM Sans, sans-serif" font-size="10" opacity="0.85" text-anchor="middle" x="190" y="183">Single squad QR scan, visual match</text>
+<line stroke="currentColor" stroke-dasharray="4 3" stroke-width="1.5" x1="190" x2="190" y1="205" y2="245"></line>
+<path d="M184 237 L190 247 L196 237" fill="none" stroke="currentColor" stroke-width="1.5"></path>
+<text fill="currentColor" font-family="DM Sans, sans-serif" font-size="9" opacity="0.7" x="205" y="228">exception</text>
+<rect fill="none" height="70" rx="8" stroke="currentColor" stroke-dasharray="5 3" stroke-width="1.5" width="320" x="30" y="250"></rect>
+<text fill="currentColor" font-family="DM Sans, sans-serif" font-size="11" font-weight="700" text-anchor="middle" x="190" y="278">STAGE 3 · EXCEPTION ROUTING</text>
+<text fill="currentColor" font-family="DM Sans, sans-serif" font-size="10" opacity="0.85" text-anchor="middle" x="190" y="298">Bypasses gate to Command Center Admin</text>
+<line stroke="currentColor" stroke-width="1.5" x1="190" x2="190" y1="320" y2="355"></line>
+<path d="M184 347 L190 357 L196 347" fill="none" stroke="currentColor" stroke-width="1.5"></path>
+<rect fill="none" height="46" rx="6" stroke="currentColor" stroke-width="1.5" width="240" x="70" y="360"></rect>
+<text fill="currentColor" font-family="DM Sans, sans-serif" font-size="10" text-anchor="middle" x="190" y="388">Gate traffic keeps moving</text>
+</svg></div>
+              <figcaption class="figure__caption">
+                <span>Verification moves upstream to the Crew Lead, leaving the gate a single scan instead of a queue.</span>
+                <span class="chip">Fig. 01</span>
+              </figcaption>
+            </figure>
+        </div>
+        <div class="split__text">
+          <h2 class="display display--lg">The<br>Problem</h2>
+            <div class="beat">
+              <span class="beat__label">On the ground</span>
+              <h3 class="beat__title">The gate couldn&#x27;t keep up</h3>
+              <p class="lead">When severe storms hit, mutual assistance crews and contractor squads rush to staging sites to restore power. Check-in took 3 to 25 minutes per person, stranding 4-to-8-person crews in line and directly delaying emergency restoration work. The client's first request was a faster gate app.</p>
+            </div>
+            <div class="beat">
+              <span class="beat__label">Why a new UI wouldn't help</span>
+              <h3 class="beat__title">Check-in is credential validation</h3>
+              <p class="lead">A UI refresh couldn't fix gate congestion, because check-in is fundamentally an identity and credential validation process, built to keep uncertified personnel off a hazardous worksite. Field crews are non-technical, stressed, and in a hurry. Expecting individual workers to complete digital forms at the gate during an active emergency guaranteed it would fail.</p>
+            </div>
+            <div class="beat">
+              <span class="beat__label">From the field</span>
+              <h3 class="beat__title">Where the real leverage actually sat</h3>
+              <p class="lead">Field interviews, persona synthesis, and empathy mapping surfaced two operational points worth acting on. Contractor management lived and died by client compliance, and was desperate for an easier way to hit that bar. And every 4-to-8-person squad already had a Crew Lead who managed logistics for their truck. The verification work didn't need to happen at the gate at all, it could move upstream to someone who already owned it.</p>
+            </div>
+            <div class="beat">
+              <span class="beat__label">The real bottleneck</span>
+              <h3 class="beat__title">Individual verification was solving the wrong moment</h3>
+              <p class="lead">The bottleneck wasn't the interface at the gate, it was asking each individual worker to do credential work at the single worst possible moment to ask it, mid-emergency, standing in a line. Verifying the squad before departure, instead of each person on arrival, removed the bottleneck at its source.</p>
+            </div>
+        </div>
+      </div>
+    </section>
+    <!-- 02 : THE DECISION -->
+    <section class="sec" id="decision">
+      <span class="chip sec__chip">02 / The Decision</span>
+      <div class="duo">
+        <p class="statement">I shifted the architecture from gate-side individual processing to pre-flight squad verification.</p>
+        <p class="lead">Crew Leads validate their entire squad's credentials digitally before departing for the site. At the gate, check-in drops to a single squad QR scan and a 30-second visual identity match, with no individual forms and no line.</p>
+      </div>
+    </section>
+    <!-- 03 : THE BUILD -->
+    <section class="sec sec--gray split split--ui split--reverse" id="solution">
+      <span class="chip sec__chip">03 / The Build</span>
+      <div class="split__grid">
+        <div class="split__media">
+            <figure class="figure figure--framed">
+              <img src="assets/img/checkinFlow-optimized-HappyPath.png" alt="Optimized squad verification happy path">
+              <figcaption class="figure__caption">
+                <span>Optimized squad verification happy path</span>
+                <span class="chip">Fig. 02</span>
+              </figcaption>
+            </figure>
+            <figure class="figure figure--framed">
+              <img src="assets/img/Flow-DigitalArtifactsDefinition.png" alt="Digital credential artifacts flow">
+              <figcaption class="figure__caption">
+                <span>Digital credential artifacts flow</span>
+                <span class="chip">Fig. 03</span>
+              </figcaption>
+            </figure>
+            <figure class="figure figure--framed">
+              <img src="assets/img/Persona interface flows.png" alt="Interface flows split by contractor, gate, and admin role">
+              <figcaption class="figure__caption">
+                <span>Interface flows split by contractor, gate, and admin role</span>
+                <span class="chip">Fig. 04</span>
+              </figcaption>
+            </figure>
+        </div>
+        <div class="split__text">
+          <h2 class="display display--md">Verify Before<br>Departure</h2>
+          <p class="lead">Digital artifacts, registrations, certifications, and squad QR credentials, replaced fragmented paperwork with a single shared source of truth. Scanning a squad's QR code at the gate instantly populates every member's pre-verified credentials for the Field Operations Coordinator to confirm.</p>
+        </div>
+      </div>
+    </section>
+    <!-- 04 : IN DEPTH -->
+    <section class="sec" id="delivery">
+      <span class="chip sec__chip">04 / In Depth</span>
+      <div class="duo">
+        <div>
+          <h2 class="display display--md">Protocol<br>Details</h2>
+          <p class="lead" style="margin-top:clamp(16px,2vw,24px)">How a squad moves from the truck to the site.</p>
+        </div>
+        <div class="rows rows--top">
+          <div class="row">
+            <div class="row__label">The Crew Lead pre-flight protocol</div>
+            <div class="row__text"><p>Recognizing that crew members are non-technical, we made the Crew Lead the operational anchor instead. Before leaving for the staging site, the Crew Lead either confirms each squad member has already checked in or validates their credentials on their behalf. That moved essentially all of the data entry away from the physical gate, before the truck ever arrives.</p></div>
+          </div>
+          <div class="row">
+            <div class="row__label">Single squad QR &amp; visual gate corroboration</div>
+            <div class="row__text"><p>On arrival, the Crew Lead presents one Squad QR code to the Field Operations Coordinator. Scanning it instantly populates the entire squad's pre-verified credentials. The coordinator performs a quick visual match, face to ID, in under a minute, and clears the whole truck for entry at once instead of processing each person individually.</p></div>
+          </div>
+          <div class="row">
+            <div class="row__label">Non-happy path &amp; Command Center exception</div>
+            <div class="row__text"><p>If a credential fails or documentation is missing at the gate, the system is built to prevent a lockup rather than cause one. The squad steps out of line so gate traffic keeps moving, and the Crew Lead connects directly with a remote Command Center Administrator through the app to resolve the discrepancy, without ever blocking the crews still arriving behind them.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- 05 : RESULTS -->
+    <section class="sec sec--gray" id="results" aria-label="Results">
+      <span class="chip sec__chip">05 / What Changed</span>
+      <div class="metrics__grid">
+          <div class="metric">
+            <div class="metric__value">&minus;80%</div>
+            <div class="metric__label">Check-in Time</div>
+            <p class="metric__text">Cut manual check-in from 3 to 25 minutes down to 45 seconds to 5 minutes, about 80% faster, clearing peak hour bottlenecks during active restoration events.</p>
+          </div>
+          <div class="metric">
+            <div class="metric__value">100%</div>
+            <div class="metric__label">Compliance</div>
+            <p class="metric__text">Eliminated paper-based tracking entirely, closing the data gaps that had triggered audit failures.</p>
+          </div>
+          <div class="metric">
+            <div class="metric__value metric__value--word">Real-time</div>
+            <div class="metric__label">Site Visibility</div>
+            <p class="metric__text">Gave site managers a live view of everyone on site, replacing manual headcounts and reactive security overrides.</p>
+          </div>
+      </div>
+    </section>
+    <!-- 06 : REFLECTION -->
+    <section class="reflection" id="reflection">
+      <div class="reflection__inner">
+        <div class="reflection__top">
+          <span class="chip chip--light">06 / Reflection</span>
+          <span class="chip chip--light">Arcos Staging Site</span>
+        </div>
+        <h2 class="display display--lg">Looking<br>Back</h2>
+        <div class="reflection__cols">
+          <div>
+            <h3>What Went Well?</h3>
+            <p><strong>Time Savings</strong>Achieved an 80% reduction in check-in time by shifting verification upstream to the Crew Lead, eliminating redundant data entry at the gate.</p>
+            <p><strong>Compliance &amp; Security</strong>Eliminated paper-based compliance tracking entirely, mitigating audit failures and improving physical security protocols.</p>
+            <p><strong>System Visibility</strong>Gave site managers a real-time dashboard, letting them know exactly who was on site at any given moment.</p>
+            <p><strong>Cross-Persona Alignment</strong>Brought four distinct personas, contractors, gate personnel, site administrators, and operational leadership, onto one shared operational model instead of four separate definitions of success.</p>
+          </div>
+          <div>
+            <h3>What Could I Have Done Better?</h3>
+            <p><strong>Edge-Case Connectivity Planning</strong>While the offline-to-online handoff worked, testing extreme low-connectivity scenarios in remote storm zones earlier in the prototyping phase would have further streamlined fallback states for Field Operations Coordinators.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- MORE CASE STUDIES (cards from js/projects.js, same component as the homepage) -->
+  <section class="more" id="more" aria-labelledby="more-title">
+    <div class="more__head">
+      <h2 id="more-title" class="display display--md">More Case<br>Studies</h2>
+      <div class="more__filters" role="tablist" aria-label="Filter case studies">
+        <button class="more__filter is-active" type="button" role="tab" aria-selected="true" data-more-filter="related">Related</button>
+        <button class="more__filter" type="button" role="tab" aria-selected="false" data-more-filter="all">View all</button>
+      </div>
+    </div>
+    <div class="more__grid" data-projects="more" data-base="../../" data-current="checkin"></div>
+    <div class="more__contact">
+      <ul class="more__links">
+        <li><a href="mailto:daniel@dcreativethinking.com">daniel@dcreativethinking.com</a></li>
+        <li><a href="tel:+18019219885">+1 801-921-9885</a></li>
+        <li><a href="../../assets/docs/Daniel_Rojas_Resume_2026_v2.pdf" download="Daniel_Rojas_Resume_2026.pdf">Download resume</a></li>
+      </ul>
+      <ul class="more__social" aria-label="Social profiles">
+        <li><a class="more__social-link" href="https://www.linkedin.com/in/dcreativethinking/" aria-label="LinkedIn" target="_blank" rel="noopener"><svg class="more__social-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"> <path d="M20.45 3H3.55A.55.55 0 0 0 3 3.55v16.9c0 .3.25.55.55.55h16.9c.3 0 .55-.25.55-.55V3.55A.55.55 0 0 0 20.45 3ZM8.8 18.34H5.87V9.75H8.8v8.59ZM7.34 8.47a1.7 1.7 0 1 1 0-3.4 1.7 1.7 0 0 1 0 3.4Zm11 9.87h-2.93v-4.18c0-1-.02-2.28-1.39-2.28-1.39 0-1.6 1.09-1.6 2.21v4.25H9.5V9.75h2.81v1.17h.04c.39-.74 1.35-1.52 2.77-1.52 2.97 0 3.52 1.95 3.52 4.49v4.45Z" fill="currentColor"/> </svg></a></li>
+        <li><a class="more__social-link" href="https://www.instagram.com/dani.el.ux/" aria-label="Instagram" target="_blank" rel="noopener"><svg class="more__social-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"> <path d="M12 2.16c3.2 0 3.58.02 4.85.07 1.17.06 1.8.25 2.23.42.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.84 0 3.2-.01 3.58-.07 4.85-.06 1.17-.25 1.8-.42 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42-.16-1.06.36-2.23.41-1.27.06-1.65.07-4.84.07-3.2 0-3.58-.01-4.85-.07-1.17-.06-1.8-.25-2.23-.42-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12c0-3.2.01-3.58.07-4.85.06-1.17.25-1.8.42-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16ZM12 0C8.74 0 8.33.02 7.05.07 5.78.13 4.9.33 4.14.63c-.79.31-1.46.72-2.13 1.38C1.35 2.68.94 3.35.63 4.14c-.3.77-.5 1.64-.56 2.91C.01 8.33 0 8.74 0 12s.02 3.67.07 4.95c.06 1.27.26 2.14.56 2.91.31.79.72 1.46 1.38 2.13.67.66 1.34 1.07 2.13 1.38.77.3 1.64.5 2.91.56C8.33 23.98 8.74 24 12 24s3.67-.02 4.95-.07c1.27-.06 2.14-.26 2.91-.56.79-.31 1.46-.72 2.13-1.38.66-.67 1.07-1.34 1.38-2.13.3-.77.5-1.64.56-2.91.05-1.28.07-1.69.07-4.95s-.02-3.67-.07-4.95c-.06-1.27-.26-2.14-.56-2.91a5.9 5.9 0 0 0-1.38-2.13A5.9 5.9 0 0 0 19.86.63c-.77-.3-1.64-.5-2.91-.56C15.67.02 15.26 0 12 0Zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32ZM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm7.85-10.41a1.44 1.44 0 1 1-2.88 0 1.44 1.44 0 0 1 2.88 0Z" fill="currentColor"/> </svg></a></li>
+        <li><a class="more__social-link" href="https://www.behance.net/mlkmx" aria-label="Behance - mlkmx" target="_blank" rel="noopener"><svg class="more__social-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"> <path d="M8.64 7c.5 0 .95.05 1.37.15.41.1.76.26 1.05.48.29.22.52.52.68.89.16.37.24.83.24 1.37 0 .59-.12 1.08-.36 1.48-.24.39-.6.71-1.07.96.64.21 1.12.57 1.44 1.09.32.52.47 1.15.47 1.88 0 .59-.1 1.11-.31 1.54-.19.42-.47.79-.82 1.06-.36.28-.76.48-1.19.6-.44.14-.9.2-1.37.2H2V7h6.64Zm-.4 4.61c.41 0 .75-.11 1.02-.33.27-.22.39-.57.39-1.06 0-.27-.04-.5-.13-.68a.94.94 0 0 0-.36-.41 1.4 1.4 0 0 0-.51-.21c-.2-.04-.4-.06-.6-.06H4.82v2.75h3.42Zm.19 4.84c.23 0 .44-.03.65-.08.2-.05.39-.13.54-.25.16-.12.29-.28.37-.47.09-.2.14-.46.14-.78 0-.62-.16-1.06-.47-1.33-.31-.26-.72-.4-1.23-.4H4.82v3.31h3.61ZM16.13 16.47c.38.41.92.62 1.63.62.51 0 .95-.14 1.32-.43.37-.29.6-.59.68-.91h2.09c-.34 1.16-.85 1.99-1.54 2.49-.7.51-1.53.76-2.51.76-.69 0-1.3-.12-1.85-.37a4.2 4.2 0 0 1-1.4-1.04 4.7 4.7 0 0 1-.89-1.62 6.1 6.1 0 0 1-.29-2.08c0-.74.1-1.42.32-2.06.2-.6.51-1.16.91-1.63a4.2 4.2 0 0 1 1.4-1.08 4.4 4.4 0 0 1 1.81-.39c.73 0 1.37.15 1.92.47.53.31.99.75 1.34 1.28.36.54.61 1.15.76 1.84.16.68.21 1.4.17 2.15h-6.25c.03.91.24 1.59.62 2Zm2.91-5.44c-.3-.37-.81-.57-1.42-.57-.4 0-.73.08-.99.23-.27.15-.48.34-.64.56a2 2 0 0 0-.34.74c-.06.21-.1.42-.11.64h3.87c-.06-.68-.24-1.23-.54-1.6ZM14.86 7h4.9v1.2h-4.9V7Z" fill="currentColor"/> </svg></a></li>
+        <li><a class="more__social-link" href="https://www.behance.net/MalikODaniel" aria-label="Behance - MalikODaniel" target="_blank" rel="noopener"><svg class="more__social-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"> <path d="M8.64 7c.5 0 .95.05 1.37.15.41.1.76.26 1.05.48.29.22.52.52.68.89.16.37.24.83.24 1.37 0 .59-.12 1.08-.36 1.48-.24.39-.6.71-1.07.96.64.21 1.12.57 1.44 1.09.32.52.47 1.15.47 1.88 0 .59-.1 1.11-.31 1.54-.19.42-.47.79-.82 1.06-.36.28-.76.48-1.19.6-.44.14-.9.2-1.37.2H2V7h6.64Zm-.4 4.61c.41 0 .75-.11 1.02-.33.27-.22.39-.57.39-1.06 0-.27-.04-.5-.13-.68a.94.94 0 0 0-.36-.41 1.4 1.4 0 0 0-.51-.21c-.2-.04-.4-.06-.6-.06H4.82v2.75h3.42Zm.19 4.84c.23 0 .44-.03.65-.08.2-.05.39-.13.54-.25.16-.12.29-.28.37-.47.09-.2.14-.46.14-.78 0-.62-.16-1.06-.47-1.33-.31-.26-.72-.4-1.23-.4H4.82v3.31h3.61ZM16.13 16.47c.38.41.92.62 1.63.62.51 0 .95-.14 1.32-.43.37-.29.6-.59.68-.91h2.09c-.34 1.16-.85 1.99-1.54 2.49-.7.51-1.53.76-2.51.76-.69 0-1.3-.12-1.85-.37a4.2 4.2 0 0 1-1.4-1.04 4.7 4.7 0 0 1-.89-1.62 6.1 6.1 0 0 1-.29-2.08c0-.74.1-1.42.32-2.06.2-.6.51-1.16.91-1.63a4.2 4.2 0 0 1 1.4-1.08 4.4 4.4 0 0 1 1.81-.39c.73 0 1.37.15 1.92.47.53.31.99.75 1.34 1.28.36.54.61 1.15.76 1.84.16.68.21 1.4.17 2.15h-6.25c.03.91.24 1.59.62 2Zm2.91-5.44c-.3-.37-.81-.57-1.42-.57-.4 0-.73.08-.99.23-.27.15-.48.34-.64.56a2.2 2.2 0 0 0-.34.74c-.06.21-.1.42-.11.64h3.87c-.06-.68-.24-1.23-.54-1.6ZM14.86 7h4.9v1.2h-4.9V7Z" fill="currentColor"/> </svg></a></li>
+      </ul>
+    </div>
+  </section>
+
+
+  <!-- LIGHTBOX & GALLERY SCRIPT -->
+  <div id="lightbox">
+    <button id="lightbox-close" aria-label="Close Lightbox">&times;</button>
+    <button id="lightbox-prev" class="lightbox-nav" aria-label="Previous Image">&#10094;</button>
+    <img id="lightbox-img" src="" alt="Enlarged view">
+    <button id="lightbox-next" class="lightbox-nav" aria-label="Next Image">&#10095;</button>
+  </div>
+
+  <script>
+    // Theme Toggle Logic
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    const body = document.body;
+
+    if (localStorage.getItem('theme') === 'dark') {
+      body.classList.add('dark-theme');
+      setSunIcon();
+    }
+
+    themeToggle.addEventListener('click', () => {
+      body.classList.toggle('dark-theme');
+      if (body.classList.contains('dark-theme')) {
+        localStorage.setItem('theme', 'dark');
+        setSunIcon();
+      } else {
+        localStorage.setItem('theme', 'light');
+        setMoonIcon();
+      }
+    });
+
+    function setSunIcon() {
+      themeIcon.innerHTML = '<circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>';
+    }
+
+    function setMoonIcon() {
+      themeIcon.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>';
+    }
+
+    // Lightbox & Gallery Logic
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxClose = document.getElementById('lightbox-close');
+    const prevBtn = document.getElementById('lightbox-prev');
+    const nextBtn = document.getElementById('lightbox-next');
+    
+    const clickableImages = Array.from(document.querySelectorAll('main img:not(.no-lightbox)'));
+    let currentIndex = 0;
+
+    function updateLightboxImage() {
+      lightboxImg.src = clickableImages[currentIndex].src;
+    }
+
+    clickableImages.forEach((img, index) => {
+      img.addEventListener('click', () => {
+        currentIndex = index;
+        updateLightboxImage();
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    const closeLightbox = () => {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    };
+
+    // Navigation Controls
+    prevBtn.addEventListener('click', (e) => {
+      e.stopPropagation(); 
+      currentIndex = (currentIndex > 0) ? currentIndex - 1 : clickableImages.length - 1;
+      updateLightboxImage();
+    });
+
+    nextBtn.addEventListener('click', (e) => {
+      e.stopPropagation(); 
+      currentIndex = (currentIndex < clickableImages.length - 1) ? currentIndex + 1 : 0;
+      updateLightboxImage();
+    });
+
+    // Close on background click
+    lightbox.addEventListener('click', (e) => {
+      if (e.target !== lightboxImg && e.target !== prevBtn && e.target !== nextBtn) {
+        closeLightbox();
+      }
+    });
+
+    lightboxClose.addEventListener('click', closeLightbox);
+
+    // Keyboard controls for Gallery & Close
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox.classList.contains('active')) return;
+      
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') {
+        currentIndex = (currentIndex > 0) ? currentIndex - 1 : clickableImages.length - 1;
+        updateLightboxImage();
+      }
+      if (e.key === 'ArrowRight') {
+        currentIndex = (currentIndex < clickableImages.length - 1) ? currentIndex + 1 : 0;
+        updateLightboxImage();
+      }
+    });
+  </script>
+  <script src="../../js/projects.js?v=20261026b"></script>
+</body>
+</html>

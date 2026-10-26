@@ -8,6 +8,7 @@
 
   /* colour */
   --color-accent: #FF124B;
+  --color-accent-text: #E5093E;   /* accent for text on white: 4.73:1, AA (the brand #FF124B is 3.86:1) */
   --color-surface: #FFFFFF;
   --color-page: #EDEDED;
   --color-ink: #1A1A1A;
@@ -76,8 +77,6 @@ img { max-width: 100%; }
   /* roll-out: used when leaving :hover, deliberately the faster of the pair */
   transition: transform var(--duration-hover-out) var(--ease-standard),
               box-shadow var(--duration-hover-out) var(--ease-standard);
-  text-decoration: none;
-  color: inherit;
 }
 
 /* roll-over: the browser uses this transition (defined on the state being
@@ -91,11 +90,23 @@ img { max-width: 100%; }
               box-shadow var(--duration-hover-in) var(--ease-standard);
 }
 
+/* --- whole-card link: the title anchor stretches over the full card --- */
+.card__link { color: inherit; text-decoration: none; }
+.card__link::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+}
+.card:has(.card__link) { cursor: pointer; }
+.card__link:focus-visible { outline: none; }
+.card:has(.card__link:focus-visible) { outline: 2px solid var(--color-ink); outline-offset: 3px; }
+
 /* --- corner glyph stack (illustration face only) --- */
 .card__badges {
   position: absolute;
-  top: 18px;      /* Matched to Figma top padding */
-  left: 20px;     /* Matched to Figma left padding */
+  top: var(--space-md);      /* geom: measured off card corner inset */
+  left: var(--space-md);     /* geom */
   z-index: 2;
   display: flex;
   flex-direction: column;
@@ -107,28 +118,36 @@ img { max-width: 100%; }
   height: 14px;              /* geom */
 }
 
-/* --- shared media frame --- */
+/* --- shared media frame: both faces occupy the identical box, so a
+       swap never changes the card's dimensions --- */
+.card__figure,
 .card__hero {
-  width: 100%;
-  aspect-ratio: 4 / 3;     /* Keeps brand face from collapsing since figure now hugs content */
+  height: 207px;             /* geom: live site media frame (18 pad + 189 illustration) */
 }
 
 /* --- illustration face --- */
 .card__figure {
   margin: 0;
-  padding: 18px 20px 0; /* Matches Figma: 18px top, 20px sides */
+  padding: 18px 20px 0;      /* geom: live site, 18 top, 20 sides */
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .card__illustration {
-  max-width: 122px;
-  max-height: 189px;
-  width: 100%;
+  max-width: 122px;          /* geom: live site illustration box */
+  max-height: 189px;         /* geom */
+  width: auto;
   height: auto;
   object-fit: contain;
 }
+
+/* --- placeholder face: project without an illustration yet.
+       Same media box, so the grid rhythm never changes. --- */
+.card__figure--empty {
+  background: var(--color-page);
+}
+.card--brand .card__figure.card__figure--empty { display: flex; }
 
 /* --- brand face (hero photo + org logo) --- */
 .card__hero {
@@ -157,12 +176,16 @@ img { max-width: 100%; }
   height: auto;
 }
 
+/* single letter marks (ARCOS "a") read huge at the wordmark width */
+.card__logo--glyph { width: 12%; }
+.card__logo--mark { width: 26%; }    /* stacked square marks (NUCU) */   /* geom: matches Daniel's reference, about 35px of a 286px hero */
+
 /* --- shared body (identical on both faces) --- */
 .card__body {
-  padding: 10px 20px 18px; 
+  padding: 10px 20px 18px;   /* geom: live site */
   display: flex;
   flex-direction: column;
-  flex: 1; /* Allows the body to stretch to the bottom of the card */
+  flex: 1;                   /* stretch so rules and meta align across a row */
 }
 
 .card__title {
@@ -173,20 +196,16 @@ img { max-width: 100%; }
   line-height: 1.15;
   letter-spacing: var(--card-title-tracking);
   text-transform: uppercase;
+  min-height: calc(var(--card-title-size) * 1.15 * 2);   /* always reserves two lines */
 }
 
 .card__desc {
-  /* Added var(--space-sm) to the bottom margin to enforce a strict 12px gap */
   margin: var(--space-sm) 0 var(--space-sm);
   color: var(--color-text);
   font-size: var(--card-body-size);
   font-weight: var(--fw-regular);
   line-height: var(--card-body-leading);
-  
-  /* Forces the box to be exactly 3 lines tall, creating "empty lines" if needed */
-  min-height: calc(var(--card-body-size) * var(--card-body-leading) * 3);
-  
-  /* Truncates with an ellipsis (...) if the text ever goes over 3 lines */
+  min-height: calc(var(--card-body-size) * var(--card-body-leading) * 3);   /* 3 line slot, as live */
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
@@ -194,7 +213,7 @@ img { max-width: 100%; }
 }
 
 .card__rule {
-  margin: auto 0 0; /* 'auto' on the top margin pushes the rule securely to the bottom */
+  margin: 0;                 /* fixed slots above (2 line title, 3 line desc) keep rules aligned across a row */
   border: 0;
   border-top: 1px solid var(--color-rule);
 }
@@ -228,25 +247,32 @@ img { max-width: 100%; }
    unchanged — the 42px side inset is retained but is now white gutter,
    not grey, and the panel keeps its max-width + centring. */
 .my-work {
-  padding: 120px 42px 82px; /* Updated Desktop Spacing */
+  padding: 0 42px;      /* geom: side gutter, now white; preserves prior content width */
   background: var(--color-surface);
 }
 
 .my-work__panel {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 var(--space-lg);
+  padding: var(--space-2xl) var(--space-lg) var(--space-2xl);
   background: var(--color-surface);
 }
 
 /* --- head: title on its own row --- */
 .my-work__head {
-  margin-bottom: 56px; /* Updated Desktop Spacing */
+  margin-bottom: var(--space-xl);
 }
 
 .my-work__title {
-  height: 40px;          /* geom: wordmark height at desktop */
-  width: auto;
+  margin: 0;
+  font-family: "Inter Tight", var(--font-sans);   /* case study .display--md */
+  font-weight: 900;
+  font-size: clamp(1.9rem, 3.4vw, 3.4rem);
+  white-space: nowrap;
+  line-height: 0.86;
+  letter-spacing: -0.045em;
+  color: #3c3c3c;
+  text-transform: uppercase;
 }
 
 /* --- control bar: ONE row, tabs left + view-controls right, sharing a
@@ -258,7 +284,6 @@ img { max-width: 100%; }
   justify-content: space-between;
   gap: var(--space-lg);
   border-bottom: 1px solid var(--color-rule);
-  margin-bottom: 56px; /* Updated Desktop Spacing */
 }
 
 /* left cluster */
@@ -278,7 +303,7 @@ img { max-width: 100%; }
   padding: 0 0 var(--space-sm);
   margin-bottom: -1px;   /* active underline overlaps the shared rule */
   font: inherit;
-  font-size: 12px;
+  font-size: 13px;   /* was 12px, raised for legibility */
   font-weight: var(--fw-medium);
   text-transform: uppercase;
   letter-spacing: 0.02em;
@@ -288,7 +313,7 @@ img { max-width: 100%; }
 }
 
 .my-work__tab.is-active {
-  color: var(--color-accent);
+  color: var(--color-accent-text);
   font-weight: var(--fw-bold);
   border-bottom-color: var(--color-accent);
 }
@@ -306,11 +331,11 @@ img { max-width: 100%; }
   border: 0;
   background: none;
   font: inherit;
-  font-size: 12px;
+  font-size: 13px;   /* was 12px, raised for legibility */
   font-weight: var(--fw-bold);
   text-transform: uppercase;
   letter-spacing: 0.02em;
-  color: var(--color-accent);
+  color: var(--color-accent-text);
   cursor: pointer;
 }
 
@@ -326,7 +351,7 @@ img { max-width: 100%; }
   align-items: center;
   gap: var(--space-sm);
   padding-bottom: var(--space-sm); /* baseline-aligns with the tab text */
-  font-size: 12px;
+  font-size: 13px;   /* was 12px, raised for legibility */
   color: var(--color-text);
   text-transform: lowercase;
 }
@@ -373,29 +398,46 @@ img { max-width: 100%; }
 .my-work__swap:hover,
 .my-work__more:not([aria-disabled="true"]):hover,
 .my-work__expand:hover {
-  color: var(--color-accent);
+  color: var(--color-accent-text);
+}
+
+/* target size (WCAG 2.5.8): every control gets at least a 24x24 hit area
+   from an invisible pseudo element, so nothing moves visually */
+.my-work__tab,
+.my-work__tabs-trigger,
+.my-work__swap,
+.my-work__more,
+.my-work__expand { position: relative; }
+
+.my-work__tab::after,
+.my-work__tabs-trigger::after,
+.my-work__swap::after,
+.my-work__more::after,
+.my-work__expand::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: max(100%, 24px);
+  height: max(100%, 24px);
+  transform: translate(-50%, -50%);
 }
 
 /* --- grid --- */
 .my-work__grid {
   display: grid;
-  grid-template-columns: repeat(4, 272px); /* Desktop: 4 Columns */
+  grid-template-columns: repeat(auto-fit, 250px);   /* geom: live site mobile column */
   justify-content: center;
-  gap: 32px;
-  margin-top: 0;
+  gap: 32px;                 /* geom: live site */
+  margin-top: var(--space-2xl);
 }
 
-/* Handle grid resizing natively WITHOUT stretching */
-@media (max-width: 1280px) {
-  .my-work__grid {
-    grid-template-columns: repeat(3, 272px); /* Tablet: 3 Columns */
-  }
+/* fixed card width matched to the live site: 3 columns, then 4 */
+@media (min-width: 901px) {
+  .my-work__grid { grid-template-columns: repeat(3, 272px); }
 }
-
-@media (max-width: 900px) {
-  .my-work__grid {
-    grid-template-columns: repeat(auto-fit, 250px); /* Mobile: Fluid / 1-2 Columns */
-  }
+@media (min-width: 1281px) {
+  .my-work__grid { grid-template-columns: repeat(4, 272px); }
 }
 
 .my-work__grid .card[hidden] {
@@ -411,7 +453,7 @@ img { max-width: 100%; }
   align-items: center;
   gap: var(--space-lg);
   width: 100%;
-  margin-top: 64px; /* Updated Desktop Spacing */
+  margin-top: var(--space-2xl);
   border: 0;
   background: none;
   padding: 0;
@@ -446,39 +488,23 @@ img { max-width: 100%; }
 
 .my-work__expand-label {
   display: none; /* chevron-only at tablet/desktop, per mocks */
-  font-size: 12px;
+  font-size: 13px;   /* was 12px, raised for legibility */
   font-weight: var(--fw-medium);
   text-transform: lowercase;
   color: inherit;
   white-space: nowrap;
 }
 
-/* ============================================================
-   Mobile Specific Spacing & View Overrides (< 768px)
-   ============================================================ */
-@media (max-width: 768px) {
-  .my-work {
-    padding: 60px 21px 41px; /* Proportional 50% Mobile Spacing */
-  }
-  .my-work__head {
-    margin-bottom: 28px;
-  }
-  .my-work__controls {
-    margin-bottom: 28px;
-  }
-  .my-work__expand {
-    margin-top: 32px;
-  }
-}
-
-/* ============================================================
-   Mobile (<699px): control bar stays ONE row — tabs collapse to the
-   filter trigger + dropdown, view-controls become icon-only.
-   ============================================================ */
 @media (max-width: 699px) {
   .my-work__expand-icon { display: none; }
   .my-work__expand-label { display: inline; } /* text-only at mobile, per mocks */
+}
 
+/* ============================================================
+   Mobile (<700px): control bar stays ONE row — tabs collapse to the
+   filter trigger + dropdown, view-controls become icon-only.
+   ============================================================ */
+@media (max-width: 699px) {
   .my-work__toolbar-label { display: none; }
 
   .my-work__tabs-trigger { display: inline-flex; }
