@@ -15,7 +15,8 @@
 
   <!-- Homepage card component (More case studies) -->
   <link rel="stylesheet" href="../../css/my-work.css?v=20261026b">
-  <link rel="stylesheet" href="../../css/case-study.css?v=20261026b">
+  <link rel="stylesheet" href="../../css/case-study.css?v=20261026n">
+  <link rel="stylesheet" href="../../css/reveal.css?v=20261026a">
 </head>
 <body>
 
@@ -51,7 +52,19 @@
   </header>
 
   <!-- OWNERSHIP -->
-  <div class="owner"><span class="owner__label">My part</span><p class="owner__text">I took this from field research and journey mapping through high fidelity flows and delivery. <strong>Status:</strong> delivered and in use; the check-in times below are measured.</p></div>
+  <div class="owner owner--stack"><span class="owner__label">My part</span><p class="owner__text">I took this from field research and journey mapping through high fidelity flows and delivery. <strong>Status:</strong> delivered and in use; the check-in times below are measured.</p></div>
+
+  <!-- BRIEF: abstract and local index -->
+  <nav class="brief brief--6" aria-label="Case study summary">
+    <div class="brief__grid">
+      <a class="brief__item" href="#problem"><span class="brief__num">01</span><span class="brief__title">The Problem</span><span class="brief__text">3 to 25 minute check-in stalling crews</span></a>
+      <a class="brief__item" href="#decision"><span class="brief__num">02</span><span class="brief__title">The Decision</span><span class="brief__text">Squads verified before they leave</span></a>
+      <a class="brief__item" href="#solution"><span class="brief__num">03</span><span class="brief__title">The Build</span><span class="brief__text">One squad QR at the gate</span></a>
+      <a class="brief__item" href="#delivery"><span class="brief__num">04</span><span class="brief__title">In Depth</span><span class="brief__text">The Crew Lead pre flight protocol</span></a>
+      <a class="brief__item" href="#results"><span class="brief__num">05</span><span class="brief__title">What Changed</span><span class="brief__text">About 80% faster, fully paperless</span></a>
+      <a class="brief__item" href="#reflection"><span class="brief__num">06</span><span class="brief__title">Reflection</span><span class="brief__text">Verification moved upstream</span></a>
+    </div>
+  </nav>
 
   <main>
     <!-- 01 : THE PROBLEM (image left) -->
@@ -114,16 +127,16 @@
     <!-- 02 : THE DECISION -->
     <section class="sec" id="decision">
       <span class="chip sec__chip">02 / The Decision</span>
-      <div class="duo">
+      <div class="duo duo--stack">
         <p class="statement">I shifted the architecture from gate-side individual processing to pre-flight squad verification.</p>
         <p class="lead">Crew Leads validate their entire squad's credentials digitally before departing for the site. At the gate, check-in drops to a single squad QR scan and a 30-second visual identity match, with no individual forms and no line.</p>
       </div>
     </section>
     <!-- 03 : THE BUILD -->
-    <section class="sec sec--gray split split--ui split--reverse" id="solution">
+    <section class="sec sec--gray stack" id="solution">
       <span class="chip sec__chip">03 / The Build</span>
-      <div class="split__grid">
-        <div class="split__media">
+      <div class="stack__feature stack__feature--text-first">
+        <div class="stack__media">
             <figure class="figure figure--framed">
               <img src="assets/img/checkinFlow-optimized-HappyPath.png" alt="Optimized squad verification happy path">
               <figcaption class="figure__caption">
@@ -131,31 +144,33 @@
                 <span class="chip">Fig. 02</span>
               </figcaption>
             </figure>
-            <figure class="figure figure--framed">
+        </div>
+        <div class="stack__text">
+          <h2 class="display display--md">Verify Before<br>Departure</h2>
+          <p class="lead">Digital artifacts, registrations, certifications, and squad QR credentials, replaced fragmented paperwork with a single shared source of truth. Scanning a squad's QR code at the gate instantly populates every member's pre-verified credentials for the Field Operations Coordinator to confirm.</p>
+        </div>
+      </div>
+      <div class="stack__row stack__row--flow">
+            <figure class="figure figure--framed" style="--ar:1.566">
               <img src="assets/img/Flow-DigitalArtifactsDefinition.png" alt="Digital credential artifacts flow">
               <figcaption class="figure__caption">
                 <span>Digital credential artifacts flow</span>
                 <span class="chip">Fig. 03</span>
               </figcaption>
             </figure>
-            <figure class="figure figure--framed">
+            <figure class="figure figure--framed" style="--ar:0.980">
               <img src="assets/img/Persona interface flows.png" alt="Interface flows split by contractor, gate, and admin role">
               <figcaption class="figure__caption">
                 <span>Interface flows split by contractor, gate, and admin role</span>
                 <span class="chip">Fig. 04</span>
               </figcaption>
             </figure>
-        </div>
-        <div class="split__text">
-          <h2 class="display display--md">Verify Before<br>Departure</h2>
-          <p class="lead">Digital artifacts, registrations, certifications, and squad QR credentials, replaced fragmented paperwork with a single shared source of truth. Scanning a squad's QR code at the gate instantly populates every member's pre-verified credentials for the Field Operations Coordinator to confirm.</p>
-        </div>
       </div>
     </section>
     <!-- 04 : IN DEPTH -->
     <section class="sec" id="delivery">
       <span class="chip sec__chip">04 / In Depth</span>
-      <div class="duo">
+      <div class="duo duo--stack">
         <div>
           <h2 class="display display--md">Protocol<br>Details</h2>
           <p class="lead" style="margin-top:clamp(16px,2vw,24px)">How a squad moves from the truck to the site.</p>
@@ -352,6 +367,8 @@
       }
     });
   </script>
-  <script src="../../js/projects.js?v=20261026b"></script>
+  <script src="../../js/projects.js?v=20261026e"></script>
+  <script src="../../js/case-nav.js?v=20261026b"></script>
+  <script src="../../js/reveal.js?v=20261026b"></script>
 </body>
 </html>

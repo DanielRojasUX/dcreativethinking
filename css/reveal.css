@@ -1,0 +1,22 @@
+/* ===== BEGIN BLOCK: reveal =====
+   Scroll reveal for the homepage and every case study (js/reveal.js).
+   Items fade in and rise 18px as they enter the viewport; items that
+   enter together are staggered. Uses the individual `translate` and
+   `opacity` properties, so existing `transform` hovers keep working, and
+   the transition is only attached while revealing, so existing hover
+   transitions are untouched afterwards.
+   Without JavaScript or with reduced motion nothing is hidden. */
+.js-reveal [data-reveal]:not(.is-revealed) {
+  opacity: 0;
+  translate: 0 18px;
+}
+.js-reveal [data-reveal].is-revealing {
+  transition:
+    opacity 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) var(--reveal-delay, 0ms),
+    translate 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) var(--reveal-delay, 0ms);
+}
+@media (prefers-reduced-motion: reduce) {
+  .js-reveal [data-reveal]:not(.is-revealed) { opacity: 1; translate: none; }
+  .js-reveal [data-reveal].is-revealing { transition: none; }
+}
+/* ===== END BLOCK: reveal ===== */

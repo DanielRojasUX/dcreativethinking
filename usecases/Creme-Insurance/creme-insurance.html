@@ -15,7 +15,8 @@
 
   <!-- Homepage card component (More case studies) -->
   <link rel="stylesheet" href="../../css/my-work.css?v=20261026b">
-  <link rel="stylesheet" href="../../css/case-study.css?v=20261026b">
+  <link rel="stylesheet" href="../../css/case-study.css?v=20261026n">
+  <link rel="stylesheet" href="../../css/reveal.css?v=20261026a">
 </head>
 <body>
 
@@ -51,14 +52,26 @@
   </header>
 
   <!-- OWNERSHIP -->
-  <div class="owner"><span class="owner__label">My part</span><p class="owner__text">I designed and built this end to end, from the token architecture to the working front end, using Claude and Gemini as collaborative tools.</p></div>
+  <div class="owner owner--stack"><span class="owner__label">My part</span><p class="owner__text">I designed and built this end to end, from the token architecture to the working front end, using Claude and Gemini as collaborative tools.</p></div>
+
+  <!-- BRIEF: abstract and local index -->
+  <nav class="brief brief--6" aria-label="Case study summary">
+    <div class="brief__grid">
+      <a class="brief__item" href="#problem"><span class="brief__num">01</span><span class="brief__title">The Problem</span><span class="brief__text">A 2010 portal slowing senior adjusters</span></a>
+      <a class="brief__item" href="#decision"><span class="brief__num">02</span><span class="brief__title">The Decision</span><span class="brief__text">Two token systems: elevation and contrast</span></a>
+      <a class="brief__item" href="#prototyping"><span class="brief__num">03</span><span class="brief__title">The Build</span><span class="brief__text">A working Partner Hub with a live demo</span></a>
+      <a class="brief__item" href="#design-system"><span class="brief__num">04</span><span class="brief__title">Design System</span><span class="brief__text">Elevation, type and state tokens</span></a>
+      <a class="brief__item" href="#delivery"><span class="brief__num">05</span><span class="brief__title">In Depth</span><span class="brief__text">AI assisted design and a vanilla JS build</span></a>
+      <a class="brief__item" href="#reflection"><span class="brief__num">06</span><span class="brief__title">Reflection</span><span class="brief__text">End to end delivery</span></a>
+    </div>
+  </nav>
 
   <main>
     <!-- 01 : THE PROBLEM (image left) -->
-    <section class="sec split split--ui" id="problem">
+    <section class="sec stack" id="problem">
       <span class="chip sec__chip">01 / The Problem</span>
-      <div class="split__grid">
-        <div class="split__media">
+      <div class="stack__feature">
+        <div class="stack__media">
             <figure class="figure figure--framed">
               <img src="creme/img/Before-login.png" alt="Legacy login screen from 2010">
               <figcaption class="figure__caption">
@@ -66,15 +79,8 @@
                 <span class="chip">Fig. 01</span>
               </figcaption>
             </figure>
-            <figure class="figure figure--framed">
-              <img src="creme/img/Before-table.png" alt="Legacy claims table dashboard from 2010">
-              <figcaption class="figure__caption">
-                <span>Legacy claims table dashboard from 2010</span>
-                <span class="chip">Fig. 02</span>
-              </figcaption>
-            </figure>
         </div>
-        <div class="split__text">
+        <div class="stack__text">
           <h2 class="display display--lg">The<br>Problem</h2>
             <div class="beat">
               <h3 class="beat__title">Outdated Legacy Architecture</h3>
@@ -90,20 +96,29 @@
             </div>
         </div>
       </div>
+      <div class="stack__row stack__row--1">
+            <figure class="figure figure--framed">
+              <img src="creme/img/Before-table.png" alt="Legacy claims table dashboard from 2010">
+              <figcaption class="figure__caption">
+                <span>Legacy claims table dashboard from 2010</span>
+                <span class="chip">Fig. 02</span>
+              </figcaption>
+            </figure>
+      </div>
     </section>
     <!-- 02 : THE DECISION -->
     <section class="sec" id="decision">
       <span class="chip sec__chip">02 / The Decision</span>
-      <div class="duo">
+      <div class="duo duo--stack">
         <p class="statement">I engineered two independent CSS token systems: one for surface elevation and one for semantic contrast.</p>
         <p class="lead">Collaborating with AI tools (Claude & Gemini) for rapid layout exploration, token architecture, and code implementation, I established an elevation scale (<code>.raised</code>, <code>.raised-sm</code>, <code>.inset</code>) for physical depth alongside a separate contrast scale for typography. Elevation remained soft without sacrificing reading clarity.</p>
       </div>
     </section>
     <!-- 03 : THE BUILD -->
-    <section class="sec sec--gray split split--ui split--reverse" id="prototyping">
+    <section class="sec sec--gray stack" id="prototyping">
       <span class="chip sec__chip">03 / The Build</span>
-      <div class="split__grid">
-        <div class="split__media">
+      <div class="stack__feature stack__feature--text-first">
+        <div class="stack__media">
             <figure class="figure figure--framed">
               <img src="creme/img/creme-login.png" alt="Neumorphic sign-in screen for the Partner Hub">
               <figcaption class="figure__caption">
@@ -111,6 +126,14 @@
                 <span class="chip">Fig. 03</span>
               </figcaption>
             </figure>
+        </div>
+        <div class="stack__text">
+          <h2 class="display display--md">The Implemented<br>Partner Hub</h2>
+          <p class="lead">The final system powers a live, fully working client-side application, featuring an authenticated sign-in flow, a claims queue with status tracking, a specialist network with category filters, and a settlement history. All views run on the unified, dual-token design system documented in code.</p>
+          <div class="actions"><button class="btn" type="button" data-demo>Launch Interactive Demo &rarr;</button></div>
+        </div>
+      </div>
+      <div class="stack__row">
             <figure class="figure figure--framed">
               <img src="creme/img/creme-detail.png" alt="Specialist network view with category filtering and pagination">
               <figcaption class="figure__caption">
@@ -125,12 +148,6 @@
                 <span class="chip">Fig. 05</span>
               </figcaption>
             </figure>
-        </div>
-        <div class="split__text">
-          <h2 class="display display--md">The Implemented<br>Partner Hub</h2>
-          <p class="lead">The final system powers a live, fully working client-side application, featuring an authenticated sign-in flow, a claims queue with status tracking, a specialist network with category filters, and a settlement history. All views run on the unified, dual-token design system documented in code.</p>
-          <div class="actions"><button class="btn" type="button" data-demo>Launch Interactive Demo &rarr;</button></div>
-        </div>
       </div>
     </section>
     <!-- 04 : DESIGN SYSTEM -->
@@ -159,7 +176,7 @@
     <!-- 05 : IN DEPTH -->
     <section class="sec sec--gray" id="delivery">
       <span class="chip sec__chip">05 / In Depth</span>
-      <div class="duo">
+      <div class="duo duo--stack">
         <div>
           <h2 class="display display--md">System &amp; Technical<br>Execution</h2>
           <p class="lead" style="margin-top:clamp(16px,2vw,24px)">Detailed breakdown of how the UI design, component tokenization, and frontend implementation were structured and shipped.</p>
@@ -367,6 +384,8 @@
       document.addEventListener('keydown', function (e) { if (e.key === 'Escape') modal.classList.remove('active'); });
     })();
   </script>
-  <script src="../../js/projects.js?v=20261026b"></script>
+  <script src="../../js/projects.js?v=20261026e"></script>
+  <script src="../../js/case-nav.js?v=20261026b"></script>
+  <script src="../../js/reveal.js?v=20261026b"></script>
 </body>
 </html>

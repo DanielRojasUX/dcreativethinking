@@ -16,7 +16,8 @@
   <!-- Homepage card component (More case studies) -->
   <link rel="stylesheet" href="../../css/my-work.css?v=20261026b">
 
-  <link rel="stylesheet" href="../../css/case-study.css?v=20261026b">
+  <link rel="stylesheet" href="../../css/case-study.css?v=20261026n">
+  <link rel="stylesheet" href="../../css/reveal.css?v=20261026a">
 </head>
 <body>
 
@@ -53,7 +54,21 @@
   </header>
 
   <!-- OWNERSHIP -->
-  <div class="owner"><span class="owner__label">My part</span><p class="owner__text">I owned the research, the leadership pitch and the widget guidelines. Product owners and engineering teams across every Bridge application built and shipped it over a year long, multi team effort.</p></div>
+  <div class="owner owner--stack"><span class="owner__label">My part</span><p class="owner__text">I owned the research, the leadership pitch and the widget guidelines. Product owners and engineering teams across every Bridge application built and shipped it over a year long, multi team effort.</p></div>
+
+  <!-- BRIEF: abstract and local index -->
+  <nav class="brief brief--5" aria-label="Case study summary">
+    <div class="brief__grid">
+      <a class="brief__item" href="#problem"><span class="brief__num">01</span><span class="brief__title">The Problem</span><span class="brief__text">A static landing page under 5% used</span></a>
+      <a class="brief__item" href="#overview"><span class="brief__num">02</span><span class="brief__title">Overview</span><span class="brief__text">Lead research, prototyping and UI</span></a>
+      <a class="brief__item" href="#results"><span class="brief__num">03</span><span class="brief__title">Results</span><span class="brief__text">Daily usage up, task time down</span></a>
+      <a class="brief__item" href="#requirements"><span class="brief__num">04</span><span class="brief__title">Requirements</span><span class="brief__text">From link farm to personalized dashboard</span></a>
+      <a class="brief__item" href="#research"><span class="brief__num">05</span><span class="brief__title">Research</span><span class="brief__text">SME and user interviews</span></a>
+      <a class="brief__item" href="#prototyping"><span class="brief__num">06</span><span class="brief__title">Prototyping</span><span class="brief__text">Journeys and mockups that won buy in</span></a>
+      <a class="brief__item" href="#delivery"><span class="brief__num">07</span><span class="brief__title">Delivery</span><span class="brief__text">Widget guidelines across teams</span></a>
+      <a class="brief__item" href="#reflection"><span class="brief__num">08</span><span class="brief__title">Reflection</span><span class="brief__text">The pitch and data driven decisions</span></a>
+    </div>
+  </nav>
 
   <main>
 
@@ -185,17 +200,18 @@
     </section>
 
     <!-- 06 : PROTOTYPING (text left, images right) -->
-    <section class="sec split split--ui split--reverse" id="prototyping">
+    <section class="sec stack" id="prototyping">
       <span class="chip sec__chip">06 / Prototyping</span>
-      <div class="split__grid">
-        <div class="split__text">
-          <h2 class="display display--md">Solution &amp;<br>Prototyping</h2>
+      <div class="stack__intro">
+        <h2 class="display display--md">Solution &amp;<br>Prototyping</h2>
+        <div>
           <p class="lead">Created detailed user journeys that illustrated how different personas would interact with the platform, highlighting key navigation improvements and workflow efficiencies. Developed low-fidelity mockups to visually represent the concept of a dynamic dashboard. These were used to pitch the idea to leadership, successfully securing buy-in for a more resource-intensive and impactful solution.</p>
           <p class="lead">Designed mid-fidelity prototypes in Figma, explicitly defining the dashboard’s key functionalities: Fully Customizable Layouts, Multi-Dashboard Capability, Widget Library contributions, and Permission-aware sharing limits.</p>
         </div>
-        <div class="split__media">
-          <figure class="figure figure--framed">
-            <div class="figure__grid">
+      </div>
+      <div class="stack__row stack__row--1">
+        <figure class="figure figure--framed">
+            <div class="figure__grid figure__grid--4">
               <img src="../../assets/img/Dashboard-LoFi-1.png" alt="LoFi Dashboard 1">
               <img src="../../assets/img/Dashboard-LoFi-2.png" alt="LoFi Dashboard 2">
               <img src="../../assets/img/Dashboard-LoFi-3.png" alt="LoFi Dashboard side panel">
@@ -206,15 +222,14 @@
               <span class="chip">Fig. 03</span>
             </figcaption>
           </figure>
-        </div>
       </div>
     </section>
 
     <!-- 07 : DELIVERY (gray, images left) -->
-    <section class="sec sec--gray split split--ui" id="delivery">
+    <section class="sec sec--gray stack" id="delivery">
       <span class="chip sec__chip">07 / Delivery</span>
-      <div class="split__grid">
-        <div class="split__media">
+      <div class="stack__feature">
+        <div class="stack__media">
           <figure class="figure figure--framed">
             <div class="figure__grid figure__grid--delivery">
               <img src="../../assets/img/Mocks-Side-panel.png" alt="Widget Side Panel">
@@ -225,6 +240,13 @@
               <span class="chip">Fig. 04</span>
             </figcaption>
           </figure>
+        </div>
+        <div class="stack__text">
+          <h2 class="display display--md">Standardization<br>&amp; Delivery</h2>
+          <p class="lead">Coordinated a multi-team effort to educate stakeholders on widget creation and usage. Established widget design guidelines and documentation to ensure consistency across applications. Defined a clear process for widget design and development, including approval workflows and quality assurance checks.</p>
+        </div>
+      </div>
+      <div class="stack__row stack__row--1">
           <figure class="figure figure--framed">
             <img src="../../assets/img/Mocks-Homepage.png" alt="Final dashboard homepage">
             <figcaption class="figure__caption">
@@ -232,11 +254,6 @@
               <span class="chip">Fig. 05</span>
             </figcaption>
           </figure>
-        </div>
-        <div class="split__text">
-          <h2 class="display display--md">Standardization<br>&amp; Delivery</h2>
-          <p class="lead">Coordinated a multi-team effort to educate stakeholders on widget creation and usage. Established widget design guidelines and documentation to ensure consistency across applications. Defined a clear process for widget design and development, including approval workflows and quality assurance checks.</p>
-        </div>
       </div>
     </section>
 
@@ -397,6 +414,8 @@
       }
     });
   </script>
-  <script src="../../js/projects.js?v=20261026b"></script>
+  <script src="../../js/projects.js?v=20261026e"></script>
+  <script src="../../js/case-nav.js?v=20261026b"></script>
+  <script src="../../js/reveal.js?v=20261026b"></script>
 </body>
 </html>

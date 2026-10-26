@@ -15,7 +15,8 @@
 
   <!-- Homepage card component (More case studies) -->
   <link rel="stylesheet" href="../../css/my-work.css?v=20261026b">
-  <link rel="stylesheet" href="../../css/case-study.css?v=20261026b">
+  <link rel="stylesheet" href="../../css/case-study.css?v=20261026n">
+  <link rel="stylesheet" href="../../css/reveal.css?v=20261026a">
 </head>
 <body>
 
@@ -54,14 +55,26 @@
   </header>
 
   <!-- OWNERSHIP -->
-  <div class="owner"><span class="owner__label">My part</span><p class="owner__text">I designed and built this end to end: the information architecture, the design system, the front end and the AI video pipeline (Claude, Gemini and Kling).</p></div>
+  <div class="owner owner--stack"><span class="owner__label">My part</span><p class="owner__text">I designed and built this end to end: the information architecture, the design system, the front end and the AI video pipeline (Claude, Gemini and Kling).</p></div>
+
+  <!-- BRIEF: abstract and local index -->
+  <nav class="brief brief--6" aria-label="Case study summary">
+    <div class="brief__grid">
+      <a class="brief__item" href="#problem"><span class="brief__num">01</span><span class="brief__title">The Problem</span><span class="brief__text">A Power BI dashboard with high cognitive load</span></a>
+      <a class="brief__item" href="#decision"><span class="brief__num">02</span><span class="brief__title">The Decision</span><span class="brief__text">A custom App Shell with grouped tabs</span></a>
+      <a class="brief__item" href="#prototyping"><span class="brief__num">03</span><span class="brief__title">The Build</span><span class="brief__text">A working app with live chart widgets</span></a>
+      <a class="brief__item" href="#design-system"><span class="brief__num">04</span><span class="brief__title">Design System</span><span class="brief__text">Color, type, cards and components</span></a>
+      <a class="brief__item" href="#delivery"><span class="brief__num">05</span><span class="brief__title">In Depth</span><span class="brief__text">AI video pipeline and front end build</span></a>
+      <a class="brief__item" href="#reflection"><span class="brief__num">06</span><span class="brief__title">Reflection</span><span class="brief__text">From Power BI to a custom web app</span></a>
+    </div>
+  </nav>
 
   <main>
     <!-- 01 : THE PROBLEM (image left) -->
-    <section class="sec split split--ui" id="problem">
+    <section class="sec stack" id="problem">
       <span class="chip sec__chip">01 / The Problem</span>
-      <div class="split__grid">
-        <div class="split__media">
+      <div class="stack__feature">
+        <div class="stack__media">
             <figure class="figure figure--framed">
               <img src="livewire-demo/img/lw-before1.png" alt="Legacy Power BI Livewire Dashboard View 1">
               <figcaption class="figure__caption">
@@ -69,6 +82,24 @@
                 <span class="chip">Fig. 01</span>
               </figcaption>
             </figure>
+        </div>
+        <div class="stack__text">
+          <h2 class="display display--lg">The<br>Problem</h2>
+            <div class="beat">
+              <h3 class="beat__title">Outdated Power BI Interface</h3>
+              <p class="lead">The original Livewire dashboard was created in Power BI, suffering from high cognitive load, unorganized tab clutter, and rigid iframe-style layout limitations. Monitoring live metrics required constant scrolling across flat tables, resulting in visual fatigue for operators seeking real-time telemetry.</p>
+            </div>
+            <div class="beat">
+              <h3 class="beat__title">Information Architecture &amp; Customization</h3>
+              <p class="lead">A primary challenge was organizing data density while providing personalization. To streamline daily workflows, we grouped scattered metrics into logical category tabs, added tab favoriting capabilities, and engineered a custom background dimmer so users can adjust the video intensity or hide it completely for an ultra-focused view.</p>
+            </div>
+            <div class="beat">
+              <h3 class="beat__title">Generative Motion Engineering</h3>
+              <p class="lead">To give the platform a premium brand atmosphere, I transformed a static motorcycle studio photograph into a perfectly looping, ambient background video using a multi-prompt generative pipeline across Claude, Gemini, and Kling AI.</p>
+            </div>
+        </div>
+      </div>
+      <div class="stack__row">
             <figure class="figure figure--framed">
               <img src="livewire-demo/img/lw-before2.png" alt="Legacy Power BI Livewire Dashboard View 2">
               <figcaption class="figure__caption">
@@ -86,37 +117,21 @@
                 <span class="chip">Fig. 03</span>
               </figcaption>
             </figure>
-        </div>
-        <div class="split__text">
-          <h2 class="display display--lg">The<br>Problem</h2>
-            <div class="beat">
-              <h3 class="beat__title">Outdated Power BI Interface</h3>
-              <p class="lead">The original Livewire dashboard was created in Power BI, suffering from high cognitive load, unorganized tab clutter, and rigid iframe-style layout limitations. Monitoring live metrics required constant scrolling across flat tables, resulting in visual fatigue for operators seeking real-time telemetry.</p>
-            </div>
-            <div class="beat">
-              <h3 class="beat__title">Information Architecture &amp; Customization</h3>
-              <p class="lead">A primary challenge was organizing data density while providing personalization. To streamline daily workflows, we grouped scattered metrics into logical category tabs, added tab favoriting capabilities, and engineered a custom background dimmer so users can adjust the video intensity or hide it completely for an ultra-focused view.</p>
-            </div>
-            <div class="beat">
-              <h3 class="beat__title">Generative Motion Engineering</h3>
-              <p class="lead">To give the platform a premium brand atmosphere, I transformed a static motorcycle studio photograph into a perfectly looping, ambient background video using a multi-prompt generative pipeline across Claude, Gemini, and Kling AI.</p>
-            </div>
-        </div>
       </div>
     </section>
     <!-- 02 : THE DECISION -->
     <section class="sec" id="decision">
       <span class="chip sec__chip">02 / The Decision</span>
-      <div class="duo">
+      <div class="duo duo--stack">
         <p class="statement">I replaced Power BI with a custom web App Shell featuring grouped navigation, tab favoriting, and a user-controlled background dimmer.</p>
         <p class="lead">By decoupling dashboard widgets into grouped tab categories, allowing operators to pin favorite views, and adding an opacity dimmer slider for the AI-generated video background, I created a tailored monitoring environment balancing high-impact branding with zero-distraction legibility.</p>
       </div>
     </section>
     <!-- 03 : THE BUILD -->
-    <section class="sec sec--gray split split--ui split--reverse" id="prototyping">
+    <section class="sec sec--gray stack" id="prototyping">
       <span class="chip sec__chip">03 / The Build</span>
-      <div class="split__grid">
-        <div class="split__media">
+      <div class="stack__feature stack__feature--text-first">
+        <div class="stack__media">
             <figure class="figure figure--framed">
               <img src="livewire-demo/img/livewire-login.png" alt="Livewire Redesigned Sign-in Screen">
               <figcaption class="figure__caption">
@@ -124,6 +139,14 @@
                 <span class="chip">Fig. 04</span>
               </figcaption>
             </figure>
+        </div>
+        <div class="stack__text">
+          <h2 class="display display--md">The Redesigned<br>Application</h2>
+          <p class="lead">The final system powers a working, interactive web application, featuring an authenticated sign-in flow, grouped navigation tabs with favoriting logic, interactive Chart.js widgets, and a background dimmer control. All screens draw from the dedicated Livewire Design System.</p>
+          <div class="actions"><button class="btn" type="button" data-demo>Launch Interactive Demo &rarr;</button></div>
+        </div>
+      </div>
+      <div class="stack__row">
             <figure class="figure figure--framed">
               <img src="livewire-demo/img/livewire-dasboard-1.png" alt="Livewire Redesigned Main Dashboard Analytics">
               <figcaption class="figure__caption">
@@ -138,12 +161,6 @@
                 <span class="chip">Fig. 06</span>
               </figcaption>
             </figure>
-        </div>
-        <div class="split__text">
-          <h2 class="display display--md">The Redesigned<br>Application</h2>
-          <p class="lead">The final system powers a working, interactive web application, featuring an authenticated sign-in flow, grouped navigation tabs with favoriting logic, interactive Chart.js widgets, and a background dimmer control. All screens draw from the dedicated Livewire Design System.</p>
-          <div class="actions"><button class="btn" type="button" data-demo>Launch Interactive Demo &rarr;</button></div>
-        </div>
       </div>
     </section>
     <!-- 04 : DESIGN SYSTEM -->
@@ -172,7 +189,7 @@
     <!-- 05 : IN DEPTH -->
     <section class="sec sec--gray" id="delivery">
       <span class="chip sec__chip">05 / In Depth</span>
-      <div class="duo">
+      <div class="duo duo--stack">
         <div>
           <h2 class="display display--md">System &amp; Technical<br>Execution</h2>
           <p class="lead" style="margin-top:clamp(16px,2vw,24px)">Detailed breakdown of how the UI design, AI video pipeline, component tokenization, and frontend implementation were structured and shipped.</p>
@@ -380,6 +397,8 @@
       document.addEventListener('keydown', function (e) { if (e.key === 'Escape') modal.classList.remove('active'); });
     })();
   </script>
-  <script src="../../js/projects.js?v=20261026b"></script>
+  <script src="../../js/projects.js?v=20261026e"></script>
+  <script src="../../js/case-nav.js?v=20261026b"></script>
+  <script src="../../js/reveal.js?v=20261026b"></script>
 </body>
 </html>

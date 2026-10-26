@@ -15,7 +15,8 @@
 
   <!-- Homepage card component (More case studies) -->
   <link rel="stylesheet" href="../../css/my-work.css?v=20261026b">
-  <link rel="stylesheet" href="../../css/case-study.css?v=20261026b">
+  <link rel="stylesheet" href="../../css/case-study.css?v=20261026n">
+  <link rel="stylesheet" href="../../css/reveal.css?v=20261026a">
 </head>
 <body>
 
@@ -52,7 +53,19 @@
   </header>
 
   <!-- OWNERSHIP -->
-  <div class="owner"><span class="owner__label">My part</span><p class="owner__text">I designed the token architecture and validated every pairing against WCAG. Front end engineering implemented the variable matrix across the platform.</p></div>
+  <div class="owner owner--stack"><span class="owner__label">My part</span><p class="owner__text">I designed the token architecture and validated every pairing against WCAG. Front end engineering implemented the variable matrix across the platform.</p></div>
+
+  <!-- BRIEF: abstract and local index -->
+  <nav class="brief brief--6" aria-label="Case study summary">
+    <div class="brief__grid">
+      <a class="brief__item" href="#problem"><span class="brief__num">01</span><span class="brief__title">The Problem</span><span class="brief__text">Marketing palette, not a UI palette</span></a>
+      <a class="brief__item" href="#decision"><span class="brief__num">02</span><span class="brief__title">The Decision</span><span class="brief__text">A three tier semantic token system</span></a>
+      <a class="brief__item" href="#validation"><span class="brief__num">03</span><span class="brief__title">The Build</span><span class="brief__text">Global, semantic and component tokens</span></a>
+      <a class="brief__item" href="#delivery"><span class="brief__num">04</span><span class="brief__title">In Depth</span><span class="brief__text">Mapped onto Carbon Gray 10 and Gray 100</span></a>
+      <a class="brief__item" href="#results"><span class="brief__num">05</span><span class="brief__title">What Changed</span><span class="brief__text">95% WCAG 2.1 alignment, 30% fewer issues</span></a>
+      <a class="brief__item" href="#reflection"><span class="brief__num">06</span><span class="brief__title">Reflection</span><span class="brief__text">Brand and product, bridged</span></a>
+    </div>
+  </nav>
 
   <main>
     <!-- 01 : THE PROBLEM (image left) -->
@@ -123,18 +136,23 @@
     <!-- 02 : THE DECISION -->
     <section class="sec" id="decision">
       <span class="chip sec__chip">02 / The Decision</span>
-      <div class="duo">
+      <div class="duo duo--stack">
         <p class="statement">I bypassed hardcoded color swaps and engineered a three-tiered semantic token system instead.</p>
         <p class="lead">Raw brand hex values got decoupled from component styling entirely. A dynamic mapping layer translated Kyndryl's core brand palette into strict, WCAG AA-compliant Carbon tokens automatically, so the brand and the interface could each change independently without breaking the other.</p>
       </div>
     </section>
     <!-- 03 : THE BUILD -->
-    <section class="sec sec--gray split split--ui split--reverse" id="validation">
+    <section class="sec sec--gray stack" id="validation">
       <span class="chip sec__chip">03 / The Build</span>
-      <div class="split__grid">
-        <div class="split__media">
-            <figure class="figure figure--framed">
-              <div class="figure__grid">
+      <div class="stack__intro">
+        <h2 class="display display--lg">Three Token<br>Tiers</h2>
+        <div>
+          <p class="lead">Three token layers made this work. Global tokens hold the raw brand palette. Semantic tokens describe intent, <code>$ui-background</code>, <code>$interactive-primary</code>, <code>$support-error</code>, rather than a specific color. Component tokens apply those semantic aliases to individual UI elements. A single token like <code>$text-primary</code> resolves to a dark gray in light mode and a light gray in dark mode automatically, so engineering never has to make a manual color decision again.</p>
+        </div>
+      </div>
+      <div class="stack__row stack__row--1">
+        <figure class="figure figure--framed">
+              <div class="figure__grid figure__grid--4">
                 <img src="assets/img/Color-Carbon-Structure 4.png" alt="Token architecture from global brand colors to semantic UI tokens">
                 <img src="assets/img/Colors-sheet.png" alt="Finalized CSS variable matrix handed off to engineering">
                 <img src="assets/img/Color-Contrast1.png" alt="Button and notification contrast testing in light theme">
@@ -145,17 +163,12 @@
                 <span class="chip">Fig. 02</span>
               </figcaption>
             </figure>
-        </div>
-        <div class="split__text">
-          <h2 class="display display--md">Three Token<br>Tiers</h2>
-          <p class="lead">Three token layers made this work. Global tokens hold the raw brand palette. Semantic tokens describe intent, <code>$ui-background</code>, <code>$interactive-primary</code>, <code>$support-error</code>, rather than a specific color. Component tokens apply those semantic aliases to individual UI elements. A single token like <code>$text-primary</code> resolves to a dark gray in light mode and a light gray in dark mode automatically, so engineering never has to make a manual color decision again.</p>
-        </div>
       </div>
     </section>
     <!-- 04 : IN DEPTH -->
     <section class="sec" id="delivery">
       <span class="chip sec__chip">04 / In Depth</span>
-      <div class="duo">
+      <div class="duo duo--stack">
         <div>
           <h2 class="display display--md">Under the<br>Tokens</h2>
           <p class="lead" style="margin-top:clamp(16px,2vw,24px)">How the tokens resolve, and how each pairing was verified.</p>
@@ -356,6 +369,8 @@
       }
     });
   </script>
-  <script src="../../js/projects.js?v=20261026b"></script>
+  <script src="../../js/projects.js?v=20261026e"></script>
+  <script src="../../js/case-nav.js?v=20261026b"></script>
+  <script src="../../js/reveal.js?v=20261026b"></script>
 </body>
 </html>

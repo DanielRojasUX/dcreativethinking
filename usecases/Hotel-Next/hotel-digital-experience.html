@@ -15,7 +15,8 @@
 
   <!-- Homepage card component (More case studies) -->
   <link rel="stylesheet" href="../../css/my-work.css?v=20261026b">
-  <link rel="stylesheet" href="../../css/case-study.css?v=20261026b">
+  <link rel="stylesheet" href="../../css/case-study.css?v=20261026n">
+  <link rel="stylesheet" href="../../css/reveal.css?v=20261026a">
 </head>
 <body>
 
@@ -51,7 +52,19 @@
   </header>
 
   <!-- OWNERSHIP -->
-  <div class="owner"><span class="owner__label">My part</span><p class="owner__text">At TrueOmni I led UX across the app, kiosks and in room screens, working alongside the engineering team that built the CMS and hardware integrations. <strong>Status:</strong> deployed across TrueOmni's hospitality environments.</p></div>
+  <div class="owner owner--stack"><span class="owner__label">My part</span><p class="owner__text">At TrueOmni I led UX across the app, kiosks and in room screens, working alongside the engineering team that built the CMS and hardware integrations. <strong>Status:</strong> deployed across TrueOmni's hospitality environments.</p></div>
+
+  <!-- BRIEF: abstract and local index -->
+  <nav class="brief brief--6" aria-label="Case study summary">
+    <div class="brief__grid">
+      <a class="brief__item" href="#problem"><span class="brief__num">01</span><span class="brief__title">The Problem</span><span class="brief__text">Replace the front desk, not just add an app</span></a>
+      <a class="brief__item" href="#decision"><span class="brief__num">02</span><span class="brief__title">The Decision</span><span class="brief__text">Signage and kiosks as the backbone</span></a>
+      <a class="brief__item" href="#prototyping"><span class="brief__num">03</span><span class="brief__title">The Build</span><span class="brief__text">One CMS for app, kiosks and video walls</span></a>
+      <a class="brief__item" href="#depth"><span class="brief__num">04</span><span class="brief__title">In Depth</span><span class="brief__text">A three touchpoint pre arrival loop</span></a>
+      <a class="brief__item" href="#results"><span class="brief__num">05</span><span class="brief__title">What Changed</span><span class="brief__text">Deployed; requests answered in under 5 min</span></a>
+      <a class="brief__item" href="#reflection"><span class="brief__num">06</span><span class="brief__title">Reflection</span><span class="brief__text">One app for the whole stay</span></a>
+    </div>
+  </nav>
 
   <main>
     <!-- 01 : THE PROBLEM (image left) -->
@@ -117,16 +130,16 @@
     <!-- 02 : THE DECISION -->
     <section class="sec" id="decision">
       <span class="chip sec__chip">02 / The Decision</span>
-      <div class="duo">
+      <div class="duo duo--stack">
         <p class="statement">I re-engineered signage and kiosks from secondary displays into the property's primary operational backbone.</p>
         <p class="lead">To guarantee guests arrived already qualified, I designed a three-touchpoint pre-arrival loop: an app-exclusive booking incentive, native calendar sync, and timed contextual push notifications. Completing all three meant a guest showed up with a room already assigned and a digital key already live, before ever stepping into the lobby.</p>
       </div>
     </section>
     <!-- 03 : THE BUILD -->
-    <section class="sec sec--gray split split--ui split--reverse" id="prototyping">
+    <section class="sec sec--gray stack" id="prototyping">
       <span class="chip sec__chip">03 / The Build</span>
-      <div class="split__grid">
-        <div class="split__media">
+      <div class="stack__feature stack__feature--text-first">
+        <div class="stack__media">
             <figure class="figure figure--framed">
               <img src="assets/img/HotelNext1-Ecosystem.png" alt="App, kiosk, and video wall operating off one shared CMS">
               <figcaption class="figure__caption">
@@ -134,31 +147,33 @@
                 <span class="chip">Fig. 02</span>
               </figcaption>
             </figure>
-            <figure class="figure figure--framed">
+        </div>
+        <div class="stack__text">
+          <h2 class="display display--md">One CMS,<br>Every Screen</h2>
+          <p class="lead">The mobile app became the guest's personal control panel, booking, check-in, door key, room service, and navigation in one place. Kiosks extended the same functions to anyone without the app or mid-stay. Because all three surfaces drew from the same CMS, an action started on a phone showed up instantly on the screen in front of the guest. Beacon-based AR and voice-assisted navigation guided guests to their room the moment the door unlocked.</p>
+        </div>
+      </div>
+      <div class="stack__row stack__row--flow">
+            <figure class="figure figure--framed" style="--ar:0.701">
               <img src="assets/img/HotelNext3-unlock.png" alt="Guest unlocking a room door directly from the app">
               <figcaption class="figure__caption">
                 <span>Guest unlocking a room door directly from the app</span>
                 <span class="chip">Fig. 03</span>
               </figcaption>
             </figure>
-            <figure class="figure figure--framed">
+            <figure class="figure figure--framed" style="--ar:1.599">
               <img src="assets/img/HotelNext7-CMS.png" alt="Unified CMS and staff dispatch app">
               <figcaption class="figure__caption">
                 <span>Unified CMS and staff dispatch app</span>
                 <span class="chip">Fig. 04</span>
               </figcaption>
             </figure>
-        </div>
-        <div class="split__text">
-          <h2 class="display display--md">One CMS,<br>Every Screen</h2>
-          <p class="lead">The mobile app became the guest's personal control panel, booking, check-in, door key, room service, and navigation in one place. Kiosks extended the same functions to anyone without the app or mid-stay. Because all three surfaces drew from the same CMS, an action started on a phone showed up instantly on the screen in front of the guest. Beacon-based AR and voice-assisted navigation guided guests to their room the moment the door unlocked.</p>
-        </div>
       </div>
     </section>
     <!-- 04 : IN DEPTH -->
     <section class="sec" id="depth">
       <span class="chip sec__chip">04 / In Depth</span>
-      <div class="duo">
+      <div class="duo duo--stack">
         <div>
           <h2 class="display display--md">Inside the<br>Ecosystem</h2>
           <p class="lead" style="margin-top:clamp(16px,2vw,24px)">The pieces that let the front desk disappear.</p>
@@ -359,6 +374,8 @@
       }
     });
   </script>
-  <script src="../../js/projects.js?v=20261026b"></script>
+  <script src="../../js/projects.js?v=20261026e"></script>
+  <script src="../../js/case-nav.js?v=20261026b"></script>
+  <script src="../../js/reveal.js?v=20261026b"></script>
 </body>
 </html>

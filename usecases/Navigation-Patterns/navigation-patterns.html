@@ -15,7 +15,8 @@
 
   <!-- Homepage card component (More case studies) -->
   <link rel="stylesheet" href="../../css/my-work.css?v=20261026b">
-  <link rel="stylesheet" href="../../css/case-study.css?v=20261026b">
+  <link rel="stylesheet" href="../../css/case-study.css?v=20261026n">
+  <link rel="stylesheet" href="../../css/reveal.css?v=20261026a">
 </head>
 <body>
 
@@ -52,14 +53,26 @@
   </header>
 
   <!-- OWNERSHIP -->
-  <div class="owner"><span class="owner__label">My part</span><p class="owner__text">My part was the heuristic evaluation, the information architecture and the navigation design. Development teams turned it into the shared React component every application consumes.</p></div>
+  <div class="owner owner--stack"><span class="owner__label">My part</span><p class="owner__text">My part was the heuristic evaluation, the information architecture and the navigation design. Development teams turned it into the shared React component every application consumes.</p></div>
+
+  <!-- BRIEF: abstract and local index -->
+  <nav class="brief brief--6" aria-label="Case study summary">
+    <div class="brief__grid">
+      <a class="brief__item" href="#problem"><span class="brief__num">01</span><span class="brief__title">The Problem</span><span class="brief__text">Users lost between independent apps</span></a>
+      <a class="brief__item" href="#decision"><span class="brief__num">02</span><span class="brief__title">The Decision</span><span class="brief__text">One global layer, local nav capped at 3</span></a>
+      <a class="brief__item" href="#prototyping"><span class="brief__num">03</span><span class="brief__title">The Build</span><span class="brief__text">Prototyped in Figma, shipped in React</span></a>
+      <a class="brief__item" href="#delivery"><span class="brief__num">04</span><span class="brief__title">In Depth</span><span class="brief__text">The two layer hierarchy</span></a>
+      <a class="brief__item" href="#results"><span class="brief__num">05</span><span class="brief__title">What Changed</span><span class="brief__text">+25% task completion, shipped platform wide</span></a>
+      <a class="brief__item" href="#reflection"><span class="brief__num">06</span><span class="brief__title">Reflection</span><span class="brief__text">Built with engineering from day one</span></a>
+    </div>
+  </nav>
 
   <main>
     <!-- 01 : THE PROBLEM (image left) -->
-    <section class="sec split split--ui" id="problem">
+    <section class="sec stack" id="problem">
       <span class="chip sec__chip">01 / The Problem</span>
-      <div class="split__grid">
-        <div class="split__media">
+      <div class="stack__feature">
+        <div class="stack__media">
             <figure class="figure figure--framed">
               <img src="assets/img/Nav-Framework.svg" alt="Platform navigation framework: top nav, local nav, content, footer">
               <figcaption class="figure__caption">
@@ -67,15 +80,8 @@
                 <span class="chip">Fig. 01</span>
               </figcaption>
             </figure>
-            <figure class="figure figure--framed">
-              <img src="assets/img/Nav-InitialFlow.svg" alt="Initial fragmented navigation flow">
-              <figcaption class="figure__caption">
-                <span>The fragmented flow the evaluation surfaced: every application routed users differently.</span>
-                <span class="chip">Fig. 02</span>
-              </figcaption>
-            </figure>
         </div>
-        <div class="split__text">
+        <div class="stack__text">
           <h2 class="display display--lg">The<br>Problem</h2>
             <div class="beat">
               <span class="beat__label">The request</span>
@@ -100,22 +106,36 @@
             </div>
         </div>
       </div>
+      <div class="stack__row stack__row--1">
+            <figure class="figure figure--framed">
+              <img src="assets/img/Nav-InitialFlow.svg" alt="Initial fragmented navigation flow">
+              <figcaption class="figure__caption">
+                <span>The fragmented flow the evaluation surfaced: every application routed users differently.</span>
+                <span class="chip">Fig. 02</span>
+              </figcaption>
+            </figure>
+      </div>
     </section>
     <!-- 02 : THE DECISION -->
     <section class="sec" id="decision">
       <span class="chip sec__chip">02 / The Decision</span>
-      <div class="duo">
+      <div class="duo duo--stack">
         <p class="statement">I stopped treating navigation as something each application owned, and made it a shared layer across the whole platform.</p>
         <p class="lead">The fix was a strict two-part hierarchy: one global navigation, consistent across every Kyndryl Bridge offering, that handled switching between applications, context, notifications, and account state. And a local navigation inside each application, capped at three nesting levels, so no single app could grow complex enough to disorient the person using it.</p>
       </div>
     </section>
     <!-- 03 : THE BUILD -->
-    <section class="sec sec--gray split split--ui split--reverse" id="prototyping">
+    <section class="sec sec--gray stack" id="prototyping">
       <span class="chip sec__chip">03 / The Build</span>
-      <div class="split__grid">
-        <div class="split__media">
-            <figure class="figure figure--framed">
-              <div class="figure__grid">
+      <div class="stack__intro">
+        <h2 class="display display--lg">One Shared<br>Layer</h2>
+        <div>
+          <p class="lead">High-fidelity Figma prototypes simulated dynamic routing, context switching, and permission-aware states before a line of production code was written. Once validated through unmoderated user testing, the navigation shipped as a standalone React component that any application on the platform could consume.</p>
+        </div>
+      </div>
+      <div class="stack__row stack__row--1">
+        <figure class="figure figure--framed">
+              <div class="figure__grid figure__grid--4">
                 <img src="assets/img/Nav-Features_1.png" alt="App switcher allowing users to jump between authorized applications">
                 <img src="assets/img/Nav-Features_2.png" alt="Account switcher for changing role context and permissions">
                 <img src="assets/img/Nav-Feature3-help.png" alt="Global help utility">
@@ -126,17 +146,12 @@
                 <span class="chip">Fig. 03</span>
               </figcaption>
             </figure>
-        </div>
-        <div class="split__text">
-          <h2 class="display display--md">One Shared<br>Layer</h2>
-          <p class="lead">High-fidelity Figma prototypes simulated dynamic routing, context switching, and permission-aware states before a line of production code was written. Once validated through unmoderated user testing, the navigation shipped as a standalone React component that any application on the platform could consume.</p>
-        </div>
       </div>
     </section>
     <!-- 04 : IN DEPTH -->
     <section class="sec" id="delivery">
       <span class="chip sec__chip">04 / In Depth</span>
-      <div class="duo">
+      <div class="duo duo--stack">
         <div>
           <h2 class="display display--md">How It<br>Works</h2>
           <p class="lead" style="margin-top:clamp(16px,2vw,24px)">The mechanics behind the two layer hierarchy.</p>
@@ -332,6 +347,8 @@
       }
     });
   </script>
-  <script src="../../js/projects.js?v=20261026b"></script>
+  <script src="../../js/projects.js?v=20261026e"></script>
+  <script src="../../js/case-nav.js?v=20261026b"></script>
+  <script src="../../js/reveal.js?v=20261026b"></script>
 </body>
 </html>
