@@ -25,10 +25,25 @@
         if (p && typeof p.catch === "function") { p.catch(function () {}); }
       };
 
-      tryPlay();
-      // fallback: iOS sometimes holds playback until it sees an interaction
-      document.addEventListener("touchstart", tryPlay, { once: true });
-      document.addEventListener("click", tryPlay, { once: true });
+      // load and play only when the footer comes near the viewport, so the
+      // video never weighs on the first page load
+      if ("IntersectionObserver" in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) {
+              footerVideo.preload = "auto";
+              tryPlay();
+              // fallback: iOS sometimes holds playback until it sees an interaction
+              document.addEventListener("touchstart", tryPlay, { once: true });
+              document.addEventListener("click", tryPlay, { once: true });
+              io.disconnect();
+            }
+          });
+        }, { rootMargin: "400px 0px" });
+        io.observe(footerVideo);
+      } else {
+        tryPlay();
+      }
     } else {
       // reduced motion: no autoplay, hold on the poster
       footerVideo.removeAttribute("autoplay");

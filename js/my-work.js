@@ -21,8 +21,9 @@
   var currentFilter = "all";
   var visibleCount = 0;
 
-  /* stepped reveal: initial 2 rows on every breakpoint, each step +3 rows
-     (mobile +2). */
+  /* stepped reveal: the first view shows 3 or 4 cards (one row of 4 or 3
+     on desktop and tablet, 4 on two columns, 3 on mobile), each step +3
+     rows (mobile +2). */
   function columnCount() {
     var t = getComputedStyle(grid).gridTemplateColumns.split(" ").length;
     return t > 0 ? t : 1;
@@ -30,7 +31,11 @@
   function isMobile() { return columnCount() === 1; }
   function initialRows() { return 2; }
   function stepRows() { return isMobile() ? 2 : 3; }
-  function initialCount() { return columnCount() * initialRows(); }
+  function initialCount() {
+    var c = columnCount();
+    if (c >= 3) return c;
+    return c === 2 ? 4 : 3;
+  }
   function stepSize() { return columnCount() * stepRows(); }
 
   /* a card can belong to several categories: data-category="ux-product strategy" */
