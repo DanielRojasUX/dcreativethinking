@@ -155,18 +155,21 @@ html:lang(ja) .flyer .lead{word-break:keep-all;line-break:strict}
 .addr svg{width:18px;height:18px;flex:none}
 .dress{margin-top:6px;font-weight:700;font-size:clamp(14px,4cqw,16px);color:#5a1638}
 .reveal .big.time{font-family:"DMS","MPR",sans-serif!important;font-weight:700;letter-spacing:0}
-.rsvp{display:block;width:100%;margin-top:16px;padding:15px 18px;border:none;border-radius:999px;background:linear-gradient(180deg,#ff7fbd,#e0257f);color:#fff;font-family:"DMS","MPR",sans-serif;font-weight:700;font-size:17px;box-shadow:0 10px 26px rgba(224,37,127,.35);cursor:pointer}
+.rsvp{display:block;width:100%;margin-top:16px;padding:15px 12px;border:none;border-radius:999px;background:linear-gradient(180deg,#ff7fbd,#e0257f);color:#fff;font-family:"DMS","MPR",sans-serif;font-weight:700;font-size:17px;box-shadow:0 10px 26px rgba(224,37,127,.35);cursor:pointer}
 .rsvp[disabled]{opacity:.6}
-.rsvp[hidden],.rsvpDone[hidden]{display:none!important}
+.rsvp[hidden],.rsvpDone[hidden],.rsvpNo[hidden],.rsvpChange[hidden]{display:none!important}
+.rsvpNo{display:block;width:100%;margin-top:8px;padding:12px 18px;border:1px solid rgba(176,40,95,.45);border-radius:999px;background:rgba(255,255,255,.55);color:#8a3a60;font-family:"DMS","MPR",sans-serif;font-weight:700;font-size:15px;cursor:pointer}
+.rsvpDone.no{font-family:"DMS","MPR",sans-serif;font-weight:700;font-size:16px;letter-spacing:0;color:#8a3a60}
+.rsvpChange{display:block;margin:4px auto 0;background:none;border:none;color:#8a3a60;font-family:inherit;font-weight:500;font-size:12.5px;text-decoration:underline;cursor:pointer}
 .rsvpDone{margin-top:14px;font-family:"HKP","DGO",sans-serif;font-size:20px;letter-spacing:.04em;color:#e0257f}
-#pf .wa{color:#5a1638;border-color:rgba(176,40,95,.4);background:rgba(255,255,255,.5)}
+#pf .wa{color:#b0285f;border:none;background:none;padding:10px 8px;margin-top:10px}
 #pf .again{color:#8a3a60}
 #start select{width:100%;max-width:280px;margin-top:26px;padding:15px 44px 15px 18px;border-radius:999px;border:1px solid rgba(255,95,174,.6);background:rgba(20,8,28,.7) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffc6e2' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right 16px center/18px;color:#fff;font-family:"DMS","MPR",sans-serif;font-weight:700;font-size:16px;-webkit-appearance:none;appearance:none;text-align:center;text-align-last:center}
 #start select option{color:#120a16}
 #start .pick{margin-top:14px}
 #start .pick button[disabled]{opacity:0;pointer-events:none}
 #start .pick button{transition:opacity .4s}
-#start .jaswitch{margin-bottom:14px;padding:7px 14px;border-radius:999px;border:1px solid rgba(255,198,226,.45);background:rgba(20,8,28,.5);color:#ffc6e2;font-family:"DMS","MPR",sans-serif;font-weight:700;font-size:13px;letter-spacing:.04em;cursor:pointer}
+#start .jaswitch{margin-bottom:10px;padding:8px 6px;border:none;background:none;color:#ffc6e2;font-family:"DMS","MPR",sans-serif;font-weight:700;font-size:13px;letter-spacing:.04em;cursor:pointer}
 #start .hello{margin-top:10px;min-height:1.4em;font-family:"HKP","DGO",sans-serif;font-size:20px;color:var(--hi2)}
 /* chrome */
 #fx{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:7}
@@ -354,7 +357,9 @@ html:lang(ja) .flyer .lead{word-break:keep-all;line-break:strict}
         <a class="addr" href="https://maps.app.goo.gl/myM2JWXTZ1H7Nhd79" target="_blank" rel="noopener"><span>José López Portillo 505, El Llano</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></a>
         <p class="dress" data-t="fDress"></p>
         <button class="rsvp"></button>
+        <button class="rsvpNo"></button>
         <p class="rsvpDone" hidden></p>
+        <button class="rsvpChange" hidden></button>
         <a class="wa" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4a.5.5 0 0 0 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7a2.8 2.8 0 0 0 1.8-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg><span data-t="wa"></span></a>
         <button class="again" data-t="again"></button>
       </div>
@@ -376,7 +381,7 @@ html:lang(ja) .flyer .lead{word-break:keep-all;line-break:strict}
 
 <script>
 (()=>{
-const FLOW={"id": "full", "seq": ["s1", "s2", "s3", "s4", "p1", "p2", "p3", "p4", "pf"], "names": ["Cayetana", "Reni", "Aurora", "Leah Zúñiga", "Leah Melgoza", "Sloverdoba"], "es": {"h_tap2": "Toca los pepinos", "h_rub": "Frota para quitar la mascarilla", "h_nails": "Toca sus uñas para pintarlas", "fDate": "11 de noviembre · 4 a 7 pm", "fDress": "Dress code: all pink", "rsvpOk": "¡Listo, nos vemos!", "rsvpErr": "Reintentar", "waMsg": "Hola Joyce, tengo una pregunta sobre el spa de Ika.", "p1a": "Hasta una Saja Girl necesita un día libre.", "p2a": "Ahora, fuera la mascarilla.", "p3a": "Y para el escenario, uñas rosas.", "s4r": "En casa de Ika", "p1l": "Hora", "p1r": "4 a 7 pm", "p2l": "Dress code", "p2r": "All pink", "p3l": "", "p3r": "¡Uñas listas!", "p4a": "Y el toque final.", "p4l": "", "p4r": "¡Lista para la fiesta!", "h_tap2t": "Toca la toalla"}, "ja": {"h_tap2": "きゅうりをタップしてね", "h_rub": "こすってパックをはがそう", "h_nails": "ツメをタップしてぬろう", "fDate": "11月11日 · 午後4時〜7時", "fDress": "ドレスコード：オールピンク", "rsvpOk": "ありがとう！待ってるね！", "rsvpErr": "もう一度", "waMsg": "Hi Joyce! I have a question about Ika's spa party. （Ikaのスパパーティーについて質問があります）", "p1a": "サジャ・ガールにも、お休みの日が必要。", "p2a": "次は、パックをはがそう。", "p3a": "ステージには、ピンクのツメで。", "s4r": "Ikaのおうち", "p1l": "時間", "p1r": "午後4時〜7時", "p2l": "ドレスコード", "p2r": "オールピンク", "p3l": "", "p3r": "ツメもかんぺき！", "p4a": "さいごの仕上げ。", "p4l": "", "p4r": "パーティーの準備OK！", "h_tap2t": "タオルをタップしてね"}};
+const FLOW={"id": "full", "seq": ["s1", "s2", "s3", "s4", "p1", "p2", "p3", "p4", "pf"], "names": ["Cayetana", "Reni", "Aurora", "Leah Zúñiga", "Leah Melgoza", "Sloverdoba"], "es": {"h_tap2": "Toca los pepinos", "h_rub": "Frota para quitar la mascarilla", "h_nails": "Toca sus uñas para pintarlas", "fDate": "11 de noviembre · 4 a 7 pm", "fDress": "Dress code: all pink", "rsvpOk": "¡Listo, nos vemos!", "rsvpErr": "Reintentar", "waMsg": "Hola Joyce, tengo una pregunta sobre el spa de Ika.", "p1a": "Hasta una Saja Girl necesita un día libre.", "p2a": "Ahora, fuera la mascarilla.", "p3a": "Y para el escenario, uñas rosas.", "s4r": "En casa de Ika", "p1l": "Hora", "p1r": "4 a 7 pm", "p2l": "Dress code", "p2r": "All pink", "p3l": "", "p3r": "¡Uñas listas!", "p4a": "Y el toque final.", "p4l": "", "p4r": "¡Lista para la fiesta!", "h_tap2t": "Toca la toalla", "rsvpNo": "No podré asistir", "rsvpNoOk": "Gracias por avisarnos. ¡Te vamos a extrañar!", "rsvpChange": "Cambiar respuesta"}, "ja": {"h_tap2": "きゅうりをタップしてね", "h_rub": "こすってパックをはがそう", "h_nails": "ツメをタップしてぬろう", "fDate": "11月11日 · 午後4時〜7時", "fDress": "ドレスコード：オールピンク", "rsvpOk": "ありがとう！待ってるね！", "rsvpErr": "もう一度", "waMsg": "Hi Joyce! I have a question about Ika's spa party. （Ikaのスパパーティーについて質問があります）", "p1a": "サジャ・ガールにも、お休みの日が必要。", "p2a": "次は、パックをはがそう。", "p3a": "ステージには、ピンクのツメで。", "s4r": "Ikaのおうち", "p1l": "時間", "p1r": "午後4時〜7時", "p2l": "ドレスコード", "p2r": "オールピンク", "p3l": "", "p3r": "ツメもかんぺき！", "p4a": "さいごの仕上げ。", "p4l": "", "p4r": "パーティーの準備OK！", "h_tap2t": "タオルをタップしてね", "rsvpNo": "今回は行けません", "rsvpNoOk": "知らせてくれてありがとう！", "rsvpChange": "回答を変える"}};
 const T={
 es:{s1a:"En el reino de los demonios, todos cantan para el rey.",s1b:"Una de ellas se cansó.",s1r:"La Saja Girl",
 s2a:"«Tú me perteneces.»",s2b:"Ella no estaba tan segura.",s2l:"El día que se liberó",s2r:"11 de noviembre",
@@ -606,17 +611,24 @@ $('#p3 .tapcatch').addEventListener('pointerdown',e=>{const sc=$('#p3');if(sc.da
 
 /* final */
 let confT=0;
-function rsvpLabel(){if(!WHO)return '';const pl=/&| y /.test(WHO);return lang==='ja'?`参加します（${WHO}）`:(pl?`Confirmamos, somos ${WHO}`:`Confirmo, soy ${WHO}`);}
+function rsvpLabel(){if(!WHO)return '';const pl=/&| y /.test(WHO);return lang==='ja'?`${WHO}、参加します！`:`¡${WHO} ${pl?'confirman':'confirma'} asistencia!`;}
+function fitBtns(){const a=$('#pf .addr');if(!a||!a.offsetWidth)return;const w=a.offsetWidth+'px';$$('#pf .rsvp,#pf .rsvpNo').forEach(b=>{b.style.width=w;b.style.marginLeft=b.style.marginRight='auto';});const r=$('#pf .rsvp');if(r.hidden)return;r.style.whiteSpace='nowrap';r.style.fontSize='';let fs=parseFloat(getComputedStyle(r).fontSize);while(r.scrollWidth>r.clientWidth&&fs>12){fs-=.5;r.style.fontSize=fs+'px';}}
+addEventListener('resize',fitBtns);
 function rsvpKey(){return 'ika5-rsvp-'+FLOW.id+'-'+WHO;}
-function rsvpState(){let done=false;try{done=!!localStorage.getItem(rsvpKey());}catch(e){}const b=$('#pf .rsvp'),m=$('#pf .rsvpDone');b.textContent=rsvpLabel();b.hidden=done||!WHO;m.hidden=!done;m.textContent=T[lang].rsvpOk;}
+function rsvpGet(){try{return localStorage.getItem(rsvpKey())||'';}catch(e){return '';}}
+function rsvpState(){requestAnimationFrame(fitBtns);const st=rsvpGet(),b=$('#pf .rsvp'),n=$('#pf .rsvpNo'),m=$('#pf .rsvpDone'),c=$('#pf .rsvpChange');b.textContent=rsvpLabel();n.textContent=T[lang].rsvpNo;c.textContent=T[lang].rsvpChange;b.hidden=n.hidden=!!st||!WHO;m.hidden=c.hidden=!st;m.textContent=st==='no'?T[lang].rsvpNoOk:T[lang].rsvpOk;m.classList.toggle('no',st==='no');}
 $('#lang').addEventListener('click',()=>rsvpState());
 ENTER.pf=sc=>{const t6=$('.s6top',sc),f6=$('.flyer',sc);t6.classList.remove('in');f6.classList.remove('in');rsvpState();setTimeout(()=>{t6.classList.add('in');play('chime');buzz(30);},500);setTimeout(()=>f6.classList.add('in'),1100);const r=app.getBoundingClientRect();
   setTimeout(()=>{for(let i=0;i<4;i++)setTimeout(()=>{emit(r.width*.15,r.height*.35,40,{colors:PINK,sp:9,g:.12,dec:.006,size:4,rect:true,dir:-Math.PI/3,spread:1.1,drag:.97});emit(r.width*.85,r.height*.35,40,{colors:PINK,sp:9,g:.12,dec:.006,size:4,rect:true,dir:-Math.PI*2/3,spread:1.1,drag:.97});play('pop');},i*220);},500);
   clearInterval(confT);confT=setInterval(()=>{if(SEQ[cur]!=='pf'){clearInterval(confT);return;}emit(Math.random()*r.width,-10,2,{colors:PINK,sp:1,g:.03,dec:.004,size:3.5,rect:true,dir:Math.PI/2,spread:.8,drag:.99});},260);};
-$('#pf .rsvp').addEventListener('click',e=>{e.stopPropagation();const b=e.currentTarget;if(b.disabled)return;b.disabled=true;buzz(30);
-  const ok=()=>{try{localStorage.setItem(rsvpKey(),'1')}catch(err){}b.disabled=false;rsvpState();play('sparkle');const m=$('#pf .rsvpDone').getBoundingClientRect(),a=app.getBoundingClientRect();emit(m.left-a.left+m.width/2,m.top-a.top,60,{colors:PINK,sp:7,g:.12,dec:.008,size:4,rect:true,dir:-Math.PI/2,spread:1.4,drag:.97});};
-  if(RSVP_URL){fetch(RSVP_URL,{method:'POST',mode:'no-cors',body:new URLSearchParams({flow:FLOW.id,name:WHO,lang})}).then(ok).catch(()=>{b.disabled=false;b.textContent=T[lang].rsvpErr;});}
-  else{window.open('https://wa.me/14355220613?text='+encodeURIComponent('Confirmo: '+WHO+' · Spa de Ika 11/11'),'_blank');ok();}});
+function sendRsvp(yes,btn){if(btn.disabled)return;$$('#pf .rsvp,#pf .rsvpNo').forEach(x=>x.disabled=true);buzz(yes?30:15);
+  const done=()=>{try{localStorage.setItem(rsvpKey(),yes?'yes':'no')}catch(err){}$$('#pf .rsvp,#pf .rsvpNo').forEach(x=>x.disabled=false);rsvpState();if(yes){play('sparkle');const m=$('#pf .rsvpDone').getBoundingClientRect(),a=app.getBoundingClientRect();emit(m.left-a.left+m.width/2,m.top-a.top,60,{colors:PINK,sp:7,g:.12,dec:.008,size:4,rect:true,dir:-Math.PI/2,spread:1.4,drag:.97});}else play('pop');};
+  const flow=FLOW.id+(yes?' · asiste':' · no asiste');
+  if(RSVP_URL){fetch(RSVP_URL,{method:'POST',mode:'no-cors',body:new URLSearchParams({flow,name:WHO,lang})}).then(done).catch(()=>{$$('#pf .rsvp,#pf .rsvpNo').forEach(x=>x.disabled=false);btn.textContent=T[lang].rsvpErr;});}
+  else{window.open('https://wa.me/14355220613?text='+encodeURIComponent((yes?'Confirmo: ':'No podrá asistir: ')+WHO+' · Spa de Ika 11/11'),'_blank');done();}}
+$('#pf .rsvp').addEventListener('click',e=>{e.stopPropagation();sendRsvp(true,e.currentTarget);});
+$('#pf .rsvpNo').addEventListener('click',e=>{e.stopPropagation();sendRsvp(false,e.currentTarget);});
+$('#pf .rsvpChange').addEventListener('click',e=>{e.stopPropagation();try{localStorage.removeItem(rsvpKey())}catch(err){}buzz(10);rsvpState();});
 $('#pf .again').addEventListener('click',e=>{e.stopPropagation();buzz(10);go(0);});
 $('#pf .wa').addEventListener('click',()=>buzz(10));
 
