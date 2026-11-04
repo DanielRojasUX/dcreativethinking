@@ -150,7 +150,14 @@ html:lang(ja) .flyer .lead{word-break:keep-all;line-break:strict}
 #start .pick{display:flex;flex-direction:column;gap:12px;width:100%;max-width:280px;margin-top:34px}
 #start button{font-family:"HKP","DGO",sans-serif;font-size:18px;padding:16px;border-radius:999px;border:1px solid rgba(255,95,174,.6);background:rgba(20,8,28,.6);color:var(--hi2);cursor:pointer}
 #start button:active{background:rgba(255,95,174,.2)}
-#start .note{margin-top:22px;font-size:13px;font-weight:700;color:rgba(255,255,255,.65);line-height:1.6}
+#start .vol{margin-top:26px;width:46px;height:46px;animation:volbob 1.8s ease-in-out infinite}
+#start .vol svg{width:100%;height:100%}
+#start .vol path[class]{opacity:.15;animation:wave 1.8s ease-in-out infinite}
+#start .vol .w2{animation-delay:.2s!important}
+#start .vol .w3{animation-delay:.4s!important}
+@keyframes wave{0%,15%{opacity:.15}35%,70%{opacity:1}100%{opacity:.15}}
+@keyframes volbob{0%,100%{transform:scale(1)}40%{transform:scale(1.08)}}
+#start .note{margin-top:8px;font-size:13px;font-weight:700;color:rgba(255,255,255,.65);line-height:1.6}
 #start .seal{width:64px;height:64px;margin-bottom:22px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 35% 30%,#ffd3ea,#e0458f 70%);box-shadow:0 0 30px rgba(255,95,174,.55);animation:pulse 2.2s ease-in-out infinite}
 #start .seal svg{width:32px;height:32px}
 @keyframes pulse{50%{transform:scale(1.07);box-shadow:0 0 46px rgba(255,95,174,.8)}}
@@ -261,11 +268,8 @@ html:lang(ja) .flyer .lead{word-break:keep-all;line-break:strict}
         <p class="when" data-t="when"></p>
       </div>
       <div class="flyer">
-        <p class="lead" data-t="s6a"></p>
-        <div class="rule"><i></i></div>
         <p class="lunchT" data-t="lunchT"></p>
         <p class="lunchV" data-t="lunchV"></p>
-        <p class="teamline"><span data-t="team"></span> <b class="teamV">·</b></p>
         <a class="wa" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4a.5.5 0 0 0 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.9 11.9 0 0 0 4.6 4c1.7.7 2.4.8 3.2.7a2.8 2.8 0 0 0 1.8-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3z"/></svg><span data-t="wa"></span></a>
         <button class="again" data-t="again"></button>
       </div>
@@ -282,7 +286,7 @@ html:lang(ja) .flyer .lead{word-break:keep-all;line-break:strict}
     <div class="seal"><svg viewBox="0 0 24 24" fill="none" stroke="#3a0a22" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l9 6 9-6"/><rect x="3" y="5" width="18" height="14" rx="2"/></svg></div>
     <h1>Tienes una invitación<small>招待状がとどいたよ</small></h1>
     <div class="pick"><button data-lang="es">Español</button><button data-lang="ja">日本語</button></div>
-    <p class="note">Sube el volumen<br>音をオンにしてね</p>
+    <div class="vol" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="#ffc6e2" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M8 19h7l10-8v26l-10-8H8z" fill="rgba(255,198,226,.18)"/><path class="w1" d="M31 19a7 7 0 0 1 0 10"/><path class="w2" d="M35.5 15a13 13 0 0 1 0 18"/><path class="w3" d="M40 11a19 19 0 0 1 0 26"/></svg></div><p class="note">Sube el volumen · 音をオンにしてね</p>
   </div>
 </div>
 
@@ -323,13 +327,13 @@ const app=$('#app');
 function applyLang(){
   document.documentElement.lang=lang;
   $$('[data-t]').forEach(el=>{const k=el.dataset.t; if(T[lang][k]!=null) el.textContent=T[lang][k];});
-  $$('.lunchV').forEach(el=>{const sep=lang==='ja'?'・':' · ',it=T[lang].lunchV.split(sep);el.innerHTML=it.map((x,i)=>'<span style="white-space:nowrap">'+x+(i<it.length-1?(lang==='ja'?'・':'&nbsp;·'):'')+'</span>').join(lang==='ja'?'':' ');});
+  $$('.lunchV').forEach(el=>{const sep=lang==='ja'?'・':' · ',it=T[lang].lunchV.split(sep);el.innerHTML=it.slice(0,2).join(sep)+'<br>'+it.slice(2).join(sep);});
   $$('[data-h]').forEach(el=>{el.innerHTML=ICON[el.dataset.h]+'<span>'+T[lang]['h_'+el.dataset.h]+'</span>';});
   $$('.next').forEach(b=>b.textContent=T[lang].next);
   $$('.reveal .big').forEach(b=>b.classList.toggle('ja',lang==='ja' && /[^\x00-\x7Fú]/.test(b.textContent)));
   $('#lang').textContent=lang==='ja'?'ES':'日本語';
   $('.wa').href='https://wa.me/14355220613?text='+encodeURIComponent(T[lang].waMsg);
-  if(team) $('.teamV').textContent=T[lang][team==='saja'?'tSaja':'tHunt'];
+  if(team) ($('.teamV')||{}).textContent=T[lang][team==='saja'?'tSaja':'tHunt'];
   if(team) $('#s5 .reveal .big').textContent=T[lang][team==='saja'?'rSaja':'rHunt'];
 }
 
@@ -466,12 +470,12 @@ ENTER[4]=sc=>{resetScene(sc);const b=$('.barrier',sc);b.getAnimations().forEach(
 ENTER[5]=sc=>{resetScene(sc);team=null;$$('.side',sc).forEach(s=>s.classList.remove('dim'));$$('.sidelab',sc).forEach(s=>s.classList.remove('in','pick'));const t=showLines(sc);setTimeout(()=>$$('.sidelab',sc).forEach(s=>s.classList.add('in')),Math.min(t,2600));showHint(sc,Math.min(t,2600));sc._ready=Date.now()+Math.min(t,2000);};
 $('#s5 .tapcatch').addEventListener('pointerdown',e=>{const sc=$('#s5');if(sc.dataset.done||Date.now()<sc._ready)return;const r=sc.getBoundingClientRect(),left=(e.clientX-r.left)<r.width/2;team=left?'saja':'hunt';
   $('.side.'+(left?'r':'l'),sc).classList.add('dim');$('.sidelab.'+(left?'l':'r'),sc).classList.add('pick');$('.sidelab.'+(left?'r':'l'),sc).style.opacity=.35;
-  $('#s5 .reveal .big').textContent=T[lang][left?'rSaja':'rHunt'];$('#s5 .reveal .big').classList.toggle('ja',lang==='ja');$('#s5 .reveal').classList.toggle('demon',left);$('.teamV').textContent=T[lang][left?'tSaja':'tHunt'];
+  $('#s5 .reveal .big').textContent=T[lang][left?'rSaja':'rHunt'];$('#s5 .reveal .big').classList.toggle('ja',lang==='ja');$('#s5 .reveal').classList.toggle('demon',left);($('.teamV')||{}).textContent=T[lang][left?'tSaja':'tHunt'];
   const a=app.getBoundingClientRect();emit(e.clientX-a.left,e.clientY-a.top,50,{colors:left?VIO:GOLD,sp:5,g:.05,dec:.014,size:2.6});buzz(30);play(left?'thump':'sparkle');reveal(sc,{chimeIt:!left});});
 
 /* 6 */
 let confT=0;
-ENTER[6]=sc=>{const t6=$('.s6top',sc),f6=$('.flyer',sc);t6.classList.remove('in');f6.classList.remove('in');$('.teamline',sc).style.display=team?'':'none';setTimeout(()=>{t6.classList.add('in');play('chime');buzz(30);},500);setTimeout(()=>f6.classList.add('in'),1100);const r=app.getBoundingClientRect();
+ENTER[6]=sc=>{const t6=$('.s6top',sc),f6=$('.flyer',sc);t6.classList.remove('in');f6.classList.remove('in');setTimeout(()=>{t6.classList.add('in');play('chime');buzz(30);},500);setTimeout(()=>f6.classList.add('in'),1100);const r=app.getBoundingClientRect();
   setTimeout(()=>{for(let i=0;i<4;i++)setTimeout(()=>{emit(r.width*.15,r.height*.35,40,{colors:CONF,sp:9,g:.12,dec:.006,size:4,rect:true,dir:-Math.PI/3,spread:1.1,drag:.97});emit(r.width*.85,r.height*.35,40,{colors:CONF,sp:9,g:.12,dec:.006,size:4,rect:true,dir:-Math.PI*2/3,spread:1.1,drag:.97});play('pop');},i*220);},500);
   clearInterval(confT);confT=setInterval(()=>{if(cur!==6){clearInterval(confT);return;}emit(Math.random()*r.width,-10,2,{colors:CONF,sp:1,g:.03,dec:.004,size:3.5,rect:true,dir:Math.PI/2,spread:.8,drag:.99});},260);};
 $('#s6 .again').addEventListener('click',e=>{e.stopPropagation();buzz(10);go(1);});
