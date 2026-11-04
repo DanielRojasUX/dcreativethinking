@@ -166,6 +166,7 @@ html:lang(ja) .flyer .lead{word-break:keep-all;line-break:strict}
 #start .pick{margin-top:14px}
 #start .pick button[disabled]{opacity:0;pointer-events:none}
 #start .pick button{transition:opacity .4s}
+#start .jaswitch{margin-bottom:14px;padding:7px 14px;border-radius:999px;border:1px solid rgba(255,198,226,.45);background:rgba(20,8,28,.5);color:#ffc6e2;font-family:"DMS","MPR",sans-serif;font-weight:700;font-size:13px;letter-spacing:.04em;cursor:pointer}
 #start .hello{margin-top:10px;min-height:1.4em;font-family:"HKP","DGO",sans-serif;font-size:20px;color:var(--hi2)}
 /* chrome */
 #fx{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:7}
@@ -296,7 +297,7 @@ html:lang(ja) .flyer .lead{word-break:keep-all;line-break:strict}
 
   <div id="start">
     <div class="seal"><svg viewBox="0 0 24 24" fill="none" stroke="#3a0a22" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l9 6 9-6"/><rect x="3" y="5" width="18" height="14" rx="2"/></svg></div>
-    <h1>Tienes una invitación</h1>
+    <button class="jaswitch" type="button">日本語で見る</button><h1>Tienes una invitación</h1>
     <select id="who" aria-label="¿Quién eres?"><option value="" selected disabled>¿Quién eres?</option></select><p class="hello"></p><div class="pick"><button data-lang="es" disabled>Entrar</button></div>
     <div class="vol" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="#ffc6e2" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M8 19h7l10-8v26l-10-8H8z" fill="rgba(255,198,226,.18)"/><path class="w1" d="M31 19a7 7 0 0 1 0 10"/><path class="w2" d="M35.5 15a13 13 0 0 1 0 18"/><path class="w3" d="M40 11a19 19 0 0 1 0 26"/></svg></div><p class="note">Sube el volumen</p>
   </div>
@@ -554,9 +555,15 @@ $('#p4 .tapcatch').addEventListener('pointerdown',()=>{const sc=$('#p4');if(sc.d
   t.animate([{transform:'translate(0,0) rotate(0deg) scale(1)',opacity:1},{transform:'translate(30%,-60%) rotate(25deg) scale(1.05)',opacity:1,offset:.35},{transform:'translate(140%,40%) rotate(80deg) scale(.8)',opacity:0}],{duration:1100,easing:'cubic-bezier(.3,.5,.4,1)',fill:'forwards'});
   setTimeout(()=>{$('.before',sc).style.opacity=0;const [x,y]=s2c(sc,540,560);emit(x,y,60,{colors:['#ffffff','#ffd1e8','#ff8fc8','#ffe9f3'],sp:6,g:.02,dec:.012,size:3});},180);
   play('whoosh');setTimeout(()=>play('sparkle'),300);buzz(35);delete sc.dataset.done;setTimeout(()=>reveal(sc),500);});
+/* start language switch */
+const START={es:{h1:'Tienes una invitación',ph:'¿Quién eres?',hi:n=>'¡Hola, '+n+'!',go:'Entrar',note:'Sube el volumen',sw:'日本語で見る'},ja:{h1:'招待状がとどいたよ',ph:'あなたは？',hi:n=>'こんにちは、'+n+'！',go:'スタート',note:'音をオンにしてね',sw:'Ver en español'}};
+function startLang(){const L=START[lang];$('#start h1').textContent=L.h1;$('#who option[value=""]').textContent=L.ph;$('#start .hello').textContent=WHO?L.hi(WHO):'';const b=$('#start .pick button');b.textContent=L.go;b.dataset.lang=lang;$('#start .note').textContent=L.note;$('#start .jaswitch').textContent=L.sw;}
+$('#start .jaswitch').addEventListener('click',()=>{lang=lang==='ja'?'es':'ja';applyLang();startLang();buzz(10);});
+sel.addEventListener('change',startLang);
+startLang();
 
 /* start */
-$$('#start button').forEach(b=>b.addEventListener('click',()=>{lang=b.dataset.lang;applyLang();initAudio();if(ac&&ac.state==='suspended')ac.resume();startMusic();buzz(20);play('dark');
+$$('#start .pick button').forEach(b=>b.addEventListener('click',()=>{lang=b.dataset.lang;applyLang();initAudio();if(ac&&ac.state==='suspended')ac.resume();startMusic();buzz(20);play('dark');
   $('#start').classList.add('off');$('#top').classList.add('in');go(0);}));
 ['spa-b','spa-c','spa-d','cuke-l','cuke-r','spa-e','towel'].forEach(n=>{const i=new Image();i.src='../ika5/img/'+n+'.webp';});
 applyLang();window.__go=go;
