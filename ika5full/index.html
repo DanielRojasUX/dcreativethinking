@@ -569,7 +569,10 @@ let WHO='';
 const PINK=['#ff4fa3','#ffc6e2','#ffffff','#e0257f','#ffd9ec','#b98cff'];
 const BULBS=[[34,510],[180,515],[327,512],[753,512],[899,515],[1045,510]];
 $$('.twinkle').forEach(t=>BULBS.forEach(([x,y],i)=>{const e=document.createElement('i');e.style.left=(x/10.8)+'%';e.style.top=(y/19.35)+'%';e.style.animationDelay=(-i*.45)+'s';t.appendChild(e);}));
-const sel=$('#who');const TEST='(prueba)';FLOW.names.forEach(n=>{const o=document.createElement('option');o.value=n;o.textContent=n===TEST?'\u00a0':n;sel.appendChild(o);});
+const sel=$('#who');const TEST='(prueba)';
+function fillNames(list){const keep=sel.value;$$('option',sel).forEach(o=>{if(o.value)o.remove();});list.forEach(n=>{const o=document.createElement('option');o.value=n;o.textContent=n===TEST?'\u00a0':n;sel.appendChild(o);});if(keep&&list.includes(keep))sel.value=keep;else if(keep){sel.value='';WHO='';$$('#start .pick button').forEach(b=>b.disabled=true);$('#start .hello').textContent='';}}
+fillNames(FLOW.names);
+if(RSVP_URL){const ctl=new AbortController();setTimeout(()=>ctl.abort(),8000);fetch(RSVP_URL+'?flow='+encodeURIComponent(FLOW.id),{signal:ctl.signal}).then(r=>r.json()).then(d=>{if(d&&Array.isArray(d.names)&&d.names.length)fillNames(d.names);}).catch(()=>{});}
 sel.addEventListener('change',()=>{WHO=sel.value;$$('#start .pick button').forEach(b=>b.disabled=!WHO);$('#start .hello').textContent=WHO?('¡Hola, '+WHO+'!'):'';});
 
 /* p1 cucumbers */
@@ -623,8 +626,8 @@ ENTER.pf=sc=>{const t6=$('.s6top',sc),f6=$('.flyer',sc);t6.classList.remove('in'
   clearInterval(confT);confT=setInterval(()=>{if(SEQ[cur]!=='pf'){clearInterval(confT);return;}emit(Math.random()*r.width,-10,2,{colors:PINK,sp:1,g:.03,dec:.004,size:3.5,rect:true,dir:Math.PI/2,spread:.8,drag:.99});},260);};
 function sendRsvp(yes,btn){if(btn.disabled)return;$$('#pf .rsvp,#pf .rsvpNo').forEach(x=>x.disabled=true);buzz(yes?30:15);
   const done=()=>{try{localStorage.setItem(rsvpKey(),yes?'yes':'no')}catch(err){}$$('#pf .rsvp,#pf .rsvpNo').forEach(x=>x.disabled=false);rsvpState();if(yes){play('sparkle');const m=$('#pf .rsvpDone').getBoundingClientRect(),a=app.getBoundingClientRect();emit(m.left-a.left+m.width/2,m.top-a.top,60,{colors:PINK,sp:7,g:.12,dec:.008,size:4,rect:true,dir:-Math.PI/2,spread:1.4,drag:.97});}else play('pop');};
-  const flow=FLOW.id+(yes?' · asiste':' · no asiste');
-  if(RSVP_URL){fetch(RSVP_URL,{method:'POST',mode:'no-cors',body:new URLSearchParams({flow,name:WHO,lang})}).then(done).catch(()=>{$$('#pf .rsvp,#pf .rsvpNo').forEach(x=>x.disabled=false);btn.textContent=T[lang].rsvpErr;});}
+  const flow=FLOW.id;
+  if(RSVP_URL){fetch(RSVP_URL,{method:'POST',mode:'no-cors',body:new URLSearchParams({flow,name:WHO,lang,status:yes?'si':'no'})}).then(done).catch(()=>{$$('#pf .rsvp,#pf .rsvpNo').forEach(x=>x.disabled=false);btn.textContent=T[lang].rsvpErr;});}
   else{window.open('https://wa.me/14355220613?text='+encodeURIComponent((yes?'Confirmo: ':'No podrá asistir: ')+WHO+' · Spa de Ika 11/11'),'_blank');done();}}
 $('#pf .rsvp').addEventListener('click',e=>{e.stopPropagation();sendRsvp(true,e.currentTarget);});
 $('#pf .rsvpNo').addEventListener('click',e=>{e.stopPropagation();sendRsvp(false,e.currentTarget);});
