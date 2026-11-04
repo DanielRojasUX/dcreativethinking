@@ -381,7 +381,7 @@ html:lang(ja) .flyer .lead{word-break:keep-all;line-break:strict}
 
 <script>
 (()=>{
-const FLOW={"id": "full", "seq": ["s1", "s2", "s3", "s4", "p1", "p2", "p3", "p4", "pf"], "names": ["Cayetana", "Reni", "Aurora", "Leah Zúñiga", "Leah Melgoza", "Sloverdoba"], "es": {"h_tap2": "Toca los pepinos", "h_rub": "Frota para quitar la mascarilla", "h_nails": "Toca sus uñas para pintarlas", "fDate": "11 de noviembre · 4 a 7 pm", "fDress": "Dress code: all pink", "rsvpOk": "¡Listo, nos vemos!", "rsvpErr": "Reintentar", "waMsg": "Hola Joyce, tengo una pregunta sobre el spa de Ika.", "p1a": "Hasta una Saja Girl necesita un día libre.", "p2a": "Ahora, fuera la mascarilla.", "p3a": "Y para el escenario, uñas rosas.", "s4r": "En casa de Ika", "p1l": "Hora", "p1r": "4 a 7 pm", "p2l": "Dress code", "p2r": "All pink", "p3l": "", "p3r": "¡Uñas listas!", "p4a": "Y el toque final.", "p4l": "", "p4r": "¡Lista para la fiesta!", "h_tap2t": "Toca la toalla", "rsvpNo": "No podré asistir", "rsvpNoOk": "Gracias por avisarnos. ¡Te vamos a extrañar!", "rsvpChange": "Cambiar respuesta"}, "ja": {"h_tap2": "きゅうりをタップしてね", "h_rub": "こすってパックをはがそう", "h_nails": "ツメをタップしてぬろう", "fDate": "11月11日 · 午後4時〜7時", "fDress": "ドレスコード：オールピンク", "rsvpOk": "ありがとう！待ってるね！", "rsvpErr": "もう一度", "waMsg": "Hi Joyce! I have a question about Ika's spa party. （Ikaのスパパーティーについて質問があります）", "p1a": "サジャ・ガールにも、お休みの日が必要。", "p2a": "次は、パックをはがそう。", "p3a": "ステージには、ピンクのツメで。", "s4r": "Ikaのおうち", "p1l": "時間", "p1r": "午後4時〜7時", "p2l": "ドレスコード", "p2r": "オールピンク", "p3l": "", "p3r": "ツメもかんぺき！", "p4a": "さいごの仕上げ。", "p4l": "", "p4r": "パーティーの準備OK！", "h_tap2t": "タオルをタップしてね", "rsvpNo": "今回は行けません", "rsvpNoOk": "知らせてくれてありがとう！", "rsvpChange": "回答を変える"}};
+const FLOW={"id": "full", "seq": ["s1", "s2", "s3", "s4", "p1", "p2", "p3", "p4", "pf"], "names": ["Cayetana", "Reni", "Aurora", "Leah Zúñiga", "Leah Melgoza", "Ika"], "es": {"h_tap2": "Toca los pepinos", "h_rub": "Frota para quitar la mascarilla", "h_nails": "Toca sus uñas para pintarlas", "fDate": "11 de noviembre · 4 a 7 pm", "fDress": "Dress code: all pink", "rsvpOk": "¡Listo, nos vemos!", "rsvpErr": "Reintentar", "waMsg": "Hola Joyce, tengo una pregunta sobre el spa de Ika.", "p1a": "Hasta una Saja Girl necesita un día libre.", "p2a": "Ahora, fuera la mascarilla.", "p3a": "Y para el escenario, uñas rosas.", "s4r": "En casa de Ika", "p1l": "Hora", "p1r": "4 a 7 pm", "p2l": "Dress code", "p2r": "All pink", "p3l": "", "p3r": "¡Uñas listas!", "p4a": "Y el toque final.", "p4l": "", "p4r": "¡Lista para la fiesta!", "h_tap2t": "Toca la toalla", "rsvpNo": "No podré asistir", "rsvpNoOk": "Gracias por avisarnos. ¡Te vamos a extrañar!", "rsvpChange": "Cambiar respuesta"}, "ja": {"h_tap2": "きゅうりをタップしてね", "h_rub": "こすってパックをはがそう", "h_nails": "ツメをタップしてぬろう", "fDate": "11月11日 · 午後4時〜7時", "fDress": "ドレスコード：オールピンク", "rsvpOk": "ありがとう！待ってるね！", "rsvpErr": "もう一度", "waMsg": "Hi Joyce! I have a question about Ika's spa party. （Ikaのスパパーティーについて質問があります）", "p1a": "サジャ・ガールにも、お休みの日が必要。", "p2a": "次は、パックをはがそう。", "p3a": "ステージには、ピンクのツメで。", "s4r": "Ikaのおうち", "p1l": "時間", "p1r": "午後4時〜7時", "p2l": "ドレスコード", "p2r": "オールピンク", "p3l": "", "p3r": "ツメもかんぺき！", "p4a": "さいごの仕上げ。", "p4l": "", "p4r": "パーティーの準備OK！", "h_tap2t": "タオルをタップしてね", "rsvpNo": "今回は行けません", "rsvpNoOk": "知らせてくれてありがとう！", "rsvpChange": "回答を変える"}};
 const T={
 es:{s1a:"En el reino de los demonios, todos cantan para el rey.",s1b:"Una de ellas se cansó.",s1r:"La Saja Girl",
 s2a:"«Tú me perteneces.»",s2b:"Ella no estaba tan segura.",s2l:"El día que se liberó",s2r:"11 de noviembre",
@@ -569,7 +569,7 @@ let WHO='';
 const PINK=['#ff4fa3','#ffc6e2','#ffffff','#e0257f','#ffd9ec','#b98cff'];
 const BULBS=[[34,510],[180,515],[327,512],[753,512],[899,515],[1045,510]];
 $$('.twinkle').forEach(t=>BULBS.forEach(([x,y],i)=>{const e=document.createElement('i');e.style.left=(x/10.8)+'%';e.style.top=(y/19.35)+'%';e.style.animationDelay=(-i*.45)+'s';t.appendChild(e);}));
-const sel=$('#who');FLOW.names.forEach(n=>{const o=document.createElement('option');o.value=n;o.textContent=n;sel.appendChild(o);});
+const sel=$('#who');const TEST='(prueba)';FLOW.names.forEach(n=>{const o=document.createElement('option');o.value=n;o.textContent=n===TEST?'\u00a0':n;sel.appendChild(o);});
 sel.addEventListener('change',()=>{WHO=sel.value;$$('#start .pick button').forEach(b=>b.disabled=!WHO);$('#start .hello').textContent=WHO?('¡Hola, '+WHO+'!'):'';});
 
 /* p1 cucumbers */
@@ -611,7 +611,7 @@ $('#p3 .tapcatch').addEventListener('pointerdown',e=>{const sc=$('#p3');if(sc.da
 
 /* final */
 let confT=0;
-function rsvpLabel(){if(!WHO)return '';const pl=/&| y /.test(WHO);return lang==='ja'?`${WHO}、参加します！`:`¡${WHO} ${pl?'confirman':'confirma'} asistencia!`;}
+function rsvpLabel(){if(!WHO)return '';if(WHO===TEST)return lang==='ja'?'参加します！':'¡Confirmo asistencia!';const pl=/&| y /.test(WHO);return lang==='ja'?`${WHO}、参加します！`:`¡${WHO} ${pl?'confirman':'confirma'} asistencia!`;}
 function fitBtns(){const a=$('#pf .addr');if(!a||!a.offsetWidth)return;const w=a.offsetWidth+'px';$$('#pf .rsvp,#pf .rsvpNo').forEach(b=>{b.style.width=w;b.style.marginLeft=b.style.marginRight='auto';});const r=$('#pf .rsvp');if(r.hidden)return;r.style.whiteSpace='nowrap';r.style.fontSize='';let fs=parseFloat(getComputedStyle(r).fontSize);while(r.scrollWidth>r.clientWidth&&fs>12){fs-=.5;r.style.fontSize=fs+'px';}}
 addEventListener('resize',fitBtns);
 function rsvpKey(){return 'ika5-rsvp-'+FLOW.id+'-'+WHO;}
@@ -639,7 +639,7 @@ $('#p4 .tapcatch').addEventListener('pointerdown',()=>{const sc=$('#p4');if(sc.d
   setTimeout(()=>{$('.before',sc).style.opacity=0;const [x,y]=s2c(sc,540,560);emit(x,y,60,{colors:['#ffffff','#ffd1e8','#ff8fc8','#ffe9f3'],sp:6,g:.02,dec:.012,size:3});},180);
   play('whoosh');setTimeout(()=>play('sparkle'),300);buzz(35);delete sc.dataset.done;setTimeout(()=>reveal(sc),500);});
 /* start language switch */
-const START={es:{h1:'Tienes una invitación',ph:'¿Quién eres?',hi:n=>'¡Hola, '+n+'!',go:'Entrar',note:'Sube el volumen',sw:'日本語で見る'},ja:{h1:'招待状がとどいたよ',ph:'あなたは？',hi:n=>'こんにちは、'+n+'！',go:'スタート',note:'音をオンにしてね',sw:'Ver en español'}};
+const START={es:{h1:'Tienes una invitación',ph:'¿Quién eres?',hi:n=>n===TEST?'¡Hola!':'¡Hola, '+n+'!',go:'Entrar',note:'Sube el volumen',sw:'日本語で見る'},ja:{h1:'招待状がとどいたよ',ph:'あなたは？',hi:n=>n===TEST?'こんにちは！':'こんにちは、'+n+'！',go:'スタート',note:'音をオンにしてね',sw:'Ver en español'}};
 function startLang(){const L=START[lang];$('#start h1').textContent=L.h1;$('#who option[value=""]').textContent=L.ph;$('#start .hello').textContent=WHO?L.hi(WHO):'';const b=$('#start .pick button');b.textContent=L.go;b.dataset.lang=lang;$('#start .note').textContent=L.note;$('#start .jaswitch').textContent=L.sw;}
 $('#start .jaswitch').addEventListener('click',()=>{lang=lang==='ja'?'es':'ja';applyLang();startLang();buzz(10);});
 sel.addEventListener('change',startLang);
