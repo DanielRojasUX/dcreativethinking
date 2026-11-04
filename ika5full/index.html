@@ -163,7 +163,8 @@ html:lang(ja) .flyer .lead{word-break:keep-all;line-break:strict}
 #start select{width:100%;max-width:280px;margin-top:26px;padding:15px 44px 15px 18px;border-radius:999px;border:1px solid rgba(255,95,174,.6);background:rgba(20,8,28,.7) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23ffc6e2' stroke-width='2.4' stroke-linecap='round'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right 16px center/18px;color:#fff;font-family:"DMS","MPR",sans-serif;font-weight:700;font-size:16px;-webkit-appearance:none;appearance:none;text-align:center;text-align-last:center}
 #start select option{color:#120a16}
 #start .pick{margin-top:14px}
-#start .pick button[disabled]{opacity:.35}
+#start .pick button[disabled]{opacity:0;pointer-events:none}
+#start .pick button{transition:opacity .4s}
 #start .hello{margin-top:10px;min-height:1.4em;font-family:"HKP","DGO",sans-serif;font-size:20px;color:var(--hi2)}
 /* chrome */
 #fx{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:7}
@@ -366,9 +367,9 @@ html:lang(ja) .flyer .lead{word-break:keep-all;line-break:strict}
 
   <div id="start">
     <div class="seal"><svg viewBox="0 0 24 24" fill="none" stroke="#3a0a22" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l9 6 9-6"/><rect x="3" y="5" width="18" height="14" rx="2"/></svg></div>
-    <h1>Tienes una invitación<small>招待状がとどいたよ</small></h1>
-    <select id="who" aria-label="¿Quién eres? / あなたは？"><option value="" selected disabled>¿Quién eres? · あなたは？</option></select><p class="hello"></p><div class="pick"><button data-lang="es" disabled>Español</button><button data-lang="ja" disabled>日本語</button></div>
-    <div class="vol" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="#ffc6e2" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M8 19h7l10-8v26l-10-8H8z" fill="rgba(255,198,226,.18)"/><path class="w1" d="M31 19a7 7 0 0 1 0 10"/><path class="w2" d="M35.5 15a13 13 0 0 1 0 18"/><path class="w3" d="M40 11a19 19 0 0 1 0 26"/></svg></div><p class="note">Sube el volumen · 音をオンにしてね</p>
+    <h1>Tienes una invitación</h1>
+    <select id="who" aria-label="¿Quién eres?"><option value="" selected disabled>¿Quién eres?</option></select><p class="hello"></p><div class="pick"><button data-lang="es" disabled>Entrar</button></div>
+    <div class="vol" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="#ffc6e2" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M8 19h7l10-8v26l-10-8H8z" fill="rgba(255,198,226,.18)"/><path class="w1" d="M31 19a7 7 0 0 1 0 10"/><path class="w2" d="M35.5 15a13 13 0 0 1 0 18"/><path class="w3" d="M40 11a19 19 0 0 1 0 26"/></svg></div><p class="note">Sube el volumen</p>
   </div>
 </div>
 
