@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preload" as="font" type="font/woff2" href="fonts/libre-baskerville-latin-400-normal.woff2" crossorigin>
+  <link rel="preload" as="image" href="assets/Bg-PaperTexture.webp">
+  <link rel="preload" as="image" href="assets/Home-Charachter-base.webp">
+  <title>Cumple Joyce 37 — Invitation</title>
+  
+  <!-- FAVICON -->
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+
+  <style>
+    @font-face{font-family:'Libre Baskerville';src:url(fonts/libre-baskerville-latin-400-normal.woff2) format('woff2');font-weight:400;font-display:swap}
+    @font-face{font-family:'Libre Baskerville';src:url(fonts/libre-baskerville-latin-700-normal.woff2) format('woff2');font-weight:700;font-display:swap}
+    @font-face{font-family:'Libre Baskerville';src:url(fonts/libre-baskerville-latin-400-italic.woff2) format('woff2');font-weight:400;font-style:italic;font-display:swap}
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body, html {
+      width: 100vw;
+      height: 100dvh;
+      overflow: hidden;
+      font-family: 'Libre Baskerville', Georgia, serif;
+      background-color: #dcd8d0;
+      color: #111;
+    }
+
+    /* --------------------------------------------------
+       BACKGROUND TEXTURE
+    -------------------------------------------------- */
+    .paper-background {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      background-image: url('assets/Bg-PaperTexture.webp');
+      background-size: cover;
+      background-position: center;
+      background-repeat: repeat;
+      pointer-events: none;
+    }
+
+    /* --------------------------------------------------
+       SPATIAL MATRIX CANVAS
+    -------------------------------------------------- */
+    .viewport {
+      width: 100vw;
+      height: 100dvh;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .canvas-matrix {
+      position: absolute;
+      width: 100vw;
+      height: 100dvh;
+      top: 0;
+      left: 0;
+      will-change: transform;
+      transition: transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .section-node {
+      position: absolute;
+      width: 100vw;
+      height: 100dvh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Locked Mobile Artboard matching iPhone 14/15/16 */
+    .artboard {
+      position: relative;
+      width: 100%;
+      max-width: 393px;
+      height: 100%;
+      max-height: 852px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+
+    /* --------------------------------------------------
+       TYPOGRAPHY & STICKERS
+    -------------------------------------------------- */
+    .date-label {
+      position: absolute;
+      top: 35px;
+      width: 100%;
+      text-align: center;
+      font-size: 18px;
+      font-family: 'Libre Baskerville', Georgia, serif;
+      color: #111;
+      z-index: 10;
+    }
+
+    .main-title {
+      position: absolute;
+      top: 62px;
+      width: 100%;
+      text-align: center;
+      font-family: 'Libre Baskerville', Georgia, serif;
+      font-size: 62px;
+      font-weight: 400;
+      letter-spacing: 1px;
+      line-height: 0.95;
+      color: #000;
+      text-transform: uppercase;
+      z-index: 10;
+    }
+
+    .subtitle-text {
+      position: absolute;
+      top: 140px;
+      width: 84%;
+      left: 8%;
+      font-size: 14px;
+      color: #222;
+      line-height: 1.35;
+      text-align: center;
+      z-index: 10;
+    }
+
+    .bullet-list {
+      position: absolute;
+      font-size: 13px;
+      line-height: 1.4;
+      color: #111;
+      z-index: 10;
+    }
+
+    .bullet-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+      margin-bottom: 10px;
+    }
+
+    .bullet-star {
+      width: 12px;
+      height: 12px;
+      margin-top: 3px;
+      flex-shrink: 0;
+      transition: transform 0.2s ease;
+    }
+
+    .address-link {
+      color: inherit;
+      text-decoration: underline;
+      transition: color 0.15s ease;
+    }
+
+    .address-link:hover {
+      color: #d61c99;
+    }
+
+    .read-more-cta {
+      font-weight: bold;
+      color: #d61c99;
+      font-size: 11px;
+      margin-left: 2px;
+      white-space: nowrap;
+    }
+
+    .sticker {
+      position: absolute;
+      pointer-events: none;
+      filter: drop-shadow(2px 5px 6px rgba(0, 0, 0, 0.16));
+    }
+
+    /* JOYCE! Badge Box */
+    .joyce-badge {
+      position: absolute;
+      right: 38px;
+      top: 182px;
+      background: #ffffff;
+      color: #000;
+      font-family: 'Libre Baskerville', Georgia, serif;
+      font-size: 15px;
+      font-weight: bold;
+      padding: 2px 10px;
+      border: 1px solid rgba(0, 0, 0, 0.15);
+      box-shadow: 2px 3px 6px rgba(0, 0, 0, 0.15);
+      z-index: 7;
+      letter-spacing: 0.5px;
+    }
+
+    /* Centered Navigation Wrapper (No Gap with Button) */
+    .nav-bar-wrapper {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0px;
+      z-index: 20;
+      pointer-events: none;
+    }
+
+    .nav-bar-pill {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 6px 14px;
+      border-radius: 4px 4px 0 0;
+      font-size: 12px;
+      white-space: nowrap;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      pointer-events: auto;
+    }
+
+    .nav-bar-pill span {
+      cursor: pointer;
+      pointer-events: auto;
+      padding: 2px 4px;
+      transition: color 0.15s ease;
+    }
+
+    .nav-bar-pill span:hover {
+      color: #ff33d1;
+      text-decoration: underline;
+    }
+
+    /* Pink Confirmation Banner CTA */
+    .rsvp-btn {
+      background: #e02b88;
+      color: #ffffff;
+      font-family: 'Libre Baskerville', Georgia, serif;
+      font-size: 12px;
+      font-weight: normal;
+      padding: 5px 14px;
+      border-radius: 0 0 4px 4px;
+      cursor: pointer;
+      pointer-events: auto;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      border: none;
+      display: inline-block;
+      text-align: center;
+      transition: transform 0.15s ease, background 0.15s ease;
+      z-index: 25;
+    }
+
+    .rsvp-btn:hover {
+      background: #c71f74;
+      transform: scale(1.03);
+    }
+
+    /* Separate RSVP Buttons on other sub-screens */
+    .rsvp-btn-floating {
+      border-radius: 2px;
+    }
+
+    .back-btn {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.92);
+      padding: 6px 14px;
+      border-radius: 4px;
+      font-size: 13px;
+      font-family: 'Libre Baskerville', Georgia, serif;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      pointer-events: auto;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      z-index: 20;
+      transition: background 0.15s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .back-btn img {
+      width: 10px;
+      height: 10px;
+      display: block;
+    }
+
+    .back-btn:hover {
+      background: #fff;
+    }
+
+    /* --------------------------------------------------
+       FUN FACTS INTERACTIVE TOOLTIPS
+    -------------------------------------------------- */
+    .fun-fact-item {
+      position: relative;
+      cursor: pointer;
+      user-select: none;
+      padding: 4px 0;
+      margin-bottom: 12px;
+      background: transparent;
+      border: none;
+      transition: color 0.15s ease;
+    }
+
+    .fun-fact-item:hover {
+      color: #d61c99;
+    }
+
+    .fun-fact-item:hover .bullet-star {
+      transform: scale(1.25) rotate(15deg);
+    }
+
+    .fun-fact-item.has-active-tooltip {
+      z-index: 500;
+    }
+
+    .tooltip-popover {
+      position: absolute;
+      left: 140px;
+      top: 50%;
+      transform: translateY(-50%) scale(0.9);
+      width: 190px;
+      background: #ffffff;
+      color: #111;
+      padding: 10px 12px;
+      border-radius: 8px;
+      font-size: 12px;
+      line-height: 1.4;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      z-index: 999;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+      pointer-events: none;
+    }
+
+    .tooltip-popover::before {
+      content: '';
+      position: absolute;
+      left: -8px;
+      top: 50%;
+      transform: translateY(-50%);
+      border-width: 6px 8px 6px 0;
+      border-style: solid;
+      border-color: transparent #ffffff transparent transparent;
+    }
+
+    .tooltip-popover.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(-50%) scale(1);
+      pointer-events: auto;
+    }
+
+    /* --------------------------------------------------
+       CONFIRMATION MODAL FORM
+    -------------------------------------------------- */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(3px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.25s ease, visibility 0.25s;
+    }
+
+    .modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-card {
+      background: #fdfbf7;
+      background-image: url('assets/Bg-PaperTexture.webp');
+      background-size: cover;
+      border-radius: 10px;
+      padding: 24px 22px;
+      width: 88%;
+      max-width: 320px;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      position: relative;
+      transform: scale(0.92);
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .modal-overlay.active .modal-card {
+      transform: scale(1);
+    }
+
+    .modal-close-btn {
+      position: absolute;
+      top: 10px;
+      right: 14px;
+      background: none;
+      border: none;
+      font-size: 20px;
+      color: #666;
+      cursor: pointer;
+      font-family: sans-serif;
+    }
+
+    .modal-title {
+      font-family: 'Libre Baskerville', Georgia, serif;
+      font-size: 20px;
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 16px;
+      color: #000;
+      letter-spacing: 0.5px;
+    }
+
+    .modal-field {
+      margin-bottom: 14px;
+    }
+
+    .modal-label {
+      display: block;
+      font-size: 12px;
+      font-family: 'Libre Baskerville', Georgia, serif;
+      margin-bottom: 6px;
+      color: #333;
+      font-weight: bold;
+    }
+
+    .modal-select {
+      width: 100%;
+      padding: 8px 10px;
+      border-radius: 4px;
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      background: #fff;
+      font-family: 'Libre Baskerville', Georgia, serif;
+      font-size: 12px;
+      color: #111;
+      outline: none;
+    }
+
+    .modal-radio-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .modal-radio-label {
+      font-size: 12px;
+      font-family: 'Libre Baskerville', Georgia, serif;
+      color: #222;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+    }
+
+    .modal-radio-label input[type="radio"] {
+      accent-color: #e02b88;
+    }
+
+    .modal-field-inline {
+      display: flex;
+      gap: 12px;
+    }
+
+    .modal-field-inline > div {
+      flex: 1;
+    }
+
+    .modal-input-number {
+      width: 100%;
+      padding: 6px 8px;
+      border-radius: 4px;
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      background: #fff;
+      font-family: 'Libre Baskerville', Georgia, serif;
+      font-size: 13px;
+      color: #111;
+      outline: none;
+    }
+
+    .modal-submit-btn {
+      width: 100%;
+      background: #e02b88;
+      color: #fff;
+      border: none;
+      padding: 10px;
+      border-radius: 4px;
+      font-family: 'Libre Baskerville', Georgia, serif;
+      font-size: 13px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+      transition: background 0.15s ease;
+    }
+
+    .modal-submit-btn:hover {
+      background: #c71f74;
+    }
+
+    /* --------------------------------------------------
+       ANIMATIONS (ENTRANCE, ATTENTION & CONTINUOUS SWING)
+    -------------------------------------------------- */
+    .anim-slide-up-center {
+      animation: slideInUpCenter 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    .anim-slide-up {
+      animation: slideInUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    .anim-bounce-in {
+      animation: bounceIn 0.8s cubic-bezier(0.215, 0.61, 0.355, 1) both;
+    }
+
+    @keyframes slideInUpCenter {
+      from {
+        transform: translate3d(-51%, 120%, 0);
+        opacity: 0;
+      }
+      to {
+        transform: translate3d(-51%, 0, 0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideInUp {
+      from {
+        transform: translate3d(0, 100px, 0);
+        opacity: 0;
+      }
+      to {
+        transform: translate3d(0, 0, 0);
+        opacity: 1;
+      }
+    }
+
+    @keyframes bounceIn {
+      0% {
+        opacity: 0;
+        transform: scale3d(0.3, 0.3, 0.3);
+      }
+      50% {
+        opacity: 1;
+        transform: scale3d(1.08, 1.08, 1.08);
+      }
+      70% {
+        transform: scale3d(0.95, 0.95, 0.95);
+      }
+      100% {
+        opacity: 1;
+        transform: scale3d(1, 1, 1);
+      }
+    }
+
+    /* Continuous Slow Swing for Disco Ball */
+    .continuous-swing {
+      transform-origin: top center !important;
+    }
+
+    @keyframes slowSwing {
+      0%, 100% { transform: rotate(-7deg); }
+      50% { transform: rotate(7deg); }
+    }
+
+    /* Periodic Attention Animations */
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      25%, 75% { transform: scale(1.08); }
+      50% { transform: scale(1.12); }
+    }
+
+    @keyframes wobble {
+      0%, 100% { transform: rotate(0deg); }
+      15% { transform: rotate(-14deg) scale(1.06); }
+      30% { transform: rotate(12deg) scale(1.06); }
+      45% { transform: rotate(-10deg) scale(1.03); }
+      60% { transform: rotate(6deg) scale(1.01); }
+      75% { transform: rotate(-3deg) scale(1); }
+    }
+
+    @keyframes swing {
+      0%, 100% { transform: rotate(0deg); }
+      20% { transform: rotate(15deg); }
+      40% { transform: rotate(-10deg); }
+      60% { transform: rotate(5deg); }
+      80% { transform: rotate(-2deg); }
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      10%, 30%, 50%, 70%, 90% { transform: translateX(-4px); }
+      20%, 40%, 60%, 80% { transform: translateX(4px); }
+    }
+
+    @keyframes tada {
+      0%, 100% { transform: scale3d(1, 1, 1) rotate(0deg); }
+      10%, 20% { transform: scale3d(0.9, 0.9, 0.9) rotate(-3deg); }
+      30%, 50%, 70%, 90% { transform: scale3d(1.15, 1.15, 1.15) rotate(4deg); }
+      40%, 60%, 80% { transform: scale3d(1.15, 1.15, 1.15) rotate(-4deg); }
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: translateX(-51%) scale(1); }
+      15% { transform: translateX(-51%) scale(1.06); }
+      30% { transform: translateX(-51%) scale(1); }
+      45% { transform: translateX(-51%) scale(1.06); }
+      60% { transform: translateX(-51%) scale(1); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="paper-background"></div>
+
+  <div class="viewport">
+    <div class="canvas-matrix" id="canvas-matrix">
+
+      <!-- CENTER (0,0): HOME -->
+      <section class="section-node" data-coord="0,0" style="left: 0vw; top: 0vh;">
+        <div class="artboard">
+          <div class="date-label anim-bounce-in" style="animation-delay: 0.1s;">23 de Agosto 2026</div>
+          <h1 class="main-title anim-bounce-in" style="animation-delay: 0.2s;">CUMPLE!</h1>
+
+          <!-- Real Hanging Disco Ball Asset -->
+          <img decoding="async" src="assets/Home-PropHanging-DiscoBall.webp" id="home-disco" class="sticker anim-bounce-in" style="width: 85px; left: 24px; top: 102px; z-index: 3; animation-delay: 0.3s; transform-origin: top center;">
+
+          <!-- Merged Plant Asset (Behind Main Character) -->
+          <img decoding="async" src="assets/Home-PropsPlants-Foreground-left.webp" class="sticker anim-bounce-in" style="width: 110px; right: 20px; top: 215px; z-index: 2; animation-delay: 0.4s;">
+
+          <!-- Main Character Base (Slide In Up Entrance) -->
+          <img decoding="async" src="assets/Home-Charachter-base.webp" id="home-char-base" class="sticker anim-slide-up-center" style="width: 225px; left: 50%; transform: translateX(-51%); top: 185px; z-index: 5;">
+
+          <!-- Hat -->
+          <img decoding="async" src="assets/Home-Charachter-hat.webp" id="home-hat" class="sticker anim-bounce-in" style="width: 105px; left: 98px; top: 102px; z-index: 6; animation-delay: 0.6s;">
+
+          <!-- Top-Right 37 Balloons & JOYCE! Badge -->
+          <img decoding="async" src="assets/Home-PropsBaloons-37.webp" id="home-balloons" class="sticker anim-bounce-in" style="width: 118px; right: 28px; top: 110px; z-index: 6; animation-delay: 0.7s;">
+          <div class="joyce-badge anim-bounce-in" style="animation-delay: 0.8s;">JOYCE!</div>
+
+          <!-- Books Stack -->
+          <img decoding="async" src="assets/Home-PropsBooks-books.webp" class="sticker anim-bounce-in" style="width: 82px; right: 30px; top: 345px; z-index: 6; animation-delay: 0.9s;">
+
+          <!-- Left Side: Wine Glass & Coffee Mug -->
+          <img decoding="async" src="assets/Home-Drinks-Wine.webp" id="home-wine" class="sticker anim-bounce-in" style="width: 62px; left: 14px; top: 285px; z-index: 6; animation-delay: 1.0s;">
+          <img decoding="async" src="assets/Home-Drinks-Coffee.webp" id="home-coffee" class="sticker anim-bounce-in" style="width: 60px; left: 46px; top: 380px; z-index: 7; animation-delay: 1.1s;">
+
+          <!-- Centered Navigation & RSVP Wrapper (Seamless Gap) -->
+          <div class="nav-bar-wrapper" id="home-nav-wrapper" style="top: 442px;">
+            <div class="nav-bar-pill anim-bounce-in" style="animation-delay: 1.2s;">
+              <span onclick="updatePosition(-1, 0)">lugar y hora</span> | 
+              <span onclick="updatePosition(0, 1)">comida</span> | 
+              <span onclick="updatePosition(0, -1)">fun facts</span> | 
+              <span onclick="updatePosition(1, 0)">mesa de regalos</span>
+            </div>
+            <button class="rsvp-btn anim-bounce-in" style="animation-delay: 1.3s;" onclick="openRsvpModal()">confirmar asistencia</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- WEST (-1,0): LUGAR Y HORA -->
+      <section class="section-node" data-coord="-1,0" style="left: -100vw; top: 0vh;">
+        <div class="artboard">
+          <div class="date-label anim-bounce-in" style="animation-delay: 0.1s;">23 de Agosto 2026</div>
+          <h1 class="main-title anim-bounce-in" style="font-size: 38px; line-height: 1; text-align: left; left: 30px; width: auto; animation-delay: 0.2s;">LUGAR Y<br>HORA</h1>
+
+          <!-- RSVP Banner (Positioned touching base of title at top: 108px) -->
+          <button class="rsvp-btn rsvp-btn-floating anim-bounce-in" style="position: absolute; right: 20px; top: 108px; animation-delay: 0.28s; z-index: 15;" onclick="openRsvpModal()">confirmar asistencia</button>
+
+          <!-- Disco Ball with Continuous Slow Swing (Positioned directly beneath button at top: 131px) -->
+          <img decoding="async" src="assets/Home-PropHanging-DiscoBall.webp" class="sticker anim-bounce-in continuous-swing" style="width: 85px; right: 38px; top: 131px; z-index: 3; animation-delay: 0.3s;">
+
+          <!-- Full Body Character -->
+          <img decoding="async" src="assets/LugarHora-Charachter-base.webp" class="sticker anim-slide-up" style="width: 160px; left: 30px; top: 142px; z-index: 3; animation-delay: 0.35s;">
+
+          <!-- Event Info (Shifted down 22px to top: 282px for space below disco ball) -->
+          <div class="bullet-list anim-bounce-in" style="left: 190px; top: 282px; width: 180px; animation-delay: 0.5s;">
+            <div class="bullet-item">
+              <img decoding="async" src="assets/StarBullet.svg" class="bullet-star">
+              <div>
+                <strong>EN NUESTRA CASA</strong><br>
+                <a href="https://maps.app.goo.gl/G3YNy9fyeRJyX5gP9" target="_blank" rel="noopener noreferrer" class="address-link">
+                  C. José López Portillo 505<br>20984 El Llano, Ags.
+                </a>
+              </div>
+            </div>
+            <br>
+            <div class="bullet-item">
+              <img decoding="async" src="assets/StarBullet.svg" class="bullet-star">
+              <div><strong>2 PM</strong></div>
+            </div>
+          </div>
+
+          <!-- Drinks Stickers (Shifted down 52px to top: 432px / 447px to sit right on top of regresar button) -->
+          <img decoding="async" src="assets/LugarHora-PropsDrinks-Wine.webp" class="sticker anim-bounce-in" style="width: 40px; right: 92px; top: 432px; z-index: 5; animation-delay: 0.6s;">
+          <img decoding="async" src="assets/LugarHora-PropsDrinks-Coffee.webp" class="sticker anim-bounce-in" style="width: 40px; right: 60px; top: 447px; z-index: 6; animation-delay: 0.65s;">
+
+          <!-- Back Button with Chevron Right SVG -->
+          <div class="back-btn anim-bounce-in" style="right: 48px; animation-delay: 0.75s;" onclick="updatePosition(0, 0)">
+            <span>regresar</span>
+            <img decoding="async" src="assets/Chevron-right.svg" alt="&gt;">
+          </div>
+        </div>
+      </section>
+
+      <!-- EAST (1,0): REGALOS -->
+      <section class="section-node" data-coord="1,0" style="left: 100vw; top: 0vh;">
+        <div class="artboard">
+          <div class="date-label anim-bounce-in" style="animation-delay: 0.1s;">23 de Agosto 2026</div>
+          <h1 class="main-title anim-bounce-in" style="animation-delay: 0.2s;">REGALOS</h1>
+          
+          <!-- Subtext Wrapper 340px, centered horizontally, text left-aligned, top: 124px (Continuous text without break) -->
+          <p class="subtitle-text anim-bounce-in" style="top: 124px; width: 340px; left: 0; right: 0; margin: 0 auto; text-align: left; animation-delay: 0.25s;">Solo con la oportunidad de compartir es suficiente. Aunque si necesitas ideas:</p>
+
+          <!-- RSVP Banner (Moved 94px UP to top: 176px) -->
+          <button class="rsvp-btn rsvp-btn-floating anim-bounce-in" style="position: absolute; right: 20px; top: 176px; animation-delay: 0.28s; z-index: 15;" onclick="openRsvpModal()">confirmar asistencia</button>
+
+          <div class="bullet-list anim-bounce-in" style="left: 32px; top: 220px; width: 180px; animation-delay: 0.35s;">
+            <div class="bullet-item">
+              <img decoding="async" src="assets/StarBullet.svg" class="bullet-star">
+              <div>Un buen chisme</div>
+            </div>
+            <div class="bullet-item">
+              <img decoding="async" src="assets/StarBullet.svg" class="bullet-star">
+              <div>UNA PLANTITA!</div>
+            </div>
+            <div class="bullet-item">
+              <img decoding="async" src="assets/StarBullet.svg" class="bullet-star">
+              <div>Un vinito</div>
+            </div>
+            <div class="bullet-item">
+              <img decoding="async" src="assets/StarBullet.svg" class="bullet-star">
+              <div>Café</div>
+            </div>
+            <div class="bullet-item">
+              <img decoding="async" src="assets/StarBullet.svg" class="bullet-star">
+              <div>Tazas</div>
+            </div>
+            <div class="bullet-item">
+              <img decoding="async" src="assets/StarBullet.svg" class="bullet-star">
+              <div>Libros</div>
+            </div>
+          </div>
+
+          <!-- Gift Box & Sitting Girl Base -->
+          <img decoding="async" src="assets/Regalos-Props-Gift.webp" class="sticker anim-bounce-in" style="width: 220px; right: 20px; top: 290px; z-index: 2; animation-delay: 0.4s;">
+          <img decoding="async" src="assets/Regalos-Charachter-girl-base.webp" class="sticker anim-slide-up" style="width: 160px; right: 55px; top: 215px; z-index: 3; animation-delay: 0.45s;">
+
+          <!-- Wine Bottle -->
+          <img decoding="async" src="assets/Regalos-Props-Wine.webp" class="sticker anim-bounce-in" style="width: 75px; right: 10px; top: 280px; z-index: 5; animation-delay: 0.6s;">
+
+          <!-- Plant Cluster -->
+          <img decoding="async" src="assets/Regalos-Props-Plant-Center.webp" class="sticker anim-bounce-in" style="width: 150px; right: 65px; top: 450px; z-index: 6; animation-delay: 0.7s;">
+
+          <!-- Books Sticker Bottom Left -->
+          <img decoding="async" src="assets/Regalos-books.webp" class="sticker anim-bounce-in" style="width: 60px; left: 45px; top: 430px; z-index: 6; animation-delay: 0.8s;">
+
+          <!-- Back Button with Chevron Left SVG -->
+          <div class="back-btn anim-bounce-in" style="left: 48px; animation-delay: 0.85s;" onclick="updatePosition(0, 0)">
+            <img decoding="async" src="assets/Chevron-left.svg" alt="&lt;">
+            <span>regresar</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- NORTH (0,1): COMIDA -->
+      <section class="section-node" data-coord="0,1" style="left: 0vw; top: -100vh;">
+        <div class="artboard">
+          <div class="date-label anim-bounce-in" style="animation-delay: 0.1s;">23 de Agosto 2026</div>
+          <h1 class="main-title anim-bounce-in" style="animation-delay: 0.2s;">COMIDA</h1>
+          
+          <!-- Left-aligned subtext moved up 18px to top: 122px -->
+          <p class="subtitle-text anim-bounce-in" style="text-align: left; left: 40px; top: 122px; width: auto; animation-delay: 0.25s;">Nosotros ponemos la pasta:</p>
+
+          <!-- RSVP Banner (Shifted down 28px to top: 169px) -->
+          <button class="rsvp-btn rsvp-btn-floating anim-bounce-in" style="position: absolute; right: 20px; top: 169px; animation-delay: 0.28s; z-index: 15;" onclick="openRsvpModal()">confirmar asistencia</button>
+
+          <!-- Bullet List (Shifted down 132px to top: 213px) -->
+          <div class="bullet-list anim-bounce-in" style="left: 40px; top: 213px; width: 180px; animation-delay: 0.35s;">
+            <div class="bullet-item">
+              <img decoding="async" src="assets/StarBullet.svg" class="bullet-star">
+              <div>Pasta Alfredo</div>
+            </div>
+            <div class="bullet-item">
+              <img decoding="async" src="assets/StarBullet.svg" class="bullet-star">
+              <div>Pasta Marinara</div>
+            </div>
+            <div class="bullet-item">
+              <img decoding="async" src="assets/StarBullet.svg" class="bullet-star">
+              <div>Ensalada</div>
+            </div>
+            <br>
+            <p>Tu traes tu bebida</p>
+          </div>
+
+          <!-- Merged Character Base (Shifted down 28px to top: 179px) -->
+          <img decoding="async" src="assets/Comida-Charachter-Base.webp" class="sticker anim-slide-up" style="width: 210px; right: 20px; top: 179px; z-index: 3; animation-delay: 0.45s;">
+
+          <!-- Back Button with Chevron Down SVG -->
+          <div class="back-btn anim-bounce-in" style="left: 48px; animation-delay: 0.7s;" onclick="updatePosition(0, 0)">
+            <img decoding="async" src="assets/Chevron-down.svg" alt="v">
+            <span>regresar</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- SOUTH (0,-1): FUN FACTS -->
+      <section class="section-node" data-coord="0,-1" style="left: 0vw; top: 100vh;">
+        <div class="artboard">
+          <div class="date-label anim-bounce-in" style="animation-delay: 0.1s;">23 de Agosto 2026</div>
+          <h1 class="main-title anim-bounce-in" style="font-size: 46px; animation-delay: 0.2s;">FUN FACTS</h1>
+          
+          <!-- Subtext Left Aligned (top: 114px, width: 382px) -->
+          <p class="subtitle-text anim-bounce-in" style="text-align: left; left: 10px; width: 382px; top: 114px; animation-delay: 0.25s;">Algunas cosas que tal vez no sabías de Joyce Félix</p>
+
+          <!-- RSVP Banner (Shifted UP 24px to top: 156px) -->
+          <button class="rsvp-btn rsvp-btn-floating anim-bounce-in" style="position: absolute; right: 20px; top: 156px; animation-delay: 0.28s; z-index: 15;" onclick="openRsvpModal()">confirmar asistencia</button>
+
+          <!-- Clean Unboxed Teasers Column -->
+          <div class="bullet-list anim-bounce-in" style="left: 20px; top: 210px; width: 150px; font-size: 12px; line-height: 1.35; animation-delay: 0.35s;">
+            
+            <div class="bullet-item fun-fact-item" onclick="toggleTooltip(event, 1)">
+              <img decoding="async" src="assets/StarBullet.svg" class="bullet-star">
+              <div>El Primer apellido de Joyce es... <span class="read-more-cta">[leer +]</span></div>
+              <div class="tooltip-popover" id="ff-tooltip-1">
+                Inzunza, pero siempre ha sido Félix primero.
+              </div>
+            </div>
+
+            <div class="bullet-item fun-fact-item" onclick="toggleTooltip(event, 2)">
+              <img decoding="async" src="assets/StarBullet.svg" class="bullet-star">
+              <div>Joyce Fué elegida Reina del... <span class="read-more-cta">[leer +]</span></div>
+              <div class="tooltip-popover" id="ff-tooltip-2">
+                Ejido México. ¡Nunca regresó la Corona!
+              </div>
+            </div>
+
+            <div class="bullet-item fun-fact-item" onclick="toggleTooltip(event, 3)">
+              <img decoding="async" src="assets/StarBullet.svg" class="bullet-star">
+              <div>En su adolescencia fue “Emo”... <span class="read-more-cta">[leer +]</span></div>
+              <div class="tooltip-popover" id="ff-tooltip-3">
+                aun que nunca se peleó con “Skaters”.
+              </div>
+            </div>
+
+            <div class="bullet-item fun-fact-item" onclick="toggleTooltip(event, 4)">
+              <img decoding="async" src="assets/StarBullet.svg" class="bullet-star">
+              <div>Joyce ha vivido en... <span class="read-more-cta">[leer +]</span></div>
+              <div class="tooltip-popover" id="ff-tooltip-4">
+                Mochis, Tecate, Mazatlán, Queretaro, San Diego, Guadalajara, Orem, Austin, Provo, y Aguascalientes.
+              </div>
+            </div>
+
+            <div class="bullet-item fun-fact-item" onclick="toggleTooltip(event, 5)">
+              <img decoding="async" src="assets/StarBullet.svg" class="bullet-star">
+              <div>A Joyce le caga...... <span class="read-more-cta">[leer +]</span></div>
+              <div class="tooltip-popover" id="ff-tooltip-5">
+                que Daniel le agarre las nalgas en público, lo cual NUNCA pasa nunca no.
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Merged Character Base (Character + Cake) - Enlarged to 205px and anchored at base (top: 207px) -->
+          <img decoding="async" src="assets/FunFacts-Charachter-Base.webp" class="sticker anim-slide-up" style="width: 205px; right: 8px; top: 207px; z-index: 3; animation-delay: 0.45s;">
+
+          <!-- Back Button with Chevron Up SVG -->
+          <div class="back-btn anim-bounce-in" style="right: 48px; animation-delay: 0.75s;" onclick="updatePosition(0, 0)">
+            <span>regresar</span>
+            <img decoding="async" src="assets/Chevron-up.svg" alt="^">
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <!-- RSVP MODAL POPUP (NETLIFY FORMS READY) -->
+  <div class="modal-overlay" id="rsvp-modal" onclick="closeRsvpModal()">
+    <div class="modal-card" onclick="event.stopPropagation()">
+      <button class="modal-close-btn" onclick="closeRsvpModal()">&times;</button>
+      <h2 class="modal-title">Confirmar Asistencia</h2>
+      
+      <form name="rsvp" method="POST" data-netlify="true" id="rsvp-form" onsubmit="handleRsvpSubmit(event)">
+        <!-- Hidden Netlify form-name identifier -->
+        <input type="hidden" name="form-name" value="rsvp" />
+
+        <!-- Dropdown 1: Dinos quién eres -->
+        <div class="modal-field">
+          <label class="modal-label">Dinos quién eres</label>
+          <select class="modal-select" name="dinos_quien_eres" id="rsvp-who" required>
+            <option value="" disabled selected>Selecciona tu nombre...</option>
+            <option value="CharlyXimena">CharlyXimena</option>
+            <option value="GallitoElizalde">GallitoElizalde</option>
+            <option value="AlexandraYaya">AlexandraYaya</option>
+            <option value="TinoNanita">TinoNanita</option>
+            <option value="NelyVictor">NelyVictor</option>
+            <option value="PalomaDavid">PalomaDavid</option>
+            <option value="LauraDiego">LauraDiego</option>
+            <option value="Carime">Carime</option>
+            <option value="PaulinaChris">PaulinaChris</option>
+            <option value="SheenMiguel">SheenMiguel</option>
+            <option value="BerthaJose">BerthaJose</option>
+            <option value="JuanGa">JuanGa</option>
+            <option value="Andi">Andi</option>
+            <option value="Bryan">Bryan</option>
+            <option value="JennyRivera">JennyRivera</option>
+          </select>
+        </div>
+
+        <!-- Radio Buttons -->
+        <div class="modal-field">
+          <label class="modal-label">¿Nos acompañas?</label>
+          <div class="modal-radio-group">
+            <label class="modal-radio-label">
+              <input type="radio" name="asistencia" value="Asistencia Confirmada" checked onchange="toggleGuestSelectors()">
+              Asistencia Confirmada
+            </label>
+            <label class="modal-radio-label">
+              <input type="radio" name="asistencia" value="No se podrá esta vez ;(" onchange="toggleGuestSelectors()">
+              No se podrá esta vez ;(
+            </label>
+          </div>
+        </div>
+
+        <!-- Quantity Selector (Native Number Inputs) -->
+        <div id="quantity-container">
+          <div class="modal-field modal-field-inline">
+            <div>
+              <label class="modal-label">Adultos</label>
+              <input type="number" name="adultos" id="rsvp-adults" class="modal-input-number" min="1" max="10" value="1">
+            </div>
+            <div>
+              <label class="modal-label">Niños</label>
+              <input type="number" name="ninos" id="rsvp-kids" class="modal-input-number" min="0" max="10" value="0">
+            </div>
+          </div>
+        </div>
+
+        <button type="submit" class="modal-submit-btn" id="rsvp-submit-btn">Enviar mi respuesta plis</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    let x = 0;
+    let y = 0;
+    let isTransitioning = false;
+
+    let isHomeEntranceComplete = false;
+    let entranceTimer = null;
+
+    const VALID_NODES = new Set(['0,0', '-1,0', '1,0', '0,1', '0,-1']);
+    const canvas = document.getElementById('canvas-matrix');
+
+    function updatePosition(targetX, targetY) {
+      const key = `${targetX},${targetY}`;
+      if (!VALID_NODES.has(key)) return;
+
+      x = targetX;
+      y = targetY;
+
+      canvas.style.transform = `translate3d(${-x * 100}vw, ${y * 100}vh, 0)`;
+
+      // Close open tooltips when changing screens
+      document.querySelectorAll('.tooltip-popover').forEach(tp => {
+        tp.classList.remove('active');
+        const p = tp.closest('.fun-fact-item');
+        if (p) p.classList.remove('has-active-tooltip');
+      });
+
+      // Reset entrance state and timers
+      if (entranceTimer) clearTimeout(entranceTimer);
+      isHomeEntranceComplete = false;
+
+      // Re-trigger entrance animations for elements in active section
+      document.querySelectorAll('.section-node').forEach(node => {
+        const animatedEls = node.querySelectorAll('.anim-bounce-in, .anim-slide-up, .anim-slide-up-center');
+        
+        if (node.dataset.coord === key) {
+          // Re-enable CSS entrance animations
+          animatedEls.forEach(el => {
+            el.style.animation = '';
+            el.style.opacity = '';
+            el.offsetHeight; // trigger reflow
+          });
+
+          // Finalize entrance animations after 2.2 seconds
+          entranceTimer = setTimeout(() => {
+            animatedEls.forEach(el => {
+              if (el.classList.contains('continuous-swing')) {
+                el.style.animation = 'slowSwing 6s ease-in-out infinite';
+              } else {
+                el.style.animation = 'none';
+                el.style.opacity = '1';
+              }
+            });
+            if (x === 0 && y === 0) {
+              isHomeEntranceComplete = true;
+            }
+          }, 2200);
+        } else {
+          // Reset inactive section elements
+          animatedEls.forEach(el => {
+            el.style.animation = '';
+            el.style.opacity = '';
+          });
+        }
+      });
+    }
+
+    /* RSVP Modal & Toggle Logic */
+    function openRsvpModal() {
+      document.getElementById('rsvp-modal').classList.add('active');
+    }
+
+    function closeRsvpModal() {
+      document.getElementById('rsvp-modal').classList.remove('active');
+    }
+
+    function toggleGuestSelectors() {
+      const isConfirmed = document.querySelector('input[name="asistencia"]:checked').value === 'Asistencia Confirmada';
+      const quantityContainer = document.getElementById('quantity-container');
+      
+      if (isConfirmed) {
+        quantityContainer.style.display = 'block';
+      } else {
+        quantityContainer.style.display = 'none';
+      }
+    }
+
+    /* Netlify AJAX Submission Handler (Submits in background silently) */
+    function handleRsvpSubmit(e) {
+      e.preventDefault();
+      
+      const form = e.target;
+      const submitBtn = document.getElementById('rsvp-submit-btn');
+      const formData = new FormData(form);
+
+      submitBtn.textContent = 'Enviando...';
+      submitBtn.disabled = true;
+
+      fetch('/', {
+        method: 'POST',
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData).toString()
+      })
+      .then(() => {
+        alert('¡Muchas gracias! Tu respuesta fue enviada.');
+        closeRsvpModal();
+        form.reset();
+        toggleGuestSelectors();
+      })
+      .catch((error) => {
+        alert('Hubo un inconveniente al enviar tu respuesta. Por favor intenta de nuevo.');
+      })
+      .finally(() => {
+        submitBtn.textContent = 'Enviar mi respuesta plis';
+        submitBtn.disabled = false;
+      });
+    }
+
+    /* Tooltip Toggle Logic for Fun Facts */
+    function toggleTooltip(event, id) {
+      event.stopPropagation();
+      const target = document.getElementById(`ff-tooltip-${id}`);
+      const parentItem = target.closest('.fun-fact-item');
+      const isAlreadyActive = target.classList.contains('active');
+
+      // Close all open tooltips and remove parent z-index elevation
+      document.querySelectorAll('.tooltip-popover').forEach(tp => {
+        tp.classList.remove('active');
+        const p = tp.closest('.fun-fact-item');
+        if (p) p.classList.remove('has-active-tooltip');
+      });
+
+      // Toggle active state for clicked item
+      if (!isAlreadyActive) {
+        target.classList.add('active');
+        if (parentItem) parentItem.classList.add('has-active-tooltip');
+      }
+    }
+
+    // Close open tooltips when clicking anywhere else on the document
+    document.addEventListener('click', () => {
+      document.querySelectorAll('.tooltip-popover').forEach(tp => {
+        tp.classList.remove('active');
+        const p = tp.closest('.fun-fact-item');
+        if (p) p.classList.remove('has-active-tooltip');
+      });
+    });
+
+    /* Dynamic Nav Element Y-Alignment Calculator (32px below Home Character) */
+    function alignNavElements() {
+      const char = document.getElementById('home-char-base');
+      const wrapper = document.getElementById('home-nav-wrapper');
+      const backBtns = document.querySelectorAll('.back-btn');
+
+      if (char) {
+        const targetTop = (char.offsetTop + char.offsetHeight + 32) + 'px';
+        if (wrapper) wrapper.style.top = targetTop;
+        backBtns.forEach(btn => {
+          btn.style.top = targetTop;
+          btn.style.bottom = 'auto';
+        });
+      }
+    }
+
+    /* Periodic Attention Animations Trigger (Only when Home entrance is completely finished) */
+    function triggerAttention(elId, animationName, durationMs) {
+      if (x !== 0 || y !== 0 || !isHomeEntranceComplete) return;
+
+      const el = document.getElementById(elId);
+      if (!el) return;
+
+      el.style.animation = `${animationName} ${durationMs / 1000}s ease-in-out`;
+      setTimeout(() => {
+        if (el.style.animation.includes(animationName)) {
+          el.style.animation = 'none';
+        }
+      }, durationMs);
+    }
+
+    function startAttentionAnimations() {
+      // 37 Balloon: pulse every 15s (3s)
+      setInterval(() => triggerAttention('home-balloons', 'pulse', 3000), 15000);
+
+      // Hat: wobble every 20s (4s)
+      setInterval(() => triggerAttention('home-hat', 'wobble', 4000), 20000);
+
+      // Disco Ball: swing every 30s (5s)
+      setInterval(() => triggerAttention('home-disco', 'swing', 5000), 30000);
+
+      // Wine Glass: shake every 12s (2s)
+      setInterval(() => triggerAttention('home-wine', 'shake', 2000), 12000);
+
+      // Coffee Mug: tada every 7s (1s)
+      setInterval(() => triggerAttention('home-coffee', 'tada', 1000), 7000);
+
+      // Character Base: heartbeat every 45s (3s)
+      setInterval(() => triggerAttention('home-char-base', 'heartbeat', 3000), 45000);
+    }
+
+    // Keyboard Navigation
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowUp') updatePosition(x, y + 1);
+      if (e.key === 'ArrowDown') updatePosition(x, y - 1);
+      if (e.key === 'ArrowLeft') updatePosition(x - 1, y);
+      if (e.key === 'ArrowRight') updatePosition(x + 1, y);
+    });
+
+    // Touch / Swipe
+    let touchStartX = 0;
+    let touchStartY = 0;
+
+    window.addEventListener('touchstart', (e) => {
+      touchStartX = e.touches[0].clientX;
+      touchStartY = e.touches[0].clientY;
+    }, { passive: true });
+
+    window.addEventListener('touchend', (e) => {
+      if (isTransitioning) return;
+      const touchEndX = e.changedTouches[0].clientX;
+      const touchEndY = e.changedTouches[0].clientY;
+
+      const diffX = touchEndX - touchStartX;
+      const diffY = touchEndY - touchStartY;
+
+      if (Math.abs(diffX) > Math.abs(diffY)) {
+        if (diffX < -40) updatePosition(x + 1, y);
+        else if (diffX > 40) updatePosition(x - 1, y);
+      } else {
+        if (diffY < -40) updatePosition(x, y - 1);
+        else if (diffY > 40) updatePosition(x, y + 1);
+      }
+
+      isTransitioning = true;
+      setTimeout(() => { isTransitioning = false; }, 600);
+    }, { passive: true });
+
+    // Wheel Scroll
+    window.addEventListener('wheel', (e) => {
+      if (isTransitioning) return;
+
+      if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
+        if (e.deltaX > 30) updatePosition(x + 1, y);
+        else if (e.deltaX < -30) updatePosition(x - 1, y);
+      } else {
+        if (e.deltaY > 30) updatePosition(x, y - 1);
+        else if (e.deltaY < -30) updatePosition(x, y + 1);
+      }
+
+      isTransitioning = true;
+      setTimeout(() => { isTransitioning = false; }, 700);
+    }, { passive: true });
+
+    // Initialization
+    window.addEventListener('DOMContentLoaded', () => {
+      updatePosition(0, 0);
+
+      const charImg = document.getElementById('home-char-base');
+      if (charImg) {
+        if (charImg.complete) {
+          alignNavElements();
+        } else {
+          charImg.addEventListener('load', alignNavElements);
+        }
+      }
+
+      toggleGuestSelectors();
+      startAttentionAnimations();
+    });
+
+    window.addEventListener('resize', alignNavElements);
+  </script>
+</body>
+</html>
