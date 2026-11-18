@@ -16,7 +16,7 @@
   <!-- Homepage card component (More case studies) -->
   <link rel="stylesheet" href="../../css/my-work.css?v=20261026b">
 
-  <link rel="stylesheet" href="../../css/case-study.css?v=20261026n">
+  <link rel="stylesheet" href="../../css/case-study.css?v=20261103a">
   <link rel="stylesheet" href="../../css/reveal.css?v=20261026a">
 </head>
 <body>
@@ -24,7 +24,7 @@
   <!-- TOP BAR -->
   <div class="top-bar">
     <nav class="breadcrumb" aria-label="Breadcrumb">
-      <a href="../../index.html">Home</a> / <a href="../../index.html#work">Work</a> / <span>Dashboard Landing</span>
+      <a href="../../portfolio/index.html">Home</a> / <a href="../../portfolio/index.html#work">Work</a> / <span>Dashboard Landing</span>
     </nav>
     <button class="theme-toggle" id="themeToggle" aria-label="Toggle Dark Mode">
       <svg id="themeIcon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -33,46 +33,65 @@
     </button>
   </div>
 
-  <!-- HERO -->
+  <!-- HERO: the title answers "What difference did you make?" -->
   <header class="hero" style="background-image: url('../../assets/img/Background-Hero.webp')">
     <span class="chip chip--light hero__chip hero__chip--l">Case Study 01</span>
-    <span class="chip chip--light hero__chip hero__chip--r">Kyndryl Bridge</span>
+    <span class="chip chip--light hero__chip hero__chip--r">Dashboard Landing</span>
 
     <div class="hero__body">
       <div>
         <img class="hero__logo no-lightbox" src="../../assets/img/Logo-IBMKindryl.svg" alt="Kyndryl / IBM">
-        <h1 class="display display--xl hero__title">Dashboard<br>Landing</h1>
-        <p class="hero__subtitle">Redefining a static landing page into a dynamic, personalized dashboard.</p>
+        <h1 class="display hero__title hero__title--answer">Asked for a UI update, I pitched a dashboard. Daily usage rose 20%.</h1>
       </div>
       <div class="hero__info">
         <div><b>Role :</b> Senior Lead UX Designer</div>
         <div><b>Org :</b> IBM / Kyndryl</div>
-        <div><b>Scope :</b> Research, prototyping, UI design</div>
-        <div><b>Impact :</b> +20% daily usage, 35% faster tasks</div>
+        <div><b>Product :</b> Kyndryl Bridge</div>
       </div>
     </div>
   </header>
 
-  <!-- OWNERSHIP -->
-  <div class="owner owner--stack"><span class="owner__label">My part</span><p class="owner__text">I owned the research, the leadership pitch and the widget guidelines. Product owners and engineering teams across every Bridge application built and shipped it over a year long, multi team effort.</p></div>
+  <!-- ABSTRACT: the whole answer in one read (context, problem, decision, result), then the numbers, then ownership -->
+  <section class="abstract" aria-label="Abstract">
+    <div class="owner owner--stack"><span class="owner__label">Abstract</span><p class="owner__text">Kyndryl Bridge is the multi cloud management platform Kyndryl's enterprise clients work in. Its landing page was a static list of links used regularly by under 5% of users. The project was a UI update. After listening to the teams and the users, I pitched leadership a bigger bet: a personalized dashboard built from widgets that every Bridge application could contribute. Leadership backed it, and after launch daily usage rose 20% and task completion time dropped 35%.</p></div>
+    <div class="metrics__grid abstract__metrics">
+      <div class="metric metric--before">
+        <div class="metric__value">&lt;5%</div>
+        <div class="metric__label">Before</div>
+        <p class="metric__text">Of users used the static landing page regularly.</p>
+      </div>
+      <div class="metric">
+        <span class="metric__icon"><svg class="icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg></span>
+        <div class="metric__value">+20%</div>
+        <div class="metric__label">Daily usage</div>
+        <p class="metric__text">Rise in daily usage after the dashboard launched.</p>
+      </div>
+      <div class="metric">
+        <span class="metric__icon"><svg class="icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span>
+        <div class="metric__value">&minus;35%</div>
+        <div class="metric__label">Task completion time</div>
+        <p class="metric__text">Less time to complete tasks, with streamlined navigation and customizable widgets.</p>
+      </div>
+    </div>
+    <!-- PENDING (Daniel): engineering partnership on the widgets and widget nav, Shidoka contribution. See _handoff/PILOT-dashboard-landing.md -->
+    <div class="owner owner--stack"><span class="owner__label">My part</span><p class="owner__text">I owned the research, the leadership pitch and the widget guidelines. Product owners and engineering teams across every Bridge application built and shipped it over a year long, multi team effort.</p></div>
+  </section>
 
-  <!-- BRIEF: abstract and local index -->
+  <!-- BRIEF: local index; each fact is one link in the argument -->
   <nav class="brief brief--5" aria-label="Case study summary">
     <div class="brief__grid">
-      <a class="brief__item" href="#problem"><span class="brief__num">01</span><span class="brief__title">The Problem</span><span class="brief__text">A static landing page under 5% used</span></a>
-      <a class="brief__item" href="#overview"><span class="brief__num">02</span><span class="brief__title">Overview</span><span class="brief__text">Lead research, prototyping and UI</span></a>
-      <a class="brief__item" href="#results"><span class="brief__num">03</span><span class="brief__title">Results</span><span class="brief__text">Daily usage up, task time down</span></a>
-      <a class="brief__item" href="#requirements"><span class="brief__num">04</span><span class="brief__title">Requirements</span><span class="brief__text">From link farm to personalized dashboard</span></a>
-      <a class="brief__item" href="#research"><span class="brief__num">05</span><span class="brief__title">Research</span><span class="brief__text">SME and user interviews</span></a>
-      <a class="brief__item" href="#prototyping"><span class="brief__num">06</span><span class="brief__title">Prototyping</span><span class="brief__text">Journeys and mockups that won buy in</span></a>
-      <a class="brief__item" href="#delivery"><span class="brief__num">07</span><span class="brief__title">Delivery</span><span class="brief__text">Widget guidelines across teams</span></a>
-      <a class="brief__item" href="#reflection"><span class="brief__num">08</span><span class="brief__title">Reflection</span><span class="brief__text">The pitch and data driven decisions</span></a>
+      <a class="brief__item" href="#problem"><span class="brief__num">01</span><span class="brief__title">The Problem</span><span class="brief__text">A landing page under 5% used regularly</span></a>
+      <a class="brief__item" href="#research"><span class="brief__num">02</span><span class="brief__title">Research</span><span class="brief__text">Users needed a starting point, not links</span></a>
+      <a class="brief__item" href="#decision"><span class="brief__num">03</span><span class="brief__title">The Decision</span><span class="brief__text">A UI update became a dashboard</span></a>
+      <a class="brief__item" href="#delivery"><span class="brief__num">04</span><span class="brief__title">Delivery</span><span class="brief__text">Every Bridge app built widgets to one standard</span></a>
+      <a class="brief__item" href="#reflection"><span class="brief__num">05</span><span class="brief__title">Reflection</span><span class="brief__text">The pitch changed the scope</span></a>
     </div>
   </nav>
 
   <main>
 
     <!-- 01 : THE PROBLEM (image left) -->
+    <!-- PENDING (Daniel): confirm Trish's plain description (customers see insights about their services and contact account leads) before adding it -->
     <section class="sec split" id="problem">
       <span class="chip sec__chip">01 / The Problem</span>
       <div class="split__grid">
@@ -85,179 +104,98 @@
         </figure>
         <div class="split__text">
           <h2 class="display display--lg">The<br>Problem</h2>
-          <p class="lead">The existing landing page functioned primarily as a static link farm intended to assist new users. However, user engagement was low, with less than 5% utilizing the landing page regularly. Many users favored bookmarking specific offerings in their browsers, indicating that the static landing page did not provide a meaningful or personalized experience.</p>
-          <p class="lead">Beyond the low usage rates, the landing page lacked relevance for returning users, offering no functionality to address their specific workflows or frequent needs. For many, navigating the platform required repetitive steps that the landing page failed to simplify or streamline.</p>
+          <p class="lead">Kyndryl Bridge is the multi cloud management platform Kyndryl's enterprise clients work in. Its landing page was a static link farm meant for new users, and under 5% used it regularly: most people bookmarked the apps they needed and skipped it.</p>
+          <p class="lead">Returning users got nothing from it. No shortcuts to their own workflows, just the same repetitive steps every time.</p>
           <div class="split__foot"><span class="chip">Under 5% regular usage</span></div>
         </div>
       </div>
     </section>
 
-    <!-- 02 : MY ROLE (image right) -->
-    <section class="sec split split--reverse" id="overview">
-      <span class="chip sec__chip">02 / Overview</span>
-      <div class="split__grid">
-        <div class="split__text">
-          <h2 class="display display--lg">My<br>Role</h2>
-          <p class="lead">Lead research, prototyping, and UI design. Coordinated multi-team collaboration, widget guidelines, and design system standards.</p>
-          <div class="rows">
-            <div class="row">
-              <div class="row__label">Methodology</div>
-              <div class="row__text">Enterprise Design Thinking, Business Needs Assessment, Document Analysis, Subject-Matter Expert Interviews, Wireframing, Prototyping, User Testing.
-                <br><a href="#research" class="row__link">Read details &rarr;</a></div>
-            </div>
-            <div class="row">
-              <div class="row__label">Info. Architecture</div>
-              <div class="row__text">Designed for modular applications sharing unified accounts, users, and permissions.
-                <br><a href="#requirements" class="row__link">Read details &rarr;</a></div>
-            </div>
-            <div class="row">
-              <div class="row__label">SME Research</div>
-              <div class="row__text">Mapped real-world workflows to uncover navigation challenges and group related tasks.
-                <br><a href="#research" class="row__link">Read details &rarr;</a></div>
-            </div>
-            <div class="row">
-              <div class="row__label">UI Design</div>
-              <div class="row__text">Standardized UI guidelines and pipeline for cross-functional engineering delivery.
-                <br><a href="#delivery" class="row__link">Read details &rarr;</a></div>
-            </div>
-            <div class="row">
-              <div class="row__label">Tools</div>
-              <div class="row__text">Box, Mural, FigJam, Webex Meetings, Jira, GitHub, Sketch, Figma, Adobe Illustrator, Adobe Photoshop.</div>
-            </div>
-          </div>
-        </div>
-        <figure class="split__media">
-          <img src="../../assets/img/Mocks-Homepage---side-panel.png" alt="Final dashboard with widget side panel">
-        </figure>
-      </div>
-    </section>
-
-    <!-- 03 : RESULTS (gray) -->
-    <section class="sec sec--gray" id="results" aria-label="Results">
-      <span class="chip sec__chip">03 / Results</span>
-      <div class="metrics__grid">
-        <div class="metric">
-          <div class="metric__value">+20%</div>
-          <div class="metric__label">Daily usage</div>
-          <p class="metric__text">Increase in daily usage after launch of the personalized dashboard.</p>
-        </div>
-        <div class="metric">
-          <div class="metric__value">&minus;35%</div>
-          <div class="metric__label">Completion time</div>
-          <p class="metric__text">Reduction in task completion time thanks to streamlined navigation and customizable widgets.</p>
-        </div>
-        <div class="metric metric--list">
-          <div class="metric__label" style="margin:0 0 0.6rem">What went well?</div>
-          <ul>
-            <li>Leadership buy-in secured</li>
-            <li>Leadership pitch</li>
-            <li>Engagement and efficiency</li>
-            <li>Increase in daily usage</li>
-            <li>Platform wide guidelines</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- 04 : REQUIREMENTS (text left, image right) -->
-    <section class="sec split split--ui split--reverse" id="requirements">
-      <span class="chip sec__chip">04 / Requirements</span>
-      <div class="split__grid">
-        <div class="split__text">
-          <h2 class="display display--md">Requirements<br>Assessment</h2>
-          <p class="lead">Kyndryl Bridge is a modular multi-cloud management platform where applications operate independently but share common elements like accounts, users, and permissions. Because a static link farm couldn't adapt to these diverse use cases, I made the decision to pivot the project into a dynamic, personalized user experience.</p>
-        </div>
-        <div class="split__media">
-          <figure class="figure figure--framed">
-            <img src="../../assets/img/Context-arch.svg" alt="Platform Architecture">
-            <figcaption class="figure__caption">
-              <span>Visualizing the platform's multi-cloud logic and unified user permissions.</span>
-              <span class="chip">Fig. 02</span>
-            </figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
-
     <!-- 05 : RESEARCH (gray, image left) -->
+    <!-- PENDING (Daniel): interview approach, 2 or 3 questions that mattered, one decision that came from listening -->
     <section class="sec sec--gray split split--ui" id="research">
-      <span class="chip sec__chip">05 / Research</span>
+      <span class="chip sec__chip">02 / Research</span>
       <div class="split__grid">
         <div class="split__media">
           <figure class="figure">
-            <img src="../../assets/img/Backgroundquestions.webp" alt="Research Questions">
+            <img src="../../assets/img/Backgroundquestions.webp" alt="The core questions used in the subject matter expert interviews">
             <figcaption class="figure__caption">
-              <span>Core questions utilized during Subject Matter Expert interviews.</span>
-              <span class="chip">Fig. 03</span>
+              <span>Core questions I used in the subject matter expert interviews.</span>
+              <span class="chip">Fig. 02</span>
             </figcaption>
           </figure>
         </div>
         <div class="split__text">
           <h2 class="display display--md">Research</h2>
-          <ul class="points">
-            <li><strong>Subject Matter Interviews</strong>Engaged with delivery partners, product owners, UX designers, and development managers to gather insights about user needs, platform pain points, and how applications were managed and used.</li>
-            <li><strong>User Interviews</strong>Confirmed low usage of the landing page and redefined user journeys based on real-world workflows, uncovering navigation challenges and inefficiencies.</li>
-            <li><strong>Pattern Identification</strong>Analyzed user journeys across diverse personas to identify common paths, frequent tasks, and usage patterns, reinforcing the need for a more personalized and efficient starting point.</li>
-          </ul>
+          <p class="lead">I started by listening: delivery partners, product owners, UX designers and development managers first, then the users themselves.</p>
+          <p class="lead">What I heard reframed the brief. People did not need a better list of links; they needed a starting point built around their own work.</p>
+          <button class="btn btn--ghost depth__open" type="button" data-depth="depth-research" aria-haspopup="dialog">View more: Research</button>
         </div>
       </div>
     </section>
 
-    <!-- 06 : PROTOTYPING (text left, images right) -->
-    <section class="sec stack" id="prototyping">
-      <span class="chip sec__chip">06 / Prototyping</span>
+    <!-- 03 : THE DECISION (why links could not work, the bet and its tradeoff, the pitch) -->
+    <section class="sec stack" id="decision">
+      <span class="chip sec__chip">03 / The Decision</span>
       <div class="stack__intro">
-        <h2 class="display display--md">Solution &amp;<br>Prototyping</h2>
-        <div>
-          <p class="lead">Created detailed user journeys that illustrated how different personas would interact with the platform, highlighting key navigation improvements and workflow efficiencies. Developed low-fidelity mockups to visually represent the concept of a dynamic dashboard. These were used to pitch the idea to leadership, successfully securing buy-in for a more resource-intensive and impactful solution.</p>
-          <p class="lead">Designed mid-fidelity prototypes in Figma, explicitly defining the dashboard’s key functionalities: Fully Customizable Layouts, Multi-Dashboard Capability, Widget Library contributions, and Permission-aware sharing limits.</p>
-        </div>
+        <h2 class="display display--md">The<br>Decision</h2>
+        <ul class="points">
+          <li><strong>Why links could not work</strong>Bridge applications run independently but share accounts, users and permissions. A static list could not adapt to that many use cases.</li>
+          <li><strong>The bet</strong>I pivoted the project into a dynamic, personalized dashboard. The tradeoff: a bigger, more resource intensive build that needed leadership to back it.</li>
+          <li><strong>The pitch</strong>Journeys for each persona showed where navigation broke down. Low fidelity mockups of the dashboard won leadership buy in; mid fidelity in Figma added customizable layouts, multiple dashboards and permission aware sharing.</li>
+        </ul>
+      </div>
+      <div class="stack__row stack__row--1">
+        <figure class="figure figure--framed figure--narrow" style="--narrow: 760px">
+          <img src="../../assets/img/Context-arch.svg" alt="Platform architecture: independent applications sharing accounts, users and permissions">
+          <figcaption class="figure__caption">
+            <span>Visualizing the platform's multi cloud logic and unified user permissions.</span>
+            <span class="chip">Fig. 03</span>
+          </figcaption>
+        </figure>
       </div>
       <div class="stack__row stack__row--1">
         <figure class="figure figure--framed">
             <div class="figure__grid figure__grid--4">
-              <img src="../../assets/img/Dashboard-LoFi-1.png" alt="LoFi Dashboard 1">
-              <img src="../../assets/img/Dashboard-LoFi-2.png" alt="LoFi Dashboard 2">
-              <img src="../../assets/img/Dashboard-LoFi-3.png" alt="LoFi Dashboard side panel">
-              <img src="../../assets/img/Dashboard-LoFi-4.png" alt="LoFi Dashboard interaction">
+              <img src="../../assets/img/Dashboard-LoFi-1.png" alt="Low fidelity dashboard layout, step 1">
+              <img src="../../assets/img/Dashboard-LoFi-2.png" alt="Low fidelity dashboard layout, step 2">
+              <img src="../../assets/img/Dashboard-LoFi-3.png" alt="Low fidelity dashboard with the widget side panel">
+              <img src="../../assets/img/Dashboard-LoFi-4.png" alt="Low fidelity drag and drop widget placement">
             </div>
             <figcaption class="figure__caption">
-              <span>Prototype progression: From initial wireframe layouts to interactive drag-and-drop widget placement.</span>
+              <span>Prototype progression: from the first wireframe layouts to drag and drop widget placement.</span>
               <span class="chip">Fig. 04</span>
             </figcaption>
           </figure>
       </div>
     </section>
 
-    <!-- 07 : DELIVERY (gray, images left) -->
+    <!-- 07 : DELIVERY (gray) -->
+    <!-- PENDING (Daniel): how he worked with engineering on the widgets and widget nav; Shidoka contribution; confirm the side panel is the widget nav; live example (A3) -->
     <section class="sec sec--gray stack" id="delivery">
-      <span class="chip sec__chip">07 / Delivery</span>
-      <div class="stack__feature">
-        <div class="stack__media">
-          <figure class="figure figure--framed">
-            <div class="figure__grid figure__grid--delivery">
-              <img src="../../assets/img/Mocks-Side-panel.png" alt="Widget Side Panel">
-              <img src="../../assets/img/Mocks-Widgets-array.webp" alt="Widget Library">
-            </div>
-            <figcaption class="figure__caption">
-              <span>Standardizing the widget design system and side-panel UI guidelines for engineering handoff.</span>
-              <span class="chip">Fig. 05</span>
-            </figcaption>
-          </figure>
-        </div>
-        <div class="stack__text">
-          <h2 class="display display--md">Standardization<br>&amp; Delivery</h2>
-          <p class="lead">Coordinated a multi-team effort to educate stakeholders on widget creation and usage. Established widget design guidelines and documentation to ensure consistency across applications. Defined a clear process for widget design and development, including approval workflows and quality assurance checks.</p>
+      <span class="chip sec__chip">04 / Delivery</span>
+      <div class="stack__intro">
+        <h2 class="display display--md">Standardization<br>&amp; Delivery</h2>
+        <div>
+          <p class="lead">Engineering teams across every Bridge application built the widgets. I coordinated that multi team effort and wrote the widget guidelines and process that kept every application consistent.</p>
+          <button class="btn btn--ghost depth__open" type="button" data-depth="depth-delivery" aria-haspopup="dialog">View more: Delivery</button>
         </div>
       </div>
-      <div class="stack__row stack__row--1">
-          <figure class="figure figure--framed">
-            <img src="../../assets/img/Mocks-Homepage.png" alt="Final dashboard homepage">
-            <figcaption class="figure__caption">
-              <span>The final UI delivery showcasing the live, permission-aware dashboard.</span>
-              <span class="chip">Fig. 06</span>
-            </figcaption>
-          </figure>
+      <div class="stack__row stack__row--flow">
+        <figure class="figure figure--framed" style="--ar: 1.0995">
+          <img src="../../assets/img/Mocks-Homepage.png" alt="Final dashboard homepage with widgets">
+          <figcaption class="figure__caption">
+            <span>The final, permission aware dashboard as delivered.</span>
+            <span class="chip">Fig. 05</span>
+          </figcaption>
+        </figure>
+        <figure class="figure figure--framed" style="--ar: 0.4040">
+          <img src="../../assets/img/Mocks-Side-panel.png" alt="Widget side panel: the navigation users open to find and add widgets">
+          <figcaption class="figure__caption">
+            <span>The widget side panel, enlarged: where users find and add widgets.</span>
+            <span class="chip">Fig. 06</span>
+          </figcaption>
+        </figure>
       </div>
     </section>
 
@@ -265,29 +203,93 @@
     <section class="reflection" id="reflection" style="background-image: url('../../assets/img/Background-Background-end.webp')">
       <div class="reflection__inner">
         <div class="reflection__top">
-          <span class="chip chip--light">08 / Reflection</span>
+          <span class="chip chip--light">05 / Reflection</span>
           <span class="chip chip--light">Kyndryl Bridge</span>
         </div>
         <h2 class="display display--lg">Looking<br>Back</h2>
         <div class="reflection__cols">
           <div>
             <h3>What went well?</h3>
-            <p><strong>Effective Leadership Pitch</strong>The low-fidelity mockups and strategic presentation successfully secured leadership buy-in, transforming the scope from a static UI update to a dynamic, user-centric dashboard project.</p>
-            <p><strong>Data-Driven Decisions</strong>Insights from user interviews and subject-matter experts shaped the dashboard’s personalized features, directly addressing low engagement (5% usage) and improving relevance for daily workflows.</p>
-            <p><strong>Improved Engagement and Efficiency</strong>Post-launch, the dashboard saw a 20% increase in daily usage, with task completion times reduced by 35% due to streamlined navigation and customizable widgets.</p>
-            <p><strong>Collaborative Alignment</strong>Established clear widget guidelines and streamlined multi-team collaboration, ensuring consistent standards across a diverse platform architecture.</p>
+            <p class="win"><svg class="icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 3h20"/><path d="M21 3v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V3"/><path d="m7 21 5-5 5 5"/></svg><span><strong>The pitch changed the scope</strong>Low fidelity mockups turned a static UI update into a user centered dashboard project.</span></p>
+            <p class="win"><svg class="icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg><span><strong>Listening shaped the features</strong>Interview insights drove the personalized features that answered the under 5% usage.</span></p>
+            <p class="win"><svg class="icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg><span><strong>Shared standards held</strong>Clear widget guidelines kept many teams and applications consistent.</span></p>
           </div>
           <div>
-            <h3>What could I have done better?</h3>
-            <p><strong>Facilitating Team Engagement</strong>While I successfully led the internal playbacks and ensured alignment, I could have invited team members to co-facilitate certain sessions. This approach would have encouraged broader ownership, nurtured cross-functional leadership, and fostered a more diverse exchange of ideas.</p>
-            <p><strong>Optimizing Testing Scope</strong>Although the user testing yielded actionable insights, expanding the scope to include a wider variety of edge cases could have further validated the dashboard’s versatility and uncovered additional opportunities for refinement.</p>
-            <p><strong>Structured Post-Launch Monitoring</strong>While the iterative improvement process was effective, establishing a more formalized post-launch monitoring framework could have streamlined the collection of user feedback, enabling quicker adjustments and long-term optimization.</p>
+            <h3>What would I do differently?</h3>
+            <p><strong>Share the room</strong>I led the internal playbacks. Inviting team members to co facilitate would have spread ownership and grown leadership across functions.</p>
+            <p><strong>Plan the follow up</strong>A formal post launch monitoring framework would have brought user feedback in faster and kept the dashboard improving.</p>
           </div>
         </div>
       </div>
     </section>
 
   </main>
+
+  <!-- DEPTH MODALS (js/case-depth.js). Content lives here so it works on file:// and stays indexable. -->
+  <dialog class="depth" id="depth-research" aria-labelledby="depth-research-title">
+    <div class="depth__head">
+      <div>
+        <span class="chip">02 / Research</span>
+        <h2 class="display depth__title" id="depth-research-title">Research</h2>
+      </div>
+      <button class="depth__close" type="button" aria-label="Close Research details"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
+    </div>
+    <div class="depth__slides">
+      <section class="depth__slide">
+        <h3 class="depth__slide-title">Subject matter interviews</h3>
+        <p>I interviewed delivery partners, product owners, UX designers and development managers about user needs, platform pain points, and how the applications were managed and used.</p>
+      </section>
+      <section class="depth__slide">
+        <h3 class="depth__slide-title">User interviews</h3>
+        <p>Users confirmed the low usage of the landing page. Their real workflows let me redefine the user journeys and exposed the navigation problems and inefficiencies.</p>
+      </section>
+      <section class="depth__slide">
+        <h3 class="depth__slide-title">Patterns across personas</h3>
+        <p>Mapping journeys across the personas showed the common paths, the frequent tasks and the usage patterns. All of them pointed to the same need: a personalized, efficient starting point.</p>
+      </section>
+    </div>
+    <div class="depth__nav">
+      <button class="depth__step depth__prev" type="button" aria-label="Previous slide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m15 18-6-6 6-6"/></svg></button>
+      <span class="depth__count" aria-live="polite">1 / 3</span>
+      <button class="depth__step depth__next" type="button" aria-label="Next slide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"/></svg></button>
+    </div>
+  </dialog>
+
+  <dialog class="depth" id="depth-delivery" aria-labelledby="depth-delivery-title">
+    <div class="depth__head">
+      <div>
+        <span class="chip">04 / Delivery</span>
+        <h2 class="display depth__title" id="depth-delivery-title">Delivery</h2>
+      </div>
+      <button class="depth__close" type="button" aria-label="Close Delivery details"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
+    </div>
+    <div class="depth__slides">
+      <section class="depth__slide">
+        <h3 class="depth__slide-title">Working across teams</h3>
+        <p>Product owners and engineering teams across every Bridge application built and shipped the dashboard over a year long, multi team effort. I coordinated it and taught the teams how to create and use widgets.</p>
+      </section>
+      <section class="depth__slide">
+        <h3 class="depth__slide-title">Widget guidelines</h3>
+        <p>I established the widget design guidelines and documentation, so widgets from different applications looked and behaved as one system.</p>
+        <figure class="figure figure--framed">
+          <img class="no-lightbox" src="../../assets/img/Mocks-Widgets-array.webp" alt="Widget library: the standardized widget designs" loading="lazy">
+          <figcaption class="figure__caption">
+            <span>The standardized widget library handed to engineering.</span>
+            <span class="chip">Fig. 07</span>
+          </figcaption>
+        </figure>
+      </section>
+      <section class="depth__slide">
+        <h3 class="depth__slide-title">A process, not a one off</h3>
+        <p>I defined a clear process for widget design and development, with approval workflows and quality assurance checks, so new widgets kept to the standard after launch.</p>
+      </section>
+    </div>
+    <div class="depth__nav">
+      <button class="depth__step depth__prev" type="button" aria-label="Previous slide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m15 18-6-6 6-6"/></svg></button>
+      <span class="depth__count" aria-live="polite">1 / 3</span>
+      <button class="depth__step depth__next" type="button" aria-label="Next slide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"/></svg></button>
+    </div>
+  </dialog>
 
   <!-- MORE CASE STUDIES (cards from js/projects.js, same component as the homepage) -->
   <section class="more" id="more" aria-labelledby="more-title">
@@ -353,23 +355,35 @@
       themeIcon.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>';
     }
 
-    // Lightbox & Gallery Logic
+    // Lightbox: each figure is its own gallery (single image figures open alone)
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
     const lightboxClose = document.getElementById('lightbox-close');
     const prevBtn = document.getElementById('lightbox-prev');
     const nextBtn = document.getElementById('lightbox-next');
-    
-    const clickableImages = Array.from(document.querySelectorAll('main img:not(.no-lightbox)'));
+
+    let clickableImages = [];
     let currentIndex = 0;
 
     function updateLightboxImage() {
-      lightboxImg.src = clickableImages[currentIndex].src;
+      const img = clickableImages[currentIndex];
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt || 'Enlarged view';
+    }
+    function step(d) {
+      if (clickableImages.length < 2) return;
+      currentIndex = (currentIndex + d + clickableImages.length) % clickableImages.length;
+      updateLightboxImage();
     }
 
-    clickableImages.forEach((img, index) => {
+    document.querySelectorAll('main img:not(.no-lightbox)').forEach((img) => {
       img.addEventListener('click', () => {
-        currentIndex = index;
+        const fig = img.closest('figure');
+        clickableImages = fig ? Array.from(fig.querySelectorAll('img:not(.no-lightbox)')) : [img];
+        currentIndex = Math.max(0, clickableImages.indexOf(img));
+        const multi = clickableImages.length > 1;
+        prevBtn.hidden = !multi;
+        nextBtn.hidden = !multi;
         updateLightboxImage();
         lightbox.classList.add('active');
         document.body.style.overflow = 'hidden';
@@ -381,45 +395,24 @@
       document.body.style.overflow = 'auto';
     };
 
-    // Navigation Controls
-    prevBtn.addEventListener('click', (e) => {
-      e.stopPropagation(); 
-      currentIndex = (currentIndex > 0) ? currentIndex - 1 : clickableImages.length - 1;
-      updateLightboxImage();
-    });
+    prevBtn.addEventListener('click', (e) => { e.stopPropagation(); step(-1); });
+    nextBtn.addEventListener('click', (e) => { e.stopPropagation(); step(1); });
 
-    nextBtn.addEventListener('click', (e) => {
-      e.stopPropagation(); 
-      currentIndex = (currentIndex < clickableImages.length - 1) ? currentIndex + 1 : 0;
-      updateLightboxImage();
-    });
-
-    // Close on background click
     lightbox.addEventListener('click', (e) => {
-      if (e.target !== lightboxImg && e.target !== prevBtn && e.target !== nextBtn) {
-        closeLightbox();
-      }
+      if (e.target !== lightboxImg && e.target !== prevBtn && e.target !== nextBtn) closeLightbox();
     });
-
     lightboxClose.addEventListener('click', closeLightbox);
 
-    // Keyboard controls for Gallery & Close
     document.addEventListener('keydown', (e) => {
       if (!lightbox.classList.contains('active')) return;
-      
       if (e.key === 'Escape') closeLightbox();
-      if (e.key === 'ArrowLeft') {
-        currentIndex = (currentIndex > 0) ? currentIndex - 1 : clickableImages.length - 1;
-        updateLightboxImage();
-      }
-      if (e.key === 'ArrowRight') {
-        currentIndex = (currentIndex < clickableImages.length - 1) ? currentIndex + 1 : 0;
-        updateLightboxImage();
-      }
+      if (e.key === 'ArrowLeft') step(-1);
+      if (e.key === 'ArrowRight') step(1);
     });
   </script>
   <script src="../../js/projects.js?v=20261027b"></script>
   <script src="../../js/case-nav.js?v=20261026b"></script>
   <script src="../../js/reveal.js?v=20261026b"></script>
+  <script src="../../js/case-depth.js?v=20261028a"></script>
 </body>
 </html>

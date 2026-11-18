@@ -4,3 +4,6 @@ _to_delete/
 
 # macOS folder metadata
 .DS_Store
+
+# Local dev server cache
+.wrangler/
