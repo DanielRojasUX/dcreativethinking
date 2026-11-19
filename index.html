@@ -6,8 +6,9 @@
     /* Portfolio links sent before the agency launch (/#uxproduct and others) go to the portfolio */
     (function () {
       var h = location.hash.slice(1);
-      var own = ["main", "hero", "problem", "build", "work", "process", "why", "faq", "start"];
-      if (h && own.indexOf(h) === -1) location.replace("/portfolio/" + location.search + location.hash);
+      var own = ["main", "hero", "problem", "work", "process", "start"];
+      if (h === "build") location.replace("/what-we-build/");
+      else if (h && own.indexOf(h) === -1) location.replace("/portfolio/" + location.search + location.hash);
     })();
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -55,7 +56,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Inter+Tight:wght@800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/agency.css?v=20261118x">
+  <link rel="stylesheet" href="css/agency.css?v=20261119g">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -74,10 +75,9 @@
 
       <nav class="menu" id="menu" aria-label="Primary">
         <ul class="menu__list">
-          <li><a class="menu__link" href="#build">What we build</a></li>
           <li><a class="menu__link" href="#work">Work</a></li>
           <li><a class="menu__link" href="#process">How we work</a></li>
-          <li><a class="menu__link" href="#faq">FAQ</a></li>
+          <li><a class="menu__link" href="what-we-build/">What we build</a></li>
           <li><a class="menu__link menu__link--cta" href="#start">Book a diagnosis</a></li>
         </ul>
       </nav>
@@ -157,210 +157,150 @@
       <p class="problem__close">A page that only displays information doesn't fix any of this. <strong>A website has to do part of the work.</strong></p>
     </section>
 
-    <!-- ===================== 5. WHAT WE BUILD ===================== -->
-    <section class="build section section--soft" id="build" aria-labelledby="build-title">
-      <div class="section-head section-head--row">
-        <div>
-          <p class="label">What we build</p>
-          <h2 class="display display--md" id="build-title">If it eats your time, <span class="display__soft js-drift" data-type>we build the tool for it.</span></h2>
-        </div>
-        <p class="section-head__aside">These are the families we build most. Every project starts from how your business actually works, so none of it ships as a template.</p>
-      </div>
-      <ol class="builds">
-        <li class="builds__row">
-          <span class="builds__num js-odo" aria-hidden="true">01</span>
-          <h3 class="builds__title">Order and menu tools</h3>
-          <div class="builds__body">
-            <p class="builds__promise">Customers build their order on your menu, and it reaches you complete on WhatsApp.</p>
-            <ul class="chips"><li>Bilingual menus</li><li>Order carts</li><li>Pickup times</li><li>Owner edit mode</li></ul>
-          </div>
-          <p class="builds__example"><span>Example</span><a href="https://sinaloatown.com" target="_blank" rel="noopener">Menú Vivo for Sinaloa Town<span class="sr-only"> (opens in a new tab)</span></a></p>
-        </li>
-        <li class="builds__row">
-          <span class="builds__num js-odo" aria-hidden="true">02</span>
-          <h3 class="builds__title">Quotes, bookings and invites</h3>
-          <div class="builds__body">
-            <p class="builds__promise">Leads reach you ready to close, not as a vague "how much?".</p>
-            <ul class="chips"><li>Quote flows</li><li>SMS and WhatsApp</li><li>RSVP and guest lists</li><li>Event details</li></ul>
-          </div>
-          <p class="builds__example"><span>Example</span><a href="https://dionnescatering.com" target="_blank" rel="noopener">Dionne's Catering, wedding invitations<span class="sr-only"> (opens in a new tab)</span></a></p>
-        </li>
-        <li class="builds__row">
-          <span class="builds__num js-odo" aria-hidden="true">03</span>
-          <h3 class="builds__title">Dashboards and internal tools</h3>
-          <div class="builds__body">
-            <p class="builds__promise">See your operation in one place and act on it in time.</p>
-            <ul class="chips"><li>Live dashboards</li><li>Installable team apps</li><li>Coded prototypes</li></ul>
-          </div>
-          <p class="builds__example"><span>Example</span><a href="usecases/LiveWire/livewire-dashboard.html">LiveWire dashboard</a></p>
-        </li>
-        <li class="builds__row">
-          <span class="builds__num js-odo" aria-hidden="true">04</span>
-          <h3 class="builds__title">Brand and websites</h3>
-          <div class="builds__body">
-            <p class="builds__promise">A brand and a site that look as good as what you sell.</p>
-            <ul class="chips"><li>Identity systems</li><li>Phone first websites</li><li>Product catalogs</li></ul>
-          </div>
-          <p class="builds__example"><span>Example</span><a href="https://elotetown.com" target="_blank" rel="noopener">Elote Town<span class="sr-only"> (opens in a new tab)</span></a>, <a href="usecases/NUCU-Studio/nucu-studio.html">NUCU</a></p>
-        </li>
-        <li class="builds__row">
-          <span class="builds__num js-odo" aria-hidden="true">05</span>
-          <h3 class="builds__title">Content and in store screens</h3>
-          <div class="builds__body">
-            <p class="builds__promise">Product photography, reels and menu screens that keep selling while you work.</p>
-            <ul class="chips"><li>AI product photography</li><li>Reels</li><li>Digital signage</li></ul>
-          </div>
-          <p class="builds__example"><span>Example</span><a href="usecases/Sunu-Content/sunu-content.html">Sunú</a>, <a href="usecases/Never-Was/never-was.html">Never Was Studios</a></p>
-        </li>
-        <li class="builds__row">
-          <span class="builds__num js-odo" aria-hidden="true">06</span>
-          <h3 class="builds__title">AI workflows</h3>
-          <div class="builds__body">
-            <p class="builds__promise">The repetitive part of your week, handled by a system you understand.</p>
-            <ul class="chips"><li>Outreach</li><li>Documents and prints</li><li>Reporting</li></ul>
-          </div>
-          <p class="builds__example"><span>Example</span>Dionne's Catering</p>
-        </li>
-      </ol>
-      <p class="builds__more">Not on the list? <a href="#start">Tell us what's slowing you down <span aria-hidden="true">→</span></a></p>
-    </section>
-
-    <!-- ===================== 6. SELECTED WORK ===================== -->
+    <!-- ===================== 5. WORK ===================== -->
     <section class="work section" id="work" aria-labelledby="work-title">
       <div class="section-head section-head--row">
         <div>
-          <p class="label">Selected work</p>
+          <p class="label">Work</p>
           <h2 class="display display--md" id="work-title">Real businesses. <span class="display__soft js-drift" data-type>Working tools.</span></h2>
         </div>
-        <p class="section-head__aside">Live sites you can visit today and case studies that show the thinking behind them.</p>
       </div>
       <ul class="work-grid">
-        <li class="work-card">
-          <div class="work-card__media">
-            <img src="assets/img/work/work-sinaloatown.jpg" alt="Sinaloa Town website preview with the restaurant logo and a seafood platter" loading="lazy">
-            <span class="work-card__tag">Live site</span>
-          </div>
-          <div class="work-card__body">
-            <p class="work-card__client">Sinaloa Town · Restaurant, Utah</p>
-            <h3 class="work-card__title"><a class="work-card__link" href="https://sinaloatown.com" target="_blank" rel="noopener">Menú Vivo: a bilingual menu that takes orders<span class="sr-only"> (opens in a new tab)</span></a></h3>
-            <p class="work-card__did">Order cart with spice levels, add ons and pickup time, sent by WhatsApp or text.</p>
-            <p class="work-card__outcome">Orders arrive complete, with every option, instead of a chain of messages.</p>
-            <span class="work-card__cta" aria-hidden="true">Visit the site ↗</span>
-          </div>
-        </li>
-        <li class="work-card">
-          <div class="work-card__media">
-            <img src="assets/img/work/work-dionnes.jpg" alt="Dionne's Catering catalog cover with a dessert table at an outdoor event" loading="lazy">
-            <span class="work-card__tag">Live site</span>
-          </div>
-          <div class="work-card__body">
-            <p class="work-card__client">Dionne's Catering · Events, Utah</p>
-            <h3 class="work-card__title"><a class="work-card__link" href="https://dionnescatering.com" target="_blank" rel="noopener">Digital growth, from search to quote<span class="sr-only"> (opens in a new tab)</span></a></h3>
-            <p class="work-card__did">Website, online catalog, Google Ads, SEO and a quote flow that sends leads straight to SMS or WhatsApp.</p>
-            <p class="work-card__outcome">Leads now reach the team by text or WhatsApp, ready to quote.</p>
-            <span class="work-card__cta" aria-hidden="true">Visit the site ↗</span>
-          </div>
-        </li>
-        <li class="work-card">
-          <div class="work-card__media">
-            <img src="assets/img/work/work-elotetown.png" alt="Elote Town logo with its corn mascot" loading="lazy">
-            <span class="work-card__tag">Live site</span>
-          </div>
-          <div class="work-card__body">
-            <p class="work-card__client">Elote Town · Restaurant, Utah</p>
-            <h3 class="work-card__title"><a class="work-card__link" href="https://elotetown.com" target="_blank" rel="noopener">A site you can order from<span class="sr-only"> (opens in a new tab)</span></a></h3>
-            <p class="work-card__did">Website with DoorDash ordering built in, brand content and in store menu screens.</p>
-            <p class="work-card__outcome">Customers order online from the same page that tells the brand story.</p>
-            <span class="work-card__cta" aria-hidden="true">Visit the site ↗</span>
-          </div>
-        </li>
-        <li class="work-card">
-          <div class="work-card__media">
-            <img src="usecases/LiveWire/livewire-demo/img/livewire-dasboard-1.webp" alt="LiveWire analytics dashboard screen" loading="lazy">
-            <span class="work-card__tag">Case study</span>
-          </div>
-          <div class="work-card__body">
-            <p class="work-card__client">LiveWire · Electric motorcycles</p>
-            <h3 class="work-card__title"><a class="work-card__link" href="usecases/LiveWire/livewire-dashboard.html">From a static report to a live dashboard</a></h3>
-            <p class="work-card__did">A Power BI report replaced by a custom web app shell and design system.</p>
-            <p class="work-card__outcome">The team reads its numbers in one live view instead of exporting reports.</p>
-            <span class="work-card__cta" aria-hidden="true">Read the case →</span>
-          </div>
-        </li>
-        <li class="work-card">
-          <div class="work-card__media">
-            <img src="usecases/Creme-Insurance/creme/img/creme-dashboard.png" alt="Crème Insurance claims dashboard" loading="lazy">
-            <span class="work-card__tag">Case study</span>
-          </div>
-          <div class="work-card__body">
-            <p class="work-card__client">Crème Insurance · Insurance</p>
-            <h3 class="work-card__title"><a class="work-card__link" href="usecases/Creme-Insurance/creme-insurance.html">A claims platform people can actually use</a></h3>
-            <p class="work-card__did">Product design, design system and a coded front end for an insurance claims platform.</p>
-            <p class="work-card__outcome">A clickable product the team can test before investing in the build.</p>
-            <span class="work-card__cta" aria-hidden="true">Read the case →</span>
-          </div>
-        </li>
-        <li class="work-card">
-          <div class="work-card__media">
-            <img src="usecases/NUCU-Studio/assets/nucu-hero.webp" alt="NUCU textile products" loading="lazy">
-            <span class="work-card__tag">Case study</span>
-          </div>
-          <div class="work-card__body">
-            <p class="work-card__client">NUCU · Textile studio, Chiapas</p>
-            <h3 class="work-card__title"><a class="work-card__link" href="usecases/NUCU-Studio/nucu-studio.html">A brand that travels</a></h3>
-            <p class="work-card__did">Identity and studio strategy for a fashion and textile brand.</p>
-            <p class="work-card__outcome">Sold across Mexico and exported to Europe and the US by year two.</p>
-            <span class="work-card__cta" aria-hidden="true">Read the case →</span>
-          </div>
-        </li>
-        <li class="work-card">
-          <div class="work-card__media">
-            <img src="usecases/Hotel-Next/assets/img/HotelNext-hero.webp" alt="Hotel Next digital experience" loading="lazy">
-            <span class="work-card__tag">Case study</span>
-          </div>
-          <div class="work-card__body">
-            <p class="work-card__client">Hotel Next · Hospitality</p>
-            <h3 class="work-card__title"><a class="work-card__link" href="usecases/Hotel-Next/hotel-digital-experience.html">A connected hotel experience</a></h3>
-            <p class="work-card__did">Ecosystem and product design for a hotel guest experience, from booking to room unlock.</p>
-            <p class="work-card__outcome">One journey across the guest app, the hotel and its content tools.</p>
-            <span class="work-card__cta" aria-hidden="true">Read the case →</span>
-          </div>
-        </li>
-        <li class="work-card">
-          <div class="work-card__media">
-            <img src="usecases/Sunu-Content/assets/sn-hero.webp" alt="Sunú pasta dish still from a reel" loading="lazy">
-            <span class="work-card__tag">Case study</span>
-          </div>
-          <div class="work-card__body">
-            <p class="work-card__client">Sunú · Food brand, Mexico</p>
-            <h3 class="work-card__title"><a class="work-card__link" href="usecases/Sunu-Content/sunu-content.html">Reels that sell with no ad budget</a></h3>
-            <p class="work-card__did">AI assisted food reels and stills produced every week for organic social.</p>
-            <p class="work-card__outcome">A steady content engine without paid ads.</p>
-            <span class="work-card__cta" aria-hidden="true">Read the case →</span>
-          </div>
-        </li>
-        <li class="work-card">
-          <div class="work-card__media">
-            <img src="usecases/Never-Was/assets/nw-hero-luchador.webp" alt="Never Was Studios luchador character" loading="lazy">
-            <span class="work-card__tag">Case study</span>
-          </div>
-          <div class="work-card__body">
-            <p class="work-card__client">Never Was Studios · AI film</p>
-            <h3 class="work-card__title"><a class="work-card__link" href="usecases/Never-Was/never-was.html">Movies that were never shot</a></h3>
-            <p class="work-card__did">An AI film studio: characters, wardrobe, music and reels, art directed end to end.</p>
-            <p class="work-card__outcome">Live on Instagram since October 2026.</p>
-            <span class="work-card__cta" aria-hidden="true">Read the case →</span>
-          </div>
-        </li>
+          <li class="work-card" data-details="Website, online catalog, Google Ads, SEO and a quote flow that sends leads straight to SMS or WhatsApp." data-cta="Visit dionnescatering.com" data-ext="1">
+            <div class="work-card__frame">
+              <div class="work-card__media"><img src="assets/img/work/work-dionnes.webp?v=20261119h" alt="Berry tarts and mousse from a Dionne&#x27;s Catering dessert table" loading="lazy"></div>
+              <div class="work-card__overlay">
+                <p class="work-card__brand">Dionne&#x27;s Catering</p>
+                <h3 class="work-card__title"><a class="work-card__link" href="https://dionnescatering.com" target="_blank" rel="noopener">From search to booked event<span class="sr-only"> (opens in a new tab)</span></a></h3>
+                <p class="work-card__result">Leads reach the team by text or WhatsApp, ready to quote.</p>
+              </div>
+            </div>
+            <div class="work-card__actions">
+              <a class="work-card__cta" href="https://dionnescatering.com" target="_blank" rel="noopener">Visit dionnescatering.com <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+              <button class="work-card__more js-work-more" type="button" aria-haspopup="dialog">More details<span class="sr-only">: Dionne&#x27;s Catering</span></button>
+            </div>
+          </li>
+          <li class="work-card" data-details="Bilingual menu with an order cart: spice levels, add ons and pickup time, sent by WhatsApp or text." data-cta="Visit sinaloatown.com" data-ext="1">
+            <div class="work-card__frame">
+              <div class="work-card__media"><img src="assets/img/work/work-sinaloatown.webp?v=20261119h" alt="Lighthouse between palm trees, Sinaloa Town brand image" loading="lazy"></div>
+              <div class="work-card__overlay">
+                <p class="work-card__brand">Sinaloa Town</p>
+                <h3 class="work-card__title"><a class="work-card__link" href="https://sinaloatown.com" target="_blank" rel="noopener">A menu that takes orders<span class="sr-only"> (opens in a new tab)</span></a></h3>
+                <p class="work-card__result">Orders arrive complete, with every option, in one message.</p>
+              </div>
+            </div>
+            <div class="work-card__actions">
+              <a class="work-card__cta" href="https://sinaloatown.com" target="_blank" rel="noopener">Visit sinaloatown.com <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+              <button class="work-card__more js-work-more" type="button" aria-haspopup="dialog">More details<span class="sr-only">: Sinaloa Town</span></button>
+            </div>
+          </li>
+          <li class="work-card" data-details="Website with DoorDash ordering built in, brand content and in store menu screens." data-cta="Visit elotetown.com" data-ext="1">
+            <div class="work-card__frame">
+              <div class="work-card__media"><img src="assets/img/work/work-elotetown.webp?v=20261119h" alt="An Elote Town cup being finished at the counter" loading="lazy"></div>
+              <div class="work-card__overlay">
+                <p class="work-card__brand">Elote Town</p>
+                <h3 class="work-card__title"><a class="work-card__link" href="https://elotetown.com" target="_blank" rel="noopener">A site you can order from<span class="sr-only"> (opens in a new tab)</span></a></h3>
+                <p class="work-card__result">Customers order online from the page that tells the brand story.</p>
+              </div>
+            </div>
+            <div class="work-card__actions">
+              <a class="work-card__cta" href="https://elotetown.com" target="_blank" rel="noopener">Visit elotetown.com <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab)</span></a>
+              <button class="work-card__more js-work-more" type="button" aria-haspopup="dialog">More details<span class="sr-only">: Elote Town</span></button>
+            </div>
+          </li>
+          <li class="work-card" data-details="A Power BI report replaced by a custom web app shell and its design system." data-cta="Read the case study" data-ext="0">
+            <div class="work-card__frame">
+              <div class="work-card__media"><img src="assets/img/work/work-livewire.webp?v=20261119h" alt="Rider on a LiveWire electric motorcycle at night" loading="lazy"></div>
+              <div class="work-card__overlay">
+                <p class="work-card__brand">LiveWire</p>
+                <h3 class="work-card__title"><a class="work-card__link" href="usecases/LiveWire/livewire-dashboard.html">From static report to live dashboard</a></h3>
+                <p class="work-card__result">The team reads its numbers in one live view.</p>
+              </div>
+            </div>
+            <div class="work-card__actions">
+              <a class="work-card__cta" href="usecases/LiveWire/livewire-dashboard.html">Read the case study <span aria-hidden="true">→</span></a>
+              <button class="work-card__more js-work-more" type="button" aria-haspopup="dialog">More details<span class="sr-only">: LiveWire</span></button>
+            </div>
+          </li>
+          <li class="work-card" data-details="Product design, design system and a coded front end for an insurance claims platform." data-cta="Read the case study" data-ext="0">
+            <div class="work-card__frame">
+              <div class="work-card__media"><img src="assets/img/brand-creme.png" alt="Crème Insurance brand image" loading="lazy"></div>
+              <div class="work-card__overlay">
+                <p class="work-card__brand">Crème Insurance</p>
+                <h3 class="work-card__title"><a class="work-card__link" href="usecases/Creme-Insurance/creme-insurance.html">A claims platform people can use</a></h3>
+                <p class="work-card__result">A clickable product to test before investing in the build.</p>
+              </div>
+            </div>
+            <div class="work-card__actions">
+              <a class="work-card__cta" href="usecases/Creme-Insurance/creme-insurance.html">Read the case study <span aria-hidden="true">→</span></a>
+              <button class="work-card__more js-work-more" type="button" aria-haspopup="dialog">More details<span class="sr-only">: Crème Insurance</span></button>
+            </div>
+          </li>
+          <li class="work-card" data-details="Ecosystem and product design for a hotel guest experience, from booking to room unlock." data-cta="Read the case study" data-ext="0">
+            <div class="work-card__frame">
+              <div class="work-card__media"><img src="usecases/Hotel-Next/assets/img/HotelNext-hero.webp" alt="Hotel Next digital experience" loading="lazy"></div>
+              <div class="work-card__overlay">
+                <p class="work-card__brand">Hotel Next</p>
+                <h3 class="work-card__title"><a class="work-card__link" href="usecases/Hotel-Next/hotel-digital-experience.html">One journey, from booking to room</a></h3>
+                <p class="work-card__result">Guest app, hotel and content tools work as one.</p>
+              </div>
+            </div>
+            <div class="work-card__actions">
+              <a class="work-card__cta" href="usecases/Hotel-Next/hotel-digital-experience.html">Read the case study <span aria-hidden="true">→</span></a>
+              <button class="work-card__more js-work-more" type="button" aria-haspopup="dialog">More details<span class="sr-only">: Hotel Next</span></button>
+            </div>
+          </li>
+          <li class="work-card" data-details="Identity and studio strategy for a fashion and textile brand from Chiapas." data-cta="Read the case study" data-ext="0">
+            <div class="work-card__frame">
+              <div class="work-card__media"><img src="assets/img/brand-nucu-studio.png" alt="NUCU woven textile" loading="lazy"></div>
+              <div class="work-card__overlay">
+                <p class="work-card__brand">NUCU</p>
+                <h3 class="work-card__title"><a class="work-card__link" href="usecases/NUCU-Studio/nucu-studio.html">A brand that travels</a></h3>
+                <p class="work-card__result">Sold across Mexico and exported to Europe and the US by year two.</p>
+              </div>
+            </div>
+            <div class="work-card__actions">
+              <a class="work-card__cta" href="usecases/NUCU-Studio/nucu-studio.html">Read the case study <span aria-hidden="true">→</span></a>
+              <button class="work-card__more js-work-more" type="button" aria-haspopup="dialog">More details<span class="sr-only">: NUCU</span></button>
+            </div>
+          </li>
+          <li class="work-card" data-details="AI assisted food reels and stills produced every week for organic social." data-cta="Read the case study" data-ext="0">
+            <div class="work-card__frame">
+              <div class="work-card__media"><img src="usecases/Sunu-Content/assets/sn-hero.webp" alt="Sunú pasta dish from a reel" loading="lazy"></div>
+              <div class="work-card__overlay">
+                <p class="work-card__brand">Sunú</p>
+                <h3 class="work-card__title"><a class="work-card__link" href="usecases/Sunu-Content/sunu-content.html">Reels that sell with no ad budget</a></h3>
+                <p class="work-card__result">A weekly content engine without paid ads.</p>
+              </div>
+            </div>
+            <div class="work-card__actions">
+              <a class="work-card__cta" href="usecases/Sunu-Content/sunu-content.html">Read the case study <span aria-hidden="true">→</span></a>
+              <button class="work-card__more js-work-more" type="button" aria-haspopup="dialog">More details<span class="sr-only">: Sunú</span></button>
+            </div>
+          </li>
+          <li class="work-card" data-details="An AI film studio: characters, wardrobe, music and reels, art directed end to end." data-cta="Read the case study" data-ext="0">
+            <div class="work-card__frame">
+              <div class="work-card__media"><img src="usecases/Never-Was/assets/nw-hero-luchador.webp" alt="Never Was Studios luchador character" loading="lazy"></div>
+              <div class="work-card__overlay">
+                <p class="work-card__brand">Never Was Studios</p>
+                <h3 class="work-card__title"><a class="work-card__link" href="usecases/Never-Was/never-was.html">Movies that were never shot</a></h3>
+                <p class="work-card__result">Live on Instagram since October 2026.</p>
+              </div>
+            </div>
+            <div class="work-card__actions">
+              <a class="work-card__cta" href="usecases/Never-Was/never-was.html">Read the case study <span aria-hidden="true">→</span></a>
+              <button class="work-card__more js-work-more" type="button" aria-haspopup="dialog">More details<span class="sr-only">: Never Was Studios</span></button>
+            </div>
+          </li>
       </ul>
-      <p class="work__more"><a class="arrow-link" href="portfolio/">See every case study, including enterprise work at IBM and Kyndryl <span aria-hidden="true">→</span></a></p>
+      <p class="work__more"><a class="arrow-link" href="portfolio/">See every case study in the portfolio <span aria-hidden="true">→</span></a></p>
     </section>
 
-    <!-- ===================== 7. HOW WE WORK ===================== -->
-    <section class="process section section--dark" id="process" aria-labelledby="process-title">
+    <!-- ===================== 6. HOW WE WORK ===================== -->
+    <section class="process section section--soft" id="process" aria-labelledby="process-title">
       <div class="section-head">
-        <p class="label label--light">How we work</p>
-        <h2 class="display display--md" id="process-title">Four steps. <span class="display__soft-dark js-drift" data-type>It starts with a diagnosis.</span></h2>
+        <p class="label">How we work</p>
+        <h2 class="display display--md" id="process-title">Four steps. <span class="display__soft js-drift" data-type>It starts with a diagnosis.</span></h2>
       </div>
       <ol class="steps">
         <li class="step">
@@ -387,60 +327,7 @@
 
     </section>
 
-    <!-- ===================== 8. WHY D CREATIVE THINKING ===================== -->
-    <section class="why section" id="why" aria-labelledby="why-title">
-      <div class="section-head">
-        <p class="label">Why D Creative Thinking</p>
-        <h2 class="display display--md" id="why-title">Senior hands. <span class="display__soft js-drift" data-type>No handoffs.</span></h2>
-      </div>
-      <div class="reasons">
-        <div class="reason">
-          <h3 class="reason__title">You talk to the person doing the work</h3>
-          <p>No account managers in between. The person in the diagnosis is the person who designs and builds.</p>
-        </div>
-        <div class="reason">
-          <h3 class="reason__title">AI native speed</h3>
-          <p>AI has been part of our practice since late 2022. We design and build with Claude Code and Gemini, so working versions arrive in days, not months. Judgment stays human.</p>
-        </div>
-        <div class="reason">
-          <h3 class="reason__title">Between the US and Mexico</h3>
-          <p>We work with businesses across the US and Mexico, in English and Spanish.</p>
-        </div>
-      </div>
-      <p class="founder">D Creative Thinking is led by Daniel Rojas: 18 years in design, 8 of them in enterprise B2B SaaS, formerly Senior Lead UX Designer at IBM and Kyndryl. <a href="portfolio/">Daniel's portfolio</a></p>
-    </section>
-
-    <!-- ===================== 10. FAQ ===================== -->
-    <section class="faq section" id="faq" aria-labelledby="faq-title">
-      <div class="section-head">
-        <p class="label">FAQ</p>
-        <h2 class="display display--md" id="faq-title">Before you write.</h2>
-      </div>
-      <div class="faq__list">
-        <details class="qa">
-          <summary class="qa__q">How much does it cost?</summary>
-          <div class="qa__a"><p>Every project gets a fixed quote after the diagnosis, so you know the full cost before anything starts. No hourly surprises.</p></div>
-        </details>
-        <details class="qa">
-          <summary class="qa__q">How long does a project take?</summary>
-          <div class="qa__a"><p>A focused website or menu tool usually takes a few weeks. Larger tools and dashboards are planned in phases, each with its own delivery date.</p></div>
-        </details>
-        <details class="qa">
-          <summary class="qa__q">Who owns the website or tool?</summary>
-          <div class="qa__a"><p>You do. Your domain, your content and the code we build for you are yours.</p></div>
-        </details>
-        <details class="qa">
-          <summary class="qa__q">What happens after launch?</summary>
-          <div class="qa__a"><p>We can keep it running for you with a monthly plan for updates and new content, or hand it over with everything your team needs to manage it.</p></div>
-        </details>
-        <details class="qa">
-          <summary class="qa__q">Do you work in Spanish?</summary>
-          <div class="qa__a"><p>Yes. We work in English and Spanish, with businesses in the US and Mexico, and we build bilingual sites and menus.</p></div>
-        </details>
-      </div>
-    </section>
-
-    <!-- ===================== 11. START ===================== -->
+    <!-- ===================== 7. START ===================== -->
     <section class="start" id="start" aria-labelledby="start-title">
       <video class="start__video js-lazy-video" muted loop playsinline webkit-playsinline preload="none" aria-hidden="true">
         <source data-src="assets/video/footer.mp4?v=20261118" type="video/mp4">
@@ -468,10 +355,10 @@
   <footer class="foot">
     <div class="foot__inner">
       <nav class="foot__nav" aria-label="Footer">
-        <a href="#build">What we build</a>
         <a href="#work">Work</a>
         <a href="#process">How we work</a>
-        <a href="#faq">FAQ</a>
+        <a href="what-we-build/">What we build</a>
+        <a href="portfolio/">Portfolio</a>
       </nav>
       <div class="foot__follow">
         <a href="https://www.linkedin.com/in/dcreativethinking/" target="_blank" rel="noopener">LinkedIn<span class="sr-only"> (opens in a new tab)</span></a>
@@ -482,6 +369,18 @@
     </div>
   </footer>
 
-  <script src="js/agency.js?v=20261118x" defer></script>
+  <dialog class="work-modal js-work-modal" aria-labelledby="work-modal-title">
+    <button class="work-modal__close js-work-modal-close" type="button" aria-label="Close">×</button>
+    <div class="work-modal__media"><img class="js-wm-img" alt=""></div>
+    <div class="work-modal__body">
+      <p class="work-modal__brand js-wm-brand"></p>
+      <h2 class="work-modal__title js-wm-title" id="work-modal-title"></h2>
+      <p class="work-modal__result js-wm-result"></p>
+      <p class="work-modal__details js-wm-details"></p>
+      <a class="btn btn--primary work-modal__cta js-wm-cta" href="#"></a>
+    </div>
+  </dialog>
+
+  <script src="js/agency.js?v=20261119f" defer></script>
 </body>
 </html>

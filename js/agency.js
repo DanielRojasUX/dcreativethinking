@@ -1,16 +1,18 @@
-/* D Creative Thinking · agency front page (draft, /agency) v20261118i */
+/* D Creative Thinking · agency site v20261118i */
 (function () {
   "use strict";
 
   var doc = document.documentElement;
   doc.classList.add("js");
+  /* case study breadcrumbs point back to wherever the visitor came from */
+  try { sessionStorage.setItem("dctFrom", "agency"); } catch (e) {}
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
 
   /* ---------- Header: always visible, turns solid after the hero ---------- */
   var top = document.querySelector(".js-top");
   var hero = document.getElementById("hero");
   function onScroll() {
-    top.classList.toggle("is-solid", window.scrollY > (hero ? hero.offsetHeight - 72 : 24));
+    top.classList.toggle("is-solid", !hero || window.scrollY > hero.offsetHeight - 72);
   }
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
@@ -169,6 +171,38 @@
     }, { rootMargin: "600px 0px" });
     vidIo.observe(lazyVid);
     if (reduce.addEventListener) reduce.addEventListener("change", function () { if (reduce.matches) lazyVid.pause(); else if (lazyVid.classList.contains("is-ready")) lazyVid.play(); });
+  }
+
+
+  /* ---------- Work: details modal ---------- */
+  var wm = document.querySelector(".js-work-modal");
+  if (wm && typeof wm.showModal === "function") {
+    var wmOpener = null;
+    var q = function (s) { return wm.querySelector(s); };
+    Array.prototype.forEach.call(document.querySelectorAll(".js-work-more"), function (btn) {
+      btn.addEventListener("click", function () {
+        var card = btn.closest(".work-card");
+        var img = card.querySelector(".work-card__media img");
+        var main = card.querySelector(".work-card__cta");
+        q(".js-wm-img").src = img.currentSrc || img.src;
+        q(".js-wm-img").alt = img.alt;
+        q(".js-wm-brand").textContent = card.querySelector(".work-card__brand").textContent;
+        q(".js-wm-title").textContent = card.querySelector(".work-card__link").firstChild.textContent;
+        q(".js-wm-result").textContent = card.querySelector(".work-card__result").textContent;
+        q(".js-wm-details").textContent = card.getAttribute("data-details");
+        var cta = q(".js-wm-cta");
+        cta.href = main.getAttribute("href");
+        cta.textContent = card.getAttribute("data-cta") + (card.getAttribute("data-ext") === "1" ? " ↗" : " →");
+        if (card.getAttribute("data-ext") === "1") { cta.target = "_blank"; cta.rel = "noopener"; } else { cta.removeAttribute("target"); cta.removeAttribute("rel"); }
+        wmOpener = btn;
+        wm.showModal();
+        document.body.style.overflow = "hidden";
+      });
+    });
+    var closeWm = function () { wm.close(); };
+    q(".js-work-modal-close").addEventListener("click", closeWm);
+    wm.addEventListener("click", function (e) { if (e.target === wm) closeWm(); });
+    wm.addEventListener("close", function () { document.body.style.overflow = ""; if (wmOpener) wmOpener.focus(); });
   }
 
   /* ---------- Reveal on scroll ---------- */
