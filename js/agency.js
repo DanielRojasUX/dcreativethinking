@@ -6,23 +6,13 @@
   doc.classList.add("js");
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
 
-  /* ---------- Header: solid after the hero, hides on scroll down ---------- */
+  /* ---------- Header: always visible, turns solid after the hero ---------- */
   var top = document.querySelector(".js-top");
   var hero = document.getElementById("hero");
-  var lastY = window.scrollY;
   function onScroll() {
-    var y = window.scrollY;
-    var edge = hero ? hero.offsetHeight - 72 : 24;
-    top.classList.toggle("is-solid", y > edge);
-    if (!top.classList.contains("is-open")) {
-      var past = y > edge + 8;
-      top.classList.toggle("is-hidden", past && y > lastY + 4 && !top.contains(document.activeElement));
-      if (y < lastY - 4 || !past) top.classList.remove("is-hidden");
-    }
-    lastY = y;
+    top.classList.toggle("is-solid", window.scrollY > (hero ? hero.offsetHeight - 72 : 24));
   }
   window.addEventListener("scroll", onScroll, { passive: true });
-  top.addEventListener("focusin", function () { top.classList.remove("is-hidden"); });
   onScroll();
 
   /* ---------- Mobile menu: focus trap, Esc closes ---------- */
@@ -182,7 +172,7 @@
   }
 
   /* ---------- Reveal on scroll ---------- */
-  var targets = document.querySelectorAll(".pain, .builds__row, .case, .step, .reason, .qa, .problem__close");
+  var targets = document.querySelectorAll(".pain, .builds__row, .work-card, .step, .reason, .qa, .problem__close");
   if ("IntersectionObserver" in window && !reduce.matches) {
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {

@@ -45,7 +45,7 @@
     "email": "mailto:daniel@dcreativethinking.com",
     "telephone": "+1-801-921-9885",
     "description": "Design and build studio for websites and tools that do real work: ordering menus, quoting flows, dashboards, brands and websites.",
-    "address": { "@type": "PostalAddress", "addressLocality": "Aguascalientes", "addressCountry": "MX" },
+    "address": { "@type": "PostalAddress", "addressCountry": "MX" },
     "areaServed": ["US", "MX"],
     "founder": { "@type": "Person", "name": "Daniel Rojas", "url": "https://dcreativethinking.com/portfolio/" },
     "sameAs": ["https://www.linkedin.com/in/dcreativethinking/", "https://www.instagram.com/dani.el.ux/", "https://www.behance.net/mlkmx"]
@@ -55,7 +55,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Inter+Tight:wght@800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/agency.css?v=20261118j">
+  <link rel="stylesheet" href="css/agency.css?v=20261118x">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -112,17 +112,21 @@
     <!-- ===================== 3. CLIENT STRIP ===================== -->
     <section class="clients" aria-labelledby="clients-title">
       <h2 class="clients__title" id="clients-title">Businesses we build for</h2>
-      <ul class="clients__list">
-        <li class="clients__item"><img class="clients__logo clients__logo--dark" src="assets/img/Logo-IBMKindryl.svg" alt="IBM and Kyndryl" loading="lazy"></li>
+      <ul class="clients__list clients__list--tier1">
+        <li class="clients__item"><img class="clients__logo clients__logo--wide" src="assets/img/clients/client-ibm.png" alt="IBM" loading="lazy"></li>
+        <li class="clients__item"><img class="clients__logo clients__logo--tall" src="assets/img/clients/client-hp.png" alt="Hewlett Packard" loading="lazy"></li>
+        <li class="clients__item"><img class="clients__logo clients__logo--tall" src="assets/img/clients/client-volcom.svg" alt="Volcom" loading="lazy"></li>
+        <li class="clients__item clients__item--swap"><img class="clients__logo clients__logo--tall clients__logo--base" src="assets/img/clients/client-udg.png" alt="Universidad de Guadalajara" loading="lazy"><img class="clients__logo clients__logo--tall clients__logo--color" src="assets/img/clients/client-udg-color.png" alt="" aria-hidden="true" loading="lazy"></li>
+      </ul>
+      <ul class="clients__list clients__list--tier2">
+        <li class="clients__item"><img class="clients__logo clients__logo--wide" src="assets/img/clients/client-livewire.svg" alt="LiveWire" loading="lazy"></li>
+        <li class="clients__item"><img class="clients__logo clients__logo--wide" src="assets/img/clients/client-kyndryl.png" alt="Kyndryl" loading="lazy"></li>
+        <li class="clients__item"><img class="clients__logo clients__logo--wide" src="assets/img/clients/client-arcos.svg" alt="ARCOS" loading="lazy"></li>
         <li class="clients__item"><img class="clients__logo clients__logo--wide" src="assets/img/clients/client-dionnes.svg" alt="Dionne's Catering" loading="lazy"></li>
+        <li class="clients__item"><img class="clients__logo" src="assets/img/clients/client-sunu.svg" alt="Sunú" loading="lazy"></li>
+        <li class="clients__item"><img class="clients__logo clients__logo--tall clients__logo--dark" src="assets/img/logo-nucu.png" alt="NUCU" loading="lazy"></li>
         <li class="clients__item"><img class="clients__logo clients__logo--tall" src="assets/img/clients/client-elotetown.svg" alt="Elote Town" loading="lazy"></li>
         <li class="clients__item"><img class="clients__logo clients__logo--tall" src="assets/img/clients/client-sinaloatown.png" alt="Sinaloa Town" loading="lazy"></li>
-        <li class="clients__item"><img class="clients__logo clients__logo--dark clients__logo--wide" src="usecases/LiveWire/livewire-demo/assets/logo/livewire-full.svg" alt="LiveWire" loading="lazy"></li>
-        <li class="clients__item"><img class="clients__logo clients__logo--tall" src="assets/img/logo-creme.svg" alt="Crème Insurance" loading="lazy"></li>
-        <li class="clients__item"><img class="clients__logo clients__logo--dark clients__logo--tall" src="assets/img/logo-nucu.png" alt="NUCU" loading="lazy"></li>
-        <li class="clients__item"><img class="clients__logo clients__logo--dark" src="assets/img/logo-arcos.svg" alt="ARCOS" loading="lazy"></li>
-        <li class="clients__item"><img class="clients__logo clients__logo--dark" src="assets/img/logo-sunu.svg" alt="Sunú" loading="lazy"></li>
-        <li class="clients__item"><img class="clients__logo clients__logo--dark" src="assets/img/clients/client-wayeb.svg" alt="Wayeb Real Estate" loading="lazy"></li>
       </ul>
 
     </section>
@@ -170,7 +174,7 @@
             <p class="builds__promise">Customers build their order on your menu, and it reaches you complete on WhatsApp.</p>
             <ul class="chips"><li>Bilingual menus</li><li>Order carts</li><li>Pickup times</li><li>Owner edit mode</li></ul>
           </div>
-          <p class="builds__example"><span>Example</span>Menú Vivo for Sinaloa Town</p>
+          <p class="builds__example"><span>Example</span><a href="https://sinaloatown.com" target="_blank" rel="noopener">Menú Vivo for Sinaloa Town<span class="sr-only"> (opens in a new tab)</span></a></p>
         </li>
         <li class="builds__row">
           <span class="builds__num js-odo" aria-hidden="true">02</span>
@@ -179,7 +183,7 @@
             <p class="builds__promise">Leads reach you ready to close, not as a vague "how much?".</p>
             <ul class="chips"><li>Quote flows</li><li>SMS and WhatsApp</li><li>RSVP and guest lists</li><li>Event details</li></ul>
           </div>
-          <p class="builds__example"><span>Example</span>Dionne's Catering, wedding invitations</p>
+          <p class="builds__example"><span>Example</span><a href="https://dionnescatering.com" target="_blank" rel="noopener">Dionne's Catering, wedding invitations<span class="sr-only"> (opens in a new tab)</span></a></p>
         </li>
         <li class="builds__row">
           <span class="builds__num js-odo" aria-hidden="true">03</span>
@@ -188,7 +192,7 @@
             <p class="builds__promise">See your operation in one place and act on it in time.</p>
             <ul class="chips"><li>Live dashboards</li><li>Installable team apps</li><li>Coded prototypes</li></ul>
           </div>
-          <p class="builds__example"><span>Example</span>LiveWire dashboard</p>
+          <p class="builds__example"><span>Example</span><a href="usecases/LiveWire/livewire-dashboard.html">LiveWire dashboard</a></p>
         </li>
         <li class="builds__row">
           <span class="builds__num js-odo" aria-hidden="true">04</span>
@@ -197,7 +201,7 @@
             <p class="builds__promise">A brand and a site that look as good as what you sell.</p>
             <ul class="chips"><li>Identity systems</li><li>Phone first websites</li><li>Product catalogs</li></ul>
           </div>
-          <p class="builds__example"><span>Example</span>Elote Town, By Hands, NUCU</p>
+          <p class="builds__example"><span>Example</span><a href="https://elotetown.com" target="_blank" rel="noopener">Elote Town<span class="sr-only"> (opens in a new tab)</span></a>, <a href="usecases/NUCU-Studio/nucu-studio.html">NUCU</a></p>
         </li>
         <li class="builds__row">
           <span class="builds__num js-odo" aria-hidden="true">05</span>
@@ -206,7 +210,7 @@
             <p class="builds__promise">Product photography, reels and menu screens that keep selling while you work.</p>
             <ul class="chips"><li>AI product photography</li><li>Reels</li><li>Digital signage</li></ul>
           </div>
-          <p class="builds__example"><span>Example</span>Sunú, Elote Town, Red Tacos</p>
+          <p class="builds__example"><span>Example</span><a href="usecases/Sunu-Content/sunu-content.html">Sunú</a>, <a href="usecases/Never-Was/never-was.html">Never Was Studios</a></p>
         </li>
         <li class="builds__row">
           <span class="builds__num js-odo" aria-hidden="true">06</span>
@@ -228,53 +232,128 @@
           <p class="label">Selected work</p>
           <h2 class="display display--md" id="work-title">Real businesses. <span class="display__soft js-drift" data-type>Working tools.</span></h2>
         </div>
-        <p class="section-head__aside">Each project starts with how the business actually runs, then turns that into something customers and staff use every day.</p>
+        <p class="section-head__aside">Live sites you can visit today and case studies that show the thinking behind them.</p>
       </div>
-      <ul class="cases">
-        <li class="case">
-          <p class="case__client">Sinaloa Town · Restaurant, Utah</p>
-          <h3 class="case__title">Menú Vivo: a bilingual menu that takes orders</h3>
-          <p class="case__did">Order cart with spice levels, add ons and pickup time, sent by WhatsApp or text.</p>
-          <p class="case__outcome">Orders arrive complete, with every option, instead of a chain of messages.</p>
-          <a class="arrow-link" href="https://sinaloatown.com" target="_blank" rel="noopener">Visit sinaloatown.com<span class="sr-only"> (opens in a new tab)</span> <span aria-hidden="true">↗</span></a>
+      <ul class="work-grid">
+        <li class="work-card">
+          <div class="work-card__media">
+            <img src="assets/img/work/work-sinaloatown.jpg" alt="Sinaloa Town website preview with the restaurant logo and a seafood platter" loading="lazy">
+            <span class="work-card__tag">Live site</span>
+          </div>
+          <div class="work-card__body">
+            <p class="work-card__client">Sinaloa Town · Restaurant, Utah</p>
+            <h3 class="work-card__title"><a class="work-card__link" href="https://sinaloatown.com" target="_blank" rel="noopener">Menú Vivo: a bilingual menu that takes orders<span class="sr-only"> (opens in a new tab)</span></a></h3>
+            <p class="work-card__did">Order cart with spice levels, add ons and pickup time, sent by WhatsApp or text.</p>
+            <p class="work-card__outcome">Orders arrive complete, with every option, instead of a chain of messages.</p>
+            <span class="work-card__cta" aria-hidden="true">Visit the site ↗</span>
+          </div>
         </li>
-        <li class="case">
-          <p class="case__client">Dionne's Catering · Events, Utah</p>
-          <h3 class="case__title">Digital growth, from search to quote</h3>
-          <p class="case__did">Website, Google Ads, SEO and a quote flow that sends leads straight to SMS or WhatsApp.</p>
-          <p class="case__outcome">Leads now reach the team by text or WhatsApp, ready to quote.</p>
-          <a class="arrow-link" href="https://dionnescatering.com" target="_blank" rel="noopener">Visit dionnescatering.com<span class="sr-only"> (opens in a new tab)</span> <span aria-hidden="true">↗</span></a>
+        <li class="work-card">
+          <div class="work-card__media">
+            <img src="assets/img/work/work-dionnes.jpg" alt="Dionne's Catering catalog cover with a dessert table at an outdoor event" loading="lazy">
+            <span class="work-card__tag">Live site</span>
+          </div>
+          <div class="work-card__body">
+            <p class="work-card__client">Dionne's Catering · Events, Utah</p>
+            <h3 class="work-card__title"><a class="work-card__link" href="https://dionnescatering.com" target="_blank" rel="noopener">Digital growth, from search to quote<span class="sr-only"> (opens in a new tab)</span></a></h3>
+            <p class="work-card__did">Website, online catalog, Google Ads, SEO and a quote flow that sends leads straight to SMS or WhatsApp.</p>
+            <p class="work-card__outcome">Leads now reach the team by text or WhatsApp, ready to quote.</p>
+            <span class="work-card__cta" aria-hidden="true">Visit the site ↗</span>
+          </div>
         </li>
-        <li class="case">
-          <p class="case__client">Elote Town · Restaurant, Utah</p>
-          <h3 class="case__title">A site you can order from</h3>
-          <p class="case__did">Website with DoorDash ordering built in, brand content and in store menu screens.</p>
-          <p class="case__outcome">Customers order online from the same page that tells the brand story.</p>
-          <a class="arrow-link" href="https://elotetown.com" target="_blank" rel="noopener">Visit elotetown.com<span class="sr-only"> (opens in a new tab)</span> <span aria-hidden="true">↗</span></a>
+        <li class="work-card">
+          <div class="work-card__media">
+            <img src="assets/img/work/work-elotetown.png" alt="Elote Town logo with its corn mascot" loading="lazy">
+            <span class="work-card__tag">Live site</span>
+          </div>
+          <div class="work-card__body">
+            <p class="work-card__client">Elote Town · Restaurant, Utah</p>
+            <h3 class="work-card__title"><a class="work-card__link" href="https://elotetown.com" target="_blank" rel="noopener">A site you can order from<span class="sr-only"> (opens in a new tab)</span></a></h3>
+            <p class="work-card__did">Website with DoorDash ordering built in, brand content and in store menu screens.</p>
+            <p class="work-card__outcome">Customers order online from the same page that tells the brand story.</p>
+            <span class="work-card__cta" aria-hidden="true">Visit the site ↗</span>
+          </div>
         </li>
-        <li class="case">
-          <p class="case__client">LiveWire · Data platform</p>
-          <h3 class="case__title">From a static report to a live dashboard</h3>
-          <p class="case__did">A Power BI report replaced by a custom web app shell.</p>
-          <p class="case__outcome">The team reads its numbers in one live view instead of exporting reports.</p>
-          <a class="arrow-link" href="usecases/LiveWire/livewire-dashboard.html">Read the case</a>
+        <li class="work-card">
+          <div class="work-card__media">
+            <img src="usecases/LiveWire/livewire-demo/img/livewire-dasboard-1.webp" alt="LiveWire analytics dashboard screen" loading="lazy">
+            <span class="work-card__tag">Case study</span>
+          </div>
+          <div class="work-card__body">
+            <p class="work-card__client">LiveWire · Electric motorcycles</p>
+            <h3 class="work-card__title"><a class="work-card__link" href="usecases/LiveWire/livewire-dashboard.html">From a static report to a live dashboard</a></h3>
+            <p class="work-card__did">A Power BI report replaced by a custom web app shell and design system.</p>
+            <p class="work-card__outcome">The team reads its numbers in one live view instead of exporting reports.</p>
+            <span class="work-card__cta" aria-hidden="true">Read the case →</span>
+          </div>
         </li>
-        <li class="case">
-          <p class="case__client">By Hands · Furniture, Mexico</p>
-          <h3 class="case__title">A catalog that sells the product</h3>
-          <p class="case__did">Website with a full product collection and AI product photography for every piece.</p>
-          <p class="case__outcome">Every piece in the collection shown with consistent studio photography.</p>
-          <a class="arrow-link" href="https://mueblesbyhands.com" target="_blank" rel="noopener">Visit mueblesbyhands.com<span class="sr-only"> (opens in a new tab)</span> <span aria-hidden="true">↗</span></a>
+        <li class="work-card">
+          <div class="work-card__media">
+            <img src="usecases/Creme-Insurance/creme/img/creme-dashboard.png" alt="Crème Insurance claims dashboard" loading="lazy">
+            <span class="work-card__tag">Case study</span>
+          </div>
+          <div class="work-card__body">
+            <p class="work-card__client">Crème Insurance · Insurance</p>
+            <h3 class="work-card__title"><a class="work-card__link" href="usecases/Creme-Insurance/creme-insurance.html">A claims platform people can actually use</a></h3>
+            <p class="work-card__did">Product design, design system and a coded front end for an insurance claims platform.</p>
+            <p class="work-card__outcome">A clickable product the team can test before investing in the build.</p>
+            <span class="work-card__cta" aria-hidden="true">Read the case →</span>
+          </div>
         </li>
-        <li class="case">
-          <p class="case__client">NUCU · Textile studio, Chiapas</p>
-          <h3 class="case__title">A brand that travels</h3>
-          <p class="case__did">Identity and studio strategy for a fashion and textile brand.</p>
-          <p class="case__outcome">Sold across Mexico and exported to Europe and the US by year two.</p>
-          <a class="arrow-link" href="usecases/NUCU-Studio/nucu-studio.html">Read the case</a>
+        <li class="work-card">
+          <div class="work-card__media">
+            <img src="usecases/NUCU-Studio/assets/nucu-hero.webp" alt="NUCU textile products" loading="lazy">
+            <span class="work-card__tag">Case study</span>
+          </div>
+          <div class="work-card__body">
+            <p class="work-card__client">NUCU · Textile studio, Chiapas</p>
+            <h3 class="work-card__title"><a class="work-card__link" href="usecases/NUCU-Studio/nucu-studio.html">A brand that travels</a></h3>
+            <p class="work-card__did">Identity and studio strategy for a fashion and textile brand.</p>
+            <p class="work-card__outcome">Sold across Mexico and exported to Europe and the US by year two.</p>
+            <span class="work-card__cta" aria-hidden="true">Read the case →</span>
+          </div>
+        </li>
+        <li class="work-card">
+          <div class="work-card__media">
+            <img src="usecases/Hotel-Next/assets/img/HotelNext-hero.webp" alt="Hotel Next digital experience" loading="lazy">
+            <span class="work-card__tag">Case study</span>
+          </div>
+          <div class="work-card__body">
+            <p class="work-card__client">Hotel Next · Hospitality</p>
+            <h3 class="work-card__title"><a class="work-card__link" href="usecases/Hotel-Next/hotel-digital-experience.html">A connected hotel experience</a></h3>
+            <p class="work-card__did">Ecosystem and product design for a hotel guest experience, from booking to room unlock.</p>
+            <p class="work-card__outcome">One journey across the guest app, the hotel and its content tools.</p>
+            <span class="work-card__cta" aria-hidden="true">Read the case →</span>
+          </div>
+        </li>
+        <li class="work-card">
+          <div class="work-card__media">
+            <img src="usecases/Sunu-Content/assets/sn-hero.webp" alt="Sunú pasta dish still from a reel" loading="lazy">
+            <span class="work-card__tag">Case study</span>
+          </div>
+          <div class="work-card__body">
+            <p class="work-card__client">Sunú · Food brand, Mexico</p>
+            <h3 class="work-card__title"><a class="work-card__link" href="usecases/Sunu-Content/sunu-content.html">Reels that sell with no ad budget</a></h3>
+            <p class="work-card__did">AI assisted food reels and stills produced every week for organic social.</p>
+            <p class="work-card__outcome">A steady content engine without paid ads.</p>
+            <span class="work-card__cta" aria-hidden="true">Read the case →</span>
+          </div>
+        </li>
+        <li class="work-card">
+          <div class="work-card__media">
+            <img src="usecases/Never-Was/assets/nw-hero-luchador.webp" alt="Never Was Studios luchador character" loading="lazy">
+            <span class="work-card__tag">Case study</span>
+          </div>
+          <div class="work-card__body">
+            <p class="work-card__client">Never Was Studios · AI film</p>
+            <h3 class="work-card__title"><a class="work-card__link" href="usecases/Never-Was/never-was.html">Movies that were never shot</a></h3>
+            <p class="work-card__did">An AI film studio: characters, wardrobe, music and reels, art directed end to end.</p>
+            <p class="work-card__outcome">Live on Instagram since October 2026.</p>
+            <span class="work-card__cta" aria-hidden="true">Read the case →</span>
+          </div>
         </li>
       </ul>
-      <p class="work__more">Looking for enterprise product work? <a href="portfolio/">See the founder's work at IBM and Kyndryl</a>.</p>
+      <p class="work__more"><a class="arrow-link" href="portfolio/">See every case study, including enterprise work at IBM and Kyndryl <span aria-hidden="true">→</span></a></p>
     </section>
 
     <!-- ===================== 7. HOW WE WORK ===================== -->
@@ -325,7 +404,7 @@
         </div>
         <div class="reason">
           <h3 class="reason__title">Between the US and Mexico</h3>
-          <p>Based in Aguascalientes, working with businesses across the US and Mexico, in English and Spanish.</p>
+          <p>We work with businesses across the US and Mexico, in English and Spanish.</p>
         </div>
       </div>
       <p class="founder">D Creative Thinking is led by Daniel Rojas: 18 years in design, 8 of them in enterprise B2B SaaS, formerly Senior Lead UX Designer at IBM and Kyndryl. <a href="portfolio/">Daniel's portfolio</a></p>
@@ -377,7 +456,7 @@
         </div>
         <p class="start__note">The diagnosis is a short call. You leave with a clear first step, whether or not we work together.</p>
         <ul class="start__facts">
-          <li><span>Studio</span> Aguascalientes, Mexico</li>
+          <li><span>Studio</span> Mexico and the US</li>
           <li><span>Clients</span> Across the US and Mexico</li>
           <li><span>Languages</span> English and Spanish</li>
           <li><span>Contact</span> <a href="mailto:daniel@dcreativethinking.com">daniel@dcreativethinking.com</a></li>
@@ -403,6 +482,6 @@
     </div>
   </footer>
 
-  <script src="js/agency.js?v=20261118j" defer></script>
+  <script src="js/agency.js?v=20261118x" defer></script>
 </body>
 </html>
