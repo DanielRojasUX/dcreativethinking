@@ -416,7 +416,7 @@
       </div>
       <p class="status status--error" id="contactError" role="alert"></p>
       <div class="fallback" id="contactFallback">
-        <a class="btn btn--wa" id="waFallback" href="https://wa.me/18019219885" target="_blank" rel="noopener">Enviar mis respuestas por WhatsApp</a>
+        <a class="btn btn--wa" id="waFallback" href="https://wa.me/13852019909" target="_blank" rel="noopener">Enviar mis respuestas por WhatsApp</a>
         <a class="btn btn--outline" id="mailFallback" href="#">Enviar mis respuestas por correo</a>
       </div>
       <div class="actions">
@@ -725,7 +725,7 @@
         buildAnswers().forEach(function (a) { lines.push(a.pregunta, a.respuesta, ""); });
         $("#mailFallback").href = "mailto:daniel@dcreativethinking.com?subject=" +
           encodeURIComponent(subject) + "&body=" + encodeURIComponent(lines.join("\n"));
-        $("#waFallback").href = "https://wa.me/18019219885?text=" + encodeURIComponent(subject + "\n\n" + lines.join("\n"));
+        $("#waFallback").href = "https://wa.me/13852019909?text=" + encodeURIComponent(subject + "\n\n" + lines.join("\n"));
         $("#contactFallback").classList.add("is-visible");
         btn.textContent = "Intentar otra vez";
       })

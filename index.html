@@ -56,7 +56,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Inter+Tight:wght@800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/agency.css?v=20261119g">
+  <link rel="stylesheet" href="css/agency.css?v=20261119i">
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -88,9 +88,9 @@
 
     <!-- ===================== 2. HERO ===================== -->
     <section class="hero" id="hero" aria-labelledby="hero-title">
-      <video class="hero__video js-hero-video" muted loop playsinline webkit-playsinline preload="auto"
-             poster="assets/img/hero-poster.webp" aria-hidden="true">
-        <source src="assets/video/hero.webm?v=20261024i" type="video/webm">
+      <video class="hero__video js-hero-video" autoplay muted loop playsinline webkit-playsinline preload="metadata"
+             poster="assets/img/hero-poster-frame.webp?v=20261119i" aria-hidden="true">
+        <source src="assets/video/hero-720.mp4?v=20261119i" type="video/mp4" media="(max-width: 900px)">
         <source src="assets/video/hero.mp4?v=20261024i" type="video/mp4">
       </video>
       <div class="hero__scrim" aria-hidden="true"></div>
@@ -329,7 +329,9 @@
 
     <!-- ===================== 7. START ===================== -->
     <section class="start" id="start" aria-labelledby="start-title">
-      <video class="start__video js-lazy-video" muted loop playsinline webkit-playsinline preload="none" aria-hidden="true">
+      <video class="start__video js-lazy-video" muted loop playsinline webkit-playsinline preload="none"
+             poster="assets/img/footer-poster-frame.webp?v=20261119i" aria-hidden="true">
+        <source data-src="assets/video/footer-720.mp4?v=20261119i" type="video/mp4" media="(max-width: 900px)">
         <source data-src="assets/video/footer.mp4?v=20261118" type="video/mp4">
       </video>
       <div class="start__scrim" aria-hidden="true"></div>
@@ -339,7 +341,7 @@
         <p class="start__lead">Tell us how your business runs today. We'll come back with what to build first, and why.</p>
         <div class="start__actions">
           <a class="btn btn--primary" href="mailto:daniel@dcreativethinking.com?subject=Diagnosis">Email us</a>
-          <a class="btn btn--ghost-light" href="https://wa.me/18019219885" target="_blank" rel="noopener">WhatsApp<span class="sr-only"> (opens in a new tab)</span></a>
+          <a class="btn btn--ghost-light" href="https://wa.me/13852019909" target="_blank" rel="noopener">WhatsApp<span class="sr-only"> (opens in a new tab)</span></a>
         </div>
         <p class="start__note">The diagnosis is a short call. You leave with a clear first step, whether or not we work together.</p>
         <ul class="start__facts">
@@ -381,6 +383,6 @@
     </div>
   </dialog>
 
-  <script src="js/agency.js?v=20261119f" defer></script>
+  <script src="js/agency.js?v=20261119i" defer></script>
 </body>
 </html>

@@ -220,6 +220,9 @@ strong { font-weight: 700; }
 }
 .hero__video, .hero__scrim { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -1; }
 .hero__video { object-fit: cover; }
+/* first frame shows instantly, even before the video loads or if it cannot play */
+.hero { background: var(--night) url("../assets/img/hero-poster-frame.webp?v=20261119i") center / cover no-repeat; }
+@media (max-width: 900px) { .hero { background-image: url("../assets/img/hero-poster-frame-mobile.webp?v=20261119i"); } }
 .hero__scrim { background: linear-gradient(90deg, rgba(10,10,10,.88) 0%, rgba(10,10,10,.62) 55%, rgba(10,10,10,.35) 100%), linear-gradient(0deg, rgba(10,10,10,.55), rgba(10,10,10,0) 40%); }
 .hero__grid {
   margin: 0 var(--gutter); width: 100%;
@@ -490,8 +493,8 @@ strong { font-weight: 700; }
 /* ---------- 11. Start ---------- */
 .start { background: var(--night); color: var(--paper); padding: var(--space) 0; position: relative; isolation: isolate; overflow: hidden; }
 .start__video, .start__scrim { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -1; }
-.start__video { object-fit: cover; object-position: 70% 30%; opacity: 0; transition: opacity 1.2s ease; }
-.start__video.is-ready { opacity: 1; }
+.start__video { object-fit: cover; object-position: 70% 30%; }
+.start { background: var(--night) url("../assets/img/footer-poster-frame.webp?v=20261119i") 70% 30% / cover no-repeat; }
 .start__scrim { background: linear-gradient(90deg, rgba(10,10,10,.9) 0%, rgba(10,10,10,.72) 50%, rgba(10,10,10,.35) 100%), linear-gradient(0deg, rgba(10,10,10,.85) 0%, rgba(10,10,10,0) 45%); }
 .start__inner { margin: 0 var(--gutter); }
 .start .display { max-width: 16ch; }
