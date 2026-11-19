@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cuéntame de tu negocio | D Creative Thinking</title>
+<meta name="description" content="Dos minutos para contarme de tu negocio y agendar una llamada.">
+<meta name="robots" content="noindex">
+
+<!-- Link preview -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="D Creative Thinking">
+<meta property="og:title" content="Cuéntame de tu negocio">
+<meta property="og:description" content="Dos minutos para contarme de tu negocio y agendar una llamada.">
+<meta property="og:url" content="https://dcreativethinking.com/research-nov25/">
+<meta property="og:image" content="https://dcreativethinking.com/research-nov25/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://dcreativethinking.com/research-nov25/og.jpg">
+
+<!-- Favicon -->
+<link rel="icon" href="/assets/img/favicon.ico?v=20261024j" sizes="any">
+<link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg?v=20261024j">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/img/favicon-32.png?v=20261024j">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bungee&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --red: #EE2450;
+    --red-dark: #C81640;
+    --ink: #1d1d1f;
+    --gray: #3c3c3c;
+    --muted: #6b6b70;
+    --line: #e4e4e8;
+    --soft: #f6f6f8;
+    --radius: 14px;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    font-family: "DM Sans", system-ui, sans-serif;
+    color: var(--ink);
+    background: #fff;
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    -webkit-font-smoothing: antialiased;
+  }
+  .top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 22px;
+    max-width: 640px;
+    width: 100%;
+    margin: 0 auto;
+  }
+  .brand {
+    font-family: "Bungee", sans-serif;
+    font-size: 15px;
+    color: var(--red);
+    text-decoration: none;
+    letter-spacing: .5px;
+  }
+  .step-count { font-size: 14px; color: var(--muted); }
+  .progress {
+    height: 4px;
+    background: var(--soft);
+    max-width: 640px;
+    width: calc(100% - 44px);
+    margin: 0 auto;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .progress__bar {
+    height: 100%;
+    width: 0;
+    background: var(--red);
+    transition: width .35s ease;
+  }
+  main {
+    flex: 1;
+    width: 100%;
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 28px 22px 40px;
+    display: flex;
+    flex-direction: column;
+  }
+  .screen { display: none; flex-direction: column; flex: 1; animation: in .3s ease; }
+  .screen.is-active { display: flex; }
+  @keyframes in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) {
+    .screen { animation: none; }
+    .progress__bar { transition: none; }
+  }
+
+  h1, h2 {
+    font-family: "Bungee", sans-serif;
+    font-weight: 400;
+    color: var(--red);
+    line-height: 1.12;
+    margin: 0 0 12px;
+  }
+  h1 { font-size: clamp(30px, 8vw, 44px); }
+  h2 { font-size: clamp(22px, 5.6vw, 30px); }
+  h2:focus { outline: none; }
+  .lead { font-size: 18px; color: var(--gray); line-height: 1.5; margin: 0 0 28px; }
+  .hint { font-size: 15px; color: var(--muted); margin: -4px 0 20px; }
+
+  .options { display: grid; gap: 10px; margin: 0; padding: 0; border: 0; }
+  .option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    min-height: 56px;
+    padding: 14px 16px;
+    border: 1.5px solid var(--line);
+    border-radius: var(--radius);
+    background: #fff;
+    font: inherit;
+    font-size: 17px;
+    color: var(--ink);
+    text-align: left;
+    cursor: pointer;
+    transition: border-color .15s, background .15s;
+  }
+  .option:hover { border-color: #c9c9cf; }
+  .option:focus-visible, .btn:focus-visible, .chip:focus-visible, .slot:focus-visible, input:focus-visible {
+    outline: 3px solid rgba(238, 36, 80, .35);
+    outline-offset: 2px;
+  }
+  .option[aria-pressed="true"], .option[aria-checked="true"] {
+    border-color: var(--red);
+    background: #fff3f6;
+  }
+  .option__mark {
+    flex: 0 0 22px;
+    height: 22px;
+    border: 1.5px solid #c9c9cf;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+  }
+  .options--multi .option__mark { border-radius: 6px; }
+  .option[aria-pressed="true"] .option__mark, .option[aria-checked="true"] .option__mark {
+    background: var(--red);
+    border-color: var(--red);
+  }
+  .option[aria-pressed="true"] .option__mark::after, .option[aria-checked="true"] .option__mark::after {
+    content: "";
+    width: 9px;
+    height: 5px;
+    border: 2px solid #fff;
+    border-top: 0;
+    border-right: 0;
+    transform: rotate(-45deg) translate(1px, -1px);
+  }
+
+  .field { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+  .field label { font-size: 15px; font-weight: 500; color: var(--gray); }
+  .field input {
+    font: inherit;
+    font-size: 17px;
+    padding: 14px 16px;
+    border: 1.5px solid var(--line);
+    border-radius: var(--radius);
+    color: var(--ink);
+    background: #fff;
+    width: 100%;
+  }
+  .field input[aria-invalid="true"] { border-color: var(--red); }
+  .field__error { font-size: 14px; color: var(--red-dark); min-height: 0; }
+  .other-input { margin-top: 10px; display: none; }
+  .other-input.is-visible { display: flex; }
+
+  .actions {
+    padding-top: 28px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  .btn {
+    font: inherit;
+    font-weight: 700;
+    font-size: 17px;
+    border-radius: 999px;
+    padding: 15px 26px;
+    border: 0;
+    cursor: pointer;
+    transition: background .15s, opacity .15s;
+  }
+  .btn--primary { background: var(--red); color: #fff; flex: 1; }
+  .btn--primary:hover { background: var(--red-dark); }
+  .btn--primary:disabled { opacity: .4; cursor: not-allowed; }
+  .btn--ghost { background: transparent; color: var(--gray); padding: 15px 14px; }
+  .btn--ghost:hover { color: var(--ink); }
+  .btn[aria-busy="true"] { opacity: .7; cursor: progress; }
+
+  .days {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 2px 2px 10px;
+    margin: 0 -2px 14px;
+    scrollbar-width: none;
+  }
+  .days::-webkit-scrollbar { display: none; }
+  .chip {
+    flex: 0 0 auto;
+    min-width: 76px;
+    padding: 10px 12px;
+    border-radius: 12px;
+    border: 1.5px solid var(--line);
+    background: #fff;
+    font: inherit;
+    text-align: center;
+    cursor: pointer;
+    color: var(--ink);
+  }
+  .chip span { display: block; }
+  .chip__dow { font-size: 13px; color: var(--muted); text-transform: capitalize; }
+  .chip__day { font-size: 20px; font-weight: 700; }
+  .chip__mon { font-size: 13px; color: var(--muted); }
+  .chip[aria-pressed="true"] { border-color: var(--red); background: var(--red); color: #fff; }
+  .chip[aria-pressed="true"] .chip__dow, .chip[aria-pressed="true"] .chip__mon { color: #fff; }
+  .chip:disabled { opacity: .35; cursor: not-allowed; }
+  .day-title { font-size: 16px; font-weight: 700; color: var(--gray); margin: 0 0 10px; }
+  .slots { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  @media (min-width: 480px) { .slots { grid-template-columns: repeat(4, 1fr); } }
+  .slot {
+    padding: 13px 6px;
+    border-radius: 12px;
+    border: 1.5px solid var(--line);
+    background: #fff;
+    font: inherit;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    color: var(--ink);
+  }
+  .slot[aria-pressed="true"] { border-color: var(--red); background: #fff3f6; color: var(--red-dark); font-weight: 700; }
+  .tz { font-size: 14px; color: var(--muted); margin: 14px 0 0; }
+  .status { font-size: 16px; color: var(--gray); line-height: 1.5; }
+  .status--error { color: var(--red-dark); }
+  .loader {
+    width: 28px; height: 28px; border-radius: 50%;
+    border: 3px solid var(--soft); border-top-color: var(--red);
+    animation: spin .8s linear infinite; margin: 30px auto;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .done-card {
+    border: 1.5px solid var(--line);
+    border-radius: var(--radius);
+    padding: 18px;
+    margin: 4px 0 20px;
+    background: var(--soft);
+  }
+  .done-card strong { display: block; font-size: 19px; margin-bottom: 4px; }
+  .done-card span { color: var(--gray); }
+  .actions--stack { flex-direction: column; align-items: stretch; }
+  .success-banner {
+    display: flex; align-items: center; gap: 10px;
+    background: #eefaf2; color: #17643a;
+    border-radius: 12px; padding: 12px 14px; margin: 0 0 22px;
+    font-size: 15px; font-weight: 500;
+  }
+  .success-banner__icon, .success-mark {
+    flex: 0 0 22px; height: 22px; border-radius: 50%; background: #1f9d55; position: relative;
+  }
+  .success-banner__icon::after, .success-mark::after {
+    content: ""; position: absolute; left: 50%; top: 45%;
+    width: 9px; height: 5px; border: 2px solid #fff; border-top: 0; border-right: 0;
+    transform: translate(-50%, -50%) rotate(-45deg);
+  }
+  .success-mark { width: 52px; height: 52px; flex: none; margin: 0 0 16px; background: var(--red); }
+  .success-mark::after { width: 20px; height: 10px; border-width: 3px; }
+  .work-title { font-size: 18px; margin: 30px 0 12px; color: var(--ink); }
+  .work-grid { display: grid; grid-template-columns: 1fr; gap: 10px; align-items: stretch; }
+  @media (min-width: 480px) { .work-grid { grid-template-columns: 1fr 1fr; } }
+  .work-card {
+    display: flex; flex-direction: column; gap: 4px; height: 100%;
+    padding: 16px; border: 1.5px solid var(--line); border-radius: var(--radius);
+    color: var(--ink); text-decoration: none; transition: border-color .15s;
+  }
+  .work-card:hover { border-color: var(--red); }
+  .work-card:focus-visible { outline: 3px solid rgba(238, 36, 80, .35); outline-offset: 2px; }
+  .work-card__tag { font-size: 12px; font-weight: 700; color: var(--red); text-transform: uppercase; letter-spacing: .6px; }
+  .work-card strong { font-size: 17px; }
+  .work-card__desc { font-size: 15px; color: var(--gray); line-height: 1.4; }
+  .work-card__cta { margin-top: auto; padding-top: 10px; font-size: 15px; font-weight: 700; color: var(--red); }
+  .fallback { display: none; margin-top: 12px; }
+  .fallback.is-visible { display: flex; flex-direction: column; gap: 8px; }
+  .fallback .btn { text-align: center; text-decoration: none; }
+  .btn--wa { background: #1fa855; color: #fff; }
+  .btn--wa:hover { background: #178a45; }
+  .btn--outline { background: #fff; color: var(--ink); border: 1.5px solid var(--line); text-align: center; text-decoration: none; }
+  .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
+
+  /* Desktop split: form left, image right */
+  .panel { display: flex; flex-direction: column; flex: 1; min-width: 0; }
+  .art { display: none; }
+  @media (min-width: 1024px) {
+    body { flex-direction: row; }
+    .panel { flex: 1 1 50%; min-height: 100vh; }
+    main { justify-content: center; padding-top: 40px; padding-bottom: 64px; }
+    .screen { flex: 0 0 auto; }
+    .art {
+      display: block;
+      flex: 0 0 50%;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+      overflow: hidden;
+      background: #111;
+    }
+    .art__slide {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      opacity: 0;
+      transition: opacity 1.4s ease;
+    }
+    .art__slide.is-on { opacity: 1; }
+    @media (prefers-reduced-motion: reduce) { .art__slide { transition: none; } }
+    .art::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0 0;
+      height: 40%;
+      background: linear-gradient(to top, rgba(0,0,0,.55), rgba(0,0,0,0));
+    }
+    .art__caption {
+      position: absolute;
+      left: 36px;
+      bottom: 32px;
+      z-index: 1;
+      font-family: "Bungee", sans-serif;
+      font-size: 18px;
+      color: #fff;
+      letter-spacing: .5px;
+    }
+    .art__caption::before {
+      content: "";
+      display: block;
+      width: 40px;
+      height: 4px;
+      background: var(--red);
+      margin-bottom: 12px;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="panel">
+
+<header class="top">
+  <a class="brand" href="https://dcreativethinking.com">D Creative Thinking</a>
+  <span class="step-count" id="stepCount" aria-live="polite"></span>
+</header>
+<div class="progress" aria-hidden="true"><div class="progress__bar" id="progressBar"></div></div>
+
+<main id="app">
+  <!-- Intro -->
+  <section class="screen is-active" data-screen="intro">
+    <h1>Cuéntame de tu negocio</h1>
+    <p class="lead">Son unas preguntas rápidas, casi todas de tocar una opción. Te toma unos 2 minutos y al final eliges día y hora para platicar.</p>
+    <div class="actions">
+      <button class="btn btn--primary" type="button" id="startBtn">Empezar</button>
+    </div>
+  </section>
+
+  <!-- Question screens are injected here -->
+  <div id="questions" style="display: contents;"></div>
+
+  <!-- Contact -->
+  <section class="screen" data-screen="contact" aria-labelledby="contactTitle">
+    <h2 id="contactTitle" tabindex="-1">¿Cómo te contacto?</h2>
+    <p class="hint">Con esto te mando la confirmación de la llamada.</p>
+    <form id="contactForm" novalidate>
+      <div class="field">
+        <label for="f_nombre">Tu nombre</label>
+        <input id="f_nombre" name="nombre" autocomplete="name" required>
+        <span class="field__error" id="e_nombre"></span>
+      </div>
+      <div class="field">
+        <label for="f_negocio">Nombre de tu negocio o proyecto</label>
+        <input id="f_negocio" name="negocio" autocomplete="organization" required>
+        <span class="field__error" id="e_negocio"></span>
+      </div>
+      <div class="field">
+        <label for="f_whatsapp">WhatsApp</label>
+        <input id="f_whatsapp" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" placeholder="33 1234 5678" required>
+        <span class="field__error" id="e_whatsapp"></span>
+      </div>
+      <div class="field">
+        <label for="f_email">Correo</label>
+        <input id="f_email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="tu@correo.com" required>
+        <span class="field__error" id="e_email"></span>
+      </div>
+      <div class="hp" aria-hidden="true">
+        <label for="f_website">Website</label>
+        <input id="f_website" name="website" tabindex="-1" autocomplete="off">
+      </div>
+      <p class="status status--error" id="contactError" role="alert"></p>
+      <div class="fallback" id="contactFallback">
+        <a class="btn btn--wa" id="waFallback" href="https://wa.me/18019219885" target="_blank" rel="noopener">Enviar mis respuestas por WhatsApp</a>
+        <a class="btn btn--outline" id="mailFallback" href="#">Enviar mis respuestas por correo</a>
+      </div>
+      <div class="actions">
+        <button class="btn btn--ghost" type="button" data-back>Atrás</button>
+        <button class="btn btn--primary" type="submit" id="contactSubmit">Enviar mis respuestas</button>
+      </div>
+    </form>
+  </section>
+
+  <!-- Booking -->
+  <section class="screen" data-screen="booking" aria-labelledby="bookingTitle">
+    <div class="success-banner" role="status">
+      <span class="success-banner__icon" aria-hidden="true"></span>
+      <span>Listo, ya recibí tus respuestas. Ahora elige cuándo platicamos.</span>
+    </div>
+    <h2 id="bookingTitle" tabindex="-1">Elige día y hora</h2>
+    <p class="hint">La llamada dura unos 30 minutos.</p>
+    <div id="bookingBody">
+      <div class="loader" role="status"><span class="sr-only">Cargando horarios</span></div>
+    </div>
+    <p class="status status--error" id="bookingError" role="alert"></p>
+    <div class="actions actions--stack">
+      <button class="btn btn--primary" type="button" id="bookBtn" disabled>Confirmar llamada</button>
+      <button class="btn btn--ghost" type="button" id="skipBooking">Prefiero que me escribas tú</button>
+    </div>
+  </section>
+
+  <!-- Done -->
+  <section class="screen" data-screen="done" aria-labelledby="doneTitle">
+    <div class="success-mark" aria-hidden="true"></div>
+    <h2 id="doneTitle" tabindex="-1">Gracias, ya quedó</h2>
+    <div class="done-card" id="doneBooked">
+      <strong id="doneWhen"></strong>
+      <span>Te llegó una invitación de calendario a <b id="doneEmail"></b>. Te marco por WhatsApp a esa hora.</span>
+    </div>
+    <div class="done-card" id="doneNoCall" hidden>
+      <strong>Recibí tus respuestas</strong>
+      <span>Te escribo por WhatsApp en estos días para ponernos de acuerdo.</span>
+    </div>
+    <p class="status" id="doneChange">Si necesitas cambiar la hora, responde a la invitación o escríbeme a <a href="mailto:daniel@dcreativethinking.com">daniel@dcreativethinking.com</a>.</p>
+
+    <h3 class="work-title">Mientras, échale un ojo a mi trabajo</h3>
+    <div class="work-grid">
+      <a class="work-card" href="https://elotetown.com" target="_blank" rel="noopener">
+        <span class="work-card__tag">Restaurante</span>
+        <strong>Elote Town</strong>
+        <span class="work-card__desc">Página con menú y pedidos en línea conectados a DoorDash.</span>
+        <span class="work-card__cta">Ver sitio</span>
+      </a>
+      <a class="work-card" href="https://sinaloatown.com" target="_blank" rel="noopener">
+        <span class="work-card__tag">Restaurante</span>
+        <strong>Sinaloa Town</strong>
+        <span class="work-card__desc">Menú bilingüe pensado para pedir rápido desde el celular.</span>
+        <span class="work-card__cta">Ver sitio</span>
+      </a>
+      <a class="work-card" href="https://mueblesbyhands.com" target="_blank" rel="noopener">
+        <span class="work-card__tag">Productos</span>
+        <strong>By Hands</strong>
+        <span class="work-card__desc">Muebles artesanales con fotografía de producto hecha con IA.</span>
+        <span class="work-card__cta">Ver sitio</span>
+      </a>
+      <a class="work-card" href="https://minibitesutah.com" target="_blank" rel="noopener">
+        <span class="work-card__tag">Eventos</span>
+        <strong>Mini Bites</strong>
+        <span class="work-card__desc">Catering de snacks para eventos, con cotización directa.</span>
+        <span class="work-card__cta">Ver sitio</span>
+      </a>
+      <a class="work-card" href="https://dcreativethinking.com/usecases/Sunu-Content/sunu-content.html" target="_blank" rel="noopener">
+        <span class="work-card__tag">Caso de estudio</span>
+        <strong>Sunú</strong>
+        <span class="work-card__desc">Contenido en video para un negocio de comida local.</span>
+        <span class="work-card__cta">Ver caso</span>
+      </a>
+      <a class="work-card" href="https://dcreativethinking.com/agency/" target="_blank" rel="noopener">
+        <span class="work-card__tag">Todo mi trabajo</span>
+        <strong>D Creative Thinking</strong>
+        <span class="work-card__desc">Más proyectos, casos de estudio y cómo trabajo.</span>
+        <span class="work-card__cta">Ver sitio</span>
+      </a>
+    </div>
+  </section>
+</main>
+</div>
+
+<aside class="art" aria-hidden="true">
+  <img class="art__slide is-on" data-src="/usecases/Never-Was/assets/nw-hero-luchador.webp" alt="" decoding="async" style="object-position:50% 35%">
+  <img class="art__slide" data-src="/usecases/Color-Mapping/assets/img/Color-Bottonm-her.webp" alt="" decoding="async" style="object-position:68% 50%">
+  <img class="art__slide" data-src="/usecases/Never-Was/assets/nw-vest-editorial.webp" alt="" decoding="async" style="object-position:45% 50%">
+  <img class="art__slide" data-src="/usecases/Hotel-Next/assets/img/HotelNext-hero.webp" alt="" decoding="async" style="object-position:50% 50%">
+  <img class="art__slide" data-src="/usecases/Sunu-Content/assets/sn-hero.webp" alt="" decoding="async" style="object-position:42% 50%">
+  <img class="art__slide" data-src="/usecases/Color-Mapping/assets/img/Colors-hero.webp" alt="" decoding="async" style="object-position:60% 50%">
+  <img class="art__slide" data-src="/usecases/Never-Was/assets/nw-huipil.webp" alt="" decoding="async" style="object-position:50% 50%">
+  <img class="art__slide" data-src="/usecases/Hotel-Next/assets/img/HotelNext-wentwell.webp" alt="" decoding="async" style="object-position:55% 50%">
+</aside>
+
+<script>
+(function () {
+  "use strict";
+
+  // Pega aquí la URL del Web App de Apps Script (termina en /exec)
+  var API_URL = "https://script.google.com/macros/s/AKfycbxUTomgLMHqtIG8lXs_TvpUjBqXQ_ursD5V9qP_lyvVsRJuDJStL6Bikdgif4o8GM0e/exec";
+
+  var QUESTIONS = [
+    { id: "estado", q: "¿Tu negocio ya está operando?", type: "single",
+      options: ["Sí, ya está funcionando", "Está por arrancar", "Todavía es una idea"] },
+    { id: "antiguedad", q: "¿Cuánto tiempo lleva operando?", type: "single",
+      options: ["Menos de 6 meses", "6 meses a 1 año", "1 a 3 años", "Más de 3 años"],
+      showIf: function (a) { return a.estado === "Sí, ya está funcionando"; } },
+    { id: "oferta", q: "¿Qué ofreces?", type: "single",
+      options: ["Productos", "Servicios", "Las dos cosas"] },
+    { id: "giro", q: "¿De qué giro es?", type: "single", other: true,
+      options: ["Comida o bebidas", "Tienda o venta de productos", "Belleza o cuidado personal", "Salud o bienestar",
+                "Reparaciones, oficios o mantenimiento", "Eventos", "Educación o clases",
+                "Profesionista independiente", "Proyecto creativo", "Otro"] },
+    { id: "canales", q: "¿Dónde te encuentran hoy tus clientes?", type: "multi", hint: "Puedes elegir varias.",
+      options: ["Facebook", "Instagram", "WhatsApp", "TikTok", "Google Maps", "De boca en boca", "Ya tengo página web"] },
+    { id: "dolor", q: "¿Qué es lo que más tiempo te quita con tus clientes?", type: "multi", other: true, hint: "Puedes elegir varias.",
+      options: ["Contestar las mismas preguntas", "Tomar pedidos", "Agendar citas", "Pasar precios o cotizar",
+                "Mandar fotos del catálogo", "Cobrar", "Otro"] },
+    { id: "una_cosa", q: "Si tu página pudiera hacer una sola cosa por ti, ¿cuál sería?", type: "single", other: true,
+      options: ["Que me encuentren más", "Que me hagan pedidos", "Que me agenden", "Que vean productos y precios sin preguntarme",
+                "Que me vea más profesional", "Otro"] },
+    { id: "material", q: "¿Tienes logo y fotos de tu negocio?", type: "single",
+      options: ["Sí, todo", "Algo", "Nada todavía"] },
+    { id: "urgencia", q: "¿Para cuándo te gustaría tenerla?", type: "single",
+      options: ["Lo antes posible", "Este mes", "Sin prisa"] }
+  ];
+
+  var answers = {};
+  var others = {};
+  var history = ["intro"];
+  var contact = null;
+  var leadId = null;
+  var selectedDay = null;
+  var selectedSlot = null;
+  var slotData = null;
+
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+
+  // ---------- Build question screens ----------
+  var qWrap = $("#questions");
+  QUESTIONS.forEach(function (item) {
+    var sec = document.createElement("section");
+    sec.className = "screen";
+    sec.dataset.screen = item.id;
+    sec.setAttribute("aria-labelledby", "t_" + item.id);
+    var multi = item.type === "multi";
+    var html = '<h2 id="t_' + item.id + '" tabindex="-1">' + item.q + "</h2>";
+    if (item.hint) html += '<p class="hint">' + item.hint + "</p>";
+    html += '<div class="options' + (multi ? " options--multi" : "") + '" role="group" aria-labelledby="t_' + item.id + '">';
+    item.options.forEach(function (opt) {
+      html += '<button type="button" class="option" aria-pressed="false" data-value="' + opt + '">' +
+              '<span class="option__mark" aria-hidden="true"></span><span>' + opt + "</span></button>";
+    });
+    html += "</div>";
+    if (item.other) {
+      html += '<div class="field other-input" data-other><label for="o_' + item.id + '">¿Cuál?</label>' +
+              '<input id="o_' + item.id + '" maxlength="120"></div>';
+    }
+    var needsNext = true;
+    html += '<div class="actions"><button class="btn btn--ghost" type="button" data-back>Atrás</button>' +
+            (needsNext ? '<button class="btn btn--primary" type="button" data-next disabled>Siguiente</button>' : "") +
+            "</div>";
+    sec.innerHTML = html;
+    qWrap.appendChild(sec);
+    wireQuestion(sec, item);
+  });
+
+  function wireQuestion(sec, item) {
+    var multi = item.type === "multi";
+    var nextBtn = $("[data-next]", sec);
+    var otherBox = $("[data-other]", sec);
+    var otherInput = otherBox ? $("input", otherBox) : null;
+
+    function refresh() {
+      var val = answers[item.id];
+      var hasOther = multi ? (val || []).indexOf("Otro") > -1 : val === "Otro";
+      if (otherBox) {
+        otherBox.classList.toggle("is-visible", hasOther);
+      }
+      if (nextBtn) {
+        var ok = multi ? (val && val.length > 0) : !!val;
+        if (hasOther && otherInput && !otherInput.value.trim()) ok = false;
+        nextBtn.disabled = !ok;
+      }
+    }
+
+    $$(".option", sec).forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var v = btn.dataset.value;
+        if (multi) {
+          var arr = answers[item.id] || [];
+          var i = arr.indexOf(v);
+          if (i > -1) arr.splice(i, 1); else arr.push(v);
+          answers[item.id] = arr;
+          btn.setAttribute("aria-pressed", i > -1 ? "false" : "true");
+          refresh();
+        } else {
+          answers[item.id] = v;
+          $$(".option", sec).forEach(function (b) { b.setAttribute("aria-pressed", b === btn ? "true" : "false"); });
+          refresh();
+          if (v === "Otro" && otherInput) { otherInput.focus(); }
+        }
+      });
+    });
+    if (otherInput) {
+      otherInput.addEventListener("input", function () { others[item.id] = otherInput.value.trim(); refresh(); });
+      otherInput.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" && nextBtn && !nextBtn.disabled) { e.preventDefault(); goNext(); }
+      });
+    }
+    if (nextBtn) nextBtn.addEventListener("click", goNext);
+  }
+
+  // ---------- Navigation ----------
+  function visibleQuestions() {
+    return QUESTIONS.filter(function (q) { return !q.showIf || q.showIf(answers); });
+  }
+  function flow() {
+    return ["intro"].concat(visibleQuestions().map(function (q) { return q.id; }), ["contact", "booking", "done"]);
+  }
+  function current() { return history[history.length - 1]; }
+
+  function show(id) {
+    $$(".screen").forEach(function (s) { s.classList.toggle("is-active", s.dataset.screen === id); });
+    var f = flow();
+    var qIds = visibleQuestions().map(function (q) { return q.id; });
+    var total = qIds.length + 1; // questions + contact
+    var idx = qIds.indexOf(id);
+    var pos = idx > -1 ? idx + 1 : (id === "contact" ? total : null);
+    $("#stepCount").textContent = pos ? pos + " de " + total : "";
+    var pct = id === "intro" ? 0 : id === "booking" ? 96 : id === "done" ? 100 : Math.round((pos / total) * 90);
+    $("#progressBar").style.width = pct + "%";
+    var heading = $('.screen[data-screen="' + id + '"] h2');
+    if (heading) heading.focus({ preventScroll: true });
+    window.scrollTo(0, 0);
+  }
+
+  function goNext() {
+    var f = flow();
+    var next = f[f.indexOf(current()) + 1];
+    // Clear answer for skipped conditional questions
+    QUESTIONS.forEach(function (q) { if (q.showIf && !q.showIf(answers)) delete answers[q.id]; });
+    history.push(next);
+    show(next);
+  }
+  function goBack() {
+    if (history.length > 1) { history.pop(); show(current()); }
+  }
+
+  $("#startBtn").addEventListener("click", goNext);
+  $$("[data-back]").forEach(function (b) { b.addEventListener("click", goBack); });
+
+  // ---------- Contact ----------
+  function setErr(name, msg) {
+    var input = $("#f_" + name);
+    $("#e_" + name).textContent = msg || "";
+    input.setAttribute("aria-invalid", msg ? "true" : "false");
+    if (msg) input.setAttribute("aria-describedby", "e_" + name); else input.removeAttribute("aria-describedby");
+  }
+
+  $("#contactForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var data = {
+      nombre: $("#f_nombre").value.trim(),
+      negocio: $("#f_negocio").value.trim(),
+      whatsapp: $("#f_whatsapp").value.trim(),
+      email: $("#f_email").value.trim(),
+      website: $("#f_website").value
+    };
+    var firstBad = null;
+    var digits = data.whatsapp.replace(/\D/g, "");
+    var checks = {
+      nombre: data.nombre ? "" : "Escribe tu nombre.",
+      negocio: data.negocio ? "" : "Escribe el nombre de tu negocio o proyecto.",
+      whatsapp: digits.length >= 10 ? "" : "Revisa tu número, deben ser al menos 10 dígitos.",
+      email: /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(data.email) ? "" : "Revisa tu correo."
+    };
+    Object.keys(checks).forEach(function (k) {
+      setErr(k, checks[k]);
+      if (checks[k] && !firstBad) firstBad = k;
+    });
+    if (firstBad) { $("#f_" + firstBad).focus(); return; }
+
+    contact = data;
+    var btn = $("#contactSubmit");
+    btn.setAttribute("aria-busy", "true");
+    btn.disabled = true;
+    $("#contactError").textContent = "";
+
+    post({ action: "lead", answers: buildAnswers(), contact: contact })
+      .then(function (res) {
+        leadId = res.leadId || null;
+        $("#contactFallback").classList.remove("is-visible");
+        btn.textContent = "Enviar mis respuestas";
+        history.push("booking");
+        show("booking");
+        loadSlots();
+      })
+      .catch(function () {
+        $("#contactError").textContent = "No se pudo enviar. Intenta otra vez o mándame tus respuestas por WhatsApp o correo.";
+        var subject = "Mis respuestas: " + contact.negocio;
+        var lines = ["Nombre: " + contact.nombre, "Negocio: " + contact.negocio,
+                     "WhatsApp: " + contact.whatsapp, "Correo: " + contact.email, ""];
+        buildAnswers().forEach(function (a) { lines.push(a.pregunta, a.respuesta, ""); });
+        $("#mailFallback").href = "mailto:daniel@dcreativethinking.com?subject=" +
+          encodeURIComponent(subject) + "&body=" + encodeURIComponent(lines.join("\n"));
+        $("#waFallback").href = "https://wa.me/18019219885?text=" + encodeURIComponent(subject + "\n\n" + lines.join("\n"));
+        $("#contactFallback").classList.add("is-visible");
+        btn.textContent = "Intentar otra vez";
+      })
+      .then(function () {
+        btn.removeAttribute("aria-busy");
+        btn.disabled = false;
+      });
+  });
+
+  function buildAnswers() {
+    return visibleQuestions().map(function (q) {
+      var v = answers[q.id];
+      var list = Array.isArray(v) ? v.slice() : [v];
+      if (others[q.id]) list = list.map(function (x) { return x === "Otro" ? "Otro: " + others[q.id] : x; });
+      return { id: q.id, pregunta: q.q, respuesta: list.join(", ") };
+    });
+  }
+
+  // ---------- Booking ----------
+  function loadSlots() {
+    var body = $("#bookingBody");
+    body.innerHTML = '<div class="loader" role="status"><span class="sr-only">Cargando horarios</span></div>';
+    $("#bookingError").textContent = "";
+    get({ action: "slots" })
+      .then(function (res) {
+        slotData = res.days || [];
+        renderBooking();
+      })
+      .catch(function () {
+        body.innerHTML = '<p class="status status--error">No pude cargar los horarios.</p>' +
+          '<div class="actions" style="padding-top:12px"><button class="btn btn--ghost" type="button" id="retrySlots">Intentar otra vez</button></div>';
+        $("#retrySlots").addEventListener("click", loadSlots);
+      });
+  }
+
+  function renderBooking() {
+    var body = $("#bookingBody");
+    var available = slotData.filter(function (d) { return d.slots.length; });
+    if (!available.length) {
+      body.innerHTML = '<p class="status">Ya no me quedan horarios libres esta semana. Ya tengo tus datos y te escribo por WhatsApp para ponernos de acuerdo.</p>';
+      $("#bookBtn").style.display = "none";
+      return;
+    }
+    if (!selectedDay || !slotData.some(function (d) { return d.date === selectedDay && d.slots.length; })) {
+      selectedDay = available[0].date;
+    }
+    var html = '<div class="days" role="group" aria-label="Día">';
+    slotData.forEach(function (d) {
+      html += '<button type="button" class="chip" data-day="' + d.date + '" aria-pressed="' + (d.date === selectedDay) + '"' +
+              (d.slots.length ? "" : " disabled") + ' aria-label="' + d.label + (d.slots.length ? "" : ", sin horarios") + '">' +
+              '<span class="chip__dow">' + d.dow + '</span><span class="chip__day">' + d.day + '</span><span class="chip__mon">' + d.mon + "</span></button>";
+    });
+    html += "</div>";
+    var day = slotData.filter(function (d) { return d.date === selectedDay; })[0];
+    html += '<p class="day-title">' + day.label + "</p>";
+    html += '<div class="slots" role="group" aria-label="Hora">';
+    day.slots.forEach(function (s) {
+      html += '<button type="button" class="slot" data-start="' + s.start + '" aria-pressed="' + (selectedSlot && selectedSlot.start === s.start) + '">' + s.label + "</button>";
+    });
+    html += "</div>";
+    html += '<p class="tz">Horario del centro de México.</p>';
+    body.innerHTML = html;
+
+    $$(".chip", body).forEach(function (c) {
+      c.addEventListener("click", function () {
+        selectedDay = c.dataset.day;
+        selectedSlot = null;
+        $("#bookBtn").disabled = true;
+        renderBooking();
+        var again = $('.chip[data-day="' + selectedDay + '"]');
+        if (again) again.focus();
+      });
+    });
+    $$(".slot", body).forEach(function (b) {
+      b.addEventListener("click", function () {
+        var s = day.slots.filter(function (x) { return x.start === b.dataset.start; })[0];
+        selectedSlot = { start: s.start, label: day.label + ", " + s.label };
+        $$(".slot", body).forEach(function (x) { x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
+        $("#bookBtn").disabled = false;
+      });
+    });
+  }
+
+  $("#bookBtn").addEventListener("click", function () {
+    if (!selectedSlot) return;
+    var btn = $("#bookBtn");
+    btn.disabled = true;
+    btn.setAttribute("aria-busy", "true");
+    $("#bookingError").textContent = "";
+    post({ action: "book", start: selectedSlot.start, leadId: leadId, contact: contact, answers: buildAnswers() })
+      .then(function (res) {
+        finish(res.label || selectedSlot.label);
+      })
+      .catch(function (err) {
+        if (err && err.code === "taken") {
+          $("#bookingError").textContent = "Alguien acaba de tomar ese horario. Elige otro, por favor.";
+          selectedSlot = null;
+          loadSlots();
+        } else {
+          $("#bookingError").textContent = "No se pudo agendar. Intenta otra vez.";
+          btn.disabled = false;
+        }
+      })
+      .then(function () { btn.removeAttribute("aria-busy"); });
+  });
+
+  $("#skipBooking").addEventListener("click", function () { finish(null); });
+
+  function finish(label) {
+    var first = (contact.nombre || "").split(" ")[0];
+    $("#doneTitle").textContent = "Gracias, " + first + ", ya quedó";
+    $("#doneBooked").hidden = !label;
+    $("#doneChange").hidden = !label;
+    $("#doneNoCall").hidden = !!label;
+    if (label) {
+      $("#doneWhen").textContent = label;
+      $("#doneEmail").textContent = contact.email;
+    }
+    history = ["done"]; // no going back after finishing
+    show("done");
+  }
+
+  // ---------- Network ----------
+  function handle(r) {
+    return r.json().then(function (j) {
+      if (!j.ok) { var e = new Error(j.error || "error"); e.code = j.code; throw e; }
+      return j;
+    });
+  }
+  function post(payload) {
+    // text/plain keeps this a simple request (no CORS preflight) for Apps Script
+    return fetch(API_URL, { method: "POST", body: JSON.stringify(payload) }).then(handle);
+  }
+  function get(params) {
+    var q = Object.keys(params).map(function (k) { return k + "=" + encodeURIComponent(params[k]); }).join("&");
+    return fetch(API_URL + "?" + q).then(handle);
+  }
+
+  // ---------- Desktop slideshow ----------
+  (function slideshow() {
+    var mq = window.matchMedia("(min-width: 1024px)");
+    var slides = $$(".art__slide");
+    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var i = 0, timer = null, started = false;
+    function load(img) { if (img && !img.src) img.src = img.dataset.src; }
+    function next() {
+      var n = (i + 1) % slides.length;
+      var img = slides[n];
+      load(img);
+      var swap = function () {
+        slides[i].classList.remove("is-on");
+        img.classList.add("is-on");
+        i = n;
+        load(slides[(i + 1) % slides.length]); // preload the following one
+      };
+      if (img.complete && img.naturalWidth) swap(); else img.addEventListener("load", swap, { once: true });
+    }
+    function start() {
+      if (!mq.matches || started) return;
+      started = true;
+      load(slides[0]);
+      load(slides[1]);
+      if (!reduce) timer = setInterval(function () { if (!document.hidden) next(); }, 8000);
+    }
+    start();
+    if (mq.addEventListener) mq.addEventListener("change", start); else mq.addListener(start);
+  })();
+
+  show("intro");
+})();
+</script>
+</body>
+</html>
