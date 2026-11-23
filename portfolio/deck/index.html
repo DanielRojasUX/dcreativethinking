@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Daniel Rojas · Product Design Case Studies</title>
+<meta name="description" content="Daniel Rojas, Lead UX and Product Designer. Case studies in navigation, dashboards, field check-in and event operations.">
+<link rel="canonical" href="https://dcreativethinking.com/portfolio/deck/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="D Creative Thinking">
+<meta property="og:url" content="https://dcreativethinking.com/portfolio/deck/">
+<meta property="og:title" content="Daniel Rojas · Product Design Case Studies">
+<meta property="og:description" content="Navigation, dashboards, field check-in and event operations, presented as a zoomable deck.">
+<meta property="og:image" content="https://dcreativethinking.com/portfolio/deck/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Daniel Rojas · Product Design Case Studies">
+<meta name="twitter:description" content="Navigation, dashboards, field check-in and event operations, presented as a zoomable deck.">
+<meta name="twitter:image" content="https://dcreativethinking.com/portfolio/deck/assets/og.jpg">
+<meta name="theme-color" content="#FF124B">
+<link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="assets/icons/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="icon" href="assets/icons/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+<link rel="preload" href="assets/fonts/lato-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/deck.css">
+<link rel="stylesheet" href="assets/css/ema.css">
+</head>
+<body>
+<main id="stage" aria-roledescription="presentation">
+  <div id="world"></div>
+  <div id="pins" aria-hidden="true"></div>
+  <button id="settings-btn" type="button" aria-label="Animation settings" aria-expanded="false" aria-controls="settings">
+    <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M19.4 13a7.5 7.5 0 0 0 0-2l2-1.6a.5.5 0 0 0 .1-.6l-1.9-3.3a.5.5 0 0 0-.6-.2l-2.4 1a7.4 7.4 0 0 0-1.7-1L14.5 2.7a.5.5 0 0 0-.5-.4h-3.8a.5.5 0 0 0-.5.4l-.4 2.6a7.4 7.4 0 0 0-1.7 1l-2.4-1a.5.5 0 0 0-.6.2L2.7 8.8a.5.5 0 0 0 .1.6l2 1.6a7.5 7.5 0 0 0 0 2l-2 1.6a.5.5 0 0 0-.1.6l1.9 3.3c.1.2.4.3.6.2l2.4-1c.5.4 1.1.7 1.7 1l.4 2.6c0 .2.2.4.5.4h3.8c.3 0 .5-.2.5-.4l.4-2.6a7.4 7.4 0 0 0 1.7-1l2.4 1c.2.1.5 0 .6-.2l1.9-3.3a.5.5 0 0 0-.1-.6zM12 15.5a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7z"/></svg>
+  </button>
+  <section id="settings" aria-label="Animation settings">
+    <h2>Motion</h2>
+    <label for="s-speed">Speed <output for="s-speed"></output></label>
+    <input id="s-speed" data-k="speed" type="range" min="0.5" max="2" step="0.05">
+    <label for="s-ease">Ease <output for="s-ease"></output></label>
+    <input id="s-ease" data-k="ease" type="range" min="1" max="5" step="1">
+    <label for="s-settle">Pause between zoom and move <output for="s-settle"></output></label>
+    <input id="s-settle" data-k="settle" type="range" min="0" max="1500" step="100">
+    <label class="chk"><input id="s-acc" data-k="accents" type="checkbox"> Slide accents</label>
+    <div class="foot"><button class="reset" type="button">Reset motion</button><button class="reset clear-seen" type="button">Clear seen slides</button></div>
+  </section>
+  <nav id="nav" aria-label="Deck map">
+    <button class="map" type="button" aria-expanded="false" aria-controls="deck-tree" aria-label="Deck map"><i></i><i></i><i></i></button>
+    <div class="panel" id="deck-tree"><div class="tree"></div></div>
+    <div class="flys"></div>
+  </nav>
+</main>
+
+<!-- ================= Case Studies index ================= -->
+<template id="t-cases" data-bg="#FCFCFC">
+  
+  <div class="cs-block" data-focus><div class="letter">Case</div><div class="letter">Studies</div></div>
+  <ol class="cs-list">
+    <li><h3>1 - Navigating Seamlessly</h3><p>Creating navigation patterns to streamline how users explore a platform, improving discoverability, consistency</p></li>
+    <li><h3>2 - Landing Better</h3><p>Rethinking User-Platform Relations to Enhance Interactions with New Access Points</p></li>
+    <li><h3>3 - Check-in Experience</h3><p>Simplifying crew verification to reduce delays and keep check-in reliable, connected or offline</p></li>
+    <li><h3>4 - From Sale to Service</h3><p>One source of truth for every event, so what the client pays for is exactly what the kitchen prepares</p></li>
+  </ol>
+</template>
+
+<!-- ================= EMA ================= -->
+<template id="t-ema" data-bg="#FFFFFF">
+  
+  <div class="big-title letter" style="top:367px;font-size:102px;line-height:122px">Dionne's Catering</div>
+  <div class="big-title letter" data-focus style="top:497px;font-size:124.7px;line-height:150px">Event Management App</div>
+</template>
+
+<template id="t-ema-context" data-bg="#FFFFFF">
+  
+  <header class="hd"><span class="kicker">Dionne's Catering</span><span class="title">Event Management App</span><span class="sub">Context</span></header>
+  <div class="body" style="top:420px">
+    <ul>
+      <li>Dionne's Catering is a family catering business in Utah County, serving weddings, social celebrations and corporate events.</li>
+      <li>I started working with them in 2023 on their branding and website. As demand grew, the bottleneck moved from marketing to operations.</li>
+      <li>Every event lived in four disconnected tools: Word quotes, Square invoices, an Excel tracker and Google Calendar.</li>
+      <li>The goal: what the client confirms and pays for is exactly what the kitchen prepares, without anyone typing an event twice.</li>
+    </ul>
+  </div>
+</template>
+
+<template id="t-ema-problem" data-bg="#FFFFFF">
+  
+  <header class="hd"><span class="kicker">Dionne's Catering</span><span class="title" data-focus>Event Management App</span><span class="sub">Problem Definition</span></header>
+  <div class="body" style="top:400px">
+    <p class="lead">Every event passes through three people and four tools:</p>
+    <ul class="sub-ul">
+      <li><b>Client</b> receives a Word quote, then pays a Square invoice</li>
+      <li><b>Sales</b> types the same event into Square, the tracker and the calendar</li>
+      <li><b>Production</b> reads the calendar as its only source of truth</li>
+    </ul>
+    <p class="lead">Across every booking, the event was:</p>
+    <ul class="sub-ul">
+      <li><b>Manual</b>: the same details typed up to four times</li>
+      <li><b>Unconfirmed</b>: unpaid events could reach the calendar and paid ones could be missed</li>
+      <li><b>Silent</b>: nothing confirmed that production had seen a new or changed event</li>
+    </ul>
+    <p class="lead">The result: logistics risk surfaced on event day, when it costs the most.</p>
+  </div>
+</template>
+
+<template id="t-ema-statement" data-bg="#FFFFFF">
+  
+  <header class="hd"><span class="kicker">Dionne's Catering</span><span class="title">Event Management App</span><span class="sub">Problem Statement</span></header>
+  <div class="body statement">
+    <p>Sales and production need a single, shared record of every event, so that what the client confirms and pays for is exactly what the kitchen prepares, because today the same event is typed into disconnected tools and nobody is notified when it changes.</p>
+    <p>Solving this removes logistics errors at the source, gives sales its time back for selling and gives the owner a real view of the pipeline.</p>
+  </div>
+</template>
+
+<template id="t-ema-req" data-bg="#FFFFFF">
+  
+  <header class="hd"><span class="kicker">Dionne's Catering</span><span class="title">Event Management App</span><span class="sub">Requirements assessment</span></header>
+  <div class="req">
+    <div class="rh"><span>Focus Area</span><span>Initial Understanding</span></div>
+    <div class="rr"><b>System Context</b><p>Quotes in Word, invoices and payments in Square, the pipeline in an Excel tracker and the production schedule in Google Calendar.</p></div>
+    <div class="rr"><b>Current Constraints</b><p>A small team working from their phones, no budget for native apps, and payments must land in the business's own account.</p></div>
+    <div class="rr"><b>Assumptions</b><p>Most logistics errors start when event details are copied between tools, not when they are first captured.</p></div>
+    <div class="rr"><b>Success Criteria</b><p>Every paid event reaches the production calendar on its own, with no retyping and a confirmed acknowledgement from both teams.</p></div>
+    <div class="rr"><b>Risks Identified</b><p>Payment notifications failing or arriving twice, calendar sync breaking, and text messages not reaching clients.</p></div>
+  </div>
+</template>
+
+<template id="t-ema-people" data-bg="#FFFFFF">
+  
+  <header class="hd"><span class="kicker">Dionne's Catering</span><span class="title">Event Management App</span><span class="sub">Diagnosis - <span>Turning Insights into People</span></span></header>
+  <div class="people">
+    <div class="pp"><i style="background:var(--client)">C</i><div><b>Client</b><h4>Goal / Motivation</h4><p>Book the event with confidence and know exactly what was agreed.</p><h4>Main Frustration</h4><p>Details scattered across texts, quotes and invoices.</p></div></div>
+    <div class="pp"><i style="background:var(--sales)">S</i><div><b>Sales Lead</b><h4>Goal / Motivation</h4><p>Close events fast and hand them off without errors.</p><h4>Main Frustration</h4><p>Typing the same event into four different tools.</p></div></div>
+    <div class="pp"><i style="background:var(--prod)">K</i><div><b>Kitchen Lead</b><h4>Goal / Motivation</h4><p>Know every confirmed event early, with its final details.</p><h4>Main Frustration</h4><p>Changes that never reach the kitchen.</p></div></div>
+    <div class="pp"><i style="background:var(--ink)">O</i><div><b>Owner</b><h4>Goal / Motivation</h4><p>See what is booked, paid and pending without asking anyone.</p><h4>Main Frustration</h4><p>No single view of the pipeline or the revenue.</p></div></div>
+  </div>
+</template>
+
+<template id="t-ema-current" data-bg="#FFFFFF">
+  
+  <header class="hd"><span class="kicker">Dionne's Catering</span><span class="title">Event Management App</span><span class="sub">Diagnosis - <span>Current <u>Flow</u></span></span></header>
+  <svg class="flow" viewBox="0 0 1920 1080" aria-label="Current flow">
+    <defs><marker id="ar1" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="12" markerHeight="12" orient="auto"><path d="M1 1 L10 6 L1 11" fill="none" stroke="#757575" stroke-width="2"/></marker>
+    <marker id="ar1r" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="12" markerHeight="12" orient="auto"><path d="M1 1 L10 6 L1 11" fill="none" stroke="#FF124B" stroke-width="2"/></marker></defs>
+    <g class="n"><circle cx="230" cy="560" r="85"/><text x="230" y="560">Inquiry</text></g>
+    <path class="e" d="M318 560 H402" marker-end="url(#ar1)"/>
+    <g class="n"><rect x="410" y="485" width="190" height="150" rx="6"/><text x="505" y="548">Tasting</text><text x="505" y="576" class="s">texts and calls</text></g>
+    <path class="e" d="M603 560 H687" marker-end="url(#ar1)"/>
+    <g class="n bad"><rect x="695" y="485" width="190" height="150" rx="6"/><text x="790" y="548">Quote</text><text x="790" y="576" class="s">Word document</text></g>
+    <path class="e" d="M888 560 H972" marker-end="url(#ar1)"/>
+    <g class="n bad"><rect x="980" y="485" width="190" height="150" rx="6"/><text x="1075" y="548">Invoice</text><text x="1075" y="576" class="s">Square</text></g>
+    <path class="e" d="M1173 560 H1250" marker-end="url(#ar1)"/>
+    <g class="n"><path d="M1355 455 L1460 560 L1355 665 L1250 560 Z"/><text x="1355" y="560">Paid?</text></g>
+    <path class="e" d="M1460 560 H1538" marker-end="url(#ar1)"/>
+    <g class="n bad"><rect x="1546" y="485" width="190" height="150" rx="6"/><text x="1641" y="548">Calendar</text><text x="1641" y="576" class="s">typed by hand</text></g>
+    <path class="e red" d="M1641 638 V760 H1170" marker-end="url(#ar1r)"/>
+    <g class="n bad"><rect x="980" y="700" width="190" height="120" rx="6"/><text x="1075" y="752">Tracker</text><text x="1075" y="780" class="s">Excel, by hand</text></g>
+    <path class="e" d="M1075 820 V890 H780" marker-end="url(#ar1)"/>
+    <g class="n"><circle cx="700" cy="890" r="78"/><text x="700" y="890">Event day</text></g>
+    <path class="e" d="M1355 455 V400 H505 V482" marker-end="url(#ar1)" stroke-dasharray="8 8"/>
+    <text x="930" y="388" class="s">not paid: back to follow up by text</text>
+    <g class="tag" transform="translate(705 460)"><rect width="170" height="34" rx="17"/><text x="85" y="17">typed 1 of 4</text></g>
+    <g class="tag" transform="translate(990 460)"><rect width="170" height="34" rx="17"/><text x="85" y="17">typed 2 of 4</text></g>
+    <g class="tag" transform="translate(1506 460)"><rect width="270" height="34" rx="17"/><text x="135" y="17">typed 3 of 4 · can be missed</text></g>
+    <g class="tag" transform="translate(1180 690)"><rect width="170" height="34" rx="17"/><text x="85" y="17">typed 4 of 4</text></g>
+    
+    <g class="tag dark" transform="translate(560 988)"><rect width="280" height="34" rx="17"/><text x="140" y="17">no one confirms they saw it</text></g>
+  </svg>
+</template>
+
+<template id="t-ema-proposed" data-bg="#FFFFFF">
+  
+  <header class="hd"><span class="kicker">Dionne's Catering</span><span class="title">Event Management App</span><span class="sub">Solution Projection - <span>Proposed <u>Flow</u></span></span></header>
+  <svg class="flow" viewBox="0 0 1920 1080" aria-label="Proposed flow">
+    <defs><marker id="ar2" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="12" markerHeight="12" orient="auto"><path d="M1 1 L10 6 L1 11" fill="none" stroke="#3DA5F4" stroke-width="2"/></marker>
+    <marker id="ar2g" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="12" markerHeight="12" orient="auto"><path d="M1 1 L10 6 L1 11" fill="none" stroke="#757575" stroke-width="2"/></marker>
+    <marker id="ar2t" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="12" markerHeight="12" orient="auto"><path d="M1 1 L10 6 L1 11" fill="none" stroke="#4FD1C5" stroke-width="2"/></marker></defs>
+    <g class="n"><circle cx="215" cy="600" r="80"/><text x="215" y="588">Inquiry</text><text x="215" y="616" class="s">and tasting</text></g>
+    <path class="e" d="M298 600 H368" marker-end="url(#ar2g)"/>
+    <g class="n blue"><rect x="376" y="525" width="200" height="150" rx="6"/><text x="476" y="585">New Event</text><text x="476" y="613" class="s">captured once</text></g>
+    <path class="e blue" d="M579 600 H649" marker-end="url(#ar2)"/>
+    <g class="n blue"><rect x="657" y="525" width="200" height="150" rx="6"/><text x="757" y="585">Contract link</text><text x="757" y="613" class="s">sent by text</text></g>
+    <path class="e blue" d="M860 600 H930" marker-end="url(#ar2)"/>
+    <g class="n teal" data-focus><rect x="938" y="525" width="200" height="150" rx="6"/><text x="1038" y="585">The Contract</text><text x="1038" y="613" class="s">confirm and pay</text></g>
+    <path class="e teal" d="M1141 600 H1205" marker-end="url(#ar2t)"/>
+    <g class="n teal"><path d="M1320 485 L1435 600 L1320 715 L1205 600 Z"/><text x="1320" y="588">Paid</text><text x="1320" y="616">in full?</text></g>
+    <path class="e teal" d="M1435 600 H1495" marker-end="url(#ar2t)"/>
+    <g class="n blue"><rect x="1503" y="525" width="200" height="150" rx="6"/><text x="1603" y="573">Scheduled</text><text x="1603" y="601" class="s">calendar, Square</text><text x="1603" y="627" class="s">and tracker</text></g>
+    <path class="e" d="M1603 678 V870 H1488" marker-end="url(#ar2g)"/>
+    <g class="n blue"><rect x="1280" y="810" width="200" height="120" rx="6"/><text x="1380" y="860">Acknowledged</text><text x="1380" y="888" class="s">sales and kitchen</text></g>
+    <path class="e" d="M1277 870 H1150" marker-end="url(#ar2g)"/>
+    <g class="n"><circle cx="1068" cy="870" r="78"/><text x="1068" y="870">EVENT DAY</text></g>
+    <path class="e" d="M1320 485 V430 H757 V522" marker-end="url(#ar2g)" stroke-dasharray="8 8"/>
+    <text x="1040" y="418" class="s">deposit only: automatic reminders</text>
+    <g class="note" transform="translate(376 720)"><text>• One record per event</text><text y="30">• Statuses and history per event</text></g>
+    <g class="note" transform="translate(938 720)"><text>• Client confirms every detail</text><text y="30">• Pays in the same screen</text></g>
+    <g class="note" transform="translate(1625 730)"><text>• No retyping,</text><text y="30">  no missed events</text></g>
+  </svg>
+</template>
+
+<template id="t-ema-backbone" data-bg="#FFFFFF">
+  
+  <header class="hd"><span class="kicker">Dionne's Catering</span><span class="title">Event Management App</span><span class="sub">Solution Projection - <span>The Event <u>Backbone</u></span></span></header>
+  <div class="bb">
+    <div class="bb-client"><span class="lbl">Client Card</span><b>María G.</b><p>Contact, notes and the list of their events</p></div>
+    <div class="bb-events">
+      <div class="ev">
+        <div class="ev-h"><b>Wedding · June 14</b><span class="chip resch">Rescheduled ×1</span></div>
+        <ol class="states">
+          <li class="ok">Draft</li><li class="ok">Quote sent</li><li class="ok">Contract signed</li><li class="ok">Deposit paid</li><li class="ok">Paid in full</li><li class="ok now">Scheduled</li><li>Completed</li>
+        </ol>
+        <p class="hist">History: date moved from June 7 to June 14 · reason: venue change</p>
+      </div>
+      <div class="ev">
+        <div class="ev-h"><b>Anniversary · Sept 20</b></div>
+        <ol class="states">
+          <li class="ok">Draft</li><li class="ok">Quote sent</li><li class="ok now">Contract signed</li><li>Deposit paid</li><li>Paid in full</li><li>Scheduled</li><li>Completed</li>
+        </ol>
+        <p class="hist">History: quote sent Aug 2 · contract signed Aug 5</p>
+      </div>
+    </div>
+    <div class="bb-rules">
+      <div><span class="chip grey">Not closed</span><p>Cancelled before any payment. Never reaches the calendar.</p></div>
+      <div><span class="chip dark">Cancelled</span><p>Cancelled after a payment. The calendar entry turns grey and reads CANCELLED.</p></div>
+      <div><span class="chip resch">Rescheduled ×N</span><p>A tag, not a status. Every move keeps its reason from a fixed list.</p></div>
+    </div>
+  </div>
+</template>
+
+<template id="t-ema-contract" data-bg="#FFFFFF">
+  
+  <header class="hd"><span class="kicker">Dionne's Catering</span><span class="title">Event Management App</span><span class="sub">Solution Projection - <span>The <u>Contract</u></span></span></header>
+  <div class="ct">
+    <div class="phone">
+      <div class="scr">
+        <div class="ph-top" style="background:var(--client)"><span>Dionne's Catering</span><b>Your event contract</b></div>
+        <div class="ph-body">
+          <div class="fld"><span>Date and time</span><b>Sat, June 14 · 5:00 PM</b></div>
+          <div class="fld"><span>Address</span><b>Thanksgiving Point, Lehi</b></div>
+          <div class="fld"><span>Service</span><b>Grazing table + dessert bar · 150 guests</b></div>
+          <div class="fld"><span>Setup details</span><b>Serve on site · arrive 3:30 PM</b></div>
+          <div class="sum"><span>Total</span><b>$3,450.00</b></div>
+          <div class="sum s2"><span>Deposit due today</span><b>$1,725.00</b></div>
+          <label class="agree"><i></i>I confirm these details</label>
+          <div class="btn">Confirm and pay</div>
+        </div>
+      </div>
+    </div>
+    <div class="ct-notes">
+      <h3>The highest value screen in the system</h3>
+      <ul>
+        <li>The client confirms date, time, address, service and setup details in one place.</li>
+        <li>Payment happens on the same screen, straight to the business's own account.</li>
+        <li>The confirmed payment schedules the event in the calendar, Square and the tracker.</li>
+        <li>Opened from a secure link sent by text. No account, no app to install.</li>
+      </ul>
+    </div>
+  </div>
+</template>
+
+<template id="t-ema-ack" data-bg="#FFFFFF">
+  
+  <header class="hd"><span class="kicker">Dionne's Catering</span><span class="title">Event Management App</span><span class="sub">Solution Projection - <span>Acknowledgement</span></span></header>
+  <svg class="flow" viewBox="0 0 1920 1080" aria-label="Acknowledgement flow">
+    <defs><marker id="ar3" viewBox="0 0 12 12" refX="10" refY="6" markerWidth="12" markerHeight="12" orient="auto"><path d="M1 1 L10 6 L1 11" fill="none" stroke="#757575" stroke-width="2"/></marker></defs>
+    <g class="n teal"><path d="M285 465 L390 570 L285 675 L180 570 Z"/><text x="285" y="558">Paid</text><text x="285" y="586">in full</text></g>
+    <path class="e" d="M392 570 H470" marker-end="url(#ar3)"/>
+    <g class="n blue"><rect x="478" y="495" width="220" height="150" rx="6"/><text x="588" y="555">Push to</text><text x="588" y="583">Sales + Kitchen</text></g>
+    <path class="e" d="M701 570 H780" marker-end="url(#ar3)"/>
+    <g class="n"><path d="M890 460 L1000 570 L890 680 L780 570 Z"/><text x="890" y="558">Both</text><text x="890" y="586">confirmed?</text></g>
+    <path class="e" d="M1002 570 H1560" marker-end="url(#ar3)"/>
+    <text x="1280" y="550" class="s">yes</text>
+    <g class="n"><circle cx="1645" cy="570" r="80"/><text x="1645" y="570">READY</text></g>
+    <path class="e" d="M890 682 V760" marker-end="url(#ar3)"/>
+    <text x="910" y="725" class="s" text-anchor="start">no</text>
+    <g class="n blue"><rect x="790" y="768" width="200" height="110" rx="6"/><text x="890" y="815">Reminder</text><text x="890" y="843" class="s">to the same role</text></g>
+    <path class="e" d="M993 823 H1063" marker-end="url(#ar3)"/>
+    <g class="n blue"><rect x="1071" y="768" width="220" height="110" rx="6"/><text x="1181" y="815">Cross notify</text><text x="1181" y="843" class="s">the other role</text></g>
+    <path class="e" d="M1294 823 H1364" marker-end="url(#ar3)"/>
+    <g class="n red"><rect x="1372" y="768" width="220" height="110" rx="6"/><text x="1482" y="815">Critical email</text><text x="1482" y="843" class="s">to the owner</text></g>
+    <path class="e" d="M1482 765 V715 H955 L932 692" marker-end="url(#ar3)" stroke-dasharray="8 8"/><text x="1220" y="700" class="s">still waits for both acknowledgements</text>
+    <g class="note" transform="translate(180 760)"><text>• Triggered only when the event is paid</text><text y="30">  in full, never at the deposit</text><text y="80">• Escalation warns, it never cancels</text><text y="110">  or changes anything</text></g>
+  </svg>
+</template>
+
+<template id="t-ema-edge" data-bg="#FFFFFF">
+  
+  <header class="hd"><span class="kicker">Dionne's Catering</span><span class="title">Event Management App</span><span class="sub">Iteration and Testing - <span>Edge Cases</span></span></header>
+  <div class="edge">
+    <div class="legend"><span><i class="safe"></i>Technical safeguard · 15</span><span><i class="dec"></i>Decided with the owner · 9</span></div>
+    <div class="cols">
+      <section><h4>Payments</h4><ul><li class="safe">Duplicate payment notice</li><li class="safe">Missed payment notice</li><li class="dec">Bank transfer fails</li><li class="dec">Payment made outside EMA</li><li class="safe">Amount differs from quote</li><li class="dec">Refund or chargeback</li><li class="safe">Card declined</li></ul></section>
+      <section><h4>Changes after contract</h4><ul><li class="dec">Date, guests, menu or address change</li><li class="dec">Short notice booking</li><li class="safe">Event closes with a balance due</li><li class="dec">Day already at capacity</li><li class="safe">Quote expires</li></ul></section>
+      <section><h4>Calendar sync</h4><ul><li class="safe">Calendar write fails</li><li class="safe">Event edited directly in Calendar</li><li class="safe">Calendar connection expires</li></ul></section>
+      <section><h4>Messaging</h4><ul><li class="safe">Text not delivered</li><li class="dec">Client opts out of texts</li><li class="safe">Push not delivered</li><li class="safe">Signing code not received</li></ul></section>
+      <section><h4>Time and timers</h4><ul><li class="safe">Daylight saving and time zones</li><li class="safe">Quiet hours for reminders</li></ul></section>
+      <section><h4>People and operations</h4><ul><li class="dec">Salesperson out of office</li><li class="dec">Manual override by the owner</li><li class="safe">Duplicate client</li></ul></section>
+    </div>
+  </div>
+</template>
+
+<template id="t-ema-lofi" data-bg="#FFFFFF">
+  
+  <header class="hd"><span class="kicker">Dionne's Catering</span><span class="title">Event Management App</span><span class="sub">Iteration and Testing - <span>Low-Fi</span></span></header>
+  <div class="lofi">
+    <figure><div class="phone sm"><div class="scr"><div class="bar" style="background:#F08A24">EMA · Sales</div><div class="wf"><h5>New event</h5><i></i><i></i><i class="s"></i><i></i><i class="s"></i><span class="b" style="background:var(--sales)">Send contract</span></div></div></div><figcaption><b>Sales</b> captures the event once</figcaption></figure>
+    <figure><div class="phone sm"><div class="scr"><div class="bar" style="background:#34C759">Messages</div><div class="wf msg"><p class="in">Hi María! Your event contract is ready: dionnescatering.com/c/8K2</p><p class="out">Thank you!</p></div></div></div><figcaption><b>Client</b> gets a secure link by text</figcaption></figure>
+    <figure><div class="phone sm"><div class="scr"><div class="bar" style="background:var(--client)">The Contract</div><div class="wf"><h5>Confirm and pay</h5><i></i><i></i><i></i><i class="s"></i><span class="b" style="background:var(--client)">Confirm and pay</span></div></div></div><figcaption><b>Client</b> confirms details and pays</figcaption></figure>
+    <figure><div class="phone sm"><div class="scr"><div class="bar" style="background:#4285F4">Google Calendar</div><div class="wf cal"><span>SAT 14</span><p style="border-color:#34A853">Wedding · María G. · 150 guests</p><p class="g">CANCELLED · Office lunch</p></div></div></div><figcaption><b>Calendar</b> fills itself on payment</figcaption></figure>
+    <figure><div class="phone sm"><div class="scr"><div class="bar" style="background:var(--prod)">EMA · Kitchen</div><div class="wf"><h5>New paid event</h5><i></i><i class="s"></i><i></i><span class="b" style="background:var(--prod)">Acknowledge</span></div></div></div><figcaption><b>Kitchen</b> acknowledges it</figcaption></figure>
+    <figure><div class="phone sm"><div class="scr"><div class="bar" style="background:#0A64C9">Outlook</div><div class="wf"><h5>Critical: not acknowledged</h5><i></i><i class="s"></i><i></i><i class="s"></i></div></div></div><figcaption><b>Owner</b> gets warned, nothing breaks</figcaption></figure>
+  </div>
+  <p class="lofi-note">Every interface keeps its own color, so each screen is recognizable at a glance during reviews.</p>
+</template>
+
+<template id="t-ema-final" data-bg="#FFFFFF">
+  
+  <header class="hd"><span class="kicker">Dionne's Catering</span><span class="title">Event Management App</span><span class="sub">Final Thoughts - <span>One Event, One Source of Truth</span></span></header>
+  <div class="body final">
+    <ul>
+      <li>Replaced four disconnected tools with one event record that writes to payments, calendar and tracker</li>
+      <li>0 paid events missing from the production calendar</li>
+      <li>100% of paid in full events acknowledged by sales and kitchen</li>
+      <li>Every cancellation and reschedule traceable in the event's own history</li>
+      <li>Revenue grew from ~$150K to $260K+ a year, with capacity for up to 20 events per week</li>
+    </ul>
+  </div>
+</template>
+
+<script src="assets/js/tree.js"></script>
+<script src="assets/js/deck.js"></script>
+</body>
+</html>
