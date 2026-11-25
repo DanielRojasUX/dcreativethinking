@@ -576,6 +576,14 @@ body.dark-theme { --surface: #181818; }
    ========================================= */
 .mark-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: clamp(12px, 1.6vw, 24px); }
 .mark-grid--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+/* Logo process: from source pattern to mark, one row of five steps */
+.mark-grid--5 { grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.mark-tile__stage--process img { width: 58%; height: 58%; object-fit: contain; display: block; }
+.mark-origin { margin-bottom: clamp(48px, 6vw, 96px); }
+.mark-origin .display { margin: 0 0 clamp(20px, 2.4vw, 32px); }
+.mark-origin .lead { max-width: none; margin-bottom: clamp(24px, 3vw, 40px); }
+@media (max-width: 960px) { .mark-grid--5 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .mark-grid--5 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .mark-tile { margin: 0; }
 .mark-tile__stage {
   display: grid; place-items: center; aspect-ratio: 1 / 1; overflow: hidden;
