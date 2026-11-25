@@ -320,19 +320,19 @@ main img:not(.no-lightbox):hover { filter: brightness(0.94); }
   z-index: 2000; opacity: 0; pointer-events: none; transition: opacity 0.25s ease;
 }
 #lightbox.active { opacity: 1; pointer-events: auto; }
-#lightbox img { max-width: 85%; max-height: 85vh; object-fit: contain; cursor: zoom-out; border: none; box-shadow: 0 10px 40px rgba(0,0,0,0.5); }
-#lightbox-close { position: absolute; top: 20px; right: 30px; color: #fff; font-size: 2.5rem; font-weight: bold; cursor: pointer; background: none; border: none; z-index: 2010; }
+/* One fixed stage for every image (2026-11-02): same frame as the depth modal, image fitted, never cropped */
+#lightbox img { width: calc(100vw - 2 * var(--modal-inset)); height: calc(100dvh - 2 * var(--modal-inset)); max-width: none; max-height: none; object-fit: contain; cursor: zoom-out; border: none; box-shadow: none; }
+#lightbox-close { position: absolute; top: calc(var(--modal-inset) + 8px); right: calc(var(--modal-inset) + 8px); color: #fff; font-size: 2.5rem; font-weight: bold; cursor: pointer; background: none; border: none; z-index: 2010; }
 .lightbox-nav {
   position: absolute; top: 50%; transform: translateY(-50%);
   background: rgba(255,255,255,0.05); color: white; border: none;
   font-size: 2.5rem; padding: 1rem 1.5rem; cursor: pointer; transition: background 0.2s; z-index: 2010;
 }
 .lightbox-nav:hover { background: rgba(255,255,255,0.2); }
-#lightbox-prev { left: 20px; }
-#lightbox-next { right: 20px; }
+#lightbox-prev { left: calc(var(--modal-inset) + 8px); }
+#lightbox-next { right: calc(var(--modal-inset) + 8px); }
 @media (max-width: 768px) {
   .lightbox-nav { padding: 0.5rem 1rem; font-size: 1.5rem; }
-  #lightbox img { max-width: 95%; }
 }
 
 /* =========================================
@@ -524,10 +524,12 @@ body.dark-theme { --surface: #181818; }
    so reading continues without empty columns.
    ========================================= */
 .stack__intro {
-  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr);
-  gap: clamp(20px, 4vw, 64px); align-items: end;
+  display: grid; grid-template-columns: minmax(0, 1fr);
+  gap: clamp(32px, 4vw, 56px); align-items: start;   /* title on top, text full width below (Daniel, 2026-11-24) */
 }
 .stack__intro .display { margin: 0; }
+.stack__intro > .points { margin-top: 0; }   /* the list's top rule sits on the title's top edge */
+.stack__intro .lead { max-width: none; }   /* text runs the full content width under the title */
 .stack__feature {
   display: grid; grid-template-columns: minmax(0, 58fr) minmax(0, 42fr);
   gap: clamp(24px, 4vw, 64px); align-items: center;
@@ -746,6 +748,9 @@ body.dark-theme { --surface: #181818; }
 
 /* One figure under a stack feature runs full width */
 .stack__row--1 { grid-template-columns: minmax(0, 1fr); }
+/* Standard (Daniel, 2026-11-24): a single image row is always centered; an image narrower than the column sits in the middle */
+.stack__row--1 { justify-items: center; }
+.stack__row--1 > .figure { width: 100%; margin-inline: auto; }
 
 /* =========================================
    COLOR CARDS (locked pattern for every brand color on a case study)
@@ -773,3 +778,88 @@ body.dark-theme { --surface: #181818; }
 .stack__row--flow { display: flex; gap: clamp(16px, 2vw, 32px); align-items: flex-start; }
 .stack__row--flow > .figure { flex: var(--ar, 1) 1 0; min-width: 0; }
 @media (max-width: 560px) { .stack__row--flow { flex-direction: column; } .stack__row--flow > .figure { flex: none; width: 100%; } }
+
+/* =========================================
+   DEPTH MODAL: "summary on the page, depth in slides" (added 2026-10-28)
+   Each section reads complete on the page. A "View more: <Section>" button
+   opens a native <dialog> split into slides, one idea per slide.
+   Behaviour lives in js/case-depth.js.
+   ========================================= */
+.depth__open { margin-top: clamp(32px, 3.6vw, 48px); align-self: flex-start; justify-self: start; width: auto; }
+.depth__open svg { width: 18px; height: 18px; }
+.depth__open:focus-visible, .depth__close:focus-visible, .depth__step:focus-visible { outline: 2px solid var(--cherry); outline-offset: 3px; }
+.depth {
+  border: 1px solid var(--rule); padding: 0; margin: auto;
+  /* Sized to its content (Daniel, 2026-11-24): width up to 920, height follows the tallest slide between 420 and 640, so it never jumps between slides */
+  width: min(920px, calc(100vw - 2 * max(16px, var(--modal-inset)))); min-width: min(320px, 100vw);
+  height: fit-content; min-height: min(420px, 100dvh);   /* fit-content: a fixed dialog with height auto would stretch to the full screen */
+  max-width: none; max-height: min(640px, calc(100dvh - 2 * max(16px, var(--modal-inset))));
+  --depth-pad: clamp(20px, 3.2vw, 44px);
+  background: var(--paper); color: var(--ink);
+}
+.depth[open] { display: flex; flex-direction: column; }
+.depth::backdrop { background: rgba(0, 0, 0, 0.62); }
+.depth__head {
+  display: flex; align-items: flex-start; justify-content: space-between; gap: 1rem;
+  padding: clamp(20px, 3vw, 32px) var(--depth-pad) 0;
+}
+.depth__title { font-size: clamp(1.8rem, 3.4vw, 2.8rem); margin-top: 0.85rem; }
+.depth__close, .depth__step {
+  width: 44px; height: 44px; flex-shrink: 0; display: grid; place-items: center; cursor: pointer;
+}
+.depth__close { border: 1px solid var(--rule); background: none; color: var(--ink); }
+.depth__close:hover { background: var(--cherry); border-color: var(--cherry); color: #fff; }
+.depth__close svg, .depth__step svg { width: 20px; height: 20px; }
+.depth__slides {
+  flex: 1 1 auto; min-height: 0; overflow-y: auto; touch-action: pan-y;
+  display: grid;   /* every slide shares one cell: the box takes the tallest slide's height */
+  padding: clamp(16px, 2.4vw, 28px) var(--depth-pad);
+}
+.depth__slide { grid-area: 1 / 1; }
+.depth__slide[hidden] { display: block; visibility: hidden; }   /* keeps its height, hidden from view and screen readers */
+.depth__slide-title {
+  font-family: var(--font-display); font-weight: 800; letter-spacing: -0.02em;
+  font-size: clamp(1.25rem, 1.9vw, 1.6rem); line-height: 1.1; margin-bottom: 0.75rem;
+}
+.depth__slide p, .depth__slide li { font-size: clamp(1rem, 1.2vw, 1.08rem); color: var(--ink-soft); max-width: 60ch; }
+.depth__slide p + p { margin-top: 0.75rem; }
+.depth__slide ul { margin: 0.5rem 0 0 1.1rem; }
+.depth__slide li + li { margin-top: 0.35rem; }
+.depth__slide .figure { margin-top: 1.25rem; }
+.depth__slide .figure img { max-height: 220px; width: 100%; object-fit: contain; }   /* image fits inside the frame */
+.depth__nav {
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  padding: 0.9rem var(--depth-pad); border-top: 1px solid var(--rule);
+}
+.depth__step { border: 2px solid var(--ink); background: var(--ink); color: var(--paper); }
+.depth__step:hover:not(:disabled) { background: var(--cherry); border-color: var(--cherry); color: #fff; }
+.depth__step:disabled { opacity: 0.3; cursor: default; }
+.depth__count { font-family: var(--font-label); font-weight: 600; font-size: 0.85rem; color: var(--muted); }
+html.depth-lock { overflow: hidden; }
+:root { --modal-inset: 32px; }
+@media (max-width: 560px) { :root { --modal-inset: 0px; } }   /* lightbox stays full screen on phones */
+
+/* Outcome icons (Lucide, ISC license, inline SVG). Only on outcomes and improvements. */
+.icon { width: 24px; height: 24px; flex-shrink: 0; display: block; }
+.metric__icon { display: block; color: var(--accent-on-panel); margin-bottom: 0.9rem; }
+.outcomes li { display: flex; align-items: center; gap: 0.6rem; }
+.outcomes .icon { color: var(--accent-on-panel); }
+.reflection .win { display: grid; grid-template-columns: 24px minmax(0, 1fr); gap: 0.85rem; align-items: start; }
+.reflection .win .icon { color: var(--cherry); margin-top: 0.1rem; }
+body.dark-theme .reflection .win .icon { color: #FF4D79; }
+
+/* A narrow screen (side panel, phone) shown at its own size, never upscaled */
+.figure--narrow { max-width: min(100%, var(--narrow, 520px)); margin-inline: auto; justify-self: center; width: 100%; }   /* centered in its row */
+
+/* =========================================
+   ABSTRACT (pattern pilot 2026-11-03, Dashboard Landing)
+   Every case study answers one question: "What difference did you make?"
+   The hero title states the answer; the abstract gives it in one read
+   (context, problem, decision, result), then the numbers, then My part.
+   ========================================= */
+.hero__title--answer { font-size: clamp(2rem, 4.6vw, 4.6rem); max-width: 20ch; }
+.abstract__metrics { margin: clamp(28px, 3.5vw, 48px) var(--gutter) 0; }
+.metric--before { padding-top: calc(24px + 0.9rem); }   /* lines up with the metrics that carry an icon */
+.metric--before .metric__value { color: var(--ink-soft); }
+/* A word result in a row of numbers sits on the same baseline, so every label lines up */
+.metrics__grid .metric__value--word { height: calc(0.85 * clamp(3.4rem, 8vw, 7.5rem)); display: flex; align-items: flex-end; }

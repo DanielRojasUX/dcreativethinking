@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daniel | Dionne's Event Management App</title>
+  <link rel="icon" href="../../assets/img/favicon.ico?v=20261024j" sizes="any">
+  <link rel="icon" type="image/svg+xml" href="../../assets/img/favicon.svg?v=20261024j">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/img/favicon-32.png?v=20261024j">
+  <link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png?v=20261024j">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Inter+Tight:wght@800;900&family=Montserrat:wght@500;600&display=swap" rel="stylesheet">
+
+  <!-- Homepage card component (More case studies) -->
+  <link rel="stylesheet" href="../../css/my-work.css?v=20261026b">
+  <link rel="stylesheet" href="../../css/case-study.css?v=20261124f">
+  <link rel="stylesheet" href="../../css/reveal.css?v=20261026a">
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../portfolio/index.html">Home</a> / <a href="../../portfolio/index.html#work">Work</a> / <span>Dionne's Event Management App</span>
+    </nav>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle Dark Mode">
+      <svg id="themeIcon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      </svg>
+    </button>
+  </div>
+
+  <!-- HERO: the title answers "What difference did you make?" -->
+  <header class="hero" style="background-image: url('../../assets/img/work/work-dionnes.webp')">
+    <span class="chip chip--light hero__chip hero__chip--l">Case Study</span>
+    <span class="chip chip--light hero__chip hero__chip--r">Event Management App</span>
+
+    <div class="hero__body">
+      <div>
+        <img class="hero__logo no-lightbox" src="assets/img/logo-dionnes-white.svg" alt="Dionne's Catering">
+        <h1 class="display hero__title hero__title--answer">Four tools became one record per event. Zero paid events missed the kitchen.</h1>
+      </div>
+      <div class="hero__info">
+        <div><b>Role :</b> Head of AI Digital Growth, Branding and Systems</div>
+        <div><b>Org :</b> Dionne's Catering</div>
+        <div><b>Product :</b> Event Management App (EMA)</div>
+        <div><b>AI partner :</b> Claude</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ABSTRACT: the whole answer in one read (context, problem, decision, result), then the numbers, then ownership -->
+  <!-- PENDING (Daniel): confirm EMA is live and the 0% / 100% results are measured; revenue figure is the business over his whole tenure, not EMA alone -->
+  <section class="abstract" aria-label="Abstract">
+    <div class="owner owner--stack"><span class="owner__label">Abstract</span><p class="owner__text">Dionne's Catering is a family catering business in Utah County serving weddings, celebrations and corporate events. I started with their branding and website in 2023; as demand grew, the bottleneck moved from marketing to operations. Every event lived in four disconnected tools (Word quotes, Square invoices, an Excel tracker and Google Calendar) and was typed up to four times, with nothing confirming the kitchen had seen it. Working with Claude as my AI design partner, I designed the Event Management App around one record per event: the client confirms and pays on a single contract screen, the paid event schedules itself, and sales and kitchen both acknowledge it. No paid event has gone missing from the production calendar.</p></div>
+    <div class="metrics__grid abstract__metrics">
+      <div class="metric metric--before">
+        <div class="metric__value">4&times;</div>
+        <div class="metric__label">Before</div>
+        <p class="metric__text">The same event typed into up to four tools: Word, Square, Excel and Google Calendar.</p>
+      </div>
+      <div class="metric">
+        <span class="metric__icon"><svg class="icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="m9 16 2 2 4-4"/></svg></span>
+        <div class="metric__value">0</div>
+        <div class="metric__label">Missed paid events</div>
+        <p class="metric__text">Paid events missing from the production calendar.</p>
+      </div>
+      <div class="metric">
+        <span class="metric__icon"><svg class="icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></span>
+        <div class="metric__value">100%</div>
+        <div class="metric__label">Acknowledged</div>
+        <p class="metric__text">Of paid in full events acknowledged by both sales and kitchen.</p>
+      </div>
+    </div>
+    <div class="owner owner--stack"><span class="owner__label">My part</span><p class="owner__text">I designed it end to end: the diagnosis with the owner, sales and kitchen, the event model, the flows, every screen and the edge cases, deciding the business rules with the owner.</p></div>
+    <div class="owner owner--stack"><span class="owner__label">AI in the process</span><p class="owner__text">I used Claude as a design partner, not a decision maker. From my flows it built a clickable low fidelity prototype of all four journeys, generated the swimlane and edge case diagrams, and stress tested the flow for the places it could break. I made every call: the event as the backbone, acknowledgement only once an event is paid in full, history kept per event, and how each of the 24 edge cases resolves. The owner reviewed working screens instead of static specs.</p></div>
+  </section>
+
+  <!-- BRIEF: local index; each fact is one link in the argument -->
+  <nav class="brief brief--5" aria-label="Case study summary">
+    <div class="brief__grid">
+      <a class="brief__item" href="#problem"><span class="brief__num">01</span><span class="brief__title">The Problem</span><span class="brief__text">One event, typed into four tools, mapped with AI</span></a>
+      <a class="brief__item" href="#research"><span class="brief__num">02</span><span class="brief__title">Research</span><span class="brief__text">AI tested the options; the process stayed the business's</span></a>
+      <a class="brief__item" href="#decision"><span class="brief__num">03</span><span class="brief__title">The Decision</span><span class="brief__text">Event as backbone, decided one question at a time with AI</span></a>
+      <a class="brief__item" href="#delivery"><span class="brief__num">04</span><span class="brief__title">Iteration</span><span class="brief__text">AI prototyped and stress tested, I decided</span></a>
+      <a class="brief__item" href="#reflection"><span class="brief__num">05</span><span class="brief__title">Reflection</span><span class="brief__text">One event, one source of truth</span></a>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- 01 : THE PROBLEM -->
+    <section class="sec stack" id="problem">
+      <span class="chip sec__chip">01 / The Problem</span>
+      <div class="stack__intro">
+        <h2 class="display display--lg">The<br>Problem</h2>
+        <ul class="points">
+          <li><strong>Three people, four tools</strong>The client received a Word quote and then paid a Square invoice. Sales typed the same event into Square, the tracker and the calendar. Production read the calendar as its only source of truth.</li>
+          <li><strong>Manual, unconfirmed, silent</strong>The same details were typed up to four times. Unpaid events could reach the calendar and paid ones could be missed, and nothing confirmed that production had seen a new or changed event.</li>
+          <li><strong>Found on event day</strong>Logistics risk surfaced on the day of the event, when it costs the most.</li>
+          <li><strong>With AI: mapping the real workflow</strong>I walked Claude through the sales lead's whole process, from the first lead to the calendar entry, and used it to separate each pain point: transcribed tasting notes, manual quotes, installment tracking and the calendar entry production depends on. It also settled feasibility early: Square's own calendar sync only covers appointments, not invoices, so a custom layer was needed. The framing stayed mine: two sources of truth, and any mismatch means chaos on event day.</li>
+        </ul>
+      </div>
+      <div class="stack__row stack__row--1">
+        <figure class="figure figure--framed">
+          <img src="assets/img/Dionnes-Current-Flow.webp" alt="Current flow: inquiry, tasting, a Word quote, a Square invoice, then the calendar and the tracker typed by hand, with nobody confirming they saw the event" loading="lazy">
+          <figcaption class="figure__caption">
+            <span>The current flow: the same event typed four times, and no one confirms they saw it.</span>
+            <span class="chip">Fig. 01</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 02 : RESEARCH (gray) -->
+    <section class="sec sec--gray stack" id="research">
+      <span class="chip sec__chip">02 / Research</span>
+      <div class="stack__intro">
+        <h2 class="display display--md">Research</h2>
+        <div>
+          <p class="lead">I mapped every tool an event touched and turned what I heard from the owner, sales and kitchen into four people with one shared frustration: nobody had the whole event in one place.</p>
+          <p class="lead">The constraints shaped everything: a small team working from their phones, no budget for native apps, and payments that must land in the business's own account. The key assumption was that most errors start when details are copied between tools, not when they are first captured.</p>
+          <p class="lead"><strong>With AI: testing options, not the business.</strong> I used Claude to pressure test how to build it. Zapier's Square support turned out to be polling based, with delays and no reliable invoice triggers, so it was ruled out for the core. When the AI started suggesting changes to the catering process itself, I stopped it: the operation is the owner's expertise, so AI stayed on technical feasibility and the process stayed as the business runs it.</p>
+          <button class="btn btn--ghost depth__open" type="button" data-depth="depth-research" aria-haspopup="dialog">View more: Research</button>
+        </div>
+      </div>
+      <div class="stack__row stack__row--1">
+        <figure class="figure figure--framed">
+          <img src="assets/img/Dionnes-People.webp" alt="Four people: client, sales lead, kitchen lead and owner, each with a goal and a main frustration" loading="lazy">
+          <figcaption class="figure__caption">
+            <span>Four people, four frustrations, one missing source of truth.</span>
+            <span class="chip">Fig. 02</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 03 : THE DECISION -->
+    <section class="sec stack" id="decision">
+      <span class="chip sec__chip">03 / The Decision</span>
+      <div class="stack__intro">
+        <h2 class="display display--md">The<br>Decision</h2>
+        <ul class="points">
+          <li><strong>The event is the backbone</strong>The journey tracked is the event's, not the client's. Each event has its own statuses and change history, and the client card simply holds the list of their events. A reschedule is a tag that keeps its reason, never a new status.</li>
+          <li><strong>The contract is the key screen</strong>The client confirms date, time, address, service and setup details in one place and pays on the same screen, straight to the business's own account. It opens from a secure link sent by text, with no account and no app to install.</li>
+          <li><strong>Payment schedules, people confirm</strong>Only a confirmed payment writes the event to the calendar, Square and the tracker. Once paid in full, sales and kitchen must both acknowledge it; if they don't, reminders escalate to a critical email to the owner. Escalation warns, it never cancels or changes anything.</li>
+          <li><strong>With AI: one decision at a time</strong>I reviewed the flow with Claude screen by screen and closed each open question: history per event instead of per client, reschedules as a tag with a fixed list of reasons, one Cancel button whose result depends on whether anything was paid, and acknowledgement only once an event is paid in full, a correction I made after the first version fired it at the deposit. Claude then turned the agreed flow into a swimlane by actor: client, sales, production and the system, 75 steps across four phases. The model itself evolved along the way: the September version had the client card as its backbone; the final one puts the event at the center.</li>
+        </ul>
+      </div>
+      <div class="stack__row stack__row--1">
+        <figure class="figure figure--framed">
+          <img src="assets/img/Dionnes-Proposed-Flow.webp" alt="Proposed flow: the event is captured once, a contract link goes by text, the client confirms and pays, and the paid event is scheduled and acknowledged" loading="lazy">
+          <figcaption class="figure__caption">
+            <span>The proposed flow: captured once, confirmed and paid by the client, scheduled on payment.</span>
+            <span class="chip">Fig. 03</span>
+          </figcaption>
+        </figure>
+      </div>
+      <div class="stack__row stack__row--1">
+        <figure class="figure figure--framed">
+          <img src="assets/img/Dionnes-Event-Backbone.webp" alt="A client card holding two events, each with its own statuses and change history, plus the rules for not closed, cancelled and rescheduled" loading="lazy">
+          <figcaption class="figure__caption">
+            <span>The event backbone: every event carries its own statuses and history.</span>
+            <span class="chip">Fig. 04</span>
+          </figcaption>
+        </figure>
+      </div>
+      <div class="stack__row stack__row--flow">
+        <figure class="figure figure--framed" style="--ar: 0.5801">
+          <img src="assets/img/Dionnes-Contract-Phone.webp" alt="The contract screen: date, time, address, service, setup details, total, deposit due and a confirm and pay button" loading="lazy">
+          <figcaption class="figure__caption">
+            <span>The contract: the highest value screen in the system.</span>
+            <span class="chip">Fig. 05</span>
+          </figcaption>
+        </figure>
+        <figure class="figure figure--framed" style="--ar: 3.3333">
+          <img src="assets/img/Dionnes-Acknowledgement.webp" alt="Acknowledgement flow: a paid in full event is pushed to sales and kitchen; if both do not confirm, reminders and a critical email to the owner follow" loading="lazy">
+          <figcaption class="figure__caption">
+            <span>Acknowledgement: both teams confirm, or the owner is warned.</span>
+            <span class="chip">Fig. 06</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 04 : ITERATION (gray) -->
+    <section class="sec sec--gray stack" id="delivery">
+      <span class="chip sec__chip">04 / Iteration</span>
+      <div class="stack__intro">
+        <h2 class="display display--md">Iteration<br>&amp; Testing</h2>
+        <div>
+          <p class="lead">Claude built the low fidelity prototype in HTML from my flows, and I reviewed it screen by screen, one role at a time: sales captures the event once, the client gets a secure link by text, confirms and pays, the calendar fills itself on payment, the kitchen acknowledges, and the owner gets warned when something stalls. Every interface keeps its own color, so each screen is recognizable at a glance during reviews.</p>
+          <p class="lead"><strong>With AI: iterating in rounds.</strong> Each review changed the prototype: color by interface type so texts, email, the tracker and the calendar read instantly; a Personalize button and a Notes field on the new event screen; brand colors per role; and a Full flow mode with role switch screens to present the whole story from client to kitchen in one pass.</p>
+          <p class="lead">Then I had Claude stress test the flow for what could break, and I resolved each case: 24 edge cases across payments, changes after the contract, calendar sync, messaging, timers and operations. 15 are technical safeguards and 9 were decided with the owner.</p>
+          <button class="btn btn--ghost depth__open" type="button" data-depth="depth-delivery" aria-haspopup="dialog">View more: Edge cases</button>
+        </div>
+      </div>
+      <div class="stack__row stack__row--1">
+        <figure class="figure figure--framed">
+          <img src="assets/img/Dionnes-LowFi.webp" alt="Low fidelity screens: sales, client messages, the contract, Google Calendar, kitchen and the owner warning in Outlook" loading="lazy">
+          <figcaption class="figure__caption">
+            <span>Low fidelity, built with Claude: one screen per role, each in its own color.</span>
+            <span class="chip">Fig. 07</span>
+          </figcaption>
+        </figure>
+      </div>
+      <div class="stack__row stack__row--1">
+        <figure class="figure figure--framed">
+          <img src="assets/img/Dionnes-Edge-Cases.webp" alt="Edge cases grouped by payments, changes after contract, calendar sync, messaging, time and timers, and people and operations" loading="lazy">
+          <figcaption class="figure__caption">
+            <span>24 edge cases: 15 technical safeguards, 9 decided with the owner.</span>
+            <span class="chip">Fig. 08</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 05 : REFLECTION -->
+    <!-- PENDING (Daniel): "What would I do differently?" is not in the deck; add his own answer -->
+    <section class="reflection" id="reflection" style="background-image: url('../../assets/img/work/work-dionnes-table.webp')">
+      <div class="reflection__inner">
+        <div class="reflection__top">
+          <span class="chip chip--light">05 / Reflection</span>
+          <span class="chip chip--light">Dionne's Catering</span>
+        </div>
+        <h2 class="display display--lg">Looking<br>Back</h2>
+        <div class="reflection__cols">
+          <div>
+            <h3>What went well?</h3>
+            <p class="win"><svg class="icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></svg><span><strong>One record, everywhere</strong>Four disconnected tools replaced by one event record that writes to payments, the calendar and the tracker.</span></p>
+            <p class="win"><svg class="icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span><strong>Both teams confirm</strong>Every paid in full event acknowledged by sales and kitchen, so nothing reaches event day unseen.</span></p>
+            <p class="win"><svg class="icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l4 2"/></svg><span><strong>Every change traceable</strong>Cancellations and reschedules live in the event's own history, each with its reason.</span></p>
+            <p class="win"><svg class="icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l1.9 5.8L20 10l-6.1 1.2L12 17l-1.9-5.8L4 10l6.1-1.2z"/><path d="M19 17v4"/><path d="M17 19h4"/></svg><span><strong>AI as a partner, not the designer</strong>Claude mapped, diagrammed, prototyped and stress tested; I kept the business rules and made every call. Knowing when to stop the AI mattered as much as using it.</span></p>
+          </div>
+          <div>
+            <h3>The business around it</h3>
+            <p class="win"><svg class="icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg><span><strong>Room to grow</strong>Revenue grew from about $150K to $260K+ a year, and the team has capacity for up to 20 events a week.</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- DEPTH MODALS (js/case-depth.js). Content lives here so it works on file:// and stays indexable. -->
+  <dialog class="depth" id="depth-research" aria-labelledby="depth-research-title">
+    <div class="depth__head">
+      <div>
+        <span class="chip">02 / Research</span>
+        <h2 class="display depth__title" id="depth-research-title">Research</h2>
+      </div>
+      <button class="depth__close" type="button" aria-label="Close Research details"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
+    </div>
+    <div class="depth__slides">
+      <section class="depth__slide">
+        <h3 class="depth__slide-title">System context</h3>
+        <p>Quotes in Word, invoices and payments in Square, the pipeline in an Excel tracker and the production schedule in Google Calendar.</p>
+      </section>
+      <section class="depth__slide">
+        <h3 class="depth__slide-title">Constraints</h3>
+        <p>A small team working from their phones, no budget for native apps, and payments that must land in the business's own account.</p>
+      </section>
+      <section class="depth__slide">
+        <h3 class="depth__slide-title">Success criteria</h3>
+        <p>Every paid event reaches the production calendar on its own, with no retyping and a confirmed acknowledgement from both teams.</p>
+      </section>
+      <section class="depth__slide">
+        <h3 class="depth__slide-title">Risks</h3>
+        <p>Payment notifications failing or arriving twice, calendar sync breaking, and text messages not reaching clients.</p>
+      </section>
+    </div>
+    <div class="depth__nav">
+      <button class="depth__step depth__prev" type="button" aria-label="Previous slide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m15 18-6-6 6-6"/></svg></button>
+      <span class="depth__count" aria-live="polite">1 / 4</span>
+      <button class="depth__step depth__next" type="button" aria-label="Next slide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"/></svg></button>
+    </div>
+  </dialog>
+
+  <dialog class="depth" id="depth-delivery" aria-labelledby="depth-delivery-title">
+    <div class="depth__head">
+      <div>
+        <span class="chip">04 / Iteration</span>
+        <h2 class="display depth__title" id="depth-delivery-title">Edge cases</h2>
+      </div>
+      <button class="depth__close" type="button" aria-label="Close Edge cases details"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
+    </div>
+    <div class="depth__slides">
+      <section class="depth__slide">
+        <h3 class="depth__slide-title">Payments</h3>
+        <p>Duplicate or missed payment notices, failed bank transfers, payments made outside the app, amounts that differ from the quote, refunds, chargebacks and declined cards.</p>
+      </section>
+      <section class="depth__slide">
+        <h3 class="depth__slide-title">Changes after the contract</h3>
+        <p>Date, guests, menu or address changes, short notice bookings, events that close with a balance due, days already at capacity and expired quotes.</p>
+      </section>
+      <section class="depth__slide">
+        <h3 class="depth__slide-title">Calendar sync</h3>
+        <p>Calendar writes that fail, events edited directly in the calendar and calendar connections that expire.</p>
+      </section>
+      <section class="depth__slide">
+        <h3 class="depth__slide-title">Messaging, time and people</h3>
+        <p>Texts or pushes not delivered, clients opting out of texts, signing codes not received, daylight saving and quiet hours for reminders, a salesperson out of office, manual overrides by the owner and duplicate clients.</p>
+      </section>
+    </div>
+    <div class="depth__nav">
+      <button class="depth__step depth__prev" type="button" aria-label="Previous slide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m15 18-6-6 6-6"/></svg></button>
+      <span class="depth__count" aria-live="polite">1 / 4</span>
+      <button class="depth__step depth__next" type="button" aria-label="Next slide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"/></svg></button>
+    </div>
+  </dialog>
+
+  <!-- MORE CASE STUDIES (cards from js/projects.js, same component as the homepage) -->
+  <section class="more" id="more" aria-labelledby="more-title">
+    <div class="more__head">
+      <h2 id="more-title" class="display display--md">More Case<br>Studies</h2>
+      <div class="more__filters" role="tablist" aria-label="Filter case studies">
+        <button class="more__filter is-active" type="button" role="tab" aria-selected="true" data-more-filter="related">Related</button>
+        <button class="more__filter" type="button" role="tab" aria-selected="false" data-more-filter="all">View all</button>
+      </div>
+    </div>
+    <div class="more__grid" data-projects="more" data-base="../../" data-current="dionnes"></div>
+    <div class="more__contact">
+      <ul class="more__links">
+        <li><a href="mailto:daniel@dcreativethinking.com">daniel@dcreativethinking.com</a></li>
+        <li><a href="tel:+18019219885">+1 801-921-9885</a></li>
+        <li><a href="../../assets/docs/Daniel_Rojas_Resume_2026_v2.pdf" download="Daniel_Rojas_Resume_2026.pdf">Download resume</a></li>
+      </ul>
+      <ul class="more__social" aria-label="Social profiles">
+        <li><a class="more__social-link" href="https://www.linkedin.com/in/dcreativethinking/" aria-label="LinkedIn" target="_blank" rel="noopener"><svg class="more__social-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"> <path d="M20.45 3H3.55A.55.55 0 0 0 3 3.55v16.9c0 .3.25.55.55.55h16.9c.3 0 .55-.25.55-.55V3.55A.55.55 0 0 0 20.45 3ZM8.8 18.34H5.87V9.75H8.8v8.59ZM7.34 8.47a1.7 1.7 0 1 1 0-3.4 1.7 1.7 0 0 1 0 3.4Zm11 9.87h-2.93v-4.18c0-1-.02-2.28-1.39-2.28-1.39 0-1.6 1.09-1.6 2.21v4.25H9.5V9.75h2.81v1.17h.04c.39-.74 1.35-1.52 2.77-1.52 2.97 0 3.52 1.95 3.52 4.49v4.45Z" fill="currentColor"/> </svg></a></li>
+        <li><a class="more__social-link" href="https://www.instagram.com/dani.el.ux/" aria-label="Instagram" target="_blank" rel="noopener"><svg class="more__social-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"> <path d="M12 2.16c3.2 0 3.58.02 4.85.07 1.17.06 1.8.25 2.23.42.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.84 0 3.2-.01 3.58-.07 4.85-.06 1.17-.25 1.8-.42 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42-.16-1.06.36-2.23.41-1.27.06-1.65.07-4.84.07-3.2 0-3.58-.01-4.85-.07-1.17-.06-1.8-.25-2.23-.42-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12c0-3.2.01-3.58.07-4.85.06-1.17.25-1.8.42-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16ZM12 0C8.74 0 8.33.02 7.05.07 5.78.13 4.9.33 4.14.63c-.79.31-1.46.72-2.13 1.38C1.35 2.68.94 3.35.63 4.14c-.3.77-.5 1.64-.56 2.91C.01 8.33 0 8.74 0 12s.02 3.67.07 4.95c.06 1.27.26 2.14.56 2.91.31.79.72 1.46 1.38 2.13.67.66 1.34 1.07 2.13 1.38.77.3 1.64.5 2.91.56C8.33 23.98 8.74 24 12 24s3.67-.02 4.95-.07c1.27-.06 2.14-.26 2.91-.56.79-.31 1.46-.72 2.13-1.38.66-.67 1.07-1.34 1.38-2.13.3-.77.5-1.64.56-2.91.05-1.28.07-1.69.07-4.95s-.02-3.67-.07-4.95c-.06-1.27-.26-2.14-.56-2.91a5.9 5.9 0 0 0-1.38-2.13A5.9 5.9 0 0 0 19.86.63c-.77-.3-1.64-.5-2.91-.56C15.67.02 15.26 0 12 0Zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32ZM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm7.85-10.41a1.44 1.44 0 1 1-2.88 0 1.44 1.44 0 0 1 2.88 0Z" fill="currentColor"/> </svg></a></li>
+        <li><a class="more__social-link" href="https://www.behance.net/mlkmx" aria-label="Behance - mlkmx" target="_blank" rel="noopener"><svg class="more__social-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"> <path d="M8.64 7c.5 0 .95.05 1.37.15.41.1.76.26 1.05.48.29.22.52.52.68.89.16.37.24.83.24 1.37 0 .59-.12 1.08-.36 1.48-.24.39-.6.71-1.07.96.64.21 1.12.57 1.44 1.09.32.52.47 1.15.47 1.88 0 .59-.1 1.11-.31 1.54-.19.42-.47.79-.82 1.06-.36.28-.76.48-1.19.6-.44.14-.9.2-1.37.2H2V7h6.64Zm-.4 4.61c.41 0 .75-.11 1.02-.33.27-.22.39-.57.39-1.06 0-.27-.04-.5-.13-.68a.94.94 0 0 0-.36-.41 1.4 1.4 0 0 0-.51-.21c-.2-.04-.4-.06-.6-.06H4.82v2.75h3.42Zm.19 4.84c.23 0 .44-.03.65-.08.2-.05.39-.13.54-.25.16-.12.29-.28.37-.47.09-.2.14-.46.14-.78 0-.62-.16-1.06-.47-1.33-.31-.26-.72-.4-1.23-.4H4.82v3.31h3.61ZM16.13 16.47c.38.41.92.62 1.63.62.51 0 .95-.14 1.32-.43.37-.29.6-.59.68-.91h2.09c-.34 1.16-.85 1.99-1.54 2.49-.7.51-1.53.76-2.51.76-.69 0-1.3-.12-1.85-.37a4.2 4.2 0 0 1-1.4-1.04 4.7 4.7 0 0 1-.89-1.62 6.1 6.1 0 0 1-.29-2.08c0-.74.1-1.42.32-2.06.2-.6.51-1.16.91-1.63a4.2 4.2 0 0 1 1.4-1.08 4.4 4.4 0 0 1 1.81-.39c.73 0 1.37.15 1.92.47.53.31.99.75 1.34 1.28.36.54.61 1.15.76 1.84.16.68.21 1.4.17 2.15h-6.25c.03.91.24 1.59.62 2Zm2.91-5.44c-.3-.37-.81-.57-1.42-.57-.4 0-.73.08-.99.23-.27.15-.48.34-.64.56a2 2 0 0 0-.34.74c-.06.21-.1.42-.11.64h3.87c-.06-.68-.24-1.23-.54-1.6ZM14.86 7h4.9v1.2h-4.9V7Z" fill="currentColor"/> </svg></a></li>
+        <li><a class="more__social-link" href="https://www.behance.net/MalikODaniel" aria-label="Behance - MalikODaniel" target="_blank" rel="noopener"><svg class="more__social-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"> <path d="M8.64 7c.5 0 .95.05 1.37.15.41.1.76.26 1.05.48.29.22.52.52.68.89.16.37.24.83.24 1.37 0 .59-.12 1.08-.36 1.48-.24.39-.6.71-1.07.96.64.21 1.12.57 1.44 1.09.32.52.47 1.15.47 1.88 0 .59-.1 1.11-.31 1.54-.19.42-.47.79-.82 1.06-.36.28-.76.48-1.19.6-.44.14-.9.2-1.37.2H2V7h6.64Zm-.4 4.61c.41 0 .75-.11 1.02-.33.27-.22.39-.57.39-1.06 0-.27-.04-.5-.13-.68a.94.94 0 0 0-.36-.41 1.4 1.4 0 0 0-.51-.21c-.2-.04-.4-.06-.6-.06H4.82v2.75h3.42Zm.19 4.84c.23 0 .44-.03.65-.08.2-.05.39-.13.54-.25.16-.12.29-.28.37-.47.09-.2.14-.46.14-.78 0-.62-.16-1.06-.47-1.33-.31-.26-.72-.4-1.23-.4H4.82v3.31h3.61ZM16.13 16.47c.38.41.92.62 1.63.62.51 0 .95-.14 1.32-.43.37-.29.6-.59.68-.91h2.09c-.34 1.16-.85 1.99-1.54 2.49-.7.51-1.53.76-2.51.76-.69 0-1.3-.12-1.85-.37a4.2 4.2 0 0 1-1.4-1.04 4.7 4.7 0 0 1-.89-1.62 6.1 6.1 0 0 1-.29-2.08c0-.74.1-1.42.32-2.06.2-.6.51-1.16.91-1.63a4.2 4.2 0 0 1 1.4-1.08 4.4 4.4 0 0 1 1.81-.39c.73 0 1.37.15 1.92.47.53.31.99.75 1.34 1.28.36.54.61 1.15.76 1.84.16.68.21 1.4.17 2.15h-6.25c.03.91.24 1.59.62 2Zm2.91-5.44c-.3-.37-.81-.57-1.42-.57-.4 0-.73.08-.99.23-.27.15-.48.34-.64.56a2.2 2.2 0 0 0-.34.74c-.06.21-.1.42-.11.64h3.87c-.06-.68-.24-1.23-.54-1.6ZM14.86 7h4.9v1.2h-4.9V7Z" fill="currentColor"/> </svg></a></li>
+      </ul>
+    </div>
+  </section>
+
+
+  <!-- LIGHTBOX & GALLERY SCRIPT -->
+  <div id="lightbox">
+    <button id="lightbox-close" aria-label="Close Lightbox">&times;</button>
+    <button id="lightbox-prev" class="lightbox-nav" aria-label="Previous Image">&#10094;</button>
+    <img id="lightbox-img" src="" alt="Enlarged view">
+    <button id="lightbox-next" class="lightbox-nav" aria-label="Next Image">&#10095;</button>
+  </div>
+
+  <script>
+    // Theme Toggle Logic
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    const body = document.body;
+
+    if (localStorage.getItem('theme') === 'dark') {
+      body.classList.add('dark-theme');
+      setSunIcon();
+    }
+
+    themeToggle.addEventListener('click', () => {
+      body.classList.toggle('dark-theme');
+      if (body.classList.contains('dark-theme')) {
+        localStorage.setItem('theme', 'dark');
+        setSunIcon();
+      } else {
+        localStorage.setItem('theme', 'light');
+        setMoonIcon();
+      }
+    });
+
+    function setSunIcon() {
+      themeIcon.innerHTML = '<circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>';
+    }
+
+    function setMoonIcon() {
+      themeIcon.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>';
+    }
+
+    // Lightbox & Gallery Logic
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxClose = document.getElementById('lightbox-close');
+    const prevBtn = document.getElementById('lightbox-prev');
+    const nextBtn = document.getElementById('lightbox-next');
+    
+    const clickableImages = Array.from(document.querySelectorAll('main img:not(.no-lightbox)'));
+    let currentIndex = 0;
+
+    function updateLightboxImage() {
+      lightboxImg.src = clickableImages[currentIndex].src;
+    }
+
+    clickableImages.forEach((img, index) => {
+      img.addEventListener('click', () => {
+        currentIndex = index;
+        updateLightboxImage();
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    const closeLightbox = () => {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    };
+
+    // Navigation Controls
+    prevBtn.addEventListener('click', (e) => {
+      e.stopPropagation(); 
+      currentIndex = (currentIndex > 0) ? currentIndex - 1 : clickableImages.length - 1;
+      updateLightboxImage();
+    });
+
+    nextBtn.addEventListener('click', (e) => {
+      e.stopPropagation(); 
+      currentIndex = (currentIndex < clickableImages.length - 1) ? currentIndex + 1 : 0;
+      updateLightboxImage();
+    });
+
+    // Close on background click
+    lightbox.addEventListener('click', (e) => {
+      if (e.target !== lightboxImg && e.target !== prevBtn && e.target !== nextBtn) {
+        closeLightbox();
+      }
+    });
+
+    lightboxClose.addEventListener('click', closeLightbox);
+
+    // Keyboard controls for Gallery & Close
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox.classList.contains('active')) return;
+      
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') {
+        currentIndex = (currentIndex > 0) ? currentIndex - 1 : clickableImages.length - 1;
+        updateLightboxImage();
+      }
+      if (e.key === 'ArrowRight') {
+        currentIndex = (currentIndex < clickableImages.length - 1) ? currentIndex + 1 : 0;
+        updateLightboxImage();
+      }
+    });
+  </script>
+  <script src="../../js/projects.js?v=20261124c"></script>
+  <script src="../../js/case-nav.js?v=20261026b"></script>
+  <script src="../../js/reveal.js?v=20261026b"></script>
+  <script src="../../js/case-depth.js?v=20261124a"></script>
+  <script src="../../js/smart-nav.js?v=20261119a"></script>
+</body>
+</html>

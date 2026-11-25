@@ -15,7 +15,7 @@
 
   <!-- Homepage card component (More case studies) -->
   <link rel="stylesheet" href="../../css/my-work.css?v=20261026b">
-  <link rel="stylesheet" href="../../css/case-study.css?v=20261102a">
+  <link rel="stylesheet" href="../../css/case-study.css?v=20261124f">
   <link rel="stylesheet" href="../../css/reveal.css?v=20261026a">
 </head>
 <body>
@@ -32,191 +32,297 @@
     </button>
   </div>
 
-  <!-- HERO -->
+  <!-- HERO: the title answers "What difference did you make?" -->
   <header class="hero" style="background-image: url('assets/img/Nav-hero.webp')">
     <span class="chip chip--light hero__chip hero__chip--l">Case Study 02</span>
-    <span class="chip chip--light hero__chip hero__chip--r">Kyndryl Bridge</span>
+    <span class="chip chip--light hero__chip hero__chip--r">Navigation Patterns</span>
 
     <div class="hero__body">
       <div>
         <img class="hero__logo no-lightbox" src="assets/img/Logo-IBMKindryl.svg" alt="IBM / Kyndryl">
-        <h1 class="display display--xl hero__title">Navigating<br>Seamlessly</h1>
-        <p class="hero__subtitle">Unifying a fragmented multi-cloud experience through scalable global navigation.</p>
+        <h1 class="display hero__title hero__title--answer">My design audit led to one navigation for every app. Task completion rose 25%.</h1>
       </div>
       <div class="hero__info">
         <div><b>Role :</b> Senior Lead UX Designer</div>
         <div><b>Org :</b> IBM / Kyndryl</div>
-        <div><b>Scope :</b> Modular multi-cloud platform, Shared identity &amp; permissions, Independent apps, no shared design language, Cross-team, third-party integrations</div>
-        <div><b>Impact :</b> +25% task completion across key journeys</div>
+        <div><b>Product :</b> Kyndryl Bridge</div>
       </div>
     </div>
   </header>
 
-  <!-- OWNERSHIP -->
-  <div class="owner owner--stack"><span class="owner__label">My part</span><p class="owner__text">My part was the heuristic evaluation, the information architecture and the navigation design. Development teams turned it into the shared React component every application consumes.</p></div>
+  <!-- ABSTRACT: the whole answer in one read (context, problem, decision, result), then the numbers, then ownership -->
+  <section class="abstract" aria-label="Abstract">
+    <div class="owner owner--stack"><span class="owner__label">Abstract</span><p class="owner__text">Kyndryl Bridge is the multi cloud management platform Kyndryl's enterprise clients work in. As the platform moved to the new Shidōka design system, I led a design audit of it. The audit showed every application had its own navigation: some had grown organically, stacking new items as features arrived, with duplicate offerings inside the same app and others almost nobody used. I restructured the information architecture of the whole platform, set its depth levels and proposed merging the duplicates. Then I designed one navigation pattern that works globally across Kyndryl Bridge and locally inside each application, shipped as a shared React component. Task completion rose 25% and cross app traffic 65%.</p></div>
+    <div class="metrics__grid abstract__metrics">
+      <div class="metric metric--before">
+        <div class="metric__value metric__value--word">Fragmented</div>
+        <div class="metric__label">Before</div>
+        <p class="metric__text">Every app had its own navigation, some stacked as features arrived, with duplicate offerings inside the same app.</p>
+      </div>
+      <div class="metric">
+        <span class="metric__icon"><svg class="icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></span>
+        <div class="metric__value">+25%</div>
+        <div class="metric__label">Task completion</div>
+        <p class="metric__text">Relative increase in task completion across key journeys, validated through iterative testing.</p>
+      </div>
+      <div class="metric">
+        <span class="metric__icon"><svg class="icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m16 3 4 4-4 4"/><path d="M20 7H4"/><path d="m8 21-4-4 4-4"/><path d="M4 17h16"/></svg></span>
+        <div class="metric__value">+65%</div>
+        <div class="metric__label">Cross app traffic</div>
+        <p class="metric__text">To offerings that were isolated before, through one global routing layer.</p>
+      </div>
+    </div>
+    <div class="owner owner--stack"><span class="owner__label">My part</span><p class="owner__text">My part was the Shidōka design audit, the information architecture for the whole platform and the navigation pattern. Development teams turned it into the shared React component every application consumes.</p></div>
+  </section>
 
-  <!-- BRIEF: abstract and local index -->
-  <nav class="brief brief--6" aria-label="Case study summary">
+  <!-- BRIEF: local index; each fact is one link in the argument -->
+  <nav class="brief brief--5" aria-label="Case study summary">
     <div class="brief__grid">
-      <a class="brief__item" href="#problem"><span class="brief__num">01</span><span class="brief__title">The Problem</span><span class="brief__text">Users lost between independent apps</span></a>
-      <a class="brief__item" href="#decision"><span class="brief__num">02</span><span class="brief__title">The Decision</span><span class="brief__text">One global layer, local nav capped at 3</span></a>
-      <a class="brief__item" href="#prototyping"><span class="brief__num">03</span><span class="brief__title">The Build</span><span class="brief__text">Prototyped in Figma, shipped in React</span></a>
-      <a class="brief__item" href="#delivery"><span class="brief__num">04</span><span class="brief__title">In Depth</span><span class="brief__text">The two layer hierarchy</span></a>
-      <a class="brief__item" href="#results"><span class="brief__num">05</span><span class="brief__title">What Changed</span><span class="brief__text">+25% task completion, shipped platform wide</span></a>
-      <a class="brief__item" href="#reflection"><span class="brief__num">06</span><span class="brief__title">Reflection</span><span class="brief__text">Built with engineering from day one</span></a>
+      <a class="brief__item" href="#problem"><span class="brief__num">01</span><span class="brief__title">The Problem</span><span class="brief__text">Every app grew its own navigation</span></a>
+      <a class="brief__item" href="#research"><span class="brief__num">02</span><span class="brief__title">Research</span><span class="brief__text">A Shidōka design audit made the case</span></a>
+      <a class="brief__item" href="#decision"><span class="brief__num">03</span><span class="brief__title">The Decision</span><span class="brief__text">Fix the IA, then one global and local pattern</span></a>
+      <a class="brief__item" href="#delivery"><span class="brief__num">04</span><span class="brief__title">Delivery</span><span class="brief__text">One pattern across all of Kyndryl Bridge</span></a>
+      <a class="brief__item" href="#reflection"><span class="brief__num">05</span><span class="brief__title">Reflection</span><span class="brief__text">Test permission edge cases earlier</span></a>
     </div>
   </nav>
 
   <main>
-    <!-- 01 : THE PROBLEM (image left) -->
+
+    <!-- 01 : THE PROBLEM -->
     <section class="sec stack" id="problem">
       <span class="chip sec__chip">01 / The Problem</span>
       <div class="stack__feature">
         <div class="stack__media">
-            <figure class="figure figure--framed">
-              <img src="assets/img/Nav-Framework.svg" alt="Platform navigation framework: top nav, local nav, content, footer">
-              <figcaption class="figure__caption">
-                <span>The shape of the platform once every application is placed inside one structure.</span>
-                <span class="chip">Fig. 01</span>
-              </figcaption>
-            </figure>
+          <figure class="figure figure--framed">
+            <img src="assets/img/Nav-InitialFlow.svg" alt="Initial navigation flow: users reached each app through bookmarks, the dashboard or the marketplace, with no shared path between apps">
+            <figcaption class="figure__caption">
+              <span>The navigation the audit found: every application reached a different way, with no shared path between them.</span>
+              <span class="chip">Fig. 01</span>
+            </figcaption>
+          </figure>
         </div>
         <div class="stack__text">
           <h2 class="display display--lg">The<br>Problem</h2>
-            <div class="beat">
-              <span class="beat__label">The request</span>
-              <h3 class="beat__title">Users couldn&#x27;t find things</h3>
-              <p class="lead">Kyndryl Bridge users faced significant difficulty navigating across various internal tools and independent services. Leadership wanted a navigation redesign so people could find what they needed.</p>
-            </div>
-            <div class="beat">
-              <span class="beat__label">What sat underneath</span>
-              <h3 class="beat__title">But this wasn&#x27;t one product</h3>
-              <p class="lead">Kyndryl Bridge is a modular multi-cloud platform. Applications operate independently, but share accounts, identity, and permissions underneath. Each application had grown its own navigation with no shared design language, and the platform still needed to integrate third-party apps without losing user context.</p>
-              <p class="lead">A UI refresh on one screen couldn't fix a structural problem that lived underneath every application on the platform.</p>
-            </div>
-            <div class="beat">
-              <span class="beat__label">What testing showed</span>
-              <h3 class="beat__title">What the research actually showed</h3>
-              <p class="lead">I ran a comprehensive heuristic evaluation across the platform and mapped existing user journeys to find where people hit dead ends and friction. Working closely with product managers, I analyzed the information architecture to see whether it could support independent applications being integrated into one coherent whole.</p>
-            </div>
-            <div class="beat">
-              <span class="beat__label">The turn</span>
-              <h3 class="beat__title">It wasn&#x27;t a navigation problem, it was an orientation problem</h3>
-              <p class="lead">The real failure wasn't that features were hard to find inside any single app. It was that nothing on the platform told a user where they were in the larger system, or how to get to the other tools they were already entitled to use. Fixing one app's menu wouldn't touch that.</p>
-            </div>
+          <p class="lead">Kyndryl Bridge is not one product. Its applications run independently on shared accounts, identity and permissions, and each had built its own navigation with no shared design language.</p>
+          <p class="lead">Some navigations had grown organically, stacking new items as features arrived. The result was duplicate offerings inside the same app, others almost nobody used, and users struggling to move across the platform's tools.</p>
         </div>
       </div>
-      <div class="stack__row stack__row--1">
-            <figure class="figure figure--framed">
-              <img src="assets/img/Nav-InitialFlow.svg" alt="Initial fragmented navigation flow">
-              <figcaption class="figure__caption">
-                <span>The fragmented flow the evaluation surfaced: every application routed users differently.</span>
-                <span class="chip">Fig. 02</span>
-              </figcaption>
-            </figure>
-      </div>
     </section>
-    <!-- 02 : THE DECISION -->
-    <section class="sec" id="decision">
-      <span class="chip sec__chip">02 / The Decision</span>
-      <div class="duo duo--stack">
-        <p class="statement">I stopped treating navigation as something each application owned, and made it a shared layer across the whole platform.</p>
-        <p class="lead">The fix was a strict two-part hierarchy: one global navigation, consistent across every Kyndryl Bridge offering, that handled switching between applications, context, notifications, and account state. And a local navigation inside each application, capped at three nesting levels, so no single app could grow complex enough to disorient the person using it.</p>
-      </div>
-    </section>
-    <!-- 03 : THE BUILD -->
-    <section class="sec sec--gray stack" id="prototyping">
-      <span class="chip sec__chip">03 / The Build</span>
+
+    <!-- 02 : RESEARCH (gray) -->
+    <section class="sec sec--gray stack" id="research">
+      <span class="chip sec__chip">02 / Research</span>
       <div class="stack__intro">
-        <h2 class="display display--lg">One Shared<br>Layer</h2>
+        <h2 class="display display--md">Research</h2>
         <div>
-          <p class="lead">High-fidelity Figma prototypes simulated dynamic routing, context switching, and permission-aware states before a line of production code was written. Once validated through unmoderated user testing, the navigation shipped as a standalone React component that any application on the platform could consume.</p>
+          <p class="lead">As Kyndryl Bridge moved to the new Shidōka design system, I led a design audit of the platform: a heuristic evaluation, the journeys people actually took between applications, and the information architecture behind them.</p>
+          <p class="lead">What I found reframed the brief. Features were not hard to find inside any one app; nothing told users where they were in the larger system, or how to reach the other tools they already had access to. The platform needed one unified navigation pattern, and the audit made that case clearly.</p>
+          <button class="btn btn--ghost depth__open" type="button" data-depth="depth-research" aria-haspopup="dialog">View more: Research</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 03 : THE DECISION -->
+    <section class="sec stack" id="decision">
+      <span class="chip sec__chip">03 / The Decision</span>
+      <div class="stack__intro">
+        <h2 class="display display--md">The<br>Decision</h2>
+        <ul class="points">
+          <li><strong>Fix the structure first</strong>I restructured the information architecture of the whole platform: I defined its depth levels and proposed merging duplicated offerings, so the navigation would carry a clean structure instead of the clutter that had piled up.</li>
+          <li><strong>One pattern, global and local</strong>I stopped treating navigation as something each application owned and made it one pattern for all of Kyndryl Bridge. The global layer handles switching between applications, context, notifications and account state; the same pattern defines the local navigation inside each application.</li>
+          <li><strong>A cap of three levels</strong>Local navigation stops at three nesting levels, and anything deeper moves into breadcrumbs inside the content, so no application can grow a menu complex enough to disorient the people using it.</li>
+        </ul>
+      </div>
+      <div class="stack__row stack__row--1">
+        <figure class="figure figure--framed">
+          <img src="assets/img/Nav-Flow-Initial-vs-Proposed.webp" alt="Initial navigation flow next to the proposed flow, where the top navigation connects every app, the dashboard and the marketplace" loading="lazy">
+          <figcaption class="figure__caption">
+            <span>The proposal: from separate paths into each app to one top navigation that connects them all.</span>
+            <span class="chip">Fig. 02</span>
+          </figcaption>
+        </figure>
+      </div>
+      <div class="stack__row stack__row--1">
+        <figure class="figure figure--framed">
+          <img src="assets/img/Nav-Framework-Annotated.webp" alt="Navigation framework: top navigation, local navigation, content and footer, each annotated with its role" loading="lazy">
+          <figcaption class="figure__caption">
+            <span>The framework: a top navigation consistent across every offering, a local navigation up to three levels deep, the content and the footer.</span>
+            <span class="chip">Fig. 03</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 04 : DELIVERY (gray) -->
+    <section class="sec sec--gray stack" id="delivery">
+      <span class="chip sec__chip">04 / Delivery</span>
+      <div class="stack__intro">
+        <h2 class="display display--md">One Shared<br>Layer</h2>
+        <div>
+          <p class="lead">High fidelity Figma prototypes simulated routing, context switching and permission aware states before any production code. Once unmoderated user testing validated them, development teams shipped the pattern as one React component that every application across Kyndryl Bridge consumes.</p>
+          <button class="btn btn--ghost depth__open" type="button" data-depth="depth-delivery" aria-haspopup="dialog">View more: Delivery</button>
         </div>
       </div>
       <div class="stack__row stack__row--1">
         <figure class="figure figure--framed">
-              <div class="figure__grid figure__grid--4">
-                <img src="assets/img/Nav-Features_1.png" alt="App switcher allowing users to jump between authorized applications">
-                <img src="assets/img/Nav-Features_2.png" alt="Account switcher for changing role context and permissions">
-                <img src="assets/img/Nav-Feature3-help.png" alt="Global help utility">
-                <img src="assets/img/Nav-Features4-notifications.png" alt="System notifications">
-              </div>
-              <figcaption class="figure__caption">
-                <span>The system, built</span>
-                <span class="chip">Fig. 03</span>
-              </figcaption>
-            </figure>
+          <img src="assets/img/Nav-Global.webp" alt="Global navigation annotated: switcher, logo, current location, account switcher, support, notifications and user profile" loading="lazy">
+          <figcaption class="figure__caption">
+            <span>The global navigation: where the user is, and a way to move between offerings and change context at any time.</span>
+            <span class="chip">Fig. 04</span>
+          </figcaption>
+        </figure>
+      </div>
+      <div class="stack__row">
+        <figure class="figure figure--framed">
+          <img src="assets/img/Nav-Switcher-Interaction.webp" alt="Switcher interaction across offerings, step by step" loading="lazy">
+          <figcaption class="figure__caption">
+            <span>The switcher: moving between offerings without losing the way back.</span>
+            <span class="chip">Fig. 05</span>
+          </figcaption>
+        </figure>
+        <figure class="figure figure--framed">
+          <img src="assets/img/Nav-Switcher-Favorites.webp" alt="Adding and removing offerings in the switcher favorites section" loading="lazy">
+          <figcaption class="figure__caption">
+            <span>Favorites: the offerings each user needs most, one click away.</span>
+            <span class="chip">Fig. 06</span>
+          </figcaption>
+        </figure>
+      </div>
+      <div class="stack__row">
+        <figure class="figure figure--framed">
+          <img src="assets/img/Nav-Utility.webp" alt="Contextual and utility menus: account switcher, support, notifications and user profile" loading="lazy">
+          <figcaption class="figure__caption">
+            <span>Contextual and utility menus: account, support, notifications and profile.</span>
+            <span class="chip">Fig. 07</span>
+          </figcaption>
+        </figure>
+        <figure class="figure figure--framed">
+          <img src="assets/img/Nav-Footer.webp" alt="Footer with privacy, terms, security, FAQ and support request links" loading="lazy">
+          <figcaption class="figure__caption">
+            <span>The footer: secondary links and a second way to request support.</span>
+            <span class="chip">Fig. 08</span>
+          </figcaption>
+        </figure>
+      </div>
+      <div class="stack__row">
+        <figure class="figure figure--framed">
+          <img src="assets/img/Nav-Local-States.webp" alt="Local navigation collapsed and expanded, with the force expand control" loading="lazy">
+          <figcaption class="figure__caption">
+            <span>Local navigation, collapsed and expanded, with a control to keep it open.</span>
+            <span class="chip">Fig. 09</span>
+          </figcaption>
+        </figure>
+        <figure class="figure figure--framed">
+          <img src="assets/img/Nav-Local-Levels.webp" alt="Local navigation expanded to its first, second and third level" loading="lazy">
+          <figcaption class="figure__caption">
+            <span>Three levels of depth, never more.</span>
+            <span class="chip">Fig. 10</span>
+          </figcaption>
+        </figure>
+      </div>
+      <div class="stack__row stack__row--1">
+        <figure class="figure figure--framed">
+          <div class="figure__grid figure__grid--4">
+            <img src="assets/img/Nav-Features_1.png" alt="App switcher allowing users to jump between authorized applications">
+            <img src="assets/img/Nav-Features_2.png" alt="Account switcher for changing role context and permissions">
+            <img src="assets/img/Nav-Feature3-help.png" alt="Global help utility">
+            <img src="assets/img/Nav-Features4-notifications.png" alt="System notifications">
+          </div>
+          <figcaption class="figure__caption">
+            <span>High fidelity in Shidōka: app switcher, account switcher, help and notifications.</span>
+            <span class="chip">Fig. 11</span>
+          </figcaption>
+        </figure>
       </div>
     </section>
-    <!-- 04 : IN DEPTH -->
-    <section class="sec" id="delivery">
-      <span class="chip sec__chip">04 / In Depth</span>
-      <div class="duo duo--stack">
-        <div>
-          <h2 class="display display--md">How It<br>Works</h2>
-          <p class="lead" style="margin-top:clamp(16px,2vw,24px)">The mechanics behind the two layer hierarchy.</p>
-        </div>
-        <div class="rows rows--top">
-          <div class="row">
-            <div class="row__label">Information architecture: the two-layer hierarchy</div>
-            <div class="row__text"><p>Top navigation is consistent across every Kyndryl Bridge offering: it handles the highest level of platform switching, shows current location, and gives constant access to notifications, support, and the user's profile. Local navigation belongs to each individual application and is capped at three nesting levels, with anything deeper pushed into breadcrumbs inside the content layer, so no application could grow its own menu complex enough to disorient someone.</p></div>
-          </div>
-          <div class="row">
-            <div class="row__label">Cross-functional alignment</div>
-            <div class="row__text"><p>Maintaining close alignment with development teams from day one ensured the designs were technically feasible and could actually scale as reusable React components, rather than a spec that looked good in Figma and stalled at handoff.</p></div>
-          </div>
-          <div class="row">
-            <div class="row__label">Validation &amp; engineering handoff</div>
-            <div class="row__text"><p>Low-fidelity wireframes established the foundational layout and hierarchy first. Once aligned, high-fidelity Figma prototypes simulated dynamic routing, context switching, and permission-aware states, validated through unmoderated user testing sessions before development. Delivery included comprehensive design-system documentation covering usage guidelines, responsive behavior, and accessibility standards for the global header, utility menus, and local side navigation.</p></div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- 05 : RESULTS -->
-    <section class="sec sec--gray" id="results" aria-label="Results">
-      <span class="chip sec__chip">05 / What Changed</span>
-      <div class="metrics__grid">
-          <div class="metric">
-            <div class="metric__value">+25%</div>
-            <div class="metric__label">Task Completion</div>
-            <p class="metric__text">Increase in task completion across key journeys, validated through iterative testing.</p>
-          </div>
-          <div class="metric">
-            <div class="metric__value">+65%</div>
-            <div class="metric__label">Cross-App Traffic</div>
-            <p class="metric__text">Increased usage and signups for previously isolated offerings through unified global routing.</p>
-          </div>
-          <div class="metric">
-            <div class="metric__value metric__value--word">Platform-wide</div>
-            <div class="metric__label">Delivery</div>
-            <p class="metric__text">Standardized, accessible React UI patterns shipped for the global header and local navigation across every application.</p>
-          </div>
-      </div>
-    </section>
-    <!-- 06 : REFLECTION -->
+
+    <!-- 05 : REFLECTION -->
     <section class="reflection" id="reflection" style="background-image: url('assets/img/Nav-Bottonm-hero.webp')">
       <div class="reflection__inner">
         <div class="reflection__top">
-          <span class="chip chip--light">06 / Reflection</span>
+          <span class="chip chip--light">05 / Reflection</span>
           <span class="chip chip--light">Kyndryl Bridge</span>
         </div>
         <h2 class="display display--lg">Looking<br>Back</h2>
         <div class="reflection__cols">
           <div>
-            <h3>What Went Well?</h3>
-            <p><strong>Cross-Functional Collaboration</strong>Maintaining close alignment with development teams from day one ensured that our UI designs were technically feasible and could be scaled as reusable React components.</p>
-            <p><strong>Scalable Framework</strong>We successfully delivered a standardized, unified navigation system that seamlessly supports future application integrations and third-party tools.</p>
-            <p><strong>Improved Discoverability</strong>The introduction of the global App Switcher and Utility Dock drastically reduced user friction, resulting in a 25% increase in task completion across key journeys and driving a 65% increase in cross-app traffic to previously hidden tools.</p>
+            <h3>What went well?</h3>
+            <p class="win"><svg class="icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span><strong>Built with engineering from day one</strong>Close alignment with development teams kept the designs feasible and let them scale as reusable React components.</span></p>
+            <p class="win"><svg class="icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg><span><strong>A framework that scales</strong>The standardized navigation supports future application integrations and third party tools.</span></p>
+            <p class="win"><svg class="icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg><span><strong>Easier to reach the right tool</strong>The global app switcher and utility dock cut friction: task completion rose 25% and cross app traffic to previously hidden tools rose 65%.</span></p>
           </div>
           <div>
-            <h3>What Could I Have Done Better?</h3>
-            <p><strong>Testing Complex Edge Cases Early</strong>While our user testing validated the primary workflows, we could have expanded the initial scope of our unmoderated testing to include more diverse edge cases, specifically around complex, multi-tenant permission states, earlier in the prototyping phase.</p>
+            <h3>What would I do differently?</h3>
+            <p><strong>Test the edge cases earlier</strong>My testing validated the primary workflows. I would have widened the unmoderated testing earlier in prototyping to cover complex, multi tenant permission states.</p>
           </div>
         </div>
       </div>
     </section>
 
   </main>
+
+  <!-- DEPTH MODALS (js/case-depth.js). Content lives here so it works on file:// and stays indexable. -->
+  <dialog class="depth" id="depth-research" aria-labelledby="depth-research-title">
+    <div class="depth__head">
+      <div>
+        <span class="chip">02 / Research</span>
+        <h2 class="display depth__title" id="depth-research-title">Research</h2>
+      </div>
+      <button class="depth__close" type="button" aria-label="Close Research details"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
+    </div>
+    <div class="depth__slides">
+      <section class="depth__slide">
+        <h3 class="depth__slide-title">A Shidōka design audit</h3>
+        <p>The move to the Shidōka design system was the moment to review the whole platform. I led the audit, including a heuristic evaluation to find where people hit dead ends and friction.</p>
+      </section>
+      <section class="depth__slide">
+        <h3 class="depth__slide-title">Journey mapping</h3>
+        <p>I mapped the existing user journeys across applications. Every application routed users differently, and nothing carried them from one tool to the next.</p>
+      </section>
+      <section class="depth__slide">
+        <h3 class="depth__slide-title">Information architecture with product</h3>
+        <p>Working closely with product managers, I analyzed whether the information architecture could support independent applications integrated into one coherent whole. It surfaced duplicate offerings inside the same app and offerings almost nobody used.</p>
+      </section>
+      <section class="depth__slide">
+        <h3 class="depth__slide-title">Methods</h3>
+        <p>IA audit, user interviews, usability testing, tree testing and A/B testing, with design workshops and early mockups. I iterated through usertesting.com and the internal delivery team, with weekly syncs with product and engineering.</p>
+      </section>
+    </div>
+    <div class="depth__nav">
+      <button class="depth__step depth__prev" type="button" aria-label="Previous slide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m15 18-6-6 6-6"/></svg></button>
+      <span class="depth__count" aria-live="polite">1 / 4</span>
+      <button class="depth__step depth__next" type="button" aria-label="Next slide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"/></svg></button>
+    </div>
+  </dialog>
+
+  <dialog class="depth" id="depth-delivery" aria-labelledby="depth-delivery-title">
+    <div class="depth__head">
+      <div>
+        <span class="chip">04 / Delivery</span>
+        <h2 class="display depth__title" id="depth-delivery-title">Delivery</h2>
+      </div>
+      <button class="depth__close" type="button" aria-label="Close Delivery details"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
+    </div>
+    <div class="depth__slides">
+      <section class="depth__slide">
+        <h3 class="depth__slide-title">Prototyping and testing</h3>
+        <p>Low fidelity wireframes set the layout and hierarchy first. High fidelity Figma prototypes then simulated dynamic routing, context switching and permission aware states, validated through unmoderated user testing before development.</p>
+      </section>
+      <section class="depth__slide">
+        <h3 class="depth__slide-title">Working with engineering</h3>
+        <p>I stayed aligned with the development teams from day one, so the designs were technically feasible and scaled as reusable React components instead of a spec that stalled at handoff.</p>
+      </section>
+      <section class="depth__slide">
+        <h3 class="depth__slide-title">Documentation</h3>
+        <p>Delivery included design system documentation covering usage guidelines, responsive behavior and accessibility standards for the global header, utility menus and local side navigation.</p>
+      </section>
+    </div>
+    <div class="depth__nav">
+      <button class="depth__step depth__prev" type="button" aria-label="Previous slide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m15 18-6-6 6-6"/></svg></button>
+      <span class="depth__count" aria-live="polite">1 / 3</span>
+      <button class="depth__step depth__next" type="button" aria-label="Next slide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m9 18 6-6-6-6"/></svg></button>
+    </div>
+  </dialog>
 
   <!-- MORE CASE STUDIES (cards from js/projects.js, same component as the homepage) -->
   <section class="more" id="more" aria-labelledby="more-title">
@@ -347,9 +453,10 @@
       }
     });
   </script>
-  <script src="../../js/projects.js?v=20261027b"></script>
+  <script src="../../js/projects.js?v=20261124c"></script>
   <script src="../../js/case-nav.js?v=20261026b"></script>
   <script src="../../js/reveal.js?v=20261026b"></script>
+  <script src="../../js/case-depth.js?v=20261124a"></script>
   <script src="../../js/smart-nav.js?v=20261119a"></script>
 </body>
 </html>
