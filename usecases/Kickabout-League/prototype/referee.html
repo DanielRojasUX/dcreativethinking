@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Kickabout League · Referee</title>
+<link rel="artifact-thumbnail" href="og.jpg">
+<meta name="description" content="Marisol, referee in Liga Del Valle: a clickable Kickabout League prototype.">
+<meta name="theme-color" content="#191919">
+<meta property="og:type" content="website"><meta property="og:title" content="Kickabout League · Referee"><meta property="og:description" content="Marisol, referee in Liga Del Valle: a clickable Kickabout League prototype.">
+<meta property="og:image" content="https://dcreativethinking.com/usecases/Kickabout-League/prototype/og.jpg"><meta name="robots" content="noindex"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Kickabout League · Referee"><meta name="twitter:description" content="Marisol, referee in Liga Del Valle: a clickable Kickabout League prototype."><meta name="twitter:image" content="https://dcreativethinking.com/usecases/Kickabout-League/prototype/og.jpg">
+<link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://use.typekit.net" crossorigin><link rel="stylesheet" href="https://use.typekit.net/eqt4ywi.css"><link rel="preload" href="assets/fonts/poppins-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/kick.css?v=20261127d">
+</head>
+<body><div class="stage" style="--p:#39d0ff">
+<aside class="rail">
+<div class="rail__brand"><div class="lock" role="img" aria-label="Kickabout League"><img class="lock__mark" src="assets/brand/mark.svg?v=20261127d" alt=""><span class="lock__type" aria-hidden="true">kickabout league</span></div></div>
+<div class="rail__who"><div class="rail__av">M</div><div><div class="rail__name">Marisol</div><div class="rail__role">Referee · Liga Del Valle</div></div></div>
+<p class="rail__text">Runs the match from the phone: goals, cards and subs by tap or by voice, written straight into every player's stats.</p>
+<div class="rail__list" aria-label="Screens"></div>
+<nav class="rail__links" aria-label="Personas"><a href="index.html">All</a><a href="player.html" class="">Diego</a><a href="captain.html" class="">Beto</a><a href="referee.html" class="is-on">Marisol</a><a href="watch.html" class="">Watch</a><a href="admin.html" class="">Rosa</a><a href="league.html">Public page</a></nav>
+</aside>
+<div class="device"><div class="app" style="--p:#39d0ff"><div class="island"></div><div class="sbar"><span class="sbar__time">8:34</span><span class="sbar__ic"><svg viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5" width="3" height="7" rx="1"/><rect x="10" y="2.5" width="3" height="9.5" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg><svg viewBox="0 0 26 12"><rect x=".5" y=".5" width="22" height="11" rx="3.5" fill="none" stroke="#fdfff5" opacity=".5"/><rect x="2" y="2" width="16" height="8" rx="2"/><rect x="23.5" y="4" width="2" height="4" rx="1" opacity=".5"/></svg></span></div><div class="home-ind"></div>
+<section class="scr scr--flush hero" id="hero" data-code="G00" data-name="Title screen">
+  <div class="bg"><img src="assets/img/bg-hero.webp?v=20261127d" alt=""></div>
+  <div style="flex:1"></div>
+  <h1 class="lock lock--hero st" aria-label="Kickabout League"><img class="lock__mark" src="assets/brand/mark.svg?v=20261127d" alt=""><span class="lock__type" id="hero-type" aria-hidden="true"></span></h1>
+  <button class="hero__start tap st" data-act="start">TAP TO START</button>
+  <div class="ticker st" aria-label="League updates"><div class="ticker__in" id="ticker"></div></div>
+</section>
+
+<section class="scr" id="login" data-code="G01" data-name="Sign in">
+  <div class="bg"><img src="assets/img/bg-login.webp?v=20261127d" alt=""></div>
+  <div style="flex:1;min-height:230px"></div>
+  <div class="glass card st" style="padding:24px;gap:18px">
+    <div class="col"><span class="eyebrow">Liga Del Valle · Fall 2026</span><h1 class="h1">Welcome back, Marisol</h1></div>
+    <div id="lg-phone" class="col" style="gap:14px">
+      <div class="field"><label for="ph">Phone number</label><input class="input num" id="ph" inputmode="tel" value="(385) 555 0121" autocomplete="tel"></div>
+      <button class="btn btn--block tap" data-act="sendcode">Send code</button>
+      <p class="tiny dim" style="margin:0;text-align:center">We text you a 6 digit code. No passwords.</p>
+    </div>
+    <div id="lg-code" class="col" style="gap:14px;display:none">
+      <span class="small mut">Code sent to (385) 555 0121</span>
+      <div class="otp" aria-label="Verification code"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+      <button class="btn btn--block tap" data-go="matches" id="lg-go" disabled>Enter the league</button>
+    </div>
+  </div>
+</section>
+
+
+<section class="scr" id="matches" data-code="A01" data-name="My matches" data-tab="matches">
+  <div class="glow"></div>
+  <div class="top st">
+    <div class="row"><span class="av">MO</span><span class="col" style="gap:0"><span class="tiny mut">Referee · Liga Del Valle</span><b>Marisol Ortega</b></span></div>
+    <span class="tag"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 13a5 5 0 1 0 9.6 2H20l1-4h-9.6A5 5 0 0 0 3 13M15 7V4M18 8l2-2"/></svg> 2 tonight</span>
+  </div>
+  <div class="col st"><span class="eyebrow">Sun, Nov 29 · Rose Park Fields</span><h1 class="h1">Tonight</h1></div>
+  <div class="fx col" style="gap:12px">
+    <div class="glass card st" style="opacity:.8">
+      <div class="card__row"><span class="tag">6:30 PM · Field 2</span><span class="tag tag--g">Final · report sent</span></div>
+      <div class="card__row"><span class="team"><svg class="crest" width="20" height="22.4" viewBox="0 0 40 45" aria-hidden="true"><path d="M20 2 37 8v13c0 11-7.6 18.5-17 22C10.6 39.5 3 32 3 21V8z" fill="#ff8fb1"/><path d="M20 2 37 8v13c0 11-7.6 18.5-17 22z" fill="rgba(0,0,0,.16)"/><text x="20" y="27" text-anchor="middle" font-family="Poppins,sans-serif" font-weight="700" font-size="13" fill="#0f0f0f">RO</text></svg>Rose Park</span><b class="h2 num">0 : 2</b><span class="team">Pumas<svg class="crest" width="20" height="22.4" viewBox="0 0 40 45" aria-hidden="true"><path d="M20 2 37 8v13c0 11-7.6 18.5-17 22C10.6 39.5 3 32 3 21V8z" fill="#c9a227"/><path d="M20 2 37 8v13c0 11-7.6 18.5-17 22z" fill="rgba(0,0,0,.16)"/><text x="20" y="27" text-anchor="middle" font-family="Poppins,sans-serif" font-weight="700" font-size="13" fill="#0f0f0f">PU</text></svg></span></div>
+    </div>
+    <button class="glass card ptint tap st stripe" data-go="prematch" style="gap:14px" data-main>
+      <div class="card__row"><span class="tag">8:00 PM · Field 2</span><span class="live" data-m-live>LIVE 34'</span></div>
+      <div class="vs" data-vs></div>
+      <div class="card__row small"><span class="mut">Both lineups confirmed</span><span class="row p" style="gap:4px">Open match <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></span></div>
+    </button>
+  </div>
+  <div class="glass card st"><div class="card__row"><span class="h3">Next week</span><span class="small mut">Sun, Dec 6</span></div>
+    <div class="li"><span class="li__main" data-fx="HAL,UNM"></span><span class="small mut num">6:30 PM</span></div>
+    <div class="li"><span class="li__main" data-fx="RWS,DJA"></span><span class="small mut num">8:00 PM</span></div>
+  </div>
+</section>
+
+<section class="scr" id="prematch" data-code="A02" data-name="Before kick off">
+  <div class="glow"></div>
+  <div class="top st"><button class="ibtn tap" data-back aria-label="Back"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button><span class="top__t">Halcones vs Tigres</span><span style="width:46px"></span></div>
+  <div class="seg st" data-seg="pm"><button class="is-on" data-v="HAL">Halcones · 11</button><button data-v="TIG">Tigres · 11</button></div>
+  <div class="glass card stripe st"><div class="row g"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg><b>Confirmed by the captain at 7:41 PM</b></div><div class="list" data-pm-list></div></div>
+  <div class="glass card st" style="border-color:rgba(255,71,87,.4)"><div class="row" style="color:#ff7b88"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 11V8a5 5 0 0 1 10 0v3M5 11h14v10H5z"/></svg><b>Omar Cisneros #17 cannot play</b></div><span class="small mut">Halcones · 5 yellow cards. The app removed him from the lineup.</span></div>
+  <button class="btn btn--block btn--p tap st" data-go="live"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v16l13-8z"/></svg> Resume match</button>
+</section>
+
+<section class="scr scr--nopad-b" id="live" data-code="A03" data-name="Live match">
+  <div class="glow"></div>
+  <div class="top st"><button class="ibtn tap" data-go="matches" aria-label="Back to matches"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button><span class="live">LIVE · FIELD 2</span><button class="ibtn tap" data-act="pause" aria-label="Pause the clock" data-pause><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4h3v16H7zM14 4h3v16h-3z"/></svg></button></div>
+  <div class="glass card stripe st" style="gap:6px;padding:16px">
+    <div class="clock num" data-clock>33:40</div>
+    <div class="vs" style="grid-template-columns:1fr auto 1fr" data-vs></div>
+  </div>
+  <div class="refpad fx st">
+    <button class="refbtn refbtn--goal tap" data-act="ev" data-type="goal"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18M12 7.5l4 3-1.5 4.5h-5L8 10.5zM12 7.5V3.2M16 10.5l4.3-1.4M14.5 15l2.7 3.7M9.5 15l-2.7 3.7M8 10.5 3.7 9.1"/></svg><span>Goal</span></button>
+    <button class="refbtn refbtn--y tap" data-act="ev" data-type="yellow"><span class="cardic" style="background:#2a2000;width:18px"></span><span>Yellow</span></button>
+    <button class="refbtn refbtn--r tap" data-act="ev" data-type="red"><span class="cardic" style="background:#fff;width:18px"></span><span>Red</span></button>
+    <button class="refbtn refbtn--sub tap" data-act="ev" data-type="sub"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4 3 8l4 4M3 8h14M17 20l4-4-4-4M21 16H7"/></svg><span>Sub</span></button>
+  </div>
+  <button class="glass card tap st row" data-go="voice" style="flex-direction:row;gap:14px;padding:14px"><span class="mic" style="width:56px;height:56px"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></span><span class="li__main"><span class="li__t">Say it</span><span class="li__s">"Yellow card, ten, Halcones"</span></span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+  <div class="glass card st"><div class="card__row"><span class="h3">Recorded</span><button class="small p tap" data-act="undo">Undo last</button></div><div class="tl" data-tl></div></div>
+  <button class="btn btn--ghost btn--block tap st" data-act="end"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6h12v12H6z"/></svg> End match</button>
+</section>
+
+<section class="scr" id="voice" data-code="A05" data-name="Voice command">
+  <div class="glow"></div>
+  <div class="top st"><button class="ibtn tap" data-go="live" aria-label="Close"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button><span class="top__t num" data-v-min>Minute 34</span><span style="width:46px"></span></div>
+  <div style="flex:1;min-height:40px"></div>
+  <div class="col st" style="align-items:center;gap:22px;text-align:center">
+    <button class="mic tap" data-act="listen" aria-label="Listen again" data-mic><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></button>
+    <div class="wave" data-wave><i style="--d:0"></i><i style="--d:1"></i><i style="--d:2"></i><i style="--d:3"></i><i style="--d:4"></i><i style="--d:5"></i><i style="--d:6"></i><i style="--d:7"></i><i style="--d:8"></i></div>
+    <p class="h2" style="min-height:58px;margin:0;max-width:300px" data-said>Listening</p>
+  </div>
+  <div style="flex:1;min-height:20px"></div>
+  <div class="glass card stripe st" data-proposal style="display:none"></div>
+</section>
+
+<section class="scr scr--flush" id="card" data-code="A04" data-name="Show the card">
+  <button class="fullcard fullcard--y is-on tap" data-go="live" data-full aria-label="Back to the match">
+    <span class="h3" style="opacity:.75">Recorded at <span data-fc-min>35</span>'</span>
+    <span class="mega num" data-fc-n>10</span>
+    <span class="h1" data-fc-name>Diego Ramírez</span>
+    <span class="h3" data-fc-team>Halcones FC</span>
+    <span class="small" style="opacity:.7;margin-top:30px">Tap to go back to the match</span>
+  </button>
+</section>
+
+<section class="scr" id="rreport" data-code="A06" data-name="Close and send report">
+  <div class="glow"></div>
+  <div class="top st"><button class="ibtn tap" data-back aria-label="Back"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button><span class="top__t">Match report</span><span style="width:46px"></span></div>
+  <div class="glass card stripe st" style="padding:22px 16px"><div class="vs" data-vs-final></div><div class="row" style="justify-content:center"><span class="tag">Full time · 80 minutes</span></div></div>
+  <div class="grid3 st" data-rp-kpi></div>
+  <div class="glass card st"><span class="h3">Events</span><div class="tl" data-tl-final></div></div>
+  <div class="glass card st"><span class="h3">Signatures</span>
+    <div class="li"><span class="li__main team"><svg class="crest" width="20" height="22.4" viewBox="0 0 40 45" aria-hidden="true"><path d="M20 2 37 8v13c0 11-7.6 18.5-17 22C10.6 39.5 3 32 3 21V8z" fill="#ff7a1a"/><path d="M20 2 37 8v13c0 11-7.6 18.5-17 22z" fill="rgba(0,0,0,.16)"/><text x="20" y="27" text-anchor="middle" font-family="Poppins,sans-serif" font-weight="700" font-size="13" fill="#0f0f0f">HA</text></svg>Beto Salazar · Halcones</span><span class="tag" data-sig-hal>Waiting</span></div>
+    <div class="li"><span class="li__main team"><svg class="crest" width="20" height="22.4" viewBox="0 0 40 45" aria-hidden="true"><path d="M20 2 37 8v13c0 11-7.6 18.5-17 22C10.6 39.5 3 32 3 21V8z" fill="#ffd23f"/><path d="M20 2 37 8v13c0 11-7.6 18.5-17 22z" fill="rgba(0,0,0,.16)"/><text x="20" y="27" text-anchor="middle" font-family="Poppins,sans-serif" font-weight="700" font-size="13" fill="#0f0f0f">TI</text></svg>Alan Guzmán · Tigres</span><span class="tag" data-sig-tig>Waiting</span></div>
+  </div>
+  <button class="btn btn--block btn--p tap st" data-act="sendrep">Send to both captains</button>
+</section>
+
+<section class="scr" id="payouts" data-code="A07" data-name="My payouts" data-tab="payouts">
+  <div class="glow"></div>
+  <div class="top st"><h1 class="h2">Payouts</h1><span class="tag">November</span></div>
+  <div class="glass card stripe ptint st" style="padding:22px"><span class="small mut">Paid to you this month</span><span class="mega num" data-count="480" data-pre="$">$480</span><span class="small mut">8 matches · $60 each · paid by the captains in the app</span></div>
+  <div class="glass card st"><div class="list" data-payouts></div></div>
+</section>
+
+<nav class="tabbar is-hidden" aria-label="Main">
+  <button class="tap" data-tabgo="matches"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 13a5 5 0 1 0 9.6 2H20l1-4h-9.6A5 5 0 0 0 3 13M15 7V4M18 8l2-2"/></svg>Matches</button>
+  <button class="tap" data-tabgo="payouts"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7a2 2 0 0 1 2-2h12v4M4 7v10a2 2 0 0 0 2 2h14V9H6a2 2 0 0 1-2-2M16 14h.01"/></svg>Payouts</button>
+</nav>
+
+</div></div></div>
+<script src="js/data.js?v=20261127d"></script><script src="js/kick.js?v=20261127d"></script>
+<script>{
+const {app:A,$,$$}=KL;
+const tk=KL.table().slice(0,3), sc=KL.scorers[0];
+const items=[`<span>Matchday 7 · <b>Halcones vs Tigres</b> · Sun 8:00 PM</span>`,`<span>Leader <b>${KL.teams[tk[0].k].name}</b> · ${tk[0].Pts} pts</span>`,`<span>Top scorer <b>${sc.name}</b> · ${sc.g} goals</span>`,`<span>Last result <b>Halcones 4 · 1 Westside</b></span>`];
+const tkr=$('#ticker'); if(tkr) tkr.innerHTML=items.concat(items).join('');
+A.acts.start=()=>{const h=$('#hero');h.classList.add('zoom-out');setTimeout(()=>{h.classList.remove('zoom-out');A.go('login');},520);};
+$('#hero')&&$('#hero').addEventListener('click',e=>{if(!e.target.closest('.tap'))A.acts.start();});
+A.acts.sendcode=()=>{
+  $('#lg-phone').style.display='none';const c=$('#lg-code');c.style.display='flex';c.classList.add('st');c.style.animation='st-in .6s var(--spring) both';
+  const d='482019'.split(''),s=$$('.otp span');s.forEach(x=>{x.textContent='';x.classList.remove('is-on')});
+  d.forEach((n,i)=>setTimeout(()=>{s[i].textContent=n;s[i].classList.add('is-on');setTimeout(()=>s[i].classList.remove('is-on'),300);if(i===5){$('#lg-go').disabled=false;KL.pop($('#lg-go'));}},500+i*170));
+};
+let tt=[];const typeIn=()=>{const el=$('#hero-type');if(!el)return;tt.forEach(clearTimeout);tt=[];const w='kickabout league';el.innerHTML='<span class="g">'+w+'</span><span class="v"></span>';const v=el.lastChild;el.classList.remove('is-done');
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches){v.textContent=w;el.classList.add('is-done');return;}
+  let t=900;[...w].forEach((ch,i)=>{t+=ch===' '?180:58+(i%3)*14;tt.push(setTimeout(()=>{v.textContent=w.slice(0,i+1);if(i===w.length-1)el.classList.add('is-done');},t));});};
+A.on.hero=typeIn;typeIn();
+A.on.login=()=>{$('#lg-phone').style.display='flex';$('#lg-code').style.display='none';$('#lg-go').disabled=true;};
+}
+
+{
+const {app:A,$,$$,icon,crest,teams:T}=KL;
+let live=KL.loadLive(); if(live.status==='final'){live=KL.liveSeed();KL.saveLive(live);}
+let sec=(live.minute-1)*60+40, running=true, lastCard=null;
+const R={HAL:KL.rosters.HAL,TIG:KL.rosters.TIG};
+const nm=(t,n)=>{const p=R[t].find(x=>x.n===n);return p?p.name:'#'+n;};
+const minute=()=>Math.floor(sec/60)+1;
+const lbl={goal:'Goal',yellow:'Yellow card',red:'Red card',sub:'Substitution'};
+const evIc=e=>e.type==='goal'?icon('ball'):e.type==='sub'?icon('swap'):`<span class="cardic cardic--${e.type==='yellow'?'y':'r'}"></span>`;
+const evRow=(e,f)=>`<div class="ev${f?' is-new':''}"><span class="ev__m">${e.min}'</span><span style="display:grid;place-items:center">${evIc(e)}</span><span class="col" style="gap:0"><b>${nm(e.t,e.n)}</b><span class="tiny mut">${lbl[e.type]} · ${T[e.t].short} #${e.n}</span></span></div>`;
+const vs=(l)=>{const s=KL.score(l);return `<div class="vs__t">${crest('HAL',40)}Halcones</div><div class="vs__s num">${s.HAL}<span>:</span>${s.TIG}</div><div class="vs__t">${crest('TIG',40)}Tigres</div>`;};
+
+function paint(fresh){
+  $$('[data-vs]').forEach(v=>v.innerHTML=vs(live));
+  $('[data-tl]').innerHTML=live.events.slice().reverse().slice(0,4).map((e,i)=>evRow(e,fresh&&i===0)).join('');
+}
+function tick(){ if(running&&live.status==='live'){sec++;const m=String(Math.floor(sec/60)).padStart(2,'0'),s=String(sec%60).padStart(2,'0');$('[data-clock]').innerHTML=[...`${m}:${s}`].map(c=>c===':'?'<b>:</b>':`<i>${c}</i>`).join('');const mm=`LIVE ${minute()}'`;$('[data-m-live]').textContent=mm;$('[data-v-min]').textContent=`Minute ${minute()}`;} }
+setInterval(tick,1000);
+function record(e){
+  live.events.push(e);live.minute=e.min;KL.saveLive(live);paint(true);
+  if(e.type==='yellow'||e.type==='red'){lastCard=e;showCard(e);}
+  else KL.toast(`${lbl[e.type]} · ${nm(e.t,e.n)} · ${e.min}'`,e.type==='goal'?'ball':'swap');
+}
+function showCard(e){
+  const f=$('[data-full]');f.className='fullcard is-on tap fullcard--'+(e.type==='yellow'?'y':'r');
+  $('[data-fc-min]').textContent=e.min;$('[data-fc-n]').textContent=e.n;$('[data-fc-name]').textContent=nm(e.t,e.n);$('[data-fc-team]').textContent=T[e.t].name;
+  A.go('card');
+}
+A.on.card=()=>{const f=$('[data-full]');f.classList.remove('is-on');requestAnimationFrame(()=>requestAnimationFrame(()=>f.classList.add('is-on')));};
+
+/* lineups */
+const pm=(t)=>{$('[data-pm-list]').innerHTML=R[t].filter(p=>!p.ban).map(p=>`<div class="li" style="min-height:48px"><span class="jn num">${p.n}</span><span class="li__main">${p.name}</span>${icon('check','g')}</div>`).join('');};
+pm('HAL');
+$('[data-seg="pm"]').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;$$('button',b.parentElement).forEach(x=>x.classList.toggle('is-on',x===b));pm(b.dataset.v);});
+
+/* tap entry: team, then number */
+A.acts.ev=(b)=>{
+  const type=b.dataset.type; let team='HAL', n=null;
+  const pad=()=>R[team].filter(p=>!p.ban).map(p=>`<button class="tap num" data-n="${p.n}">${p.n}</button>`).join('');
+  KL.sheet(`<div class="card__row"><span class="h2">${lbl[type]}</span><span class="tag num">${minute()}'</span></div>
+   <div class="seg" data-tm><button class="is-on" data-t="HAL">Halcones</button><button data-t="TIG">Tigres</button></div>
+   <div class="npad" data-np>${pad()}</div><p class="small mut" style="margin:0;min-height:20px" data-who>Pick the number</p>
+   <button class="btn btn--block tap" data-act="okev" disabled>Record</button>`,s=>{
+    const ok=$('[data-act="okev"]',s);
+    $('[data-tm]',s).addEventListener('click',e=>{const k=e.target.closest('[data-t]');if(!k)return;team=k.dataset.t;n=null;ok.disabled=true;$$('[data-t]',s).forEach(x=>x.classList.toggle('is-on',x===k));$('[data-np]',s).innerHTML=pad();$('[data-who]',s).textContent='Pick the number';});
+    $('[data-np]',s).addEventListener('click',e=>{const k=e.target.closest('[data-n]');if(!k)return;n=+k.dataset.n;$$('[data-n]',s).forEach(x=>x.classList.toggle('is-on',x===k));$('[data-who]',s).textContent=nm(team,n);ok.disabled=false;KL.pop(ok);});
+    A.acts.okev=()=>{KL.closeSheet();record({min:minute(),type,t:team,n});};
+  });
+};
+A.acts.undo=()=>{if(live.events.length<=3){KL.toast('Nothing new to undo','alert');return;}const e=live.events.pop();KL.saveLive(live);paint(false);KL.toast(`Removed ${lbl[e.type].toLowerCase()} · ${nm(e.t,e.n)}`,'x');};
+A.acts.pause=(b)=>{running=!running;b.innerHTML=icon(running?'pause':'play');KL.toast(running?'Clock running':'Clock paused',running?'play':'pause');};
+A.acts.end=()=>KL.sheet(`<span class="h2">End the match?</span><p class="mut small" style="margin:0">The score and every event go to both captains to sign.</p><button class="btn btn--danger btn--block tap" data-act="endok">${icon('stop')} End at ${minute()}'</button><button class="btn btn--ghost btn--block tap" data-close>Keep playing</button>`,()=>{A.acts.endok=()=>{KL.closeSheet();live.status='final';KL.saveLive(live);finalPaint();A.go('rreport');};});
+
+/* voice: real speech when the browser allows it, otherwise the sample phrase */
+const WORDS={one:1,uno:1,two:2,dos:2,three:3,tres:3,four:4,cuatro:4,five:5,cinco:5,six:6,seis:6,seven:7,siete:7,eight:8,ocho:8,nine:9,nueve:9,ten:10,diez:10,eleven:11,once:11,thirteen:13,trece:13,fourteen:14,catorce:14,seventeen:17,diecisiete:17,nineteen:19,diecinueve:19};
+function parse(t){
+  const s=t.toLowerCase();
+  const type=/amarill|yellow/.test(s)?'yellow':/roj|red/.test(s)?'red':/cambio|sub/.test(s)?'sub':/gol|goal/.test(s)?'goal':null;
+  const team=/tigre/.test(s)?'TIG':/halc/.test(s)?'HAL':null;
+  let n=(s.match(/\b(\d{1,2})\b/)||[])[1]; if(!n){for(const w in WORDS)if(new RegExp('\\b'+w+'\\b').test(s)){n=WORDS[w];break;}}
+  return {type,t:team,n:n?+n:null};
+}
+let rec=null;
+function typeOut(text,done){const el=$('[data-said]');el.textContent='';let i=0;const f=()=>{el.textContent='"'+text.slice(0,++i)+(i<text.length?'':'"');if(i<text.length)setTimeout(f,38);else done&&done();};f();}
+function propose(text){
+  const p=parse(text), card=$('[data-proposal]'); $('[data-mic]').classList.remove('is-rec'); $('[data-wave]').style.opacity='.25';
+  if(!p.type||!p.t||!p.n||!R[p.t].some(x=>x.n===p.n)){card.style.display='flex';card.innerHTML=`<span class="row" style="color:var(--warn)">${icon('alert')}<b>I did not catch the player</b></span><span class="small mut">Say the event, the number and the team. For example "goal, nine, Tigres".</span><button class="btn btn--ghost btn--block tap" data-act="listen">Try again</button>`;return;}
+  const e={...p,min:minute()};
+  card.style.display='flex';card.style.animation='none';void card.offsetWidth;card.style.animation='st-in .6s var(--spring) both';
+  card.innerHTML=`<div class="card__row"><span class="tag">${e.min}'</span><span class="tag tag--g">Heard clearly</span></div><div class="row" style="gap:14px">${e.type==='goal'||e.type==='sub'?`<span class="jn" style="width:48px;height:48px">${evIc(e)}</span>`:`<span class="cardic cardic--${e.type==='yellow'?'y':'r'}" style="width:30px;height:42px;border-radius:5px"></span>`}<span class="col" style="gap:0"><b class="h2">${lbl[e.type]}</b><span class="mut">#${e.n} ${nm(e.t,e.n)} · ${T[e.t].short}</span></span></div><div class="grid2"><button class="btn btn--ghost tap" data-act="listen">Redo</button><button class="btn tap" data-act="okvoice">Record</button></div>`;
+  A.acts.okvoice=()=>{record(e);if(e.type==='goal'||e.type==='sub')A.go('live');};
+}
+A.acts.listen=()=>{
+  const card=$('[data-proposal]');card.style.display='none';$('[data-mic]').classList.add('is-rec');$('[data-wave]').style.opacity='1';$('[data-said]').textContent='Listening';
+  const sample='Yellow card, number ten, Halcones';
+  const fallback=()=>setTimeout(()=>typeOut(sample,()=>setTimeout(()=>propose(sample),350)),900);
+  const SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+  if(!SR){fallback();return;}
+  try{rec&&rec.abort();rec=new SR();rec.lang='en-US';rec.interimResults=true;let got='',used=false;
+    rec.onresult=e=>{got=[...e.results].map(r=>r[0].transcript).join(' ');$('[data-said]').textContent='"'+got+'"';if(e.results[e.results.length-1].isFinal){used=true;propose(got);}};
+    rec.onerror=()=>{if(!used){used=true;fallback();}};rec.onend=()=>{if(!used){used=true;got?propose(got):fallback();}};rec.start();
+  }catch(err){fallback();}
+};
+A.on.voice=()=>A.acts.listen();
+A.on.live=()=>{paint(false);};
+
+/* report */
+function finalPaint(){
+  const l=live.status==='final'?live:KL.finalSeed();
+  $('[data-vs-final]').innerHTML=vs(l);$('[data-tl-final]').innerHTML=l.events.map(e=>evRow(e)).join('');
+  const c=t=>l.events.filter(e=>e.type===t).length;
+  $('[data-rp-kpi]').innerHTML=[['Goals',c('goal')],['Cards',c('yellow')+c('red')],['Subs',c('sub')]].map(([a,b])=>`<div class="glass card card--tight"><span class="tiny mut">${a}</span><span class="h2 num">${b}</span></div>`).join('');
+}
+finalPaint();
+A.acts.sendrep=(b)=>{b.disabled=true;b.textContent='Sent to both captains';const a=$('[data-sig-hal]'),t=$('[data-sig-tig]');setTimeout(()=>{a.className='tag tag--g';a.innerHTML=icon('check')+' Signed';KL.pop(a);},1400);setTimeout(()=>{t.className='tag tag--g';t.innerHTML=icon('check')+' Signed';KL.pop(t);KL.toast('Report locked · stats published');},2600);};
+
+$('[data-payouts]').innerHTML=[['Sun, Nov 29','ARP','PUK','Pumas Kearns','Paid'],['Sun, Nov 29','HAL','TIG','Halcones FC','Paid'],['Sun, Nov 22','DJA','UNM','Unión Magna','Paid'],['Sun, Nov 22','GAL','RWS','Real Westside','Paid'],['Sun, Nov 15','HAL','RWS','Halcones FC','Paid'],['Sun, Nov 15','TIG','ARP','Tigres del Norte','Paid']].map(([d,h,a,by])=>`<div class="li"><span class="li__main"><span class="li__t">${KL.fx(h,a,18)}</span><span class="li__s">${d} · paid by ${by}</span></span><b class="num">$60</b></div>`).join('');
+
+KL.onLive(v=>{live=v;paint(false);});
+paint(false);
+A.init({start:'hero'});
+
+/* handoff from the watch: anything that needs typing opens here */
+let hb=null;try{hb=new BroadcastChannel('kl-handoff');}catch(e){}
+const hsend=m=>{try{hb&&hb.postMessage(m);}catch(e){}try{localStorage.setItem('kl-handoff',JSON.stringify({...m,at:Date.now()}));}catch(e){}};
+const fromWatch=m=>{if(!m)return;
+  if(m.kind==='note'){if(A.cur!=='live')A.go('live');hsend({kind:'note-open',min:m.min});
+    KL.sheet(`<div class="card__row"><span class="h2">Match note</span><span class="tag num">${m.min}'</span></div><span class="small mut row" style="gap:6px">${icon('clock')} Started on your watch</span><textarea class="input" data-note rows="4" placeholder="What happened" style="min-height:110px;resize:none;padding-top:14px"></textarea><button class="btn btn--block tap" data-act="savenote">Save note</button>`,s=>{setTimeout(()=>{const t=$('[data-note]',s);t&&t.focus();},350);
+      A.acts.savenote=()=>{const t=($('[data-note]',s).value||'').trim();live.notes=(live.notes||[]).concat([{min:m.min,text:t}]);KL.saveLive(live);KL.closeSheet();hsend({kind:'note-saved',min:m.min,text:t});KL.toast(`Note saved at ${m.min}'`,'edit');};});}
+  if(m.kind==='report'){live=KL.loadLive();finalPaint();A.go('rreport');KL.toast('Full time on your watch · review and send','whistle');}
+};
+if(hb)hb.onmessage=e=>fromWatch(e.data);
+addEventListener('storage',e=>{if(e.key==='kl-handoff'){try{fromWatch(JSON.parse(e.newValue));}catch(err){}}});
+}
+</script>
+</body></html>

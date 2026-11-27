@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Kickabout League · Referee watch</title>
+<link rel="artifact-thumbnail" href="og.jpg">
+<meta name="description" content="Marisol runs the live match from her Apple Watch: a clickable Kickabout League prototype.">
+<meta name="theme-color" content="#191919">
+<meta property="og:type" content="website"><meta property="og:title" content="Kickabout League · Referee watch"><meta property="og:description" content="Marisol runs the live match from her Apple Watch: a clickable Kickabout League prototype.">
+<meta property="og:image" content="https://dcreativethinking.com/usecases/Kickabout-League/prototype/og.jpg"><meta name="robots" content="noindex"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Kickabout League · Referee watch"><meta name="twitter:description" content="Marisol runs the live match from her Apple Watch: a clickable Kickabout League prototype."><meta name="twitter:image" content="https://dcreativethinking.com/usecases/Kickabout-League/prototype/og.jpg">
+<link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://use.typekit.net" crossorigin><link rel="stylesheet" href="https://use.typekit.net/eqt4ywi.css"><link rel="preload" href="assets/fonts/poppins-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/kick.css?v=20261127d">
+</head>
+<body><div class="stage stage--watch" style="--p:#39d0ff">
+<aside class="rail">
+<div class="rail__brand"><div class="lock" role="img" aria-label="Kickabout League"><img class="lock__mark" src="assets/brand/mark.svg?v=20261127d" alt=""><span class="lock__type" aria-hidden="true">kickabout league</span></div></div>
+<div class="rail__who"><div class="rail__av">M</div><div><div class="rail__name">Marisol</div><div class="rail__role">Referee · Apple Watch</div></div></div>
+<p class="rail__text">The live match on the wrist: clock, score, goals, cards and subs, the number on the crown and voice. Anything that needs typing opens on the phone.</p>
+<div class="rail__list" aria-label="Screens"></div>
+<nav class="rail__links" aria-label="Personas"><a href="index.html">All</a><a href="player.html" class="">Diego</a><a href="captain.html" class="">Beto</a><a href="referee.html" class="">Marisol</a><a href="watch.html" class="is-on">Watch</a><a href="admin.html" class="">Rosa</a><a href="league.html">Public page</a></nav>
+</aside>
+<div class="device device--watch"><div class="watch"><span class="watch__band watch__band--t"></span><span class="watch__band watch__band--b"></span><span class="watch__crown" title="Digital Crown"></span><span class="watch__btn"></span>
+<div class="app app--watch" style="--p:#39d0ff"><span class="sbar__time wtime">8:34</span>
+<section class="scr wscr" id="wlive" data-code="W01" data-name="Live match">
+  <div class="wtop st"><span class="live" data-wlive>LIVE 34'</span></div>
+  <button class="wclock tap st" data-act="wpause" aria-label="Pause or resume the clock">
+    <span class="clock num" data-wclock>33:40</span>
+    <span class="wscore"><span data-wcrest="HAL"></span><b class="num" data-wscore>1 : 1</b><span data-wcrest="TIG"></span></span>
+    <span class="wpaused">Paused · tap to resume</span>
+  </button>
+  <div class="wpad st">
+    <button class="refbtn refbtn--goal tap" data-act="wev" data-type="goal"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18M12 7.5l4 3-1.5 4.5h-5L8 10.5zM12 7.5V3.2M16 10.5l4.3-1.4M14.5 15l2.7 3.7M9.5 15l-2.7 3.7M8 10.5 3.7 9.1"/></svg><span>Goal</span></button>
+    <button class="refbtn refbtn--y tap" data-act="wev" data-type="yellow"><span class="cardic" style="background:#2a2000"></span><span>Yellow</span></button>
+    <button class="refbtn refbtn--r tap" data-act="wev" data-type="red"><span class="cardic" style="background:#fff"></span><span>Red</span></button>
+    <button class="refbtn refbtn--sub tap" data-act="wev" data-type="sub"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4 3 8l4 4M3 8h14M17 20l4-4-4-4M21 16H7"/></svg><span>Sub</span></button>
+  </div>
+  <button class="wrow tap st" data-go="wvoice"><span class="mic"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></span><span class="col" style="gap:0"><b>Say it</b><span class="tiny mut">Event, number, team</span></span></button>
+  <div class="wlist st"><div class="wlist__h"><b>Recorded</b><button class="tap p" data-act="wundo">Undo</button></div><div data-wtl></div></div>
+  <button class="wrow tap st" data-act="wnote"><span class="jn"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h4L19 9a2.8 2.8 0 0 0-4-4L4 16zM13.5 6.5l4 4"/></svg></span><span class="col" style="gap:0"><b>Add a note</b><span class="tiny mut">Type it on iPhone</span></span></button>
+  <button class="wbtn wbtn--ghost tap st" data-go="wend"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6h12v12H6z"/></svg> End match</button>
+</section>
+
+<section class="scr wscr" id="wteam" data-code="W02" data-name="Pick the team">
+  <div class="wtop st"><button class="wback tap" data-back aria-label="Back"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button><b data-wtitle>Yellow</b><span class="num tiny mut" data-wmin>35'</span></div>
+  <button class="wteam tap st" data-act="wteam" data-t="HAL"><span data-wcrest="HAL" data-sz="30"></span><b>Halcones</b></button>
+  <button class="wteam tap st" data-act="wteam" data-t="TIG"><span data-wcrest="TIG" data-sz="30"></span><b>Tigres</b></button>
+</section>
+
+<section class="scr wscr wscr--fix" id="wnum" data-code="W03" data-name="Pick the number">
+  <div class="wtop st"><button class="wback tap" data-back aria-label="Back"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button><b data-wtitle2>Halcones</b></div>
+  <div class="wpick st" data-wpick aria-label="Turn the crown or swipe to pick the number" tabindex="0">
+    <span class="wpick__n wpick__n--p num" data-wp="-1"></span>
+    <span class="wpick__n wpick__n--c num" data-wp="0"></span>
+    <span class="wpick__n wpick__n--p num" data-wp="1"></span>
+    <span class="wpick__who" data-wwho></span>
+    <span class="wpick__crown" aria-hidden="true"><i data-wbar></i></span>
+  </div>
+  <button class="wbtn tap st" data-act="wok">Record</button>
+</section>
+
+<section class="scr scr--flush wscr" id="wcard" data-code="W04" data-name="Show the card">
+  <button class="wfull tap" data-go="wlive" data-wfull>
+    <span class="tiny" data-wf-min>Recorded at 35'</span>
+    <span class="wfull__n num" data-wf-n>10</span>
+    <b data-wf-name>Diego Ramírez</b>
+    <span class="tiny" data-wf-team>Halcones FC</span>
+  </button>
+</section>
+
+<section class="scr wscr wscr--fix" id="wdone" data-code="W05" data-name="Recorded">
+  <div class="wdone st"><span class="check-burst"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg></span><b data-wd-t>Goal</b><span class="small mut" data-wd-s>Diego Ramírez · 35'</span></div>
+</section>
+
+<section class="scr wscr wscr--fix" id="wvoice" data-code="W06" data-name="Voice command">
+  <div class="wtop st"><button class="wback tap" data-go="wlive" aria-label="Close"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button><b class="num" data-wv-min>Minute 34</b><span></span></div>
+  <div class="wvoice st">
+    <button class="mic tap" data-act="wlisten" aria-label="Listen again" data-wmic><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V6a3 3 0 0 0-3-3M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></button>
+    <div class="wave" data-wwave><i style="--d:0"></i><i style="--d:1"></i><i style="--d:2"></i><i style="--d:3"></i><i style="--d:4"></i><i style="--d:5"></i><i style="--d:6"></i></div>
+    <p class="small" data-wsaid>Listening</p>
+  </div>
+  <div class="wprop st" data-wprop hidden></div>
+</section>
+
+<section class="scr wscr wscr--fix" id="whand" data-code="W07" data-name="Continue on iPhone">
+  <div class="wtop st"><button class="wback tap" data-go="wlive" aria-label="Back"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button><b>Note</b><span class="tag num" data-wh-min>35'</span></div>
+  <div class="whand st">
+    <span class="whand__ph" aria-hidden="true"><i></i></span>
+    <b data-wh-t>Continue on iPhone</b>
+    <span class="tiny mut" data-wh-s>The note is open on your phone. Type it there.</span>
+  </div>
+  <button class="wbtn wbtn--ghost tap st" data-go="wlive">Done</button>
+</section>
+
+<section class="scr wscr wscr--fix" id="wend" data-code="W08" data-name="End the match">
+  <div class="wtop st"><button class="wback tap" data-back aria-label="Back"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button><b>End match</b><span></span></div>
+  <div class="whold st">
+    <button class="whold__b" data-whold aria-label="Hold to end the match"><span class="whold__ring" data-wring></span><span class="whold__in"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6h12v12H6z"/></svg><b>Hold</b></span></button>
+    <span class="tiny mut" data-wend-s>Score and events go to both captains to sign.</span>
+  </div>
+</section>
+
+</div></div></div></div>
+<script src="js/data.js?v=20261127d"></script><script src="js/kick.js?v=20261127d"></script>
+<script>{
+const {app:A,$,$$,icon,crest,teams:T}=KL;
+let live=KL.loadLive(); if(live.status==='final'){live=KL.liveSeed();KL.saveLive(live);}
+let sec=(live.minute-1)*60+40, running=true;
+const R={HAL:KL.rosters.HAL,TIG:KL.rosters.TIG};
+const nm=(t,n)=>{const p=R[t].find(x=>x.n===n);return p?p.name:'#'+n;};
+const minute=()=>Math.floor(sec/60)+1;
+const lbl={goal:'Goal',yellow:'Yellow card',red:'Red card',sub:'Substitution'};
+const evIc=e=>e.type==='goal'?icon('ball'):e.type==='sub'?icon('swap'):`<span class="cardic cardic--${e.type==='yellow'?'y':'r'}"></span>`;
+const buzz=(p=12)=>{try{navigator.vibrate&&navigator.vibrate(p);}catch(e){}};
+$$('[data-wcrest]').forEach(c=>c.innerHTML=crest(c.dataset.wcrest,+(c.dataset.sz||20)));
+
+function paint(fresh){
+  const s=KL.score(live);
+  $('[data-wscore]').innerHTML=`${s.HAL}<span>:</span>${s.TIG}`;
+  $('[data-wtl]').innerHTML=live.events.slice().reverse().slice(0,3).map((e,i)=>`<div class="wev${fresh&&i===0?' is-new':''}"><span class="ev__m num">${e.min}'</span><span class="wev__i">${evIc(e)}</span><span class="wev__n">${nm(e.t,e.n)}</span></div>`).join('');
+}
+function tick(){
+  if(running&&live.status==='live'){sec++;}
+  const m=String(Math.floor(sec/60)).padStart(2,'0'),s=String(sec%60).padStart(2,'0');
+  $('[data-wclock]').innerHTML=[...`${m}:${s}`].map(c=>c===':'?'<b>:</b>':`<i>${c}</i>`).join('');
+  $('[data-wlive]').textContent=live.status==='final'?'FULL TIME':`LIVE ${minute()}'`;
+}
+setInterval(tick,1000);tick();
+
+/* tap entry: event, team, number on the crown */
+let draft=null, list=[], idx=0;
+A.acts.wev=(b)=>{draft={type:b.dataset.type,min:minute()};$('[data-wtitle]').textContent={goal:'Goal',yellow:'Yellow',red:'Red',sub:'Sub'}[draft.type];$('[data-wmin]').textContent=draft.min+"'";A.go('wteam');};
+A.acts.wteam=(b)=>{
+  draft.t=b.dataset.t;list=R[draft.t].filter(p=>!p.ban);idx=Math.max(0,list.findIndex(p=>p.n===10));
+  $('[data-wtitle2]').textContent=T[draft.t].short;paintPick();A.go('wnum');
+};
+function paintPick(dir){
+  const at=k=>list[(idx+k+list.length)%list.length];
+  [-1,0,1].forEach(k=>{const el=$(`[data-wp="${k}"]`);el.textContent=at(k).n;});
+  $('[data-wwho]').textContent=at(0).name;
+  const c=$('[data-wp="0"]');if(dir){c.style.animation='none';void c.offsetWidth;c.style.animation=`wpick-${dir>0?'up':'dn'} .32s var(--spring)`;}
+  $('[data-wbar]').style.top=(idx/(list.length-1||1)*72)+'%';
+}
+function step(d){if(!list.length)return;idx=(idx+d+list.length)%list.length;paintPick(d);buzz(6);crownTurn(d);}
+let acc=0;
+addEventListener('wheel',e=>{if(A.cur!=='wnum')return;e.preventDefault();acc+=e.deltaY;if(Math.abs(acc)>40){step(acc>0?1:-1);acc=0;}},{passive:false});
+const pk=$('[data-wpick]');let y0=null;
+pk.addEventListener('pointerdown',e=>{y0=e.clientY;pk.setPointerCapture(e.pointerId);});
+pk.addEventListener('pointermove',e=>{if(y0===null)return;const d=e.clientY-y0;if(Math.abs(d)>26){step(d<0?1:-1);y0=e.clientY;}});
+pk.addEventListener('pointerup',()=>{y0=null;});
+pk.addEventListener('keydown',e=>{if(e.key==='ArrowDown'){step(1);e.preventDefault();}if(e.key==='ArrowUp'){step(-1);e.preventDefault();}if(e.key==='Enter')A.acts.wok();});
+A.on.wnum=()=>setTimeout(()=>pk.focus({preventScroll:true}),400);
+/* the crown on the case turns too */
+const crownEl=document.querySelector('.watch__crown');let crownY=0;
+function crownTurn(d){if(!crownEl)return;crownY+=d*4;crownEl.style.backgroundPositionY=crownY+'px';}
+if(crownEl){let cy=null;crownEl.addEventListener('pointerdown',e=>{cy=e.clientY;crownEl.setPointerCapture(e.pointerId);});crownEl.addEventListener('pointermove',e=>{if(cy===null||A.cur!=='wnum')return;const d=e.clientY-cy;if(Math.abs(d)>14){step(d>0?1:-1);cy=e.clientY;}});crownEl.addEventListener('pointerup',()=>cy=null);}
+
+A.acts.wok=()=>{if(!draft)return;record({min:draft.min,type:draft.type,t:draft.t,n:list[idx].n});};
+function record(e){
+  live.events.push(e);live.minute=e.min;KL.saveLive(live);paint(true);buzz([20,40,20]);draft=null;
+  if(e.type==='yellow'||e.type==='red'){
+    const f=$('[data-wfull]');f.className='wfull tap wfull--'+(e.type==='yellow'?'y':'r');
+    $('[data-wf-min]').textContent=`Recorded at ${e.min}'`;$('[data-wf-n]').textContent=e.n;$('[data-wf-name]').textContent=nm(e.t,e.n);$('[data-wf-team]').textContent=T[e.t].name;
+    A.stack=[];A.go('wcard');
+  } else done(lbl[e.type],`${nm(e.t,e.n)} · ${e.min}'`);
+}
+let dt=null;
+function done(t,s){$('[data-wd-t]').textContent=t;$('[data-wd-s]').textContent=s;A.stack=[];A.go('wdone');clearTimeout(dt);dt=setTimeout(()=>{if(A.cur==='wdone')A.go('wlive',{back:true});},1700);}
+A.on.wdone=()=>{const c=$('#wdone .check-burst');c.style.animation='none';void c.offsetWidth;c.style.animation='';};
+
+A.acts.wundo=()=>{if(live.events.length<=3){done('Nothing to undo','Only the referee can change older events');return;}const e=live.events.pop();KL.saveLive(live);paint(false);buzz(30);done('Removed',`${lbl[e.type]} · ${nm(e.t,e.n)}`);};
+A.acts.wpause=(b)=>{running=!running;b.classList.toggle('is-paused',!running);buzz(running?10:[30,60,30]);};
+
+/* voice */
+const WORDS={one:1,two:2,three:3,four:4,five:5,six:6,seven:7,eight:8,nine:9,ten:10,eleven:11,thirteen:13,fourteen:14,seventeen:17,nineteen:19};
+function parse(t){const s=t.toLowerCase();const type=/yellow|amarill/.test(s)?'yellow':/red|roj/.test(s)?'red':/sub|cambio/.test(s)?'sub':/goal|gol/.test(s)?'goal':null;const team=/tigre/.test(s)?'TIG':/halc/.test(s)?'HAL':null;let n=(s.match(/\b(\d{1,2})\b/)||[])[1];if(!n){for(const w in WORDS)if(new RegExp('\\b'+w+'\\b').test(s)){n=WORDS[w];break;}}return {type,t:team,n:n?+n:null};}
+let rec=null;
+function said(text,doneFn){const el=$('[data-wsaid]');let i=0;const f=()=>{el.textContent='"'+text.slice(0,++i)+(i<text.length?'':'"');if(i<text.length)setTimeout(f,40);else doneFn&&doneFn();};f();}
+function propose(text){
+  const p=parse(text),box=$('[data-wprop]');$('[data-wmic]').classList.remove('is-rec');$('[data-wwave]').style.opacity='.25';box.hidden=false;
+  if(!p.type||!p.t||!p.n||!R[p.t].some(x=>x.n===p.n)){box.innerHTML=`<b>I did not catch it</b><button class="wbtn wbtn--ghost tap" data-act="wlisten">Try again</button>`;return;}
+  const e={...p,min:minute()};
+  box.innerHTML=`<div class="wprop__r">${e.type==='goal'||e.type==='sub'?`<span class="jn">${evIc(e)}</span>`:`<span class="cardic cardic--${e.type==='yellow'?'y':'r'}" style="width:18px;height:25px"></span>`}<span class="col" style="gap:0"><b>${lbl[e.type]}</b><span class="tiny mut">#${e.n} ${nm(e.t,e.n)}</span></span></div><div class="wprop__b"><button class="wbtn wbtn--ghost tap" data-act="wlisten">Redo</button><button class="wbtn tap" data-act="wokv">Record</button></div>`;
+  A.acts.wokv=()=>record(e);
+}
+A.acts.wlisten=()=>{
+  $('[data-wprop]').hidden=true;$('[data-wmic]').classList.add('is-rec');$('[data-wwave]').style.opacity='1';$('[data-wsaid]').textContent='Listening';$('[data-wv-min]').textContent=`Minute ${minute()}`;
+  const sample='Goal, number nine, Tigres';const fb=()=>setTimeout(()=>said(sample,()=>setTimeout(()=>propose(sample),300)),900);
+  const SR=window.SpeechRecognition||window.webkitSpeechRecognition;if(!SR){fb();return;}
+  try{rec&&rec.abort();rec=new SR();rec.lang='en-US';rec.interimResults=true;let got='',used=false;
+    rec.onresult=e=>{got=[...e.results].map(r=>r[0].transcript).join(' ');$('[data-wsaid]').textContent='"'+got+'"';if(e.results[e.results.length-1].isFinal){used=true;propose(got);}};
+    rec.onerror=()=>{if(!used){used=true;fb();}};rec.onend=()=>{if(!used){used=true;got?propose(got):fb();}};rec.start();}catch(err){fb();}
+};
+A.on.wvoice=()=>A.acts.wlisten();
+
+/* typing goes to the phone */
+let hb=null;try{hb=new BroadcastChannel('kl-handoff');}catch(e){}
+const send=m=>{try{hb&&hb.postMessage(m);}catch(e){}try{localStorage.setItem('kl-handoff',JSON.stringify({...m,at:Date.now()}));}catch(e){}};
+const onMsg=m=>{if(!m)return;if(m.kind==='note-saved'){done('Note saved',m.text?`"${m.text.slice(0,28)}${m.text.length>28?'...':''}"`:`Minute ${m.min}'`);}if(m.kind==='note-open'){$('[data-wh-s]').textContent='Your phone has it open. Type the note there.';}};
+if(hb)hb.onmessage=e=>onMsg(e.data);
+addEventListener('storage',e=>{if(e.key==='kl-handoff'){try{onMsg(JSON.parse(e.newValue));}catch(err){}}});
+A.acts.wnote=()=>{const m=minute();$('[data-wh-min]').textContent=m+"'";$('[data-wh-s]').textContent='The note is open on your phone. Type it there.';send({kind:'note',min:m});A.go('whand');};
+
+/* end match: press and hold */
+const hold=$('[data-whold]'),ring=$('[data-wring]');let ht=null,h0=0;
+const holdStep=()=>{const p=Math.min(1,(performance.now()-h0)/1300);ring.style.setProperty('--p',p);if(p>=1){ht=null;endMatch();return;}ht=requestAnimationFrame(holdStep);};
+hold.addEventListener('pointerdown',e=>{e.preventDefault();h0=performance.now();buzz(8);ht=requestAnimationFrame(holdStep);});
+const cancel=()=>{if(ht){cancelAnimationFrame(ht);ht=null;}ring.style.setProperty('--p',0);};
+hold.addEventListener('pointerup',cancel);hold.addEventListener('pointerleave',cancel);
+hold.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();endMatch();}});
+function endMatch(){ring.style.setProperty('--p',0);live.status='final';live.minute=minute();KL.saveLive(live);buzz([40,80,40,80,120]);send({kind:'report',min:live.minute});const s=KL.score(live);done('Full time',`Halcones ${s.HAL} : ${s.TIG} Tigres · report on iPhone`);}
+
+KL.onLive(v=>{const fresh=v.events.length>live.events.length;live=v;paint(fresh);});
+paint(false);
+A.init({start:'wlive'});
+}
+</script>
+</body></html>

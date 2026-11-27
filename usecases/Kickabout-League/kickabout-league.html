@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daniel | Kickabout League</title>
+  <meta name="description" content="Kickabout League: a Sunday league with the live stats of a pro club. Name on the table, own numbers and a match followed live, recorded by the referee on her phone or her Apple Watch. With five clickable prototypes.">
+  <link rel="canonical" href="https://dcreativethinking.com/usecases/Kickabout-League/kickabout-league.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Kickabout League: Interface and Interaction Design">
+  <meta property="og:description" content="A Sunday league with the live stats of a pro club: name on the table, own numbers, and a match followed live from the referee's phone or watch.">
+  <meta property="og:url" content="https://dcreativethinking.com/usecases/Kickabout-League/kickabout-league.html">
+  <meta property="og:image" content="https://dcreativethinking.com/usecases/Kickabout-League/assets/img/og-kickabout.jpg?v=20261127b">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="../../assets/img/favicon.ico?v=20261024j" sizes="any">
+  <link rel="icon" type="image/svg+xml" href="../../assets/img/favicon.svg?v=20261024j">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/img/favicon-32.png?v=20261024j">
+  <link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png?v=20261024j">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Inter+Tight:wght@800;900&family=Montserrat:wght@500;600&display=swap" rel="stylesheet">
+
+  <!-- Homepage card component (More case studies) -->
+  <link rel="stylesheet" href="../../css/my-work.css?v=20261026b">
+  <link rel="stylesheet" href="../../css/case-study.css?v=20261124g">
+  <link rel="stylesheet" href="../../css/reveal.css?v=20261026a">
+  <link rel="stylesheet" href="https://use.typekit.net/eqt4ywi.css">
+  <link rel="stylesheet" href="assets/css/kickabout.css?v=20261127b">
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../portfolio/index.html">Home</a> / <a href="../../portfolio/index.html#work">Work</a> / <span>Kickabout League</span>
+    </nav>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle Dark Mode">
+      <svg id="themeIcon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      </svg>
+    </button>
+  </div>
+
+  <!-- HERO: the title answers "What difference did you make?" -->
+  <header class="hero hero--kick">
+    <div class="hero__photo" aria-hidden="true"></div>
+    <span class="chip chip--light hero__chip hero__chip--l">Case Study</span>
+    <span class="chip chip--light hero__chip hero__chip--r">Kickabout League</span>
+
+    <div class="hero__body">
+      <div>
+        <div class="kick-lock" role="img" aria-label="Kickabout League"><img class="kick-lock__mark no-lightbox" src="assets/img/logo-kickabout.svg?v=20261127b" alt=""><span class="kick-lock__type" aria-hidden="true">kickabout league</span></div>
+        <h1 class="display hero__title hero__title--answer">A Sunday league with the live stats of a pro club.</h1>
+      </div>
+      <div class="hero__info">
+        <div><b>Role :</b> Founder, Product Design, Web and AI Systems Builder</div>
+        <div><b>Org :</b> D Creative Thinking</div>
+        <div><b>Product :</b> Kickabout League, an app to create, run and follow soccer leagues and tournaments</div>
+        <div><b>Status :</b> Designs complete, launch pending</div>
+        <div><b>AI partner :</b> Claude</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ABSTRACT -->
+  <section class="abstract" aria-label="Abstract">
+    <div class="owner owner--stack"><span class="owner__label">Abstract</span><p class="owner__text">Amateur players pay their fees, wear club quality kits and show up every Sunday like it is a final, yet their league lives in group chats and on paper. Kickabout League gives them what the pros get: their name on the table, their own numbers and a match followed live. The referee records each goal and card by tap, by voice or from her watch, and every phone, the standings and the admin's dashboard update within a second. The designs are complete, and early user testing came back positive.</p></div>
+    <div class="metrics__grid abstract__metrics">
+      <div class="metric metric--before">
+        <div class="metric__value">Brief</div>
+        <div class="metric__label">Before</div>
+        <p class="metric__text">Four roles and a set of league rules, with no screens yet.</p>
+      </div>
+      <div class="metric">
+        <span class="metric__icon"><svg class="icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></span>
+        <div class="metric__value">41</div>
+        <div class="metric__label">Screens designed</div>
+        <p class="metric__text">Phone, Apple Watch and desktop, each with its own clickable prototype.</p>
+      </div>
+      <div class="metric">
+        <span class="metric__icon"><svg class="icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg></span>
+        <div class="metric__value">1 s</div>
+        <div class="metric__label">Live update</div>
+        <p class="metric__text">A card recorded on the phone or the watch reaches every screen within a second in the prototype.</p>
+      </div>
+      <div class="metric">
+        <span class="metric__icon"><svg class="icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></span>
+        <div class="metric__value">AA</div>
+        <div class="metric__label">WCAG 2.2</div>
+        <p class="metric__text">Every text pair measured and passing, and a tap for every gesture.</p>
+      </div>
+    </div>
+    <div class="owner owner--stack"><span class="owner__label">My part</span><p class="owner__text">I own the product. I defined the positioning, the four roles and the league rules, set the visual direction, chose the type and the colors, directed the photography and the motion, and designed all 41 screens across the phone, the Apple Watch and the desktop, with five clickable prototypes.</p></div>
+    <div class="owner owner--stack"><span class="owner__label">AI in the process</span><p class="owner__text">Claude built the prototypes in HTML from my direction, generated the sample league data, measured contrast and wrote the image prompts, which I generated and selected myself. I reviewed every screen and corrected it round after round: photos with passion instead of generic ones, modern kits, one stripe per screen, numbers centered like a shirt, "vs" in one column, the watch, and the captain who also plays.</p></div>
+  </section>
+
+  <!-- BRIEF -->
+  <nav class="brief brief--5" aria-label="Case study summary">
+    <div class="brief__grid">
+      <a class="brief__item" href="#pro"><span class="brief__num">01</span><span class="brief__title">Pro Treatment</span><span class="brief__text">Their name, their numbers, a match followed live</span></a>
+      <a class="brief__item" href="#people"><span class="brief__num">02</span><span class="brief__title">Four People</span><span class="brief__text">One live record; the captain plays too</span></a>
+      <a class="brief__item" href="#language"><span class="brief__num">03</span><span class="brief__title">Visual Language</span><span class="brief__text">Night football photography and one stripe per screen</span></a>
+      <a class="brief__item" href="#live"><span class="brief__num">04</span><span class="brief__title">The Live Match</span><span class="brief__text">Recorded on the pitch by tap or by voice</span></a>
+      <a class="brief__item" href="#watch"><span class="brief__num">05</span><span class="brief__title">On the Wrist</span><span class="brief__text">The whole match on an Apple Watch</span></a>
+      <a class="brief__item" href="#rules"><span class="brief__num">06</span><span class="brief__title">Rules in the App</span><span class="brief__text">The interface enforces the league's rules</span></a>
+      <a class="brief__item" href="#motion"><span class="brief__num">07</span><span class="brief__title">Motion</span><span class="brief__text">Liquid tabs and screens that change in steps</span></a>
+      <a class="brief__item" href="#accessibility"><span class="brief__num">08</span><span class="brief__title">Accessibility</span><span class="brief__text">AA contrast and a tap for every gesture</span></a>
+      <a class="brief__item" href="#prototypes"><span class="brief__num">09</span><span class="brief__title">Prototypes</span><span class="brief__text">Five clickable prototypes, one league</span></a>
+      <a class="brief__item" href="#reflection"><span class="brief__num">10</span><span class="brief__title">Reflection</span><span class="brief__text">Positive early testing, launch next</span></a>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- 01 : PRO TREATMENT -->
+    <section class="sec stack" id="pro">
+      <span class="chip sec__chip">01 / Pro Treatment</span>
+      <div class="stack__intro">
+        <h2 class="display display--md">Pro<br>Treatment</h2>
+        <ul class="points">
+          <li><strong>What the players already do</strong>They pay a fee every week, wear club quality kits with printed patterns, keep a captain, a number and a position, and show up at 8 PM on a cold Sunday as if it were a final. The passion is professional. The record is not: results live in group chats, cash and a sheet of paper.</li>
+          <li><strong>The idea</strong>Kickabout League is not a league manager first. It gives amateur players the illusion of professionalism they already act out: their name on the table, their own numbers and a match that is followed live, like the pros.</li>
+          <li><strong>Your name up there</strong>The scorers list, the fair play table and the standings carry real names and real form, updated the second the referee records a goal or a card.</li>
+          <li><strong>Your own numbers</strong>Diego opens Me and sees his season like a player card: goals, assists, matches, cards, minutes and how far he is from a ban.</li>
+          <li><strong>A match you can follow</strong>The match center reads like a TV graphic: crests, score, minute and a timeline of every goal, card and sub.</li>
+        </ul>
+      </div>
+      <div class="stack__row stack__row--quad">
+        <figure class="figure figure--framed figure--phone">
+          <img src="assets/img/kick-me.webp?v=20261127b" alt="Diego's season as a player card: 7 goals, 3 assists, 7 matches, 1 yellow, 0 red and 526 minutes, with bars for goals per match, minutes played and yellows before a ban" loading="lazy" width="780" height="1688">
+          <figcaption class="figure__caption"><span>His own numbers, like a player card.</span><span class="chip">Fig. 01</span></figcaption>
+        </figure>
+        <figure class="figure figure--framed figure--phone">
+          <img src="assets/img/kick-standings.webp?v=20261127b" alt="The league table over an aerial photo of a night match: eight teams with crests, form dots, games played, goal difference and points, Halcones highlighted in second" loading="lazy" width="780" height="1688">
+          <figcaption class="figure__caption"><span>His team on the table, live.</span><span class="chip">Fig. 02</span></figcaption>
+        </figure>
+        <figure class="figure figure--framed figure--phone">
+          <img src="assets/img/kick-player-match.webp?v=20261127b" alt="The match center over a photo of a goal line block: Halcones 1, Tigres 1 at minute 34 and a timeline of goals and cards" loading="lazy" width="780" height="1688">
+          <figcaption class="figure__caption"><span>The match, followed like the pros.</span><span class="chip">Fig. 03</span></figcaption>
+        </figure>
+        <figure class="figure figure--framed figure--phone">
+          <img src="assets/img/kick-team.webp?v=20261127b" alt="My team over a photo of the squad in a huddle: Halcones FC, points, goals scored and conceded, and the squad list with Diego marked You" loading="lazy" width="780" height="1688">
+          <figcaption class="figure__caption"><span>The squad, with his name in it.</span><span class="chip">Fig. 04</span></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 02 : FOUR PEOPLE -->
+    <section class="sec sec--gray stack" id="people">
+      <span class="chip sec__chip">02 / Four People</span>
+      <div class="stack__intro">
+        <h2 class="display display--md">Four<br>People</h2>
+        <ul class="points">
+          <li><strong>One record, four doors</strong>Everyone looks at the same league from their own job. What the referee records is what the player, the captain and the admin see. Nothing is retyped.</li>
+          <li><strong>Diego, the player</strong>Opens the app for the score, the table and his own numbers. He can change his photo; his shirt number and name belong to his captain.</li>
+          <li><strong>Beto, the captain, who also plays</strong>Runs the roster and the money, and plays on the same team. A Captain and Player switch under his name swaps the whole app between his panel and his own player view.</li>
+          <li><strong>Marisol, the referee</strong>Runs the match from her phone or her watch: clock, score, goals, cards and subs, by tap or by voice.</li>
+          <li><strong>Rosa, the league admin</strong>Works on a computer. She creates the league, sets the rules, builds the calendar, follows the money and settles disputes.</li>
+        </ul>
+      </div>
+      <div class="stack__row stack__row--quad">
+        <figure class="figure figure--framed figure--phone">
+          <img src="assets/img/kick-player-home.webp?v=20261127b" alt="Diego's home: Matchday 7 over a warm photo of a player striking the ball at night, the live score Halcones 1, Tigres 1, his 7 goals and his fee paid in the app" loading="lazy" width="780" height="1688">
+          <figcaption class="figure__caption"><span>Diego, the player: the matchday at a glance.</span><span class="chip">Fig. 05</span></figcaption>
+        </figure>
+        <figure class="figure figure--framed figure--phone">
+          <img src="assets/img/kick-captain-panel.webp?v=20261127b" alt="Beto's panel: a Captain and Player switch, $90 of $120 collected with 3 unpaid, and three tasks before kick off" loading="lazy" width="780" height="1688">
+          <figcaption class="figure__caption"><span>Beto, the captain: the money and what is left to do.</span><span class="chip">Fig. 06</span></figcaption>
+        </figure>
+        <figure class="figure figure--framed figure--phone">
+          <img src="assets/img/kick-captain-player.webp?v=20261127b" alt="Beto's own player view after the switch: number 4, captain, his goal and his fee paid, with the same live match" loading="lazy" width="780" height="1688">
+          <figcaption class="figure__caption"><span>The same Beto, as a player.</span><span class="chip">Fig. 07</span></figcaption>
+        </figure>
+        <figure class="figure figure--framed figure--phone">
+          <img src="assets/img/kick-referee-live.webp?v=20261127b" alt="Marisol's live match: the clock, the score, large Goal, Yellow, Red and Sub buttons, Say it, and the last events" loading="lazy" width="780" height="1688">
+          <figcaption class="figure__caption"><span>Marisol, the referee: the match in four buttons.</span><span class="chip">Fig. 08</span></figcaption>
+        </figure>
+      </div>
+      <div class="stack__row stack__row--1">
+        <figure class="figure figure--framed">
+          <img src="assets/img/kick-admin-dash.webp?v=20261127b" alt="Rosa's dashboard over a photo of a floodlit two pitch complex: teams, fees collected, referee payouts, two items that need her, the live match, the standings, activity and fees by team" loading="lazy" width="2160" height="1350">
+          <figcaption class="figure__caption"><span>Rosa, the league admin: the whole league, live, on one screen.</span><span class="chip">Fig. 09</span></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 03 : VISUAL LANGUAGE -->
+    <section class="sec stack" id="language">
+      <span class="chip sec__chip">03 / Visual Language</span>
+      <div class="stack__intro">
+        <h2 class="display display--md">Visual<br>Language</h2>
+        <ul class="points">
+          <li><strong>Photography with passion</strong>Night football as it is lived: floodlights, haze, neighborhood pitches and modern kits in deep colors, never the same twice. The front of the app is a clear game hero in cool light; the screens inside use warm film, closer and more personal. Lime never appears in a photo; it belongs to the interface.</li>
+          <li><strong>A title screen, like a game</strong>The app opens on the number 10 mid strike, the mark, the name typed in letter by letter and "Tap to start", with live league news running along the bottom.</li>
+          <li><strong>One stripe per screen</strong>The main box of every screen runs edge to edge with square corners, like a broadcast bar, with a fine lime light along its top edge. Everything else is frosted glass.</li>
+          <li><strong>Numbers like the back of a shirt</strong>Every number sits centered in its own space: stats, scores, money, minutes and shirt numbers. In fixture rows "vs" always sits in the same column; a long team name is cut and shown whole on tap.</li>
+          <li><strong>Type and color</strong>Nexa for text, Poppins for numbers. Lime #EDFC5A leads the actions on charcoal #191919; each person keeps a tint, and cards keep their real yellow and red.</li>
+        </ul>
+      </div>
+      <div class="swatches">
+        <figure class="pms"><div class="pms__chip" style="background:#edfc5a"></div><figcaption class="pms__label"><span class="pms__brand">Kickabout: Lime</span><span class="pms__code">HEX #EDFC5A</span><span class="pms__code">RGB 237 252 90</span><span class="pms__use">Brand, actions and the stripe edge.</span></figcaption></figure>
+        <figure class="pms"><div class="pms__chip" style="background:#191919"></div><figcaption class="pms__label"><span class="pms__brand">Kickabout: Charcoal</span><span class="pms__code">HEX #191919</span><span class="pms__code">RGB 25 25 25</span><span class="pms__use">Every background.</span></figcaption></figure>
+        <figure class="pms"><div class="pms__chip" style="background:#ffb547"></div><figcaption class="pms__label"><span class="pms__brand">Captain: Amber</span><span class="pms__code">HEX #FFB547</span><span class="pms__code">RGB 255 181 71</span><span class="pms__use">Beto's highlights.</span></figcaption></figure>
+        <figure class="pms"><div class="pms__chip" style="background:#39d0ff"></div><figcaption class="pms__label"><span class="pms__brand">Referee: Cyan</span><span class="pms__code">HEX #39D0FF</span><span class="pms__code">RGB 57 208 255</span><span class="pms__use">Marisol's phone and watch.</span></figcaption></figure>
+        <figure class="pms"><div class="pms__chip" style="background:#a78bfa"></div><figcaption class="pms__label"><span class="pms__brand">Admin: Violet</span><span class="pms__code">HEX #A78BFA</span><span class="pms__code">RGB 167 139 250</span><span class="pms__use">Rosa's console.</span></figcaption></figure>
+        <figure class="pms"><div class="pms__chip" style="background:#ffd23f"></div><figcaption class="pms__label"><span class="pms__brand">Match: Yellow</span><span class="pms__code">HEX #FFD23F</span><span class="pms__code">RGB 255 210 63</span><span class="pms__use">Yellow cards, never decoration.</span></figcaption></figure>
+      </div>
+      <div class="stack__row stack__row--quad">
+        <figure class="figure figure--framed figure--phone">
+          <img src="assets/img/kick-hero.webp?v=20261127b" alt="The title screen: the number 10 striking the ball under a hazy floodlight, the lime mark, kickabout league in wide lowercase type, Tap to start and a ticker of league news" loading="lazy" width="780" height="1688">
+          <figcaption class="figure__caption"><span>The title screen, like a game.</span><span class="chip">Fig. 10</span></figcaption>
+        </figure>
+        <figure class="figure figure--framed figure--phone">
+          <img src="assets/img/kick-login.webp?v=20261127b" alt="Sign in: the captain with the number 10 walking out through an open gate toward the floodlit pitch, and a glass panel with Welcome back, Diego and the phone number" loading="lazy" width="780" height="1688">
+          <figcaption class="figure__caption"><span>Sign in by phone, with no passwords.</span><span class="chip">Fig. 11</span></figcaption>
+        </figure>
+        <figure class="figure figure--framed figure--phone">
+          <img src="assets/img/kick-referee-matches.webp?v=20261127b" alt="Marisol's matches: the live match as a full width stripe with square corners, and next week's fixtures with vs aligned in one column" loading="lazy" width="780" height="1688">
+          <figcaption class="figure__caption"><span>The main box as a stripe; vs in one column.</span><span class="chip">Fig. 12</span></figcaption>
+        </figure>
+        <figure class="figure figure--framed figure--phone">
+          <img src="assets/img/kick-card.webp?v=20261127b" alt="The full screen yellow card: Recorded at 34, the number 10 centered, Diego Ramírez, Halcones FC" loading="lazy" width="780" height="1688">
+          <figcaption class="figure__caption"><span>The card keeps its real color.</span><span class="chip">Fig. 13</span></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 04 : THE LIVE MATCH -->
+    <section class="sec sec--gray stack" id="live">
+      <span class="chip sec__chip">04 / The Live Match</span>
+      <div class="stack__intro">
+        <h2 class="display display--md">The Live<br>Match</h2>
+        <ul class="points">
+          <li><strong>Tap, team, number</strong>Marisol taps Goal, Yellow, Red or Sub, picks the team and the shirt number, and records it at the current minute. Suspended players never appear in her number pad.</li>
+          <li><strong>The phone becomes the card</strong>A yellow or red card fills the screen with the number and the name, so she can show it if she forgot her cards. Showing it is recording it.</li>
+          <li><strong>Say it</strong>She can speak instead: "Yellow card, number ten, Halcones". The phone proposes the event and she confirms with one tap. Nothing is recorded from voice without that tap.</li>
+          <li><strong>Everyone, at once</strong>The same event lands in Diego's match center and stats, the live table, Rosa's dashboard and the public league page.</li>
+          <li><strong>Closed by both sides</strong>At full time both captains sign the report. If one disagrees, it goes on hold and Rosa decides.</li>
+        </ul>
+      </div>
+      <div class="stack__row stack__row--3">
+        <figure class="figure figure--phone">
+          <div class="vid" data-lead="live" data-label="live match animation">
+            <video muted loop playsinline preload="metadata" poster="assets/img/kick-live-a-poster.webp?v=20261127c" aria-label="Animation: Marisol taps Yellow, picks number 10 of Halcones and records it, and the card fills her screen">
+              <source src="assets/video/kick-live-a.mp4?v=20261127c" type="video/mp4">
+            </video>
+            <button class="vid__toggle" type="button">Play</button>
+          </div>
+          <figcaption class="figure__caption"><span>Marisol records a yellow card on her phone.</span><span class="chip">Fig. 14</span></figcaption>
+        </figure>
+        <figure class="figure figure--phone">
+          <div class="vid" data-follow="live" data-label="live match animation, player side">
+            <video muted loop playsinline preload="metadata" poster="assets/img/kick-live-b-poster.webp?v=20261127c" aria-label="Animation: Diego's match center at the same moment, the new yellow card arriving at the top of the timeline">
+              <source src="assets/video/kick-live-b.mp4?v=20261127c" type="video/mp4">
+            </video>
+            
+          </div>
+          <figcaption class="figure__caption"><span>A second later it tops Diego's timeline.</span><span class="chip">Fig. 15</span></figcaption>
+        </figure>
+        <figure class="figure figure--framed figure--phone">
+          <img src="assets/img/kick-voice.webp?v=20261127b" alt="The voice command: Yellow card, number ten, Halcones, with the proposal at minute 34 reading Yellow card, number 10 Diego Ramírez, Halcones, and Redo or Record" loading="lazy" width="780" height="1688">
+          <figcaption class="figure__caption"><span>Voice proposes; the referee confirms.</span><span class="chip">Fig. 16</span></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 05 : ON THE WRIST -->
+    <section class="sec stack" id="watch">
+      <span class="chip sec__chip">05 / On the Wrist</span>
+      <div class="stack__intro">
+        <h2 class="display display--md">On the<br>Wrist</h2>
+        <ul class="points">
+          <li><strong>Why a watch</strong>A referee runs, whistles and holds cards. Her phone is in a pocket. The watch keeps the whole live match on her wrist, with every feature of the phone.</li>
+          <li><strong>The number on the crown</strong>She taps the event and the team, then turns the Digital Crown to the shirt number. The number sits large and centered, with the previous and next numbers above and below.</li>
+          <li><strong>The card on the wrist</strong>A yellow or red card fills the watch with the number, so she can raise her wrist and show it.</li>
+          <li><strong>Voice, too</strong>"Goal, nine, Tigres": the watch proposes it and she confirms or says it again.</li>
+          <li><strong>Typing goes to the phone</strong>A note is the one thing a wrist cannot type. "Add a note" opens the note on her phone and the watch says "Continue on iPhone". Ending the match takes a press and hold, so it never happens by accident.</li>
+        </ul>
+      </div>
+      <div class="stack__row stack__row--pair">
+        <figure class="figure figure--phone">
+          <div class="vid" data-lead="watch" data-label="watch animation">
+            <video muted loop playsinline preload="metadata" poster="assets/img/kick-watch-a-poster.webp?v=20261127c" aria-label="Animation: Marisol taps Goal on her watch, picks Tigres, turns the crown from 10 to 13, Jesús Zamora, and records it">
+              <source src="assets/video/kick-watch-a.mp4?v=20261127c" type="video/mp4">
+            </video>
+            <button class="vid__toggle" type="button">Play</button>
+          </div>
+          <figcaption class="figure__caption"><span>Marisol records a goal on her watch.</span><span class="chip">Fig. 17</span></figcaption>
+        </figure>
+        <figure class="figure figure--phone">
+          <div class="vid" data-follow="watch" data-label="watch animation, player side">
+            <video muted loop playsinline preload="metadata" poster="assets/img/kick-watch-b-poster.webp?v=20261127c" aria-label="Animation: Diego's match center at the same moment, the score changing to Halcones 1, Tigres 2">
+              <source src="assets/video/kick-watch-b.mp4?v=20261127c" type="video/mp4">
+            </video>
+            
+          </div>
+          <figcaption class="figure__caption"><span>Diego's match center turns 1 : 2.</span><span class="chip">Fig. 18</span></figcaption>
+        </figure>
+      </div>
+      <div class="stack__row stack__row--quad">
+        <figure class="figure figure--framed figure--watch">
+          <img src="assets/img/kick-watch-crown.webp?v=20261127b" alt="The watch number picker: Tigres, the number 10 large in the center, 9 above and 11 below, Alan Guzmán, and a Record button" loading="lazy" width="804" height="964">
+          <figcaption class="figure__caption"><span>The number on the crown.</span><span class="chip">Fig. 19</span></figcaption>
+        </figure>
+        <figure class="figure figure--framed figure--watch">
+          <img src="assets/img/kick-watch-card.webp?v=20261127b" alt="The watch filled with a yellow card: Recorded at 34, the number 10, Diego Ramírez, Halcones FC" loading="lazy" width="804" height="964">
+          <figcaption class="figure__caption"><span>The card, raised on the wrist.</span><span class="chip">Fig. 20</span></figcaption>
+        </figure>
+        <figure class="figure figure--framed figure--watch">
+          <img src="assets/img/kick-watch-hand.webp?v=20261127b" alt="The watch reading Continue on iPhone, with a phone outline and the note open on the phone" loading="lazy" width="804" height="964">
+          <figcaption class="figure__caption"><span>Typing hands off to the phone.</span><span class="chip">Fig. 21</span></figcaption>
+        </figure>
+        <figure class="figure figure--framed figure--watch">
+          <img src="assets/img/kick-watch-hold.webp?v=20261127b" alt="The watch end match screen: a red ring filling around Hold, and the line Score and events go to both captains to sign" loading="lazy" width="804" height="964">
+          <figcaption class="figure__caption"><span>Press and hold to end the match.</span><span class="chip">Fig. 22</span></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 06 : RULES IN THE APP -->
+    <section class="sec sec--gray stack" id="rules">
+      <span class="chip sec__chip">06 / Rules in the App</span>
+      <div class="stack__intro">
+        <h2 class="display display--md">Rules in<br>the App</h2>
+        <ul class="points">
+          <li><strong>Points you can change</strong>Wins give 3, draws 1 and losses 0 by default. Rosa can change any value and the season table recalculates as she types, before she saves.</li>
+          <li><strong>Numbers belong to the captain</strong>Only Beto sets shirt numbers and names. Numbers already taken on his team are locked in the picker.</li>
+          <li><strong>One team per league</strong>A player who already plays for another team in the league cannot be added; the app says who and where.</li>
+          <li><strong>Suspensions apply themselves</strong>By default five yellow cards or one red keep a player out of the next match. The app locks him out of the lineup.</li>
+          <li><strong>Money with a clear owner</strong>Captains collect in cash or in the app and mark who paid; they pay the referee and the league from the app.</li>
+        </ul>
+      </div>
+      <div class="stack__row stack__row--3">
+        <figure class="figure figure--framed figure--phone">
+          <img src="assets/img/kick-number.webp?v=20261127b" alt="Beto editing a player's shirt: the shirt name and a number picker where taken numbers are locked and 10 is selected" loading="lazy" width="780" height="1688">
+          <figcaption class="figure__caption"><span>Taken numbers are locked.</span><span class="chip">Fig. 23</span></figcaption>
+        </figure>
+        <figure class="figure figure--framed figure--phone">
+          <img src="assets/img/kick-conflict.webp?v=20261127b" alt="Add a player: a warning reads Óscar Leyva already plays for Tigres del Norte" loading="lazy" width="780" height="1688">
+          <figcaption class="figure__caption"><span>One team per player per league.</span><span class="chip">Fig. 24</span></figcaption>
+        </figure>
+        <figure class="figure figure--framed figure--phone">
+          <img src="assets/img/kick-lineup.webp?v=20261127b" alt="Who plays tonight: players with switches on, and Omar Cisneros locked with 5 yellow cards" loading="lazy" width="780" height="1688">
+          <figcaption class="figure__caption"><span>A suspended player cannot be picked.</span><span class="chip">Fig. 25</span></figcaption>
+        </figure>
+      </div>
+      <div class="stack__row stack__row--1">
+        <figure class="figure figure--framed">
+          <img src="assets/img/kick-admin-rules.webp?v=20261127b" alt="Rosa's rules: the draw set to 2 points and the season table beside it already recalculated, the moved rows highlighted" loading="lazy" width="2160" height="1350">
+          <figcaption class="figure__caption"><span>A draw worth 2: the table recalculates before saving.</span><span class="chip">Fig. 26</span></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 07 : MOTION -->
+    <section class="sec stack" id="motion">
+      <span class="chip sec__chip">07 / Motion</span>
+      <div class="stack__intro">
+        <h2 class="display display--md">Motion</h2>
+        <ul class="points">
+          <li><strong>A spotlight on the touch</strong>The box you touch squashes and stretches, then glows while everything around it blurs and fades for a moment.</li>
+          <li><strong>Liquid tabs</strong>Tabs, the tab bar, the admin menu and the Captain and Player switch share one pill. It stretches until it covers both options, thins out like a drop, then pulls into the new one with a small bounce.</li>
+          <li><strong>Screens in steps</strong>The old items leave first. Then the blurred background slides: left going forward, right going back. Then the new items arrive one by one, slightly out of step.</li>
+          <li><strong>Motion spec</strong>The pill takes 620 ms. Items leave in 240 ms, the background moves in 700 ms, and new items start at 300 ms, about 62 ms apart. Under reduced motion everything resolves at once.</li>
+        </ul>
+      </div>
+      <div class="stack__row stack__row--pair">
+        <figure class="figure figure--phone">
+          <div class="vid" data-label="liquid tabs animation">
+            <video muted loop playsinline preload="metadata" poster="assets/img/kick-liquid-poster.webp?v=20261127b" aria-label="Animation: on the League screen the white pill stretches from Standings to Scorers, to Fair play and back, and the content changes under it">
+              <source src="assets/video/kick-liquid.mp4?v=20261127b" type="video/mp4">
+            </video>
+            <button class="vid__toggle" type="button">Play</button>
+          </div>
+          <figcaption class="figure__caption"><span>Liquid tabs: one pill that stretches between options.</span><span class="chip">Fig. 27</span></figcaption>
+        </figure>
+        <figure class="figure figure--phone">
+          <div class="vid" data-label="screen transition animation">
+            <video muted loop playsinline preload="metadata" poster="assets/img/kick-steps-poster.webp?v=20261127b" aria-label="Animation: from Home to League to Team and back to Home, the items leave, the background photo slides in the direction of travel, and the new items arrive one by one">
+              <source src="assets/video/kick-steps.mp4?v=20261127b" type="video/mp4">
+            </video>
+            <button class="vid__toggle" type="button">Play</button>
+          </div>
+          <figcaption class="figure__caption"><span>Screens change in steps, in the direction of travel.</span><span class="chip">Fig. 28</span></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 08 : ACCESSIBILITY -->
+    <section class="sec sec--gray stack" id="accessibility">
+      <span class="chip sec__chip">08 / Accessibility</span>
+      <div class="stack__intro">
+        <h2 class="display display--md">Accessi&shy;bility</h2>
+        <ul class="points">
+          <li><strong>Contrast, measured</strong>Every text pair was measured against WCAG 2.2 AA with the glass composited over charcoal, after every color change: the lime, the charcoal and the small capital labels were checked again.</li>
+          <li><strong>A tap for every gesture</strong>Slide to pay and slide to sign arm on the first tap and confirm on the second, and Enter does the same from the keyboard (WCAG 2.2, 2.5.7). On the watch, the crown also works by swipe and by the arrow keys.</li>
+          <li><strong>States in words</strong>Paid, unpaid, suspended and live always carry a label, so color is never the only signal.</li>
+          <li><strong>Cut names, never lost</strong>A team name cut to keep "vs" aligned keeps its full name for screen readers and shows it on tap.</li>
+          <li><strong>Reduced motion</strong>Under reduced motion every transition resolves at once, the name appears without typing and the ticker stops.</li>
+        </ul>
+      </div>
+      <div class="stack__row stack__row--flow">
+        <figure class="figure" style="--ar: 1.45">
+          <div class="ratio-wrap">
+            <table class="ratio">
+              <thead><tr><th scope="col">Pair</th><th scope="col">Ratio</th><th scope="col">Result</th></tr></thead>
+              <tbody>
+                <tr><td><span class="ratio__pair"><span class="ratio__dot" style="background:#191919;color:#fdfff5">Aa</span>Text on charcoal</span></td><td>17.41:1</td><td>AA pass</td></tr>
+                <tr><td><span class="ratio__pair"><span class="ratio__dot" style="background:#212121;color:#fdfff5">Aa</span>Text on glass</span></td><td>15.95:1</td><td>AA pass</td></tr>
+                <tr><td><span class="ratio__pair"><span class="ratio__dot" style="background:#edfc5a;color:#0f1a0e">Aa</span>Charcoal on lime (buttons)</span></td><td>15.90:1</td><td>AA pass</td></tr>
+                <tr><td><span class="ratio__pair"><span class="ratio__dot" style="background:#212121;color:#edfc5a">Aa</span>Lime on glass</span></td><td>14.32:1</td><td>AA pass</td></tr>
+                <tr><td><span class="ratio__pair"><span class="ratio__dot" style="background:#ffd23f;color:#191919">Aa</span>Charcoal on the yellow card</span></td><td>12.18:1</td><td>AA pass</td></tr>
+                <tr><td><span class="ratio__pair"><span class="ratio__dot" style="background:#ffb547;color:#0f0f0f">Aa</span>Charcoal on captain amber</span></td><td>10.91:1</td><td>AA pass</td></tr>
+                <tr><td><span class="ratio__pair"><span class="ratio__dot" style="background:#39d0ff;color:#0f0f0f">Aa</span>Charcoal on referee cyan</span></td><td>10.63:1</td><td>AA pass</td></tr>
+                <tr><td><span class="ratio__pair"><span class="ratio__dot" style="background:#212121;color:#ff9aa2">Aa</span>Live label on glass</span></td><td>7.97:1</td><td>AA pass</td></tr>
+                <tr><td><span class="ratio__pair"><span class="ratio__dot" style="background:#a78bfa;color:#0f0f0f">Aa</span>Charcoal on admin violet</span></td><td>7.04:1</td><td>AA pass</td></tr>
+                <tr><td><span class="ratio__pair"><span class="ratio__dot" style="background:#212121;color:#a9aba4">Aa</span>Secondary text on glass</span></td><td>6.94:1</td><td>AA pass</td></tr>
+                <tr><td><span class="ratio__pair"><span class="ratio__dot" style="background:#edfc5a;color:#4d5923">Aa</span>Label on the lime stripe</span></td><td>6.74:1</td><td>AA pass</td></tr>
+                <tr><td><span class="ratio__pair"><span class="ratio__dot" style="background:#212121;color:#a1a29c">Aa</span>Small capital labels on glass</span></td><td>6.26:1</td><td>AA pass</td></tr>
+                <tr><td><span class="ratio__pair"><span class="ratio__dot" style="background:#dc1f36;color:#ffffff">Aa</span>White on the red card</span></td><td>4.89:1</td><td>AA pass</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <figcaption class="figure__caption"><span>Measured contrast of every text pair, glass composited over charcoal.</span><span class="chip">Fig. 29</span></figcaption>
+        </figure>
+        <figure class="figure figure--framed" style="--ar: 0.4621">
+          <img src="assets/img/kick-tap-pay.webp?v=20261127b" alt="Paying the referee and the league: $210 in total, and the slider armed by one tap, reading Tap again to confirm" loading="lazy" width="780" height="1688">
+          <figcaption class="figure__caption"><span>Tap to pay: the same action without dragging.</span><span class="chip">Fig. 30</span></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 09 : PROTOTYPES -->
+    <section class="sec stack" id="prototypes">
+      <span class="chip sec__chip">09 / Prototypes</span>
+      <div class="stack__intro">
+        <h2 class="display display--md">Clickable<br>Prototypes</h2>
+        <p class="lead">Each person has their own prototype, built on the same components and the same league. Open Marisol's live match or her watch next to Diego's match center: a card given on one lands on the other.</p>
+      </div>
+      <div class="protos protos--5">
+        <article class="proto-card">
+          <button class="proto-card__media" type="button" data-proto="prototype/player.html" data-proto-name="Diego, Player · app" aria-label="Open Diego's prototype"><img class="no-lightbox" src="assets/img/kick-player-home.webp?v=20261127b" alt="" loading="lazy" width="780" height="1688"></button>
+          <div class="proto-card__body">
+            <span class="proto-card__role"><span class="proto-card__dot" style="background:#edfc5a"></span>Player · app</span>
+            <h3 class="proto-card__name">Diego</h3>
+            <p class="proto-card__text">Start from the title screen, sign in, follow the live score, the table, his team and his own numbers.</p>
+            <a class="btn" href="prototype/player.html" data-proto="prototype/player.html" data-proto-name="Diego, Player · app">Open Diego's prototype</a>
+          </div>
+        </article>
+        <article class="proto-card">
+          <button class="proto-card__media" type="button" data-proto="prototype/captain.html" data-proto-name="Beto, Captain · app" aria-label="Open Beto's prototype"><img class="no-lightbox" src="assets/img/kick-captain-panel.webp?v=20261127b" alt="" loading="lazy" width="780" height="1688"></button>
+          <div class="proto-card__body">
+            <span class="proto-card__role"><span class="proto-card__dot" style="background:#ffb547"></span>Captain · app</span>
+            <h3 class="proto-card__name">Beto</h3>
+            <p class="proto-card__text">Set shirt numbers, mark who paid, confirm who plays, pay the referee, sign the report and switch to his player view.</p>
+            <a class="btn" href="prototype/captain.html" data-proto="prototype/captain.html" data-proto-name="Beto, Captain · app">Open Beto's prototype</a>
+          </div>
+        </article>
+        <article class="proto-card">
+          <button class="proto-card__media" type="button" data-proto="prototype/referee.html" data-proto-name="Marisol, Referee · app" aria-label="Open Marisol's prototype"><img class="no-lightbox" src="assets/img/kick-referee-live.webp?v=20261127b" alt="" loading="lazy" width="780" height="1688"></button>
+          <div class="proto-card__body">
+            <span class="proto-card__role"><span class="proto-card__dot" style="background:#39d0ff"></span>Referee · app</span>
+            <h3 class="proto-card__name">Marisol</h3>
+            <p class="proto-card__text">Check both lineups, run the live match by tap or by voice, show the card on screen and send the report.</p>
+            <a class="btn" href="prototype/referee.html" data-proto="prototype/referee.html" data-proto-name="Marisol, Referee · app">Open Marisol's prototype</a>
+          </div>
+        </article>
+        <article class="proto-card">
+          <button class="proto-card__media" type="button" data-proto="prototype/watch.html" data-proto-name="Marisol, Referee · watch" aria-label="Open Marisol's prototype"><img class="no-lightbox" src="assets/img/kick-watch-live.webp?v=20261127b" alt="" loading="lazy" width="804" height="964"></button>
+          <div class="proto-card__body">
+            <span class="proto-card__role"><span class="proto-card__dot" style="background:#39d0ff"></span>Referee · watch</span>
+            <h3 class="proto-card__name">Marisol</h3>
+            <p class="proto-card__text">Run the live match from the wrist: the number on the crown, the card, voice, and notes that open on the phone.</p>
+            <a class="btn" href="prototype/watch.html" data-proto="prototype/watch.html" data-proto-name="Marisol, Referee · watch">Open the watch</a>
+          </div>
+        </article>
+        <article class="proto-card">
+          <a class="proto-card__media proto-card__media--wide" href="prototype/admin.html" target="_blank" rel="noopener" aria-label="Open Rosa's console in a new tab"><img class="no-lightbox" src="assets/img/kick-admin-dash.webp?v=20261127b" alt="" loading="lazy" width="2160" height="1350"></a>
+          <div class="proto-card__body">
+            <span class="proto-card__role"><span class="proto-card__dot" style="background:#a78bfa"></span>League admin · desktop</span>
+            <h3 class="proto-card__name">Rosa</h3>
+            <p class="proto-card__text">Create a league, change the rules and watch the table, drag matches on the calendar and settle a dispute.</p>
+            <a class="btn" href="prototype/admin.html" target="_blank" rel="noopener">Open Rosa's console</a>
+          </div>
+        </article>
+      </div>
+      <div class="protos__more">
+        <a class="btn btn--ghost" href="prototype/index.html" target="_blank" rel="noopener">All prototypes in one place</a>
+        <a class="btn btn--ghost" href="prototype/league.html" target="_blank" rel="noopener">The public league page</a>
+      </div>
+    </section>
+
+    <!-- 10 : REFLECTION -->
+    <section class="reflection" id="reflection" style="background-image: url('assets/img/kick-matchday-wide.webp?v=20261127b')">
+      <div class="reflection__inner">
+        <div class="reflection__top">
+          <span class="chip chip--light">10 / Reflection</span>
+          <span class="chip chip--light">D Creative Thinking</span>
+        </div>
+        <h2 class="display display--lg">Looking<br>Back</h2>
+        <div class="reflection__cols">
+          <div>
+            <h3>What went well?</h3>
+            <p class="win"><svg class="icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg><span><strong>Passion first, admin second</strong>Designing for the feeling of a pro club, not for the paperwork, set every decision: the photos, the stats, the name on the table.</span></p>
+            <p class="win"><svg class="icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span><strong>One record, four people</strong>What the referee records is what everyone sees, on the phone, the watch and the desktop.</span></p>
+            <p class="win"><svg class="icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="m9 12 2 2 4-4"/></svg><span><strong>Rules the app enforces</strong>Numbers, suspensions and one team per league are handled by the interface instead of by memory.</span></p>
+            <p class="win"><svg class="icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg><span><strong>AI as a builder, not the designer</strong>Claude built and checked the prototypes; every role, rule, pattern and correction was mine.</span></p>
+          </div>
+          <div>
+            <h3>Where it stands</h3>
+            <p class="win"><svg class="icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 3h6"/><path d="M10 9V3h4v6l5 9a2 2 0 0 1-1.7 3H6.7A2 2 0 0 1 5 18z"/><path d="M7 15h10"/></svg><span><strong>Positive early testing</strong>The designs are complete, and early user testing of the prototypes came back positive.</span></p>
+            <p class="win"><svg class="icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg><span><strong>Launch next</strong>Kickabout League is a D Creative Thinking product, and it is moving from design to release.</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- PROTOTYPE LIGHTBOX (assets/js/interaction.js) -->
+  <dialog class="proto" id="proto" aria-label="Clickable prototype">
+    <p class="proto__title"></p>
+    <button class="proto__close" type="button" aria-label="Close prototype"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
+    <div class="proto__stage"><div class="proto__device"><iframe src="about:blank" title="Prototype" allow="fullscreen"></iframe></div></div>
+  </dialog>
+
+  <!-- MORE CASE STUDIES (cards from js/projects.js, same component as the homepage) -->
+  <section class="more" id="more" aria-labelledby="more-title">
+    <div class="more__head">
+      <h2 id="more-title" class="display display--md">More Case<br>Studies</h2>
+      <div class="more__filters" role="tablist" aria-label="Filter case studies">
+        <button class="more__filter is-active" type="button" role="tab" aria-selected="true" data-more-filter="related">Related</button>
+        <button class="more__filter" type="button" role="tab" aria-selected="false" data-more-filter="all">View all</button>
+      </div>
+    </div>
+    <div class="more__grid" data-projects="more" data-base="../../" data-current="kickabout"></div>
+    <div class="more__contact">
+      <ul class="more__links">
+        <li><a href="mailto:daniel@dcreativethinking.com">daniel@dcreativethinking.com</a></li>
+        <li><a href="tel:+18019219885">+1 801-921-9885</a></li>
+        <li><a href="../../assets/docs/Daniel_Rojas_Resume_2026_v2.pdf" download="Daniel_Rojas_Resume_2026.pdf">Download resume</a></li>
+      </ul>
+      <ul class="more__social" aria-label="Social profiles">
+        <li><a class="more__social-link" href="https://www.linkedin.com/in/dcreativethinking/" aria-label="LinkedIn" target="_blank" rel="noopener"><svg class="more__social-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"> <path d="M20.45 3H3.55A.55.55 0 0 0 3 3.55v16.9c0 .3.25.55.55.55h16.9c.3 0 .55-.25.55-.55V3.55A.55.55 0 0 0 20.45 3ZM8.8 18.34H5.87V9.75H8.8v8.59ZM7.34 8.47a1.7 1.7 0 1 1 0-3.4 1.7 1.7 0 0 1 0 3.4Zm11 9.87h-2.93v-4.18c0-1-.02-2.28-1.39-2.28-1.39 0-1.6 1.09-1.6 2.21v4.25H9.5V9.75h2.81v1.17h.04c.39-.74 1.35-1.52 2.77-1.52 2.97 0 3.52 1.95 3.52 4.49v4.45Z" fill="currentColor"/> </svg></a></li>
+        <li><a class="more__social-link" href="https://www.instagram.com/dani.el.ux/" aria-label="Instagram" target="_blank" rel="noopener"><svg class="more__social-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"> <path d="M12 2.16c3.2 0 3.58.02 4.85.07 1.17.06 1.8.25 2.23.42.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.84 0 3.2-.01 3.58-.07 4.85-.06 1.17-.25 1.8-.42 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42-.16-1.06.36-2.23.41-1.27.06-1.65.07-4.84.07-3.2 0-3.58-.01-4.85-.07-1.17-.06-1.8-.25-2.23-.42-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12c0-3.2.01-3.58.07-4.85.06-1.17.25-1.8.42-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16ZM12 0C8.74 0 8.33.02 7.05.07 5.78.13 4.9.33 4.14.63c-.79.31-1.46.72-2.13 1.38C1.35 2.68.94 3.35.63 4.14c-.3.77-.5 1.64-.56 2.91C.01 8.33 0 8.74 0 12s.02 3.67.07 4.95c.06 1.27.26 2.14.56 2.91.31.79.72 1.46 1.38 2.13.67.66 1.34 1.07 2.13 1.38.77.3 1.64.5 2.91.56C8.33 23.98 8.74 24 12 24s3.67-.02 4.95-.07c1.27-.06 2.14-.26 2.91-.56.79-.31 1.46-.72 2.13-1.38.66-.67 1.07-1.34 1.38-2.13.3-.77.5-1.64.56-2.91.05-1.28.07-1.69.07-4.95s-.02-3.67-.07-4.95c-.06-1.27-.26-2.14-.56-2.91a5.9 5.9 0 0 0-1.38-2.13A5.9 5.9 0 0 0 19.86.63c-.77-.3-1.64-.5-2.91-.56C15.67.02 15.26 0 12 0Zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32ZM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm7.85-10.41a1.44 1.44 0 1 1-2.88 0 1.44 1.44 0 0 1 2.88 0Z" fill="currentColor"/> </svg></a></li>
+        <li><a class="more__social-link" href="https://www.behance.net/mlkmx" aria-label="Behance - mlkmx" target="_blank" rel="noopener"><svg class="more__social-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"> <path d="M8.64 7c.5 0 .95.05 1.37.15.41.1.76.26 1.05.48.29.22.52.52.68.89.16.37.24.83.24 1.37 0 .59-.12 1.08-.36 1.48-.24.39-.6.71-1.07.96.64.21 1.12.57 1.44 1.09.32.52.47 1.15.47 1.88 0 .59-.1 1.11-.31 1.54-.19.42-.47.79-.82 1.06-.36.28-.76.48-1.19.6-.44.14-.9.2-1.37.2H2V7h6.64Zm-.4 4.61c.41 0 .75-.11 1.02-.33.27-.22.39-.57.39-1.06 0-.27-.04-.5-.13-.68a.94.94 0 0 0-.36-.41 1.4 1.4 0 0 0-.51-.21c-.2-.04-.4-.06-.6-.06H4.82v2.75h3.42Zm.19 4.84c.23 0 .44-.03.65-.08.2-.05.39-.13.54-.25.16-.12.29-.28.37-.47.09-.2.14-.46.14-.78 0-.62-.16-1.06-.47-1.33-.31-.26-.72-.4-1.23-.4H4.82v3.31h3.61ZM16.13 16.47c.38.41.92.62 1.63.62.51 0 .95-.14 1.32-.43.37-.29.6-.59.68-.91h2.09c-.34 1.16-.85 1.99-1.54 2.49-.7.51-1.53.76-2.51.76-.69 0-1.3-.12-1.85-.37a4.2 4.2 0 0 1-1.4-1.04 4.7 4.7 0 0 1-.89-1.62 6.1 6.1 0 0 1-.29-2.08c0-.74.1-1.42.32-2.06.2-.6.51-1.16.91-1.63a4.2 4.2 0 0 1 1.4-1.08 4.4 4.4 0 0 1 1.81-.39c.73 0 1.37.15 1.92.47.53.31.99.75 1.34 1.28.36.54.61 1.15.76 1.84.16.68.21 1.4.17 2.15h-6.25c.03.91.24 1.59.62 2Zm2.91-5.44c-.3-.37-.81-.57-1.42-.57-.4 0-.73.08-.99.23-.27.15-.48.34-.64.56a2 2 0 0 0-.34.74c-.06.21-.1.42-.11.64h3.87c-.06-.68-.24-1.23-.54-1.6ZM14.86 7h4.9v1.2h-4.9V7Z" fill="currentColor"/> </svg></a></li>
+        <li><a class="more__social-link" href="https://www.behance.net/MalikODaniel" aria-label="Behance - MalikODaniel" target="_blank" rel="noopener"><svg class="more__social-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"> <path d="M8.64 7c.5 0 .95.05 1.37.15.41.1.76.26 1.05.48.29.22.52.52.68.89.16.37.24.83.24 1.37 0 .59-.12 1.08-.36 1.48-.24.39-.6.71-1.07.96.64.21 1.12.57 1.44 1.09.32.52.47 1.15.47 1.88 0 .59-.1 1.11-.31 1.54-.19.42-.47.79-.82 1.06-.36.28-.76.48-1.19.6-.44.14-.9.2-1.37.2H2V7h6.64Zm-.4 4.61c.41 0 .75-.11 1.02-.33.27-.22.39-.57.39-1.06 0-.27-.04-.5-.13-.68a.94.94 0 0 0-.36-.41 1.4 1.4 0 0 0-.51-.21c-.2-.04-.4-.06-.6-.06H4.82v2.75h3.42Zm.19 4.84c.23 0 .44-.03.65-.08.2-.05.39-.13.54-.25.16-.12.29-.28.37-.47.09-.2.14-.46.14-.78 0-.62-.16-1.06-.47-1.33-.31-.26-.72-.4-1.23-.4H4.82v3.31h3.61ZM16.13 16.47c.38.41.92.62 1.63.62.51 0 .95-.14 1.32-.43.37-.29.6-.59.68-.91h2.09c-.34 1.16-.85 1.99-1.54 2.49-.7.51-1.53.76-2.51.76-.69 0-1.3-.12-1.85-.37a4.2 4.2 0 0 1-1.4-1.04 4.7 4.7 0 0 1-.89-1.62 6.1 6.1 0 0 1-.29-2.08c0-.74.1-1.42.32-2.06.2-.6.51-1.16.91-1.63a4.2 4.2 0 0 1 1.4-1.08 4.4 4.4 0 0 1 1.81-.39c.73 0 1.37.15 1.92.47.53.31.99.75 1.34 1.28.36.54.61 1.15.76 1.84.16.68.21 1.4.17 2.15h-6.25c.03.91.24 1.59.62 2Zm2.91-5.44c-.3-.37-.81-.57-1.42-.57-.4 0-.73.08-.99.23-.27.15-.48.34-.64.56a2.2 2.2 0 0 0-.34.74c-.06.21-.1.42-.11.64h3.87c-.06-.68-.24-1.23-.54-1.6ZM14.86 7h4.9v1.2h-4.9V7Z" fill="currentColor"/> </svg></a></li>
+      </ul>
+    </div>
+  </section>
+
+
+  <!-- LIGHTBOX & GALLERY SCRIPT -->
+  <div id="lightbox">
+    <button id="lightbox-close" aria-label="Close Lightbox">&times;</button>
+    <button id="lightbox-prev" class="lightbox-nav" aria-label="Previous Image">&#10094;</button>
+    <img id="lightbox-img" src="" alt="Enlarged view">
+    <button id="lightbox-next" class="lightbox-nav" aria-label="Next Image">&#10095;</button>
+  </div>
+
+  <script>
+    // Theme Toggle Logic
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    const body = document.body;
+
+    if (localStorage.getItem('theme') === 'dark') {
+      body.classList.add('dark-theme');
+      setSunIcon();
+    }
+
+    themeToggle.addEventListener('click', () => {
+      body.classList.toggle('dark-theme');
+      if (body.classList.contains('dark-theme')) {
+        localStorage.setItem('theme', 'dark');
+        setSunIcon();
+      } else {
+        localStorage.setItem('theme', 'light');
+        setMoonIcon();
+      }
+    });
+
+    function setSunIcon() {
+      themeIcon.innerHTML = '<circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>';
+    }
+
+    function setMoonIcon() {
+      themeIcon.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>';
+    }
+
+    // Lightbox & Gallery Logic
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxClose = document.getElementById('lightbox-close');
+    const prevBtn = document.getElementById('lightbox-prev');
+    const nextBtn = document.getElementById('lightbox-next');
+    
+    const clickableImages = Array.from(document.querySelectorAll('main img:not(.no-lightbox)'));
+    let currentIndex = 0;
+
+    function updateLightboxImage() {
+      lightboxImg.src = clickableImages[currentIndex].src;
+    }
+
+    clickableImages.forEach((img, index) => {
+      img.addEventListener('click', () => {
+        currentIndex = index;
+        updateLightboxImage();
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    const closeLightbox = () => {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    };
+
+    // Navigation Controls
+    prevBtn.addEventListener('click', (e) => {
+      e.stopPropagation(); 
+      currentIndex = (currentIndex > 0) ? currentIndex - 1 : clickableImages.length - 1;
+      updateLightboxImage();
+    });
+
+    nextBtn.addEventListener('click', (e) => {
+      e.stopPropagation(); 
+      currentIndex = (currentIndex < clickableImages.length - 1) ? currentIndex + 1 : 0;
+      updateLightboxImage();
+    });
+
+    // Close on background click
+    lightbox.addEventListener('click', (e) => {
+      if (e.target !== lightboxImg && e.target !== prevBtn && e.target !== nextBtn) {
+        closeLightbox();
+      }
+    });
+
+    lightboxClose.addEventListener('click', closeLightbox);
+
+    // Keyboard controls for Gallery & Close
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox.classList.contains('active')) return;
+      
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') {
+        currentIndex = (currentIndex > 0) ? currentIndex - 1 : clickableImages.length - 1;
+        updateLightboxImage();
+      }
+      if (e.key === 'ArrowRight') {
+        currentIndex = (currentIndex < clickableImages.length - 1) ? currentIndex + 1 : 0;
+        updateLightboxImage();
+      }
+    });
+  </script>
+  <script src="../../js/projects.js?v=20261127b"></script>
+  <script src="../../js/case-nav.js?v=20261026b"></script>
+  <script src="../../js/reveal.js?v=20261026b"></script>
+  <script src="../../js/case-depth.js?v=20261124a"></script>
+  <script src="../../js/smart-nav.js?v=20261119a"></script>
+  <script src="assets/js/kickabout.js?v=20261127c"></script>
+</body>
+</html>

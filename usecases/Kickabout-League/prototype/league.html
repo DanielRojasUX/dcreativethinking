@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Liga Del Valle · Kickabout League</title>
+<link rel="artifact-thumbnail" href="og.jpg">
+<meta name="description" content="Standings, live score, scorers and fixtures for Liga Del Valle, Fall 2026.">
+<meta name="theme-color" content="#191919">
+<meta property="og:type" content="website"><meta property="og:title" content="Liga Del Valle · Kickabout League"><meta property="og:description" content="Standings, live score, scorers and fixtures for Liga Del Valle, Fall 2026.">
+<meta property="og:image" content="https://dcreativethinking.com/usecases/Kickabout-League/prototype/og.jpg"><meta name="robots" content="noindex"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Liga Del Valle · Kickabout League"><meta name="twitter:description" content="Standings, live score, scorers and fixtures for Liga Del Valle, Fall 2026."><meta name="twitter:image" content="https://dcreativethinking.com/usecases/Kickabout-League/prototype/og.jpg">
+<link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://use.typekit.net" crossorigin><link rel="stylesheet" href="https://use.typekit.net/eqt4ywi.css"><link rel="preload" href="assets/fonts/poppins-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/kick.css?v=20261127d">
+</head><body>
+<div class="pub">
+  <header class="pub__hero">
+    <div class="bg"><img src="assets/img/bg-player.webp?v=20261127d" alt=""></div>
+    <div class="row" style="justify-content:space-between;position:absolute;top:22px;left:max(4vw,16px);right:max(4vw,16px)"><div class="lock lock--row" role="img" aria-label="Kickabout League" style="width:150px"><img class="lock__mark" src="assets/brand/mark.svg?v=20261127d" alt=""><span class="lock__type" aria-hidden="true">kickabout league</span></div><button class="btn btn--sm btn--ghost tap" data-act="share"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v13M7 8l5-5 5 5M5 14v6h14v-6"/></svg> Share</button></div>
+    <span class="eyebrow">West Valley City, UT · Rose Park Fields</span>
+    <h1 class="h1 h1--xl">Liga Del Valle</h1>
+    <span class="mut">Fall 2026 · 8 teams · matchday 7 of 14 · home and away</span>
+  </header>
+  <div class="glass card" style="gap:14px">
+    <div class="card__row"><span class="h3">Live now</span><span class="live" data-plive>LIVE 34'</span></div>
+    <div class="vs" data-vs></div>
+  </div>
+  <div class="pub__grid">
+    <div class="glass card"><div class="card__row"><span class="h3">Standings</span><span class="small mut">Win 3 · Draw 1 · Loss 0</span></div><table class="tbl num"><thead><tr><th>#</th><th>Team</th><th>P</th><th>W</th><th>D</th><th>L</th><th>GD</th><th>Pts</th></tr></thead><tbody data-pstd></tbody></table></div>
+    <div class="col" style="gap:16px">
+      <div class="glass card"><span class="h3">Top scorers</span><div class="list" data-psco></div></div>
+      <div class="glass card"><span class="h3">Matchday 7 · Sun, Nov 29</span><div class="list" data-pfix></div></div>
+    </div>
+  </div>
+  <p class="tiny dim" style="text-align:center;margin:10px 0 0">Run with Kickabout League</p>
+</div>
+<div class="app" style="position:fixed;inset:0;pointer-events:none;background:none;border-radius:0;z-index:100"></div>
+<script src="js/data.js?v=20261127d"></script><script src="js/kick.js?v=20261127d"></script><script>{
+const {app:A,$,icon,crest,teams:T}=KL;
+let live=KL.loadLive();
+function paint(){
+  const s=KL.score(live);
+  $('[data-vs]').innerHTML=`<div class="vs__t">${crest('HAL',44)}Halcones FC</div><div class="vs__s num">${s.HAL}<span>:</span>${s.TIG}</div><div class="vs__t">${crest('TIG',44)}Tigres del Norte</div>`;
+  $('[data-plive]').textContent=live.status==='final'?'FULL TIME':`LIVE ${live.minute}'`;
+  $('[data-pstd]').innerHTML=KL.table(live).map((t,i)=>`<tr><td>${i+1}</td><td><span class="team">${crest(t.k,20)}${T[t.k].name}</span></td><td>${t.P}</td><td>${t.W}</td><td>${t.D}</td><td>${t.L}</td><td>${t.GD>0?'+':''}${t.GD}</td><td class="pts">${t.Pts}</td></tr>`).join('');
+}
+$('[data-psco]').innerHTML=KL.scorers.slice(0,5).map((s,i)=>`<div class="li"><span class="dim num" style="width:16px">${i+1}</span><span class="li__main"><span class="li__t">${s.name}</span><span class="li__s team">${crest(s.t,16)}${T[s.t].short}</span></span><b class="h2 num">${s.g}</b></div>`).join('');
+$('[data-pfix]').innerHTML=KL.fixtures.map(f=>`<div class="li"><span class="li__main">${KL.fx(f.h,f.a,18)}</span><span class="small mut num">${f.time} · ${f.field}</span></div>`).join('');
+A.root=document.querySelector('.app');A.opt={noHash:true};
+document.addEventListener('click',e=>{const b=e.target.closest('[data-act="share"]');if(!b)return;KL.pop(b);try{navigator.clipboard.writeText(location.href)}catch(err){}KL.toast('Link copied','share');});
+KL.onLive(v=>{live=v;paint();});paint();
+}
+</script></body></html>

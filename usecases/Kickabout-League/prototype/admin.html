@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Kickabout League · League admin</title>
+<link rel="artifact-thumbnail" href="og.jpg">
+<meta name="description" content="Rosa runs Liga Del Valle: calendar, rules, money, discipline and disputes. A clickable Kickabout League prototype.">
+<meta name="theme-color" content="#191919">
+<meta property="og:type" content="website"><meta property="og:title" content="Kickabout League · League admin"><meta property="og:description" content="Rosa runs Liga Del Valle: calendar, rules, money, discipline and disputes. A clickable Kickabout League prototype.">
+<meta property="og:image" content="https://dcreativethinking.com/usecases/Kickabout-League/prototype/og.jpg"><meta name="robots" content="noindex"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Kickabout League · League admin"><meta name="twitter:description" content="Rosa runs Liga Del Valle: calendar, rules, money, discipline and disputes. A clickable Kickabout League prototype."><meta name="twitter:image" content="https://dcreativethinking.com/usecases/Kickabout-League/prototype/og.jpg">
+<link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://use.typekit.net" crossorigin><link rel="stylesheet" href="https://use.typekit.net/eqt4ywi.css"><link rel="preload" href="assets/fonts/poppins-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/kick.css?v=20261127d">
+</head>
+<body><div class="console" style="--p:#a78bfa">
+<nav class="side" aria-label="League admin">
+  <div class="lock side__logo" role="img" aria-label="Kickabout League"><img class="lock__mark" src="assets/brand/mark.svg?v=20261127d" alt=""><span class="lock__type" aria-hidden="true">kickabout league</span></div>
+  <button data-nav="dash"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z"/></svg>Dashboard</button>
+  <button data-nav="calendar"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v14H4zM4 10h16M9 3v5M15 3v5"/></svg>Calendar</button>
+  <button data-nav="rules"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6M19.4 15a1.6 1.6 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.6 1.6 0 0 0-2.7 1.1V21a2 2 0 1 1-4 0v-.1a1.6 1.6 0 0 0-2.7-1.1l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1A1.6 1.6 0 0 0 3.6 15H3a2 2 0 1 1 0-4h.1a1.6 1.6 0 0 0 1.1-2.7l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1A1.6 1.6 0 0 0 9.6 4V3a2 2 0 1 1 4 0v.1a1.6 1.6 0 0 0 2.7 1.1l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.6 1.6 0 0 0 1.1 2.7h.1a2 2 0 1 1 0 4h-.1a1.6 1.6 0 0 0-1.4.8"/></svg>Rules</button>
+  <button data-nav="teams"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 19v-1.5a3.5 3.5 0 0 0-3.5-3.5h-5A3.5 3.5 0 0 0 4 17.5V19M10 10.5a3 3 0 1 0 0-6 3 3 0 0 0 0 6M20 19v-1.5a3.5 3.5 0 0 0-2.6-3.4M15.5 4.6a3 3 0 0 1 0 5.8"/></svg>Teams</button>
+  <button data-nav="refs"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 13a5 5 0 1 0 9.6 2H20l1-4h-9.6A5 5 0 0 0 3 13M15 7V4M18 8l2-2"/></svg>Referees</button>
+  <button data-nav="money"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2v20M17 6H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>Finances</button>
+  <button data-nav="discipline"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg>Discipline</button>
+  <button data-nav="disputes"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 21V4h11l-1.5 4L16 12H5"/></svg>Disputes</button>
+  <button data-nav="newleague"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>New league</button>
+  <div class="side__sp"></div>
+  <div class="rail__links" style="padding:0 6px 12px"><a href="player.html">Diego</a><a href="captain.html">Beto</a><a href="referee.html">Marisol</a><a href="index.html">All</a></div>
+  <div class="side__me"><span class="av av--sm">RM</span><span class="col" style="gap:0"><b class="small">Rosa Medina</b><span class="tiny mut">League admin</span></span></div>
+</nav>
+<main class="main">
+<div class="glow"></div>
+
+<section class="view" id="dash" data-code="L01" data-name="Dashboard">
+  <div class="vhead st"><div class="col"><span class="eyebrow">Liga Del Valle · Fall 2026 · Matchday 7</span><h1 class="h1">Good evening, Rosa</h1></div><div class="row"><a class="btn btn--ghost btn--sm tap" href="league.html"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v13M7 8l5-5 5 5M5 14v6h14v-6"/></svg> Public page</a><button class="btn btn--sm btn--p tap" data-go="calendar"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16v14H4zM4 10h16M9 3v5M15 3v5"/></svg> Matchday 8</button></div></div>
+  <div class="kpis stripe" data-main>
+    <div class="glass card st"><span class="small mut">Teams</span><span class="big num" data-count="8">8</span><span class="card__foot small mut">96 registered players</span></div>
+    <div class="glass card st"><span class="small mut">Season fees collected</span><span class="big num" data-count="3150" data-pre="$">$3,150</span><div class="bar card__foot"><i data-w="87.5"></i></div></div>
+    <div class="glass card st"><span class="small mut">Referee payouts</span><span class="big num" data-count="1680" data-pre="$">$1,680</span><span class="card__foot small mut">28 matches · all paid</span></div>
+    <button class="glass card tap st" data-go="disputes" style="border-color:rgba(255,181,71,.45)"><span class="small mut">Needs you</span><span class="big num" style="color:var(--warn)">2</span><span class="card__foot small mut">1 dispute · 1 team request</span></button>
+  </div>
+  <div class="cols">
+    <div class="col" style="gap:16px">
+      <div class="glass card st">
+        <div class="card__row"><span class="h3">On the pitch now</span><span class="live" data-dlive>LIVE 34'</span></div>
+        <div class="vs" data-vs style="padding:8px 0"></div>
+        <div class="tl" data-dtl></div>
+      </div>
+      <div class="glass card st"><div class="card__row"><span class="h3">Standings</span><span class="tag">Live projection</span></div><div class="atbl-wrap"><table class="tbl num" style="font-size:14px"><thead><tr><th>#</th><th>Team</th><th>P</th><th>W</th><th>D</th><th>L</th><th>GD</th><th>Pts</th></tr></thead><tbody data-dstd></tbody></table></div></div>
+    </div>
+    <div class="col" style="gap:16px">
+      <div class="glass card st"><span class="h3">Activity</span><div class="list" data-feed></div></div>
+      <div class="glass card st"><span class="h3">Matchday 7 fees by team</span><div class="col" style="gap:12px" data-teamfees></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="view" id="newleague" data-code="L02" data-name="Create a league">
+  <div class="vhead st"><div class="col"><span class="eyebrow">New competition</span><h1 class="h1">Create a league</h1></div></div>
+  <div class="wizard">
+    <div class="steps glass card st stripe" data-steps data-main><div class="is-on"><b>1</b>Format</div><div><b>2</b>Teams</div><div><b>3</b>Schedule</div><div><b>4</b>Rules and fees</div></div>
+    <div class="glass card st" style="padding:24px;gap:18px" data-wz>
+      <div data-step="1" class="col" style="gap:16px"><div class="field"><label for="lgname">Name</label><input class="input" id="lgname" value="Copa Invierno 2027"></div><span class="h3">Format</span><div class="opts fx" data-pick="fmt"><button class="opt tap is-on"><b>League</b><span class="small mut">Everyone plays everyone. Points decide.</span></button><button class="opt tap"><b>Groups and knockout</b><span class="small mut">Two groups, then semifinals and a final.</span></button><button class="opt tap"><b>Knockout</b><span class="small mut">Single elimination from the first round.</span></button></div><div class="field"><label>Rounds</label><div class="seg" style="max-width:340px"><button class="is-on tap">Single round</button><button class="tap">Home and away</button></div></div></div>
+      <div data-step="2" class="col" style="gap:14px" hidden><span class="h3">Teams joining</span><p class="small mut" style="margin:0">Returning teams keep their captain and roster. New teams get an invite link.</p><div class="grid2 fx" data-wz-teams></div><button class="btn btn--ghost btn--sm tap" style="align-self:flex-start"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg> Invite a new team</button></div>
+      <div data-step="3" class="col" style="gap:14px" hidden><div class="grid2"><div class="field"><label for="d1">First matchday</label><input class="input" id="d1" value="Sun, Jan 10, 2027"></div><div class="field"><label for="ven">Venue</label><input class="input" id="ven" value="Rose Park Fields · 2 fields"></div></div><span class="h3">Kick off times</span><div class="row fx" style="flex-wrap:wrap"><button class="chip tap is-on">6:30 PM</button><button class="chip tap is-on">8:00 PM</button><button class="chip tap">9:30 PM</button></div><div class="glass card card--tight ptint"><span class="row p"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg><b>8 teams · 7 matchdays · 28 matches</b></span><span class="small mut">Ends Sun, Feb 21. The calendar is generated with no team playing twice in one night.</span></div></div>
+      <div data-step="4" class="col" style="gap:14px" hidden><div class="grid3"><div class="field"><label>Win</label><div class="input row num" style="justify-content:space-between">3 pts</div></div><div class="field"><label>Draw</label><div class="input row num" style="justify-content:space-between">1 pt</div></div><div class="field"><label>Loss</label><div class="input row num" style="justify-content:space-between">0 pts</div></div></div><div class="grid2"><div class="field"><label for="f1">Team registration</label><input class="input num" id="f1" value="$450"></div><div class="field"><label for="f2">Referee per match</label><input class="input num" id="f2" value="$60"></div></div><p class="small mut" style="margin:0">Fine tune tie breakers and discipline in Rules after creating the league.</p></div>
+      <div class="row" style="justify-content:space-between;margin-top:6px"><button class="btn btn--ghost tap" data-act="wzback"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg> Back</button><button class="btn btn--p tap" data-act="wznext">Next <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button></div>
+    </div>
+  </div>
+</section>
+
+<section class="view" id="rules" data-code="L03" data-name="Rules">
+  <div class="vhead st"><div class="col"><span class="eyebrow">Liga Del Valle</span><h1 class="h1">Rules</h1></div><button class="btn btn--p tap" data-act="saverules"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg> Save rules</button></div>
+  <div class="cols">
+    <div class="col" style="gap:16px">
+      <div class="glass card st"><span class="h3">Points</span><div class="grid3" data-pts></div><p class="small mut" style="margin:0">Change a value and the table on the right recalculates the whole season with it.</p></div>
+      <div class="glass card st"><span class="h3">Tie breakers, in order</span><div class="list" data-tb></div></div>
+      <div class="glass card st"><span class="h3">Discipline</span>
+        <div class="li"><span class="li__main"><span class="li__t">Yellow cards for a one match ban</span></span><div class="stepper" data-st="yel"><button class="tap" aria-label="Less">−</button><output class="num">5</output><button class="tap" aria-label="More">+</button></div></div>
+        <div class="li"><span class="li__main"><span class="li__t">Matches out after a red card</span></span><div class="stepper" data-st="red"><button class="tap" aria-label="Less">−</button><output class="num">1</output><button class="tap" aria-label="More">+</button></div></div>
+        <div class="li"><span class="li__main"><span class="li__t">Lock suspended players out of lineups</span></span><button class="switch is-on tap" data-act="sw" role="switch" aria-checked="true" aria-label="Lock suspended players"></button></div>
+      </div>
+    </div>
+    <div class="glass card st"><div class="card__row"><span class="h3">Season with these rules</span><span class="tag" data-rule-tag>3 · 1 · 0</span></div><table class="tbl num"><thead><tr><th>#</th><th>Team</th><th>W</th><th>D</th><th>Pts</th></tr></thead><tbody data-rstd></tbody></table></div>
+  </div>
+</section>
+
+<section class="view" id="calendar" data-code="L04" data-name="Calendar">
+  <div class="vhead st"><div class="col"><span class="eyebrow">Rose Park Fields · drag a match to move it</span><h1 class="h1">Matchday 8 · Sun, Dec 6</h1></div><button class="btn btn--p tap" data-act="publish"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v13M7 8l5-5 5 5M5 14v6h14v-6"/></svg> Publish to teams</button></div>
+  <div class="cal st" data-cal></div>
+  <div class="glass card st"><div class="card__row"><span class="h3">Referees this night</span><span class="small mut">Tap a match card to change its referee</span></div><div class="row" style="flex-wrap:wrap" data-refchips></div></div>
+</section>
+
+<section class="view" id="teams" data-code="L05" data-name="Teams">
+  <div class="vhead st"><div class="col"><span class="eyebrow">8 teams · 96 players</span><h1 class="h1">Teams</h1></div></div>
+  <div class="glass card ptint st" data-req><div class="card__row"><span class="row" style="gap:12px"><svg class="crest" width="20" height="22.4" viewBox="0 0 40 45" aria-hidden="true"><path d="M20 2 37 8v13c0 11-7.6 18.5-17 22C10.6 39.5 3 32 3 21V8z" fill="#2fd3b4"/><path d="M20 2 37 8v13c0 11-7.6 18.5-17 22z" fill="rgba(0,0,0,.16)"/><text x="20" y="27" text-anchor="middle" font-family="Poppins,sans-serif" font-weight="700" font-size="13" fill="#0f0f0f">MA</text></svg><span class="col" style="gap:0"><b>Unión Magna B wants to join</b><span class="small mut">Captain Felipe Arce · 11 players · 2 already play for Unión Magna</span></span></span><span class="row"><button class="btn btn--ghost btn--sm tap" data-act="reject">Decline</button><button class="btn btn--sm btn--p tap" data-act="approve">Review players</button></span></div></div>
+  <div class="glass card st atbl-wrap stripe" data-main><table class="atbl num"><thead><tr><th>Team</th><th>Captain</th><th class="r">Players</th><th class="r">Season fee</th><th class="r">Matchday 7</th><th class="r">Pts</th></tr></thead><tbody data-teams></tbody></table></div>
+</section>
+
+<section class="view" id="refs" data-code="L06" data-name="Referees">
+  <div class="vhead st"><div class="col"><span class="eyebrow">3 referees</span><h1 class="h1">Referees</h1></div><button class="btn btn--ghost tap" data-act="addref"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg> Add referee</button></div>
+  <div class="grid3 stripe" data-refs data-main style="grid-template-columns:repeat(3,minmax(0,1fr))"></div>
+</section>
+
+<section class="view" id="money" data-code="L07" data-name="Finances">
+  <div class="vhead st"><div class="col"><span class="eyebrow">Fall 2026</span><h1 class="h1">Finances</h1></div><button class="btn btn--ghost tap" data-act="export"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h8l5 5v13H6zM14 3v5h5M9 13h6M9 17h6"/></svg> Export CSV</button></div>
+  <div class="kpis stripe" data-main><div class="glass card st"><span class="small mut">Registration</span><span class="big num">$3,150</span><span class="card__foot small mut">of $3,600</span></div><div class="glass card st"><span class="small mut">Paid to referees</span><span class="big num">$1,680</span><span class="card__foot small mut">by captains, in app</span></div><div class="glass card st"><span class="small mut">Field rental</span><span class="big num">$1,400</span><span class="card__foot small mut">Rose Park · 7 nights</span></div><div class="glass card st"><span class="small mut">League balance</span><span class="big num g">$1,750</span><span class="card__foot small mut">after field rental</span></div></div>
+  <div class="cols cols--eq">
+    <div class="glass card st"><span class="h3">Money in by matchday</span><div class="chart" data-chart></div></div>
+    <div class="glass card st"><span class="h3">Owed by team</span><div class="list" data-owed></div></div>
+  </div>
+</section>
+
+<section class="view" id="discipline" data-code="L08" data-name="Discipline">
+  <div class="vhead st"><div class="col"><span class="eyebrow">Ban at 5 yellows · 1 match per red</span><h1 class="h1">Discipline</h1></div><button class="btn btn--ghost tap" data-act="sanction"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg> Manual sanction</button></div>
+  <div class="cols cols--eq">
+    <div class="glass card st"><span class="h3">Suspended for matchday 7</span><div class="li"><span class="li__main team"><svg class="crest" width="20" height="22.4" viewBox="0 0 40 45" aria-hidden="true"><path d="M20 2 37 8v13c0 11-7.6 18.5-17 22C10.6 39.5 3 32 3 21V8z" fill="#ff7a1a"/><path d="M20 2 37 8v13c0 11-7.6 18.5-17 22z" fill="rgba(0,0,0,.16)"/><text x="20" y="27" text-anchor="middle" font-family="Poppins,sans-serif" font-weight="700" font-size="13" fill="#0f0f0f">HA</text></svg><span class="col" style="gap:0"><b>Omar Cisneros #17</b><span class="small mut">Halcones · 5 yellow cards</span></span></span><span class="tag tag--r">Out 1 match</span></div><div class="li"><span class="li__main team"><svg class="crest" width="20" height="22.4" viewBox="0 0 40 45" aria-hidden="true"><path d="M20 2 37 8v13c0 11-7.6 18.5-17 22C10.6 39.5 3 32 3 21V8z" fill="#ff4d5e"/><path d="M20 2 37 8v13c0 11-7.6 18.5-17 22z" fill="rgba(0,0,0,.16)"/><text x="20" y="27" text-anchor="middle" font-family="Poppins,sans-serif" font-weight="700" font-size="13" fill="#0f0f0f">JA</text></svg><span class="col" style="gap:0"><b>Iván Cruz #9</b><span class="small mut">Jalisco · red card on matchday 6</span></span></span><span class="tag tag--r">Out 1 match</span></div></div>
+    <div class="glass card st"><span class="h3">One card from a ban</span><div class="col" style="gap:14px" data-near></div></div>
+  </div>
+</section>
+
+<section class="view" id="disputes" data-code="L09" data-name="Disputes and corrections">
+  <div class="vhead st"><div class="col"><span class="eyebrow">Halcones 2 : 2 Tigres · matchday 7</span><h1 class="h1">Goal at 62'</h1></div><span class="tag tag--w" data-dis-tag>Open · report on hold</span></div>
+  <div class="cols">
+    <div class="col" style="gap:16px">
+      <div class="diff st">
+        <div><span class="small mut">Referee recorded</span><b class="h3" style="display:block;margin-top:6px">Toño Bernal #19</b><span class="small mut">Goal · Tigres · 62'</span></div>
+        <div style="border-color:rgba(255,181,71,.45)"><span class="small mut">Captain Alan Guzmán says</span><b class="h3" style="display:block;margin-top:6px">Rubén Ortiz #11</b><span class="small mut">"Rubén scored it, Toño assisted"</span></div>
+      </div>
+      <div class="glass card st"><span class="h3">What changes if you accept</span><div class="li"><span class="li__main">Rubén Ortiz goals</span><b class="num">3 → 4</b></div><div class="li"><span class="li__main">Toño Bernal goals</span><b class="num">1 → 0</b></div><div class="li"><span class="li__main">Final score</span><b class="num">2 : 2 stays</b></div></div>
+      <div class="row st" data-dis-act><button class="btn btn--ghost tap" data-act="keep">Keep the referee's record</button><button class="btn btn--p tap" data-act="accept">Accept the correction</button></div>
+    </div>
+    <div class="glass card st"><span class="h3">History</span><div class="list" data-hist></div></div>
+  </div>
+</section>
+</main>
+</div>
+
+<script src="js/data.js?v=20261127d"></script><script src="js/kick.js?v=20261127d"></script>
+<script>{
+const {app:A,$,$$,icon,crest,teams:T}=KL;
+let live=KL.loadLive();
+const nm=(t,n)=>{const p=(KL.rosters[t]||[]).find(x=>x.n===n);return p?p.name:'#'+n;};
+const lbl={goal:'Goal',yellow:'Yellow card',red:'Red card',sub:'Substitution'};
+const evIc=e=>e.type==='goal'?icon('ball'):e.type==='sub'?icon('swap'):`<span class="cardic cardic--${e.type==='yellow'?'y':'r'}"></span>`;
+
+/* dashboard */
+function dash(fresh){
+  const s=KL.score(live);
+  $('[data-vs]').innerHTML=`<div class="vs__t">${crest('HAL',44)}Halcones FC</div><div class="vs__s num">${s.HAL}<span>:</span>${s.TIG}</div><div class="vs__t">${crest('TIG',44)}Tigres del Norte</div>`;
+  const dl=$('[data-dlive]');dl.textContent=live.status==='final'?'FULL TIME':`LIVE ${live.minute}'`;
+  $('[data-dtl]').innerHTML=live.events.slice().reverse().slice(0,3).map((e,i)=>`<div class="ev${fresh&&i===0?' is-new':''}"><span class="ev__m">${e.min}'</span><span style="display:grid;place-items:center">${evIc(e)}</span><span class="col" style="gap:0"><b>${nm(e.t,e.n)}</b><span class="tiny mut">${lbl[e.type]} · ${T[e.t].short} · by Marisol Ortega</span></span></div>`).join('');
+  $('[data-dstd]').innerHTML=KL.table(live.status==='final'?null:live).map((t,i)=>`<tr><td>${i+1}</td><td><span class="team">${crest(t.k,20)}${T[t.k].name}</span></td><td>${t.P}</td><td>${t.W}</td><td>${t.D}</td><td>${t.L}</td><td>${t.GD>0?'+':''}${t.GD}</td><td class="pts">${t.Pts}</td></tr>`).join('');
+  const feed=live.events.slice(3).reverse().map(e=>['whistle',`${lbl[e.type]} · ${nm(e.t,e.n)}`,`Halcones vs Tigres · ${e.min}'`,'now']).concat([
+    ['wallet','Halcones paid $210','Referee fee and league balance','8:41 PM'],['team','Lineups confirmed','Halcones 11 · Tigres 11','7:44 PM'],['flag','Tigres disputed a goal','Matchday 7 · goal at 62\'','Yesterday'],['plus','Unión Magna B asked to join','11 players · 2 conflicts','Thu']]);
+  $('[data-feed]').innerHTML=feed.slice(0,6).map(([ic,t,s,w])=>`<div class="li"><span class="jn">${icon(ic)}</span><span class="li__main"><span class="li__t">${t}</span><span class="li__s">${s}</span></span><span class="tiny dim">${w}</span></div>`).join('');
+}
+$('[data-teamfees]').innerHTML=[['HAL',9],['TIG',12],['RWS',11],['DJA',10],['ARP',8],['PUK',12],['GAL',12],['UNM',7]].map(([k,n])=>`<div class="col" style="gap:6px"><div class="card__row small"><span class="team">${crest(k,16)}${T[k].short}</span><span class="mut num">${n} of 12</span></div><div class="bar"><i data-w="${n/12*100}" style="${n<9?'background:var(--warn)':''}"></i></div></div>`).join('');
+
+/* wizard */
+let step=1;
+$('[data-wz-teams]').innerHTML=Object.keys(T).map((k,i)=>`<button class="glass card card--tight tap row ${i<7?'is-on':''}" style="flex-direction:row" data-wt><span class="team li__main">${crest(k,22)}${T[k].name}</span><span class="switch ${i<7?'is-on':''}"></span></button>`).join('');
+$('[data-wz-teams]').addEventListener('click',e=>{const b=e.target.closest('[data-wt]');if(b)$('.switch',b).classList.toggle('is-on');});
+$$('[data-pick]').forEach(g=>g.addEventListener('click',e=>{const b=e.target.closest('.opt');if(b)$$('.opt',g).forEach(x=>x.classList.toggle('is-on',x===b));}));
+$('#newleague').addEventListener('click',e=>{const b=e.target.closest('.seg button,.chip');if(!b)return;if(b.closest('.seg'))$$('button',b.parentElement).forEach(x=>x.classList.toggle('is-on',x===b));else b.classList.toggle('is-on');});
+function wz(){$$('[data-step]').forEach(s=>{const on=+s.dataset.step===step;s.hidden=!on;if(on){s.style.animation='none';void s.offsetWidth;s.style.animation='st-in .6s var(--spring) both';}});$$('[data-steps] div').forEach((d,i)=>{d.className=i+1===step?'is-on':i+1<step?'is-done':'';d.querySelector('b').innerHTML=i+1<step?icon('check'):i+1;});$('[data-act="wznext"]').innerHTML=step===4?icon('check')+' Create league':'Next '+icon('next');$('[data-act="wzback"]').style.visibility=step===1?'hidden':'visible';}
+A.acts.wznext=()=>{if(step<4){step++;wz();}else{KL.toast('Copa Invierno 2027 created · 28 matches scheduled');step=1;setTimeout(()=>{wz();A.go('calendar');},700);}};
+A.acts.wzback=()=>{if(step>1){step--;wz();}};
+wz();
+
+/* rules with a live recalculated table */
+const rules={win:3,draw:1,loss:0};
+function rtable(){
+  const base=KL.table();const rows=base.map(t=>({...t,Pts:t.W*rules.win+t.D*rules.draw+t.L*rules.loss})).sort((a,b)=>b.Pts-a.Pts||b.GD-a.GD);
+  const prev=[...$$('[data-rstd] tr')].map(r=>r.dataset.k);
+  $('[data-rstd]').innerHTML=rows.map((t,i)=>`<tr data-k="${t.k}" ${prev.length&&prev[i]!==t.k?'class="is-me"':''}><td>${i+1}</td><td><span class="team">${crest(t.k,20)}${T[t.k].name}</span></td><td>${t.W}</td><td>${t.D}</td><td class="pts">${t.Pts}</td></tr>`).join('');
+  $('[data-rule-tag]').textContent=`${rules.win} · ${rules.draw} · ${rules.loss}`;
+}
+$('[data-pts]').innerHTML=[['win','Win'],['draw','Draw'],['loss','Loss']].map(([k,l])=>`<div class="col" style="gap:8px"><span class="small mut">${l}</span><div class="stepper" data-pt="${k}"><button class="tap" aria-label="Less">−</button><output class="num">${rules[k]}</output><button class="tap" aria-label="More">+</button></div></div>`).join('');
+$('#rules').addEventListener('click',e=>{const b=e.target.closest('.stepper button');if(!b)return;const st=b.parentElement,o=$('output',st),d=b.getAttribute('aria-label')==='More'?1:-1;let v=Math.max(0,Math.min(st.dataset.pt?5:10,+o.textContent+d));o.textContent=v;KL.pop(o);if(st.dataset.pt){rules[st.dataset.pt]=v;rtable();}});
+const tbs=['Points','Goal difference','Goals scored','Head to head','Fair play points'];
+const tbPaint=()=>{$('[data-tb]').innerHTML=tbs.map((t,i)=>`<div class="li" style="min-height:52px"><span class="jn num">${i+1}</span><span class="li__main">${t}</span>${i?`<button class="ibtn tap" style="width:38px;height:38px" data-up="${i}" aria-label="Move up">${icon('down').replace('<path','<path transform="rotate(180 12 12)"')}</button>`:'<span class="tag">Fixed</span>'}</div>`).join('');};
+tbPaint();
+$('[data-tb]').addEventListener('click',e=>{const b=e.target.closest('[data-up]');if(!b)return;const i=+b.dataset.up;if(i<2)return KL.toast('Points always decide first','lock');[tbs[i-1],tbs[i]]=[tbs[i],tbs[i-1]];tbPaint();});
+A.acts.saverules=()=>KL.toast('Rules saved · teams notified');
+A.acts.sw=(b)=>b.classList.toggle('is-on');
+rtable();
+
+/* calendar with drag and drop */
+const slots=[['Field 1','6:30 PM'],['Field 1','8:00 PM'],['Field 2','6:30 PM'],['Field 2','8:00 PM']];
+const md8=[['HAL','UNM','Marisol Ortega'],['RWS','DJA','Javier Luna'],['TIG','GAL','Javier Luna'],['ARP','PUK','Marisol Ortega']];
+let place=[0,1,2,3];
+const refs=['Marisol Ortega','Javier Luna','Diana Treviño'];
+function cal(land){
+  $('[data-cal]').innerHTML=slots.map(([f,t],si)=>{const mi=place.indexOf(si),m=md8[mi];return `<div class="glass card" style="gap:10px"><div class="card__row"><b>${t}</b><span class="tag">${f}</span></div><div class="slot" data-slot="${si}">${m?`<div class="mcard${land===mi?' is-land':''}" data-m="${mi}"><span class="row" style="color:var(--dim)">${icon('drag')}<span class="tiny">Matchday 8</span></span><span class="team">${crest(m[0],18)}${T[m[0]].short}</span><span class="team">${crest(m[1],18)}${T[m[1]].short}</span><button class="tag tap" data-ref="${mi}">${icon('whistle')} ${m[2]}</button></div>`:''}</div></div>`;}).join('');
+  $('[data-refchips]').innerHTML=refs.map(r=>{const n=md8.filter(m=>m[2]===r).length;return `<span class="chip ${n?'chip--p':''}">${r} · ${n} ${n===1?'match':'matches'}</span>`;}).join('');
+}
+cal();
+let drag=null;
+$('[data-cal]').addEventListener('pointerdown',e=>{const c=e.target.closest('.mcard');if(!c||e.target.closest('[data-ref]'))return;e.preventDefault();const r=c.getBoundingClientRect();const g=c.cloneNode(true);g.classList.add('is-ghost');g.style.width=r.width+'px';g.style.left=r.left+'px';g.style.top=r.top+'px';document.body.append(g);c.classList.add('is-drag');drag={c,g,dx:e.clientX-r.left,dy:e.clientY-r.top,m:+c.dataset.m};});
+addEventListener('pointermove',e=>{if(!drag)return;drag.g.style.left=(e.clientX-drag.dx)+'px';drag.g.style.top=(e.clientY-drag.dy)+'px';$$('.slot').forEach(s=>{const r=s.getBoundingClientRect();s.classList.toggle('is-over',e.clientX>r.left&&e.clientX<r.right&&e.clientY>r.top&&e.clientY<r.bottom);});});
+addEventListener('pointerup',()=>{if(!drag)return;const over=$('.slot.is-over');drag.g.remove();if(over){const to=+over.dataset.slot,from=place[drag.m],other=place.indexOf(to);place[drag.m]=to;if(other>-1)place[other]=from;const m=md8[drag.m];cal(drag.m);KL.toast(`${T[m[0]].short} vs ${T[m[1]].short} moved to ${slots[to][1]}, ${slots[to][0]}`,'cal');}else cal();drag=null;});
+$('[data-cal]').addEventListener('click',e=>{const b=e.target.closest('[data-ref]');if(!b)return;const mi=+b.dataset.ref;KL.sheet(`<span class="h2">Referee for ${T[md8[mi][0]].short} vs ${T[md8[mi][1]].short}</span><div class="col fx" style="gap:8px">${refs.map(r=>`<button class="glass card card--tight tap row" style="flex-direction:row" data-pr="${r}"><span class="av av--sm">${KL.ini(r)}</span><span class="li__main">${r}</span>${r===md8[mi][2]?icon('check','g'):''}</button>`).join('')}</div>`,s=>s.addEventListener('click',ev=>{const p=ev.target.closest('[data-pr]');if(!p)return;md8[mi][2]=p.dataset.pr;KL.closeSheet();cal(mi);KL.toast(`${p.dataset.pr} assigned`,'whistle');}));});
+A.acts.publish=()=>KL.toast('Matchday 8 sent to 8 captains and 3 referees','share');
+
+/* teams */
+const caps={HAL:'Beto Salazar',TIG:'Alan Guzmán',RWS:'Chris Navarro',DJA:'Iván Cruz',ARP:'Kevin Ochoa',PUK:'Raúl Mejía',GAL:'Fernando Gil',UNM:'Marco Tapia'};
+const fee={HAL:300,TIG:450,RWS:450,DJA:450,ARP:300,PUK:450,GAL:450,UNM:300};
+const mdp={HAL:9,TIG:12,RWS:11,DJA:10,ARP:8,PUK:12,GAL:12,UNM:7};
+$('[data-teams]').innerHTML=KL.table().map(t=>`<tr><td><span class="team">${crest(t.k,22)}${T[t.k].name}</span></td><td>${caps[t.k]}</td><td class="r">12</td><td class="r">${fee[t.k]===450?'<span class="tag tag--g">$450 paid</span>':`<span class="tag tag--w">$${fee[t.k]} of $450</span>`}</td><td class="r">${mdp[t.k]} of 12</td><td class="r"><b>${t.Pts}</b></td></tr>`).join('');
+A.acts.approve=()=>KL.sheet(`<span class="h2">Unión Magna B · 11 players</span><p class="small mut" style="margin:0">A player can be on one team per league. These two already play for Unión Magna.</p>
+ <div class="glass card card--tight" style="border-color:rgba(255,71,87,.45)"><div class="li"><span class="li__main"><b>Marco Tapia</b><span class="li__s">Captain of Unión Magna · 5 goals</span></span><span class="tag tag--r">Conflict</span></div><div class="li"><span class="li__main"><b>Luis Barrera</b><span class="li__s">Unión Magna #6</span></span><span class="tag tag--r">Conflict</span></div></div>
+ <button class="btn btn--p btn--block tap" data-act="okreq">Approve 9 players, ask for 2 replacements</button><button class="btn btn--ghost btn--block tap" data-close>Cancel</button>`,()=>{A.acts.okreq=()=>{KL.closeSheet();const r=$('[data-req]');r.style.transition='opacity .4s,transform .5s var(--spring)';r.style.opacity='0';r.style.transform='scale(.96)';setTimeout(()=>r.remove(),400);KL.toast('Unión Magna B approved · captain asked for 2 players');};});
+A.acts.reject=()=>{const r=$('[data-req]');r.style.opacity='.4';KL.toast('Request declined · captain notified','x');};
+
+/* referees */
+$('[data-refs]').innerHTML=[['Marisol Ortega','(385) 555 0121',12,4.9,'Sundays · both fields'],['Javier Luna','(801) 555 0108',10,4.7,'Sundays · Field 1'],['Diana Treviño','(801) 555 0133',6,4.8,'Every other Sunday']].map(([n,p,m,r,av],i)=>`<div class="glass card st" style="--i:${i}"><div class="row"><span class="av">${KL.ini(n)}</span><span class="col" style="gap:0"><b>${n}</b><span class="small mut num">${p}</span></span></div><div class="grid2"><div class="col" style="gap:0"><span class="tiny mut">Matches</span><span class="h2 num">${m}</span></div><div class="col" style="gap:0"><span class="tiny mut">Captain rating</span><span class="h2 num">${r}</span></div></div><span class="small mut">${av}</span><div class="card__foot card__row"><span class="small">Paid out</span><b class="num">${KL.money(m*60)}</b></div></div>`).join('');
+A.acts.addref=()=>KL.sheet(`<span class="h2">Add a referee</span><div class="field"><label for="rn">Name</label><input class="input" id="rn" value="Tomás Aguilar"></div><div class="field"><label for="rp">Phone</label><input class="input num" id="rp" value="(801) 555 0150"></div><button class="btn btn--p btn--block tap" data-act="okref">Send invite</button>`,()=>{A.acts.okref=()=>{KL.closeSheet();KL.toast('Invite sent to Tomás Aguilar','whistle');};});
+
+/* finances */
+const mdIn=[1530,560,520,600,540,560,420];
+$('[data-chart]').innerHTML=mdIn.map((v,i)=>`<div class="${i===6?'is-now':''}"><span class="num">${KL.money(v)}</span><i data-h="${v/1600*100}"></i><span>MD ${i+1}</span></div>`).join('');
+$('[data-owed]').innerHTML=Object.keys(fee).filter(k=>fee[k]<450||mdp[k]<12).map(k=>`<div class="li"><span class="li__main team">${crest(k,20)}${T[k].name}</span><span class="col" style="gap:0;text-align:right"><b class="num">${KL.money(450-fee[k]+(12-mdp[k])*10)}</b><span class="tiny mut">${fee[k]<450?'season':''}${fee[k]<450&&mdp[k]<12?' + ':''}${mdp[k]<12?'matchday 7':''}</span></span></div>`).join('');
+A.acts.export=()=>{const csv='team,season_paid,md7_paid\n'+Object.keys(fee).map(k=>`${T[k].name},${fee[k]},${mdp[k]*10}`).join('\n');try{navigator.clipboard.writeText(csv);}catch(e){}KL.toast('CSV copied to the clipboard','file');};
+
+/* discipline */
+$('[data-near]').innerHTML=[['HAL','Jonathan Ríos',5,4],['TIG','Manuel Rojo',4,4],['GAL','Fernando Gil',8,4],['PUK','Raúl Mejía',3,3]].map(([k,n,num,y])=>`<div class="col" style="gap:6px"><div class="card__row small"><span class="team">${crest(k,16)}${n} #${num}</span><span class="num mut">${y} of 5</span></div><div class="bar"><i data-w="${y/5*100}" style="background:var(--yel)"></i></div></div>`).join('');
+A.acts.sanction=()=>KL.sheet(`<span class="h2">Manual sanction</span><div class="field"><label for="sp">Player</label><input class="input" id="sp" value="Fernando Gil · Los Galácticos"></div><div class="field"><label>Matches out</label><div class="stepper"><button class="tap">−</button><output class="num">2</output><button class="tap">+</button></div></div><div class="field"><label for="sr">Reason</label><input class="input" id="sr" value="Conduct toward the referee after full time"></div><button class="btn btn--p btn--block tap" data-act="oksan">Apply and notify the captain</button>`,s=>{$('.stepper',s).addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;const o=$('output',s);o.textContent=Math.max(1,+o.textContent+(b.textContent==='+'?1:-1));});A.acts.oksan=()=>{KL.closeSheet();KL.toast('Sanction applied · Fernando Gil out 2 matches','shield');};});
+
+/* disputes */
+const hist=[['flag','Alan Guzmán disputed the goal at 62\'','Tigres captain · Fri 9:12 PM'],['sign','Beto Salazar signed the report','Halcones captain · Fri 9:05 PM'],['file','Marisol Ortega sent the report','Referee · Fri 9:02 PM'],['whistle','Full time · 2 : 2','Field 2 · 9:01 PM']];
+const hPaint=()=>$('[data-hist]').innerHTML=hist.map(([ic,t,s])=>`<div class="li"><span class="jn">${icon(ic)}</span><span class="li__main"><span class="li__t">${t}</span><span class="li__s">${s}</span></span></div>`).join('');
+hPaint();
+const resolve=(acc)=>{hist.unshift([acc?'check':'shield',acc?'Rosa accepted the correction · goal to Rubén Ortiz':'Rosa kept the referee\'s record','League admin · now']);hPaint();$('.li',$('[data-hist]')).classList.add('ev','is-new');const t=$('[data-dis-tag]');t.className='tag tag--g';t.textContent='Resolved · stats published';$('[data-dis-act]').innerHTML=`<span class="tag tag--g">${icon('check')} Both captains notified</span>`;KL.toast(acc?'Correction applied to the stats':'Referee record kept');};
+A.acts.accept=()=>resolve(true);A.acts.keep=()=>resolve(false);
+
+/* navigation */
+const side=$$('[data-nav]');
+const order=side.map(b=>b.dataset.nav);
+side.forEach(b=>b.addEventListener('click',()=>{KL.pop(b);A.stack=[];A.go(b.dataset.nav,{dir:order.indexOf(b.dataset.nav)<order.indexOf(A.cur)?-1:1});scrollTo({top:0,behavior:'smooth'});}));
+const go0=A.go;A.go=(id,o)=>{go0(id,o);side.forEach(b=>b.classList.toggle('is-on',b.dataset.nav===id));};
+KL.onLive(v=>{const f=v.events.length>live.events.length;live=v;dash(f);if(f){const e=v.events[v.events.length-1];KL.toast(`${lbl[e.type]} · ${nm(e.t,e.n)} · ${e.min}'`,e.type==='goal'?'ball':'whistle');}});
+dash(false);
+A.init({root:'.main',sel:'.view',start:'dash'});
+requestAnimationFrame(()=>scrollTo(0,0));
+}
+</script>
+</body></html>

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Kickabout League · Player</title>
+<link rel="artifact-thumbnail" href="og.jpg">
+<meta name="description" content="Diego, player in Liga Del Valle: a clickable Kickabout League prototype.">
+<meta name="theme-color" content="#191919">
+<meta property="og:type" content="website"><meta property="og:title" content="Kickabout League · Player"><meta property="og:description" content="Diego, player in Liga Del Valle: a clickable Kickabout League prototype.">
+<meta property="og:image" content="https://dcreativethinking.com/usecases/Kickabout-League/prototype/og.jpg"><meta name="robots" content="noindex"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Kickabout League · Player"><meta name="twitter:description" content="Diego, player in Liga Del Valle: a clickable Kickabout League prototype."><meta name="twitter:image" content="https://dcreativethinking.com/usecases/Kickabout-League/prototype/og.jpg">
+<link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://use.typekit.net" crossorigin><link rel="stylesheet" href="https://use.typekit.net/eqt4ywi.css"><link rel="preload" href="assets/fonts/poppins-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/kick.css?v=20261127d">
+</head>
+<body><div class="stage" style="--p:#edfc5a">
+<aside class="rail">
+<div class="rail__brand"><div class="lock" role="img" aria-label="Kickabout League"><img class="lock__mark" src="assets/brand/mark.svg?v=20261127d" alt=""><span class="lock__type" aria-hidden="true">kickabout league</span></div></div>
+<div class="rail__who"><div class="rail__av">D</div><div><div class="rail__name">Diego</div><div class="rail__role">Player · Liga Del Valle</div></div></div>
+<p class="rail__text">Checks the live score, the standings and his own numbers. A card the referee gives shows up here in real time.</p>
+<div class="rail__list" aria-label="Screens"></div>
+<nav class="rail__links" aria-label="Personas"><a href="index.html">All</a><a href="player.html" class="is-on">Diego</a><a href="captain.html" class="">Beto</a><a href="referee.html" class="">Marisol</a><a href="watch.html" class="">Watch</a><a href="admin.html" class="">Rosa</a><a href="league.html">Public page</a></nav>
+</aside>
+<div class="device"><div class="app" style="--p:#edfc5a"><div class="island"></div><div class="sbar"><span class="sbar__time">8:34</span><span class="sbar__ic"><svg viewBox="0 0 18 12"><rect x="0" y="8" width="3" height="4" rx="1"/><rect x="5" y="5" width="3" height="7" rx="1"/><rect x="10" y="2.5" width="3" height="9.5" rx="1"/><rect x="15" y="0" width="3" height="12" rx="1"/></svg><svg viewBox="0 0 26 12"><rect x=".5" y=".5" width="22" height="11" rx="3.5" fill="none" stroke="#fdfff5" opacity=".5"/><rect x="2" y="2" width="16" height="8" rx="2"/><rect x="23.5" y="4" width="2" height="4" rx="1" opacity=".5"/></svg></span></div><div class="home-ind"></div>
+<section class="scr scr--flush hero" id="hero" data-code="G00" data-name="Title screen">
+  <div class="bg"><img src="assets/img/bg-hero.webp?v=20261127d" alt=""></div>
+  <div style="flex:1"></div>
+  <h1 class="lock lock--hero st" aria-label="Kickabout League"><img class="lock__mark" src="assets/brand/mark.svg?v=20261127d" alt=""><span class="lock__type" id="hero-type" aria-hidden="true"></span></h1>
+  <button class="hero__start tap st" data-act="start">TAP TO START</button>
+  <div class="ticker st" aria-label="League updates"><div class="ticker__in" id="ticker"></div></div>
+</section>
+
+<section class="scr" id="login" data-code="G01" data-name="Sign in">
+  <div class="bg"><img src="assets/img/bg-login.webp?v=20261127d" alt=""></div>
+  <div style="flex:1;min-height:230px"></div>
+  <div class="glass card st" style="padding:24px;gap:18px">
+    <div class="col"><span class="eyebrow">Liga Del Valle · Fall 2026</span><h1 class="h1">Welcome back, Diego</h1></div>
+    <div id="lg-phone" class="col" style="gap:14px">
+      <div class="field"><label for="ph">Phone number</label><input class="input num" id="ph" inputmode="tel" value="(801) 555 0142" autocomplete="tel"></div>
+      <button class="btn btn--block tap" data-act="sendcode">Send code</button>
+      <p class="tiny dim" style="margin:0;text-align:center">We text you a 6 digit code. No passwords.</p>
+    </div>
+    <div id="lg-code" class="col" style="gap:14px;display:none">
+      <span class="small mut">Code sent to (801) 555 0142</span>
+      <div class="otp" aria-label="Verification code"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+      <button class="btn btn--block tap" data-go="home" id="lg-go" disabled>Enter the league</button>
+    </div>
+  </div>
+</section>
+
+
+<section class="scr" id="home" data-code="J01" data-name="Home" data-tab="home">
+  <div class="bg"><img src="assets/img/photo-a-inside.webp?v=20261127d" alt=""></div>
+  <div class="top st">
+    <button class="row tap" data-go="me" aria-label="My profile"><span class="av" data-me-av>DR</span><span class="col" style="gap:0"><span class="tiny mut" data-me-line>Halcones FC · #10</span><b data-me-name>Diego Ramírez</b></span></button>
+    <button class="ibtn tap" data-go="notif" aria-label="Notifications"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 8.5-3 8.5h18S18 15 18 8M13.7 20a2 2 0 0 1-3.4 0"/></svg><span class="dot"></span></button>
+  </div>
+  <div class="role st" data-role hidden><div class="seg seg--role"><button class="tap" data-act="role" data-to="captain">Captain</button><button class="tap is-on" data-act="role" data-to="player">Player</button></div></div>
+  <div style="min-height:150px" data-role-gap></div>
+  <div class="col st"><span class="eyebrow">Liga Del Valle · Fall 2026</span><h1 class="h1 h1--xl">Matchday 7</h1></div>
+  <div class="fx col" style="gap:12px">
+    <button class="glass card stripe tap st" data-go="match" style="gap:14px">
+      <div class="card__row"><span class="live" data-live-min>LIVE 34'</span><span class="tag">Field 2 · Rose Park</span></div>
+      <div class="vs" data-vs></div>
+      <div class="card__row small mut"><span>Ref Marisol Ortega</span><span class="row" style="gap:4px">Match center <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></span></div>
+    </button>
+    <div class="grid2">
+      <button class="glass card tap st" data-go="me">
+        <span class="small mut">My goals</span><span class="big num" data-count="7" data-me-goals>7</span>
+        <span class="card__foot tag tag--g" data-me-badge>Top scorer</span>
+      </button>
+      <button class="glass card tap st" data-go="pay">
+        <span class="small mut">Matchday 7 fee</span><span class="big num">$10</span>
+        <span class="card__foot tag tag--g"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg> Paid in app</span>
+      </button>
+    </div>
+    <button class="glass card tap st" data-go="table">
+      <div class="card__row"><span class="h3">Standings</span><span class="tag" data-live-tag>Live</span></div>
+      <div class="list" data-mini></div>
+    </button>
+    <div class="glass card st">
+      <div class="card__row"><span class="h3">Rest of the matchday</span><span class="small mut">Sun, Nov 29</span></div>
+      <div class="list" data-others></div>
+    </div>
+  </div>
+</section>
+
+<section class="scr" id="table" data-code="J02" data-name="Standings and league stats" data-tab="table">
+  <div class="bg"><img src="assets/img/bg-standings.webp?v=20261127d" alt=""></div>
+  <div class="glow"></div>
+  <div class="top st"><h1 class="h2">League</h1><button class="ibtn tap" data-act="sharelg" aria-label="Share the league page"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v13M7 8l5-5 5 5M5 14v6h14v-6"/></svg></button></div>
+  <div class="seg st" data-seg="lg"><button class="is-on" data-v="std">Standings</button><button data-v="sco">Scorers</button><button data-v="fp">Fair play</button></div>
+  <div class="glass card stripe st" data-pane="std">
+    <div class="card__row"><span class="small mut">After matchday 6, plus the live match</span><span class="live">LIVE</span></div>
+    <table class="tbl num"><thead><tr><th>#</th><th>Team</th><th>P</th><th>GD</th><th>Pts</th></tr></thead><tbody data-std></tbody></table>
+    <div class="row tiny dim" style="gap:14px"><span class="row" style="gap:5px"><span class="form"><i class="W"></i></span>Win 3</span><span class="row" style="gap:5px"><span class="form"><i class="D"></i></span>Draw 1</span><span class="row" style="gap:5px"><span class="form"><i class="L"></i></span>Loss 0</span></div>
+  </div>
+  <div class="glass card st" data-pane="sco" hidden><div class="list" data-sco></div></div>
+  <div class="glass card st" data-pane="fp" hidden><p class="small mut" style="margin:0">Fewest discipline points. Yellow 1, red 3.</p><div class="list" data-fp></div></div>
+</section>
+
+<section class="scr" id="match" data-code="J03" data-name="Match center">
+  <div class="bg"><img src="assets/img/bg-match.webp?v=20261127d" alt=""></div>
+  <div class="glow"></div>
+  <div class="top st"><button class="ibtn tap" data-back aria-label="Back"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button><span class="top__t">Matchday 7</span><span style="width:46px"></span></div>
+  <div class="glass card stripe st" style="padding:22px 16px">
+    <div class="vs" data-vs></div>
+    <div class="row" style="justify-content:center"><span class="live" data-live-min>LIVE 34'</span></div>
+  </div>
+  <div class="seg st" data-seg="mt"><button class="is-on" data-v="ev">Timeline</button><button data-v="lu">Lineups</button></div>
+  <div class="glass card st" data-pane="ev"><div class="tl" data-tl></div></div>
+  <div class="glass card st" data-pane="lu" hidden><div class="grid2" data-lu></div></div>
+</section>
+
+<section class="scr" id="team" data-code="J04" data-name="My team" data-tab="team">
+  <div class="bg"><img src="assets/img/bg-team.webp?v=20261127d" alt=""></div>
+  <div class="glow"></div>
+  <div class="top st"><h1 class="h2">My team</h1><span class="tag" data-me-cap>Captain Beto Salazar</span></div>
+  <div class="glass card stripe st" style="gap:16px">
+    <div class="row" style="gap:14px"><span data-crest-hal></span><div class="col" style="gap:2px"><b class="h2">Halcones FC</b><span class="small mut" data-hal-rec></span></div></div>
+    <div class="grid3" data-hal-kpi></div>
+  </div>
+  <div class="glass card st"><div class="card__row"><span class="h3">Squad</span><span class="small mut">12 players</span></div><div class="list" data-squad></div></div>
+  <div class="glass card st"><span class="h3">Results</span><div class="list" data-hal-res></div></div>
+</section>
+
+<section class="scr" id="me" data-code="J05" data-name="My stats" data-tab="me">
+  <div class="bg"><img src="assets/img/bg-me.webp?v=20261127d" alt=""></div>
+  <div class="glow"></div>
+  <div class="top st"><h1 class="h2">Me</h1><button class="ibtn tap" data-go="profile" aria-label="Settings"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6M19.4 15a1.6 1.6 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.6 1.6 0 0 0-2.7 1.1V21a2 2 0 1 1-4 0v-.1a1.6 1.6 0 0 0-2.7-1.1l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1A1.6 1.6 0 0 0 3.6 15H3a2 2 0 1 1 0-4h.1a1.6 1.6 0 0 0 1.1-2.7l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1A1.6 1.6 0 0 0 9.6 4V3a2 2 0 1 1 4 0v.1a1.6 1.6 0 0 0 2.7 1.1l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.6 1.6 0 0 0 1.1 2.7h.1a2 2 0 1 1 0 4h-.1a1.6 1.6 0 0 0-1.4.8"/></svg></button></div>
+  <div class="glass card stripe st" style="align-items:center;text-align:center;gap:10px;padding:24px">
+    <button class="av av--lg tap" data-act="photo" aria-label="Change profile photo" data-me-av style="position:relative">DR</button>
+    <button class="tap small p" data-act="photo">Change photo</button>
+    <b class="h2" data-me-name>Diego Ramírez</b>
+    <div class="row" style="justify-content:center;flex-wrap:wrap"><span class="tag" data-me-pos>Forward</span><span class="tag" data-me-num><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 11V8a5 5 0 0 1 10 0v3M5 11h14v10H5z"/></svg> #10 · set by your captain</span></div>
+  </div>
+  <div class="grid3 fx" data-mystats></div>
+  <div class="glass card st"><span class="h3">This season</span><div class="col" style="gap:14px" data-mybars></div></div>
+  <div class="fx col" style="gap:10px">
+    <button class="glass card card--tight tap st row" data-go="pay" style="flex-direction:row"><span class="jn"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7a2 2 0 0 1 2-2h12v4M4 7v10a2 2 0 0 0 2 2h14V9H6a2 2 0 0 1-2-2M16 14h.01"/></svg></span><span class="li__main"><span class="li__t">My payments</span><span class="li__s">All paid up</span></span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+    <button class="glass card card--tight tap st row" data-go="notif" style="flex-direction:row"><span class="jn"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 8.5-3 8.5h18S18 15 18 8M13.7 20a2 2 0 0 1-3.4 0"/></svg></span><span class="li__main"><span class="li__t">Notifications</span><span class="li__s">3 new</span></span><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+  </div>
+</section>
+
+<section class="scr" id="pay" data-code="J06" data-name="My payments">
+  <div class="glow"></div>
+  <div class="top st"><button class="ibtn tap" data-back aria-label="Back"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button><span class="top__t">My payments</span><span style="width:46px"></span></div>
+  <div class="glass card stripe green st" style="padding:22px"><span class="small mut">Your balance with Halcones FC</span><span class="mega num">$0</span><span class="small mut" data-me-paynote>Beto collects for the team. He confirmed every payment so far.</span></div>
+  <div class="glass card st"><span class="h3">Matchday 8 · Sun, Dec 6</span><div class="card__row"><span class="mut">Referee share and league fee</span><b class="num">$10</b></div><button class="btn btn--block tap" data-act="paynext">Pay $10 now</button></div>
+  <div class="glass card st"><span class="h3">History</span><div class="list" data-payhist></div></div>
+</section>
+
+<section class="scr" id="notif" data-code="G04" data-name="Notifications">
+  <div class="glow"></div>
+  <div class="top st"><button class="ibtn tap" data-back aria-label="Back"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button><span class="top__t">Notifications</span><span style="width:46px"></span></div>
+  <div class="list fx" data-notif></div>
+</section>
+
+<section class="scr" id="profile" data-code="G05" data-name="Profile and settings">
+  <div class="glow"></div>
+  <div class="top st"><button class="ibtn tap" data-back aria-label="Back"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button><span class="top__t">Settings</span><span style="width:46px"></span></div>
+  <div class="glass card stripe st">
+    <span class="h3">Shown to the league</span>
+    <div class="field"><label>Shirt name</label><div class="input row" style="justify-content:space-between;color:var(--mut)" data-me-shirt>RAMÍREZ <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 11V8a5 5 0 0 1 10 0v3M5 11h14v10H5z"/></svg></div></div>
+    <div class="field"><label>Number</label><div class="input row" style="justify-content:space-between;color:var(--mut)" data-me-n>10 <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 11V8a5 5 0 0 1 10 0v3M5 11h14v10H5z"/></svg></div></div>
+    <p class="tiny mut" style="margin:0" data-me-note>Your captain manages your number and shirt name. You can change your photo anytime.</p>
+  </div>
+  <div class="glass card st">
+    <span class="h3">Notify me about</span>
+    <div class="li"><span class="li__main"><span class="li__t">Goals and cards in my matches</span></span><button class="switch is-on tap" data-act="sw" aria-label="Goals and cards" role="switch" aria-checked="true"></button></div>
+    <div class="li"><span class="li__main"><span class="li__t">Payment reminders</span></span><button class="switch is-on tap" data-act="sw" aria-label="Payment reminders" role="switch" aria-checked="true"></button></div>
+    <div class="li"><span class="li__main"><span class="li__t">Schedule changes</span></span><button class="switch is-on tap" data-act="sw" aria-label="Schedule changes" role="switch" aria-checked="true"></button></div>
+  </div>
+  <div class="glass card st"><div class="li"><span class="li__main"><span class="li__t">Language</span></span><div class="seg" style="width:170px"><button class="is-on tap" data-act="lang">English</button><button class="tap" data-act="lang">Español</button></div></div></div>
+  <button class="btn btn--ghost btn--block tap st" data-go="hero"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 4h4v16h-4M10 17l-5-5 5-5M5 12h11"/></svg> Sign out</button>
+</section>
+
+<nav class="tabbar is-hidden" aria-label="Main">
+  <button class="tap" data-tabgo="home"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-6h-6v6H4a1 1 0 0 1-1-1z"/></svg>Home</button>
+  <button class="tap" data-tabgo="table"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16M4 12h16M4 19h16M9 5v14"/></svg>League</button>
+  <button class="tap" data-tabgo="team"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M16 19v-1.5a3.5 3.5 0 0 0-3.5-3.5h-5A3.5 3.5 0 0 0 4 17.5V19M10 10.5a3 3 0 1 0 0-6 3 3 0 0 0 0 6M20 19v-1.5a3.5 3.5 0 0 0-2.6-3.4M15.5 4.6a3 3 0 0 1 0 5.8"/></svg>Team</button>
+  <button class="tap" data-tabgo="me"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8M5 20a7 7 0 0 1 14 0"/></svg>Me</button>
+</nav>
+
+</div></div></div>
+<script src="js/data.js?v=20261127d"></script><script src="js/kick.js?v=20261127d"></script>
+<script>{
+const {app:A,$,$$}=KL;
+const tk=KL.table().slice(0,3), sc=KL.scorers[0];
+const items=[`<span>Matchday 7 · <b>Halcones vs Tigres</b> · Sun 8:00 PM</span>`,`<span>Leader <b>${KL.teams[tk[0].k].name}</b> · ${tk[0].Pts} pts</span>`,`<span>Top scorer <b>${sc.name}</b> · ${sc.g} goals</span>`,`<span>Last result <b>Halcones 4 · 1 Westside</b></span>`];
+const tkr=$('#ticker'); if(tkr) tkr.innerHTML=items.concat(items).join('');
+A.acts.start=()=>{const h=$('#hero');h.classList.add('zoom-out');setTimeout(()=>{h.classList.remove('zoom-out');A.go('login');},520);};
+$('#hero')&&$('#hero').addEventListener('click',e=>{if(!e.target.closest('.tap'))A.acts.start();});
+A.acts.sendcode=()=>{
+  $('#lg-phone').style.display='none';const c=$('#lg-code');c.style.display='flex';c.classList.add('st');c.style.animation='st-in .6s var(--spring) both';
+  const d='482019'.split(''),s=$$('.otp span');s.forEach(x=>{x.textContent='';x.classList.remove('is-on')});
+  d.forEach((n,i)=>setTimeout(()=>{s[i].textContent=n;s[i].classList.add('is-on');setTimeout(()=>s[i].classList.remove('is-on'),300);if(i===5){$('#lg-go').disabled=false;KL.pop($('#lg-go'));}},500+i*170));
+};
+let tt=[];const typeIn=()=>{const el=$('#hero-type');if(!el)return;tt.forEach(clearTimeout);tt=[];const w='kickabout league';el.innerHTML='<span class="g">'+w+'</span><span class="v"></span>';const v=el.lastChild;el.classList.remove('is-done');
+  if(matchMedia('(prefers-reduced-motion: reduce)').matches){v.textContent=w;el.classList.add('is-done');return;}
+  let t=900;[...w].forEach((ch,i)=>{t+=ch===' '?180:58+(i%3)*14;tt.push(setTimeout(()=>{v.textContent=w.slice(0,i+1);if(i===w.length-1)el.classList.add('is-done');},t));});};
+A.on.hero=typeIn;typeIn();
+A.on.login=()=>{$('#lg-phone').style.display='flex';$('#lg-code').style.display='none';$('#lg-go').disabled=true;};
+}
+
+{
+const {app:A,$,$$,icon,crest,teams:T}=KL;
+let live=KL.loadLive();
+/* the captain is a player too: player.html?as=beto shows Beto's own player view */
+const AS_BETO=new URLSearchParams(location.search).get('as')==='beto';
+const ME=AS_BETO?{n:4,name:'Beto Salazar',ini:'BS',pos:'Defender',shirt:'SALAZAR',g:1,a:0,m:6,y:1,min:480,of:560}:{n:10,name:'Diego Ramírez',ini:'DR',pos:'Forward',shirt:'RAMÍREZ',g:7,a:3,m:7,y:1,min:526,of:560};
+const seedMine=t=>KL.liveSeed().events.filter(e=>e.t==='HAL'&&e.n===ME.n&&e.type===t).length;
+const name=(t,n)=>{const p=(KL.rosters[t]||[]).find(x=>x.n===n);return p?p.name:'#'+n;};
+
+function vs(){const s=KL.score(live);return `<div class="vs__t">${crest('HAL',44)}Halcones</div><div class="vs__s num">${s.HAL}<span>:</span>${s.TIG}</div><div class="vs__t">${crest('TIG',44)}Tigres</div>`;}
+function evRow(e,fresh){const ic=e.type==='goal'?icon('ball'):e.type==='sub'?icon('swap'):`<span class="cardic cardic--${e.type==='yellow'?'y':'r'}"></span>`;
+  const lbl={goal:'Goal',yellow:'Yellow card',red:'Red card',sub:'Substitution'}[e.type];
+  return `<div class="ev${fresh?' is-new':''}"><span class="ev__m">${e.min}'</span><span style="display:grid;place-items:center">${ic}</span><span class="col" style="gap:0"><b>${name(e.t,e.n)}</b><span class="tiny mut">${lbl} · ${T[e.t].short}</span></span></div>`;}
+
+function paintLive(fresh){
+  const s=KL.score(live), min=live.status==='final'?'FULL TIME':`LIVE ${live.minute}'`;
+  $$('[data-vs]').forEach(v=>v.innerHTML=vs());
+  $$('[data-live-min]').forEach(m=>{m.textContent=min;m.classList.toggle('live',live.status!=='final');});
+  const tl=$('[data-tl]'); tl.innerHTML=live.events.slice().reverse().map((e,i)=>evRow(e,fresh&&i===0)).join('')+`<div class="ev"><span class="ev__m">0'</span><span style="display:grid;place-items:center">${icon('whistle')}</span><span class="mut">Kick off · 8:00 PM</span></div>`;
+  const tb=KL.table(live);
+  $('[data-mini]').innerHTML=tb.slice(0,4).map((t,i)=>`<div class="li" style="min-height:48px"><span class="dim num" style="width:16px">${i+1}</span><span class="team li__main">${crest(t.k,22)}${T[t.k].name}</span><b class="num">${t.Pts}</b></div>`).join('');
+  $('[data-std]').innerHTML=tb.map((t,i)=>`<tr class="${t.k==='HAL'?'is-me':''}"><td>${i+1}</td><td><span class="team">${crest(t.k,20)}<span class="col" style="gap:3px">${T[t.k].short}<span class="form">${t.form.slice(-5).map(f=>`<i class="${f}"></i>`).join('')}</span></span></span></td><td>${t.P}</td><td>${t.GD>0?'+':''}${t.GD}</td><td class="pts">${t.Pts}</td></tr>`).join('');
+  const my=live.events.filter(e=>e.t==='HAL'&&e.n===ME.n), g=ME.g+my.filter(e=>e.type==='goal').length-seedMine('goal'), y=ME.y+my.filter(e=>e.type==='yellow').length-seedMine('yellow'), r=my.filter(e=>e.type==='red').length-seedMine('red');
+  paintMe(g,y,r);
+}
+function paintMe(g,y,r){
+  const st=[['Goals',g],['Assists',ME.a],['Matches',ME.m],['Yellow',y],['Red',r],['Minutes',ME.min]];
+  $('[data-mystats]').innerHTML=st.map(([l,v],i)=>`<div class="glass card card--tight st" style="--i:${i}"><span class="tiny mut">${l}</span><span class="h1 num" style="font-size:32px">${v}</span></div>`).join('');
+  $('[data-mybars]').innerHTML=[['Goals per match',(g/ME.m).toFixed(2),g/ME.m/1.5*100],['Minutes played',`${ME.min} of ${ME.of}`,ME.min/ME.of*100],['Yellows before a ban',`${y} of 5`,y/5*100]].map(([l,v,w])=>`<div class="col"><div class="card__row small"><span class="mut">${l}</span><b class="num">${v}</b></div><div class="bar"><i data-w="${Math.min(100,w)}"></i></div></div>`).join('');
+  if(A.cur==='me')$$('.bar i[data-w]').forEach(b=>b.style.width=b.dataset.w+'%');
+}
+
+/* static lists */
+$('[data-others]').innerHTML=KL.fixtures.slice(1).map(f=>`<div class="li" style="min-height:52px"><span class="li__main">${KL.fx(f.h,f.a,18)}</span><span class="small mut num">${f.time}</span></div>`).join('');
+$('[data-sco]').innerHTML=KL.scorers.map((s,i)=>`<div class="li"><span class="dim num" style="width:16px">${i+1}</span><span class="li__main"><span class="li__t">${s.name}</span><span class="li__s team">${crest(s.t,16)}${T[s.t].short}</span></span><b class="h2 num">${s.g}</b></div>`).join('');
+$('[data-fp]').innerHTML=KL.fairplay.map((s,i)=>`<div class="li"><span class="dim num" style="width:16px">${i+1}</span><span class="li__main team">${crest(s.t,22)}${T[s.t].name}</span><b class="num">${s.pts}</b></div>`).join('');
+$('[data-crest-hal]').innerHTML=crest('HAL',54);
+const hal=KL.table().find(t=>t.k==='HAL');
+$('[data-hal-rec]').textContent=`2nd · ${hal.W} wins, ${hal.D} draws, ${hal.L} loss`;
+$('[data-hal-kpi]').innerHTML=[['Points',hal.Pts],['Scored',hal.GF],['Conceded',hal.GA]].map(([l,v])=>`<div class="col" style="gap:2px"><span class="tiny mut">${l}</span><span class="h2 num">${v}</span></div>`).join('');
+$('[data-squad]').innerHTML=KL.rosters.HAL.map(p=>`<div class="li"><span class="jn num">${p.n}</span><span class="li__main"><span class="li__t">${p.name}${p.n===ME.n?' <span class="tag tag--g">You</span>':''}${p.cap?' <span class="tag">C</span>':''}</span><span class="li__s">${{GK:'Goalkeeper',DF:'Defender',MF:'Midfielder',FW:'Forward'}[p.pos]} · ${p.g} goals</span></span>${p.ban?'<span class="tag tag--r">Suspended</span>':''}</div>`).join('');
+$('[data-hal-res]').innerHTML=KL.results.filter(r=>r[1]==='HAL'||r[2]==='HAL').reverse().map(([md,h,a,gh,ga])=>{const o=h==='HAL'?a:h,f=h==='HAL'?gh:ga,g=h==='HAL'?ga:gh,res=f>g?['W','tag--g']:f<g?['L','tag--r']:['D',''];return `<div class="li" style="min-height:52px"><span class="tiny dim" style="width:34px">MD ${md}</span><span class="li__main team">${crest(o,20)}${T[o].name}</span><b class="num">${f} : ${g}</b><span class="tag ${res[1]}" style="width:30px;justify-content:center">${res[0]}</span></div>`;}).join('');
+$('[data-payhist]').innerHTML=[7,6,5,4,3,2,1].map((m,i)=>`<div class="li"><span class="jn">${icon(i%3===1?'cash':'wallet')}</span><span class="li__main"><span class="li__t">Matchday ${m}</span><span class="li__s">${i%3===1?'Cash to Beto · marked paid':'Paid in app'}</span></span><b class="num">$10</b></div>`).join('')+`<div class="li"><span class="jn">${icon('shield')}</span><span class="li__main"><span class="li__t">Season registration</span><span class="li__s">Paid in app · Sep 2</span></span><b class="num">$40</b></div>`;
+const notes=[['whistle','Kick off at Field 2','Halcones vs Tigres started. Follow it live.','8:00 PM',1],['ball','Goal: Diego Ramírez','You scored at 12\'. That is 7 this season.','8:12 PM',1],['wallet','Beto confirmed your payment','Matchday 7 · $10 · paid in app','Fri',1],['cal','Matchday 8 is set','Sun, Dec 6 · 6:30 PM vs Unión Magna','Thu',0],['shield','Omar Cisneros suspended','5 yellow cards. Out for matchday 7.','Mon',0]];
+if(AS_BETO){notes[1]=['team','Lineup sent','You confirmed 11 players for tonight.','7:41 PM',1];notes[2]=['wallet','Your fee is paid','Matchday 7 · $10 · into the team wallet','Fri',1];}
+$('[data-notif]').innerHTML=notes.map(([ic,t,s,w,n],i)=>`<button class="glass card card--tight tap st row" style="--i:${i};flex-direction:row;align-items:flex-start;margin-bottom:10px" data-go="${ic==='wallet'?'pay':ic==='cal'?'team':'match'}"><span class="jn" style="${n?'color:var(--p)':''}">${icon(ic)}</span><span class="li__main"><span class="li__t">${t}</span><span class="li__s">${s}</span></span><span class="tiny dim">${w}</span></button>`).join('');
+
+/* segments */
+$$('[data-seg]').forEach(sg=>sg.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;$$('button',sg).forEach(x=>x.classList.toggle('is-on',x===b));const scr=sg.closest('.scr');$$('[data-pane]',scr).forEach(p=>{const on=p.dataset.pane===b.dataset.v;p.hidden=!on;if(on){p.style.animation='none';void p.offsetWidth;p.style.animation='st-in .6s var(--spring) both';}});}));
+
+/* actions */
+A.acts.sw=(b)=>{b.classList.toggle('is-on');b.setAttribute('aria-checked',b.classList.contains('is-on'));};
+A.acts.lang=(b)=>{$$('button',b.parentElement).forEach(x=>x.classList.toggle('is-on',x===b));KL.toast(b.textContent+' selected');};
+A.acts.sharelg=()=>{try{navigator.clipboard.writeText(location.href.replace(/[^/]*$/,'league.html'));}catch(e){}KL.toast('League link copied','share');};
+A.acts.paynext=()=>KL.sheet(`<span class="h2">Pay matchday 8</span><div class="card__row"><span class="mut">${AS_BETO?'Into the Halcones team wallet':'To Halcones FC, collected by Beto'}</span><b class="num">$10</b></div><div class="slide" id="pslide"><div class="slide__fill"></div><div class="slide__k">${icon('next')}</div><div class="slide__t">Slide to pay $10</div></div><button class="btn btn--ghost btn--block tap" data-close>Not now</button>`,s=>KL.slider($('#pslide',s),()=>{s.innerHTML=`<div class="sheet__grab"></div><div class="check-burst">${icon('check')}</div><span class="h2" style="text-align:center">Paid</span><p class="mut" style="text-align:center;margin:0">Beto sees it in his panel right away.</p><button class="btn btn--block tap" data-close>Done</button>`;}));
+const photos=[['#edfc5a','DR'],['#ffb547','DR'],['#39d0ff','DR'],['#ff8fb1','DR']];
+A.acts.photo=()=>KL.sheet(`<span class="h2">Profile photo</span><p class="mut small" style="margin:0">Choose a new photo. Your number and shirt name stay with your captain.</p><div class="grid2" style="grid-template-columns:repeat(4,1fr)">${photos.map(([c],i)=>`<button class="av av--lg tap" style="width:100%;height:auto;aspect-ratio:1;background:linear-gradient(135deg,${c},#fdfff5)" data-ph="${c}">DR</button>`).join('')}</div><button class="btn btn--ghost btn--block tap">${icon('camera')} Take a new photo</button><button class="btn btn--block tap" data-close>Save</button>`,s=>s.addEventListener('click',e=>{const b=e.target.closest('[data-ph]');if(!b)return;$$('[data-ph]',s).forEach(x=>x.classList.toggle('is-hi',x===b));$$('[data-me-av]').forEach(a=>a.style.background=`linear-gradient(135deg,${b.dataset.ph},#fdfff5)`);}));
+
+A.on.me=()=>$$('.bar i[data-w]').forEach(b=>{b.style.width='0';requestAnimationFrame(()=>requestAnimationFrame(()=>b.style.width=b.dataset.w+'%'));});
+KL.onLive(v=>{const fresh=v.events.length>live.events.length;const last=v.events[v.events.length-1];live=v;paintLive(fresh);
+  if(fresh&&last){const who=name(last.t,last.n);KL.toast(last.type==='goal'?`Goal ${T[last.t].short}: ${who}`:last.type==='sub'?`Sub for ${T[last.t].short}`:`${last.type==='yellow'?'Yellow':'Red'} card: ${who}`,last.type==='goal'?'ball':'alert');}
+  if(v.status==='final')KL.toast('Full time','whistle');});
+paintLive(false);
+if(AS_BETO){
+  $$('[data-me-av]').forEach(e=>e.textContent=ME.ini);$$('[data-me-name]').forEach(e=>e.textContent=ME.name);
+  $('[data-me-line]').textContent='Halcones FC · #4 · Captain';
+  const gl=$('[data-me-goals]');gl.textContent=ME.g;gl.dataset.count=ME.g;$('[data-me-badge]').textContent='Captain';
+  $('[data-me-cap]').textContent='You are the captain';$('[data-me-pos]').textContent=ME.pos;$('[data-me-num]').innerHTML=icon('edit')+' #4 · you set it in the roster';
+  $('[data-me-paynote]').textContent='You collect for the team. Your own fees are all paid.';
+  $('[data-me-shirt]').innerHTML='SALAZAR '+icon('lock');$('[data-me-n]').innerHTML='4 '+icon('lock');$('[data-me-note]').textContent='As captain you set every number and shirt name from the roster. You can change your photo anytime.';
+  $$('[data-payhist] .li__s').forEach(e=>e.textContent=e.textContent.replace('Cash to Beto · marked paid','Cash · you marked it paid'));
+  const r=$('[data-role]');r.hidden=false;$('[data-role-gap]').style.minHeight='96px';
+  const rn=$('.rail__name'),ra=$('.rail__av'),rr=$('.rail__role'),rt=$('.rail__text');if(rn){rn.textContent='Beto';ra.textContent='B';rr.textContent='Captain · player view';rt.textContent='The captain plays too. Here Beto sees his own numbers, the standings and his payments, and can switch back to the captain panel at any time.';document.querySelector('.stage').style.setProperty('--p','#ffb547');}
+}
+A.acts.role=(b)=>{if(b.dataset.to==='player')return;document.querySelector('.app').classList.add('role-out');setTimeout(()=>location.href='captain.html#panel',380);};
+A.init({start:AS_BETO?'home':'hero'});
+}
+</script>
+</body></html>
