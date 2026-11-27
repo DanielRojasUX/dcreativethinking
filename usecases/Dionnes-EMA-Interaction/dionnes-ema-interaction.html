@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daniel | Dionne's EMA Interaction Design</title>
+  <meta name="description" content="The interface of Dionne's Event Management App: one paper ticket that sales pulls, the client unfolds and seals on the web, and the kitchen receives. With three clickable prototypes.">
+  <link rel="canonical" href="https://dcreativethinking.com/usecases/Dionnes-EMA-Interaction/dionnes-ema-interaction.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Dionne's EMA: Interaction Design">
+  <meta property="og:description" content="One paper ticket for three people: sales pulls it, the client unfolds and seals it, the kitchen receives it.">
+  <meta property="og:url" content="https://dcreativethinking.com/usecases/Dionnes-EMA-Interaction/dionnes-ema-interaction.html">
+  <meta property="og:image" content="https://dcreativethinking.com/usecases/Dionnes-EMA-Interaction/assets/img/og-ema-interaction.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="../../assets/img/favicon.ico?v=20261024j" sizes="any">
+  <link rel="icon" type="image/svg+xml" href="../../assets/img/favicon.svg?v=20261024j">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/img/favicon-32.png?v=20261024j">
+  <link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png?v=20261024j">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Inter+Tight:wght@800;900&family=Montserrat:wght@500;600&display=swap" rel="stylesheet">
+
+  <!-- Homepage card component (More case studies) -->
+  <link rel="stylesheet" href="../../css/my-work.css?v=20261026b">
+  <link rel="stylesheet" href="../../css/case-study.css?v=20261124g">
+  <link rel="stylesheet" href="../../css/reveal.css?v=20261026a">
+  <link rel="stylesheet" href="assets/css/interaction.css?v=20261126d">
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../portfolio/index.html">Home</a> / <a href="../../portfolio/index.html#work">Work</a> / <span>Dionne's EMA Interaction Design</span>
+    </nav>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle Dark Mode">
+      <svg id="themeIcon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      </svg>
+    </button>
+  </div>
+
+  <!-- HERO: the title answers "What difference did you make?" -->
+  <header class="hero hero--ema">
+    <span class="chip chip--light hero__chip hero__chip--l">Case Study</span>
+    <span class="chip chip--light hero__chip hero__chip--r">EMA Interaction Design</span>
+
+    <div class="hero__body">
+      <div>
+        <img class="hero__logo no-lightbox" src="../Dionnes-EMA/assets/img/logo-dionnes-white.svg" alt="Dionne's Catering">
+        <h1 class="display hero__title hero__title--answer">Sealed on her phone. Zero paid events missed the kitchen.</h1>
+      </div>
+      <div class="hero__info">
+        <div><b>Role :</b> Head of AI Digital Growth, Branding and Systems</div>
+        <div><b>Org :</b> Dionne's Catering</div>
+        <div><b>Product :</b> Event Management App (EMA), interface and interaction design</div>
+        <div><b>AI partner :</b> Claude</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ABSTRACT -->
+  <section class="abstract" aria-label="Abstract">
+    <div class="owner owner--stack"><span class="owner__label">Abstract</span><p class="owner__text">The Event Management App already had its model: one record per event. It needed an interface that three very different people would trust on a phone. I built it around the object catering already runs on, the event ticket. Sales pulls each new lead out like paper, the client reviews her contract on the web, unfolds it section by section and seals it with her deposit, and the kitchen watches the paid event land on its board. Dionne approved the design, and the system's result holds: no paid event has gone missing from the production calendar.</p></div>
+    <div class="metrics__grid abstract__metrics">
+      <div class="metric metric--before">
+        <div class="metric__value">Low fi</div>
+        <div class="metric__label">Before</div>
+        <p class="metric__text">The approved flows lived as gray, one color per role wireframes.</p>
+      </div>
+      <div class="metric">
+        <span class="metric__icon"><svg class="icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="m9 16 2 2 4-4"/></svg></span>
+        <div class="metric__value">0</div>
+        <div class="metric__label">Missed paid events</div>
+        <p class="metric__text">Paid events missing from the production calendar.</p>
+      </div>
+      <div class="metric">
+        <span class="metric__icon"><svg class="icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="16" cy="4" r="1"/><path d="m18 19 1-7-6 1"/><path d="m5 8 3-3 5.5 3-2.36 3.5"/><path d="M4.24 14.5a5 5 0 0 0 6.88 6"/><path d="M13.76 17.5a5 5 0 0 0-6.88-6"/></svg></span>
+        <div class="metric__value">AA</div>
+        <div class="metric__label">WCAG 2.2</div>
+        <p class="metric__text">Every text pair passes contrast, and every gesture has a tap alternative.</p>
+      </div>
+    </div>
+    <div class="owner owner--stack"><span class="owner__label">My part</span><p class="owner__text">I designed the interface end to end: the visual language, the three interaction patterns and their motion spec, every state, the accessibility rules, and the three clickable prototypes, one per person.</p></div>
+    <div class="owner owner--stack"><span class="owner__label">AI in the process</span><p class="owner__text">Claude built the prototypes in HTML from my direction and ran the contrast checks. I made every call and corrected it round after round on my iPhone: the sheet is rigid paper that follows the finger with nothing animating on its own, edges go square toward the fold, the page color shows behind each crease, waiting states became solid so their text passes contrast, and every gesture got a tap alternative.</p></div>
+  </section>
+
+  <!-- BRIEF -->
+  <nav class="brief brief--6" aria-label="Case study summary">
+    <div class="brief__grid">
+      <a class="brief__item" href="#hybrid"><span class="brief__num">01</span><span class="brief__title">Hybrid System</span><span class="brief__text">The team installs the app; the client only opens a link</span></a>
+      <a class="brief__item" href="#language"><span class="brief__num">02</span><span class="brief__title">Visual Language</span><span class="brief__text">One ticket, color by role</span></a>
+      <a class="brief__item" href="#interactions"><span class="brief__num">03</span><span class="brief__title">Interactions</span><span class="brief__text">Three patterns: slide in, accordion, stamp</span></a>
+      <a class="brief__item" href="#accessibility"><span class="brief__num">04</span><span class="brief__title">Accessibility</span><span class="brief__text">AA contrast and a tap for every gesture</span></a>
+      <a class="brief__item" href="#prototypes"><span class="brief__num">05</span><span class="brief__title">Prototypes</span><span class="brief__text">One clickable prototype per person</span></a>
+      <a class="brief__item" href="#reflection"><span class="brief__num">06</span><span class="brief__title">Reflection</span><span class="brief__text">An object everyone already understands</span></a>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- 01 : HYBRID SYSTEM -->
+    <section class="sec stack" id="hybrid">
+      <span class="chip sec__chip">01 / Hybrid System</span>
+      <div class="stack__intro">
+        <h2 class="display display--lg">Hybrid<br>System</h2>
+        <ul class="points">
+          <li><strong>One system, two doors</strong>The team installs EMA because they live in it all day. The client never installs anything: a link by text opens her contract in the browser, because nobody downloads an app for two steps.</li>
+          <li><strong>Maya, sales, in the app</strong>She checks in several times a day with one question: is there anything new? New leads lead the screen; leads she is following up sit quietly below.</li>
+          <li><strong>Valeria, the client, on the web</strong>She opens her contract from a text, reviews every detail, messages Maya if something is off, and seals it with her deposit.</li>
+          <li><strong>Luis, the kitchen, in the app</strong>The push arrives the moment the deposit lands, and the event moves to confirmed on his board without anyone retyping it.</li>
+          <li><strong>Who they are</strong>The research behind these three people, and the event model they share, is in the first case study: <a href="../Dionnes-EMA/dionnes-ema.html">Dionne's Event Management App</a>.</li>
+        </ul>
+      </div>
+      <div class="stack__row stack__row--3">
+        <figure class="figure figure--framed figure--phone">
+          <img src="assets/img/ema-maya-leads.webp" alt="Maya's Leads screen: Good morning, Maya. You have 04 new leads since 8am, each with its source, time and guest count" loading="lazy" width="780" height="1688">
+          <figcaption class="figure__caption">
+            <span>Maya, in the app: is there anything new?</span>
+            <span class="chip">Fig. 01</span>
+          </figcaption>
+        </figure>
+        <figure class="figure figure--framed figure--phone">
+          <img src="assets/img/ema-valeria-contract.webp" alt="Valeria's contract on the web: one ticket with the date 13 March, sections for date, address, service, setup and total, and a Looks right button" loading="lazy" width="780" height="1688">
+          <figcaption class="figure__caption">
+            <span>Valeria, on the web: her contract is one ticket.</span>
+            <span class="chip">Fig. 02</span>
+          </figcaption>
+        </figure>
+        <figure class="figure figure--framed figure--phone">
+          <img src="assets/img/ema-luis-board.webp" alt="Luis's kitchen board on teal: 05 confirmed events, Valeria's quinceañera just moved to confirmed" loading="lazy" width="780" height="1688">
+          <figcaption class="figure__caption">
+            <span>Luis, in the app: the paid event lands on its own.</span>
+            <span class="chip">Fig. 03</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 02 : VISUAL LANGUAGE (gray) -->
+    <section class="sec sec--gray stack" id="language">
+      <span class="chip sec__chip">02 / Visual Language</span>
+      <div class="stack__intro">
+        <h2 class="display display--md">Visual<br>Language</h2>
+        <ul class="points">
+          <li><strong>The ticket</strong>Every event is a ticket: a stub with the date in big numbers, perforations between sections and notches at the main tears. The same object is the client's contract, the kitchen's card and the entry in the calendar.</li>
+          <li><strong>Paper, not panels</strong>Rows and sheets carry a paper grain and long fibers, and they behave like paper: they are dragged, folded and stamped.</li>
+          <li><strong>Color by role</strong>Each persona owns a background: charcoal for Maya in sales, magenta, Dionne's brand color, for the client on the web, and deep teal for the kitchen. Accents follow the same split: magenta front of house, mint in the kitchen. Labels always carry the state in words, so color is never the only signal.</li>
+          <li><strong>Type and depth</strong>DM Sans runs the interface with numbers at its heaviest weight; Libre Baskerville, upright, names people and events. Nested content folds open one shade darker per level.</li>
+        </ul>
+      </div>
+      <div class="swatches">
+        <figure class="pms">
+          <div class="pms__chip" style="background:#C8124F"></div>
+          <figcaption class="pms__label"><span class="pms__brand">EMA: Magenta</span><span class="pms__code">HEX #C8124F</span><span class="pms__code">RGB 200 18 79</span><span class="pms__use">Front of house: sales and the client.</span></figcaption>
+        </figure>
+        <figure class="pms">
+          <div class="pms__chip" style="background:#0C4744"></div>
+          <figcaption class="pms__label"><span class="pms__brand">EMA: Teal</span><span class="pms__code">HEX #0C4744</span><span class="pms__code">RGB 12 71 68</span><span class="pms__use">Back of house: the kitchen's background.</span></figcaption>
+        </figure>
+        <figure class="pms">
+          <div class="pms__chip" style="background:#2FC79B"></div>
+          <figcaption class="pms__label"><span class="pms__brand">EMA: Mint</span><span class="pms__code">HEX #2FC79B</span><span class="pms__code">RGB 47 199 155</span><span class="pms__use">Kitchen accents: numbers and states.</span></figcaption>
+        </figure>
+        <figure class="pms">
+          <div class="pms__chip" style="background:#F8F3EA"></div>
+          <figcaption class="pms__label"><span class="pms__brand">EMA: Paper</span><span class="pms__code">HEX #F8F3EA</span><span class="pms__code">RGB 248 243 234</span><span class="pms__use">Tickets, sheets and stubs.</span></figcaption>
+        </figure>
+        <figure class="pms">
+          <div class="pms__chip" style="background:#1E1D1B"></div>
+          <figcaption class="pms__label"><span class="pms__brand">EMA: Charcoal</span><span class="pms__code">HEX #1E1D1B</span><span class="pms__code">RGB 30 29 27</span><span class="pms__use">Maya's background, and text on mint.</span></figcaption>
+        </figure>
+      </div>
+      <div class="stack__row stack__row--quad">
+        <figure class="figure figure--framed figure--phone">
+          <img src="assets/img/ema-maya-lead-detail.webp" alt="Maya's lead pulled out as a sheet: 180 guests, Saturday March 13, the details captured from the chat and the last message" loading="lazy" width="780" height="1688">
+          <figcaption class="figure__caption">
+            <span>Maya, on charcoal: the lead pulled out as a sheet.</span>
+            <span class="chip">Fig. 04</span>
+          </figcaption>
+        </figure>
+        <figure class="figure figure--framed figure--phone">
+          <img src="assets/img/ema-event-ticket-open.webp" alt="An event ticket opened: Service unfolded and its Menu one shade darker, listing five dishes" loading="lazy" width="780" height="1688">
+          <figcaption class="figure__caption">
+            <span>Depth by shade: each nested level opens one tone darker.</span>
+            <span class="chip">Fig. 05</span>
+          </figcaption>
+        </figure>
+        <figure class="figure figure--framed figure--phone">
+          <img src="assets/img/ema-valeria-payment.webp" alt="Valeria's contract on magenta with the payment unfolded: deposit today $2,052, card ending 4417, balance due March 7, and Slide to seal" loading="lazy" width="780" height="1688">
+          <figcaption class="figure__caption">
+            <span>Valeria, on magenta: the payment unfolds under the ticket.</span>
+            <span class="chip">Fig. 06</span>
+          </figcaption>
+        </figure>
+        <figure class="figure figure--framed figure--phone">
+          <img src="assets/img/ema-luis-calendar.webp" alt="Luis's calendar on teal: 06 events ahead, search, Month view of December 2026 with events on the 5th and 12th" loading="lazy" width="780" height="1688">
+          <figcaption class="figure__caption">
+            <span>Luis, on teal: the same calendar in the kitchen's color.</span>
+            <span class="chip">Fig. 07</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 03 : INTERACTIONS -->
+    <section class="sec stack" id="interactions">
+      <span class="chip sec__chip">03 / Interactions</span>
+      <div class="stack__intro">
+        <h2 class="display display--md">Three<br>Interactions</h2>
+        <ul class="points">
+          <li><strong>Slide in</strong>A lead is pulled out like paper. Its detail sheet comes in glued to the row, rigid, following the finger one to one, with nothing animating on its own. New leads come in from the left because they have not happened yet; existing events come in from the right.</li>
+          <li><strong>Accordion</strong>Sections unfold from their perforations in 3D. The shade darkens as the paper bends, the page color shows behind each crease, and edges toward the fold stay square.</li>
+          <li><strong>The stamp</strong>Paying is sealing. The client slides to seal, the stamp lands on the stub, and her status turns confirmed in the same color as the page around her ticket.</li>
+          <li><strong>Motion spec</strong>Entrances ease out on cubic bezier (0.22, 1, 0.36, 1) and exits are shorter and ease in. Nothing is linear, and every transition ends within 700 ms. Everything else on screen stays still.</li>
+        </ul>
+      </div>
+      <div class="stack__row stack__row--3">
+        <figure class="figure figure--phone">
+          <div class="vid" data-label="slide in animation">
+            <video muted loop playsinline preload="metadata" poster="assets/img/ema-slide-in-poster.webp" aria-label="Animation: Maya drags Valeria's lead to the right and her detail sheet slides in from the left, then slides back">
+              <source src="assets/video/ema-slide-in.mp4" type="video/mp4">
+            </video>
+            <button class="vid__toggle" type="button">Play</button>
+          </div>
+          <figcaption class="figure__caption">
+            <span>Slide in: the sheet comes in glued to its row.</span>
+            <span class="chip">Fig. 08</span>
+          </figcaption>
+        </figure>
+        <figure class="figure figure--phone">
+          <div class="vid" data-label="accordion animation">
+            <video muted loop playsinline preload="metadata" poster="assets/img/ema-accordion-poster.webp" aria-label="Animation: Valeria taps Service and its rows unfold from the perforation, then the Menu opens one shade darker and both fold back">
+              <source src="assets/video/ema-accordion.mp4" type="video/mp4">
+            </video>
+            <button class="vid__toggle" type="button">Play</button>
+          </div>
+          <figcaption class="figure__caption">
+            <span>Accordion: the ticket unfolds from its perforations.</span>
+            <span class="chip">Fig. 09</span>
+          </figcaption>
+        </figure>
+        <figure class="figure figure--phone">
+          <div class="vid" data-label="stamp animation">
+            <video muted loop playsinline preload="metadata" poster="assets/img/ema-stamp-poster.webp" aria-label="Animation: Valeria slides to seal, the page scrolls up and the Sealed stamp lands on the ticket while her status turns confirmed">
+              <source src="assets/video/ema-stamp.mp4" type="video/mp4">
+            </video>
+            <button class="vid__toggle" type="button">Play</button>
+          </div>
+          <figcaption class="figure__caption">
+            <span>The stamp: paying seals the ticket.</span>
+            <span class="chip">Fig. 10</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 04 : ACCESSIBILITY (gray) -->
+    <section class="sec sec--gray stack" id="accessibility">
+      <span class="chip sec__chip">04 / Accessibility</span>
+      <div class="stack__intro">
+        <h2 class="display display--md">Accessi&shy;bility</h2>
+        <ul class="points">
+          <li><strong>Contrast, measured</strong>Every text pair passes WCAG 2.2 AA. The muted gray was lifted until it passed on the darkest card, and the kitchen's mint carries charcoal text instead of white.</li>
+          <li><strong>A tap for every gesture</strong>WCAG 2.2 asks for a single pointer alternative to dragging (2.5.7). Rows open with a tap or their chevron, and the seal arms on the first tap and seals on the second.</li>
+          <li><strong>States beyond color</strong>Waiting cards are solid sand with a dark label; confirmed cards are paper with a colored label. Stripes stay only where no text sits on them.</li>
+          <li><strong>Keyboard and motion</strong>Every control works by keyboard, and under reduced motion folds and slides resolve at once.</li>
+        </ul>
+      </div>
+      <div class="stack__row stack__row--flow">
+        <figure class="figure" style="--ar: 1.6">
+          <div class="ratio-wrap">
+            <table class="ratio">
+              <thead><tr><th scope="col">Pair</th><th scope="col">Ratio</th><th scope="col">Result</th></tr></thead>
+              <tbody>
+                <tr><td><span class="ratio__pair"><span class="ratio__dot" style="background:#F8F3EA;color:#1E1D1B">Aa</span>Charcoal text on paper</span></td><td>15.24:1</td><td>AA pass</td></tr>
+                <tr><td><span class="ratio__pair"><span class="ratio__dot" style="background:#2FC79B;color:#1E1D1B">Aa</span>Charcoal on mint (kitchen labels)</span></td><td>7.83:1</td><td>AA pass</td></tr>
+                <tr><td><span class="ratio__pair"><span class="ratio__dot" style="background:#F8F3EA;color:#615C53">Aa</span>Secondary text on paper</span></td><td>6.00:1</td><td>AA pass</td></tr>
+                <tr><td><span class="ratio__pair"><span class="ratio__dot" style="background:#C8124F;color:#FFFFFF">Aa</span>White on magenta (status labels)</span></td><td>5.75:1</td><td>AA pass</td></tr>
+                <tr><td><span class="ratio__pair"><span class="ratio__dot" style="background:#2A2926;color:#A6A197">Aa</span>Muted text on charcoal cards</span></td><td>5.66:1</td><td>AA pass</td></tr>
+                <tr><td><span class="ratio__pair"><span class="ratio__dot" style="background:#0C4744;color:#F2EDE4">Aa</span>Text on kitchen teal</span></td><td>9.00:1</td><td>AA pass</td></tr>
+                <tr><td><span class="ratio__pair"><span class="ratio__dot" style="background:#125653;color:#BFD8D3">Aa</span>Muted text on teal cards</span></td><td>5.63:1</td><td>AA pass</td></tr>
+                <tr><td><span class="ratio__pair"><span class="ratio__dot" style="background:#D9CDB8;color:#4F4A43">Aa</span>Text on waiting cards</span></td><td>5.59:1</td><td>AA pass</td></tr>
+                <tr><td><span class="ratio__pair"><span class="ratio__dot" style="background:#E01C5E;color:#FFFFFF">Aa</span>White on bright magenta (buttons)</span></td><td>4.67:1</td><td>AA pass</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <figcaption class="figure__caption">
+            <span>Measured contrast of every text pair in the interface.</span>
+            <span class="chip">Fig. 11</span>
+          </figcaption>
+        </figure>
+        <figure class="figure figure--framed" style="--ar: 0.4621">
+          <img src="assets/img/ema-tap-to-seal.webp" alt="The seal armed by a single tap: the track reads Tap again to pay $2,052" loading="lazy" width="780" height="1688">
+          <figcaption class="figure__caption">
+            <span>Tap to seal: the same action without dragging.</span>
+            <span class="chip">Fig. 12</span>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- 05 : PROTOTYPES -->
+    <section class="sec stack" id="prototypes">
+      <span class="chip sec__chip">05 / Prototypes</span>
+      <div class="stack__intro">
+        <h2 class="display display--md">Clickable<br>Prototypes</h2>
+        <p class="lead">Each person has their own prototype, built on the same components. On a computer it opens inside a phone; on a phone it opens full screen.</p>
+      </div>
+      <div class="protos">
+      <article class="proto-card">
+        <button class="proto-card__media" type="button" data-proto="prototype/maya/index.html" data-proto-name="Maya, Sales · app" aria-label="Open Maya's prototype"><img class="no-lightbox" src="assets/img/ema-maya-leads.webp" alt="Maya's Leads screen" loading="lazy" width="780" height="1688"></button>
+        <div class="proto-card__body">
+          <span class="proto-card__role"><span class="proto-card__dot" style="background:#C8124F"></span>Sales · app</span>
+          <h3 class="proto-card__name">Maya</h3>
+          <p class="proto-card__text">Pull a lead to see what the chat captured, browse events as tickets, and fold open the calendar.</p>
+          <a class="btn" href="prototype/maya/index.html" data-proto="prototype/maya/index.html" data-proto-name="Maya, Sales · app">Open Maya's prototype</a>
+        </div>
+      </article>
+      <article class="proto-card">
+        <button class="proto-card__media" type="button" data-proto="prototype/valeria/index.html" data-proto-name="Valeria, Client · web" aria-label="Open Valeria's prototype"><img class="no-lightbox" src="assets/img/ema-valeria-sealed.webp" alt="Valeria's sealed contract with its stamp" loading="lazy" width="780" height="1688"></button>
+        <div class="proto-card__body">
+          <span class="proto-card__role"><span class="proto-card__dot" style="background:#C8124F"></span>Client · web</span>
+          <h3 class="proto-card__name">Valeria</h3>
+          <p class="proto-card__text">Unfold the contract, ask Maya a question, then slide to seal and pay the deposit.</p>
+          <a class="btn" href="prototype/valeria/index.html" data-proto="prototype/valeria/index.html" data-proto-name="Valeria, Client · web">Open Valeria's prototype</a>
+        </div>
+      </article>
+      <article class="proto-card">
+        <button class="proto-card__media" type="button" data-proto="prototype/luis/index.html" data-proto-name="Luis, Kitchen · app" aria-label="Open Luis's prototype"><img class="no-lightbox" src="assets/img/ema-luis-push.webp" alt="Luis's lock screen with the Deposit received push" loading="lazy" width="780" height="1688"></button>
+        <div class="proto-card__body">
+          <span class="proto-card__role"><span class="proto-card__dot" style="background:#0C4744"></span>Kitchen · app</span>
+          <h3 class="proto-card__name">Luis</h3>
+          <p class="proto-card__text">Tap the push and watch the paid event move to confirmed, then open its ticket, the calendar and his profile.</p>
+          <a class="btn" href="prototype/luis/index.html" data-proto="prototype/luis/index.html" data-proto-name="Luis, Kitchen · app">Open Luis's prototype</a>
+        </div>
+      </article>
+      </div>
+    </section>
+
+    <!-- 06 : REFLECTION -->
+    <section class="reflection" id="reflection" style="background-image: url('../../assets/img/work/work-dionnes-table.webp')">
+      <div class="reflection__inner">
+        <div class="reflection__top">
+          <span class="chip chip--light">06 / Reflection</span>
+          <span class="chip chip--light">Dionne's Catering</span>
+        </div>
+        <h2 class="display display--lg">Looking<br>Back</h2>
+        <div class="reflection__cols">
+          <div>
+            <h3>What went well?</h3>
+            <p class="win"><svg class="icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M13 5v2"/><path d="M13 17v2"/><path d="M13 11v2"/></svg><span><strong>One object, three people</strong>The ticket the client seals is the card the kitchen receives, so nobody has to translate between screens.</span></p>
+            <p class="win"><svg class="icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 11V6a2 2 0 0 0-4 0v5"/><path d="M14 10V4a2 2 0 0 0-4 0v2"/><path d="M10 10.5V6a2 2 0 0 0-4 0v8"/><path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/></svg><span><strong>Paper that behaves like paper</strong>Rigid drags, square folds and a stamp make the interface feel physical and predictable.</span></p>
+            <p class="win"><svg class="icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="16" cy="4" r="1"/><path d="m18 19 1-7-6 1"/><path d="m5 8 3-3 5.5 3-2.36 3.5"/><path d="M4.24 14.5a5 5 0 0 0 6.88 6"/><path d="M13.76 17.5a5 5 0 0 0-6.88-6"/></svg><span><strong>Accessibility before the final screens</strong>Contrast and tap alternatives were fixed while designing, not after review.</span></p>
+            <p class="win"><svg class="icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 3l1.9 5.8L20 10l-6.1 1.2L12 17l-1.9-5.8L4 10l6.1-1.2z"/><path d="M19 17v4"/><path d="M17 19h4"/></svg><span><strong>AI as a builder, not the designer</strong>Claude produced and checked the prototypes; every pattern, correction and rule was mine.</span></p>
+          </div>
+          <div>
+            <h3>The business around it</h3>
+            <p class="win"><svg class="icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg><span><strong>Approved by Dionne</strong>The owner approved the interface, and it carries the system's result: zero paid events missing from the production calendar.</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- PROTOTYPE LIGHTBOX (assets/js/interaction.js) -->
+  <dialog class="proto" id="proto" aria-label="Clickable prototype">
+    <p class="proto__title"></p>
+    <button class="proto__close" type="button" aria-label="Close prototype"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
+    <div class="proto__stage"><div class="proto__device"><iframe src="about:blank" title="Prototype" allow="fullscreen"></iframe></div></div>
+  </dialog>
+
+  <!-- MORE CASE STUDIES (cards from js/projects.js, same component as the homepage) -->
+  <section class="more" id="more" aria-labelledby="more-title">
+    <div class="more__head">
+      <h2 id="more-title" class="display display--md">More Case<br>Studies</h2>
+      <div class="more__filters" role="tablist" aria-label="Filter case studies">
+        <button class="more__filter is-active" type="button" role="tab" aria-selected="true" data-more-filter="related">Related</button>
+        <button class="more__filter" type="button" role="tab" aria-selected="false" data-more-filter="all">View all</button>
+      </div>
+    </div>
+    <div class="more__grid" data-projects="more" data-base="../../" data-current="dionnes-ui"></div>
+    <div class="more__contact">
+      <ul class="more__links">
+        <li><a href="mailto:daniel@dcreativethinking.com">daniel@dcreativethinking.com</a></li>
+        <li><a href="tel:+18019219885">+1 801-921-9885</a></li>
+        <li><a href="../../assets/docs/Daniel_Rojas_Resume_2026_v2.pdf" download="Daniel_Rojas_Resume_2026.pdf">Download resume</a></li>
+      </ul>
+      <ul class="more__social" aria-label="Social profiles">
+        <li><a class="more__social-link" href="https://www.linkedin.com/in/dcreativethinking/" aria-label="LinkedIn" target="_blank" rel="noopener"><svg class="more__social-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"> <path d="M20.45 3H3.55A.55.55 0 0 0 3 3.55v16.9c0 .3.25.55.55.55h16.9c.3 0 .55-.25.55-.55V3.55A.55.55 0 0 0 20.45 3ZM8.8 18.34H5.87V9.75H8.8v8.59ZM7.34 8.47a1.7 1.7 0 1 1 0-3.4 1.7 1.7 0 0 1 0 3.4Zm11 9.87h-2.93v-4.18c0-1-.02-2.28-1.39-2.28-1.39 0-1.6 1.09-1.6 2.21v4.25H9.5V9.75h2.81v1.17h.04c.39-.74 1.35-1.52 2.77-1.52 2.97 0 3.52 1.95 3.52 4.49v4.45Z" fill="currentColor"/> </svg></a></li>
+        <li><a class="more__social-link" href="https://www.instagram.com/dani.el.ux/" aria-label="Instagram" target="_blank" rel="noopener"><svg class="more__social-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"> <path d="M12 2.16c3.2 0 3.58.02 4.85.07 1.17.06 1.8.25 2.23.42.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.84 0 3.2-.01 3.58-.07 4.85-.06 1.17-.25 1.8-.42 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42-.16-1.06.36-2.23.41-1.27.06-1.65.07-4.84.07-3.2 0-3.58-.01-4.85-.07-1.17-.06-1.8-.25-2.23-.42-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12c0-3.2.01-3.58.07-4.85.06-1.17.25-1.8.42-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16ZM12 0C8.74 0 8.33.02 7.05.07 5.78.13 4.9.33 4.14.63c-.79.31-1.46.72-2.13 1.38C1.35 2.68.94 3.35.63 4.14c-.3.77-.5 1.64-.56 2.91C.01 8.33 0 8.74 0 12s.02 3.67.07 4.95c.06 1.27.26 2.14.56 2.91.31.79.72 1.46 1.38 2.13.67.66 1.34 1.07 2.13 1.38.77.3 1.64.5 2.91.56C8.33 23.98 8.74 24 12 24s3.67-.02 4.95-.07c1.27-.06 2.14-.26 2.91-.56.79-.31 1.46-.72 2.13-1.38.66-.67 1.07-1.34 1.38-2.13.3-.77.5-1.64.56-2.91.05-1.28.07-1.69.07-4.95s-.02-3.67-.07-4.95c-.06-1.27-.26-2.14-.56-2.91a5.9 5.9 0 0 0-1.38-2.13A5.9 5.9 0 0 0 19.86.63c-.77-.3-1.64-.5-2.91-.56C15.67.02 15.26 0 12 0Zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32ZM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm7.85-10.41a1.44 1.44 0 1 1-2.88 0 1.44 1.44 0 0 1 2.88 0Z" fill="currentColor"/> </svg></a></li>
+        <li><a class="more__social-link" href="https://www.behance.net/mlkmx" aria-label="Behance - mlkmx" target="_blank" rel="noopener"><svg class="more__social-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"> <path d="M8.64 7c.5 0 .95.05 1.37.15.41.1.76.26 1.05.48.29.22.52.52.68.89.16.37.24.83.24 1.37 0 .59-.12 1.08-.36 1.48-.24.39-.6.71-1.07.96.64.21 1.12.57 1.44 1.09.32.52.47 1.15.47 1.88 0 .59-.1 1.11-.31 1.54-.19.42-.47.79-.82 1.06-.36.28-.76.48-1.19.6-.44.14-.9.2-1.37.2H2V7h6.64Zm-.4 4.61c.41 0 .75-.11 1.02-.33.27-.22.39-.57.39-1.06 0-.27-.04-.5-.13-.68a.94.94 0 0 0-.36-.41 1.4 1.4 0 0 0-.51-.21c-.2-.04-.4-.06-.6-.06H4.82v2.75h3.42Zm.19 4.84c.23 0 .44-.03.65-.08.2-.05.39-.13.54-.25.16-.12.29-.28.37-.47.09-.2.14-.46.14-.78 0-.62-.16-1.06-.47-1.33-.31-.26-.72-.4-1.23-.4H4.82v3.31h3.61ZM16.13 16.47c.38.41.92.62 1.63.62.51 0 .95-.14 1.32-.43.37-.29.6-.59.68-.91h2.09c-.34 1.16-.85 1.99-1.54 2.49-.7.51-1.53.76-2.51.76-.69 0-1.3-.12-1.85-.37a4.2 4.2 0 0 1-1.4-1.04 4.7 4.7 0 0 1-.89-1.62 6.1 6.1 0 0 1-.29-2.08c0-.74.1-1.42.32-2.06.2-.6.51-1.16.91-1.63a4.2 4.2 0 0 1 1.4-1.08 4.4 4.4 0 0 1 1.81-.39c.73 0 1.37.15 1.92.47.53.31.99.75 1.34 1.28.36.54.61 1.15.76 1.84.16.68.21 1.4.17 2.15h-6.25c.03.91.24 1.59.62 2Zm2.91-5.44c-.3-.37-.81-.57-1.42-.57-.4 0-.73.08-.99.23-.27.15-.48.34-.64.56a2 2 0 0 0-.34.74c-.06.21-.1.42-.11.64h3.87c-.06-.68-.24-1.23-.54-1.6ZM14.86 7h4.9v1.2h-4.9V7Z" fill="currentColor"/> </svg></a></li>
+        <li><a class="more__social-link" href="https://www.behance.net/MalikODaniel" aria-label="Behance - MalikODaniel" target="_blank" rel="noopener"><svg class="more__social-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"> <path d="M8.64 7c.5 0 .95.05 1.37.15.41.1.76.26 1.05.48.29.22.52.52.68.89.16.37.24.83.24 1.37 0 .59-.12 1.08-.36 1.48-.24.39-.6.71-1.07.96.64.21 1.12.57 1.44 1.09.32.52.47 1.15.47 1.88 0 .59-.1 1.11-.31 1.54-.19.42-.47.79-.82 1.06-.36.28-.76.48-1.19.6-.44.14-.9.2-1.37.2H2V7h6.64Zm-.4 4.61c.41 0 .75-.11 1.02-.33.27-.22.39-.57.39-1.06 0-.27-.04-.5-.13-.68a.94.94 0 0 0-.36-.41 1.4 1.4 0 0 0-.51-.21c-.2-.04-.4-.06-.6-.06H4.82v2.75h3.42Zm.19 4.84c.23 0 .44-.03.65-.08.2-.05.39-.13.54-.25.16-.12.29-.28.37-.47.09-.2.14-.46.14-.78 0-.62-.16-1.06-.47-1.33-.31-.26-.72-.4-1.23-.4H4.82v3.31h3.61ZM16.13 16.47c.38.41.92.62 1.63.62.51 0 .95-.14 1.32-.43.37-.29.6-.59.68-.91h2.09c-.34 1.16-.85 1.99-1.54 2.49-.7.51-1.53.76-2.51.76-.69 0-1.3-.12-1.85-.37a4.2 4.2 0 0 1-1.4-1.04 4.7 4.7 0 0 1-.89-1.62 6.1 6.1 0 0 1-.29-2.08c0-.74.1-1.42.32-2.06.2-.6.51-1.16.91-1.63a4.2 4.2 0 0 1 1.4-1.08 4.4 4.4 0 0 1 1.81-.39c.73 0 1.37.15 1.92.47.53.31.99.75 1.34 1.28.36.54.61 1.15.76 1.84.16.68.21 1.4.17 2.15h-6.25c.03.91.24 1.59.62 2Zm2.91-5.44c-.3-.37-.81-.57-1.42-.57-.4 0-.73.08-.99.23-.27.15-.48.34-.64.56a2.2 2.2 0 0 0-.34.74c-.06.21-.1.42-.11.64h3.87c-.06-.68-.24-1.23-.54-1.6ZM14.86 7h4.9v1.2h-4.9V7Z" fill="currentColor"/> </svg></a></li>
+      </ul>
+    </div>
+  </section>
+
+
+  <!-- LIGHTBOX & GALLERY SCRIPT -->
+  <div id="lightbox">
+    <button id="lightbox-close" aria-label="Close Lightbox">&times;</button>
+    <button id="lightbox-prev" class="lightbox-nav" aria-label="Previous Image">&#10094;</button>
+    <img id="lightbox-img" src="" alt="Enlarged view">
+    <button id="lightbox-next" class="lightbox-nav" aria-label="Next Image">&#10095;</button>
+  </div>
+
+  <script>
+    // Theme Toggle Logic
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    const body = document.body;
+
+    if (localStorage.getItem('theme') === 'dark') {
+      body.classList.add('dark-theme');
+      setSunIcon();
+    }
+
+    themeToggle.addEventListener('click', () => {
+      body.classList.toggle('dark-theme');
+      if (body.classList.contains('dark-theme')) {
+        localStorage.setItem('theme', 'dark');
+        setSunIcon();
+      } else {
+        localStorage.setItem('theme', 'light');
+        setMoonIcon();
+      }
+    });
+
+    function setSunIcon() {
+      themeIcon.innerHTML = '<circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>';
+    }
+
+    function setMoonIcon() {
+      themeIcon.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>';
+    }
+
+    // Lightbox & Gallery Logic
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxClose = document.getElementById('lightbox-close');
+    const prevBtn = document.getElementById('lightbox-prev');
+    const nextBtn = document.getElementById('lightbox-next');
+    
+    const clickableImages = Array.from(document.querySelectorAll('main img:not(.no-lightbox)'));
+    let currentIndex = 0;
+
+    function updateLightboxImage() {
+      lightboxImg.src = clickableImages[currentIndex].src;
+    }
+
+    clickableImages.forEach((img, index) => {
+      img.addEventListener('click', () => {
+        currentIndex = index;
+        updateLightboxImage();
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    const closeLightbox = () => {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    };
+
+    // Navigation Controls
+    prevBtn.addEventListener('click', (e) => {
+      e.stopPropagation(); 
+      currentIndex = (currentIndex > 0) ? currentIndex - 1 : clickableImages.length - 1;
+      updateLightboxImage();
+    });
+
+    nextBtn.addEventListener('click', (e) => {
+      e.stopPropagation(); 
+      currentIndex = (currentIndex < clickableImages.length - 1) ? currentIndex + 1 : 0;
+      updateLightboxImage();
+    });
+
+    // Close on background click
+    lightbox.addEventListener('click', (e) => {
+      if (e.target !== lightboxImg && e.target !== prevBtn && e.target !== nextBtn) {
+        closeLightbox();
+      }
+    });
+
+    lightboxClose.addEventListener('click', closeLightbox);
+
+    // Keyboard controls for Gallery & Close
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox.classList.contains('active')) return;
+      
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') {
+        currentIndex = (currentIndex > 0) ? currentIndex - 1 : clickableImages.length - 1;
+        updateLightboxImage();
+      }
+      if (e.key === 'ArrowRight') {
+        currentIndex = (currentIndex < clickableImages.length - 1) ? currentIndex + 1 : 0;
+        updateLightboxImage();
+      }
+    });
+  </script>
+  <script src="../../js/projects.js?v=20261126c"></script>
+  <script src="../../js/case-nav.js?v=20261026b"></script>
+  <script src="../../js/reveal.js?v=20261026b"></script>
+  <script src="../../js/case-depth.js?v=20261124a"></script>
+  <script src="../../js/smart-nav.js?v=20261119a"></script>
+  <script src="assets/js/interaction.js?v=20261126a"></script>
+</body>
+</html>
