@@ -371,7 +371,7 @@ radial-gradient(70% 36% at 80% 92%,color-mix(in srgb,var(--p) 18%,transparent),t
 
 /* ---------- hub ---------- */
 .hub{min-height:100dvh;position:relative;isolation:isolate;overflow:hidden}
-.hub__bg{position:absolute;inset:0;z-index:-1;background:url(../assets/img/bg-hero.webp?v=20261127d) center 62% / cover no-repeat}
+.hub__bg{position:absolute;inset:0;z-index:-1;background:url(../assets/img/bg-hero.webp?v=20261127e) center 62% / cover no-repeat}
 .hub__bg::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,var(--bg) 22%,rgba(25,25,25,.55) 52%,rgba(25,25,25,0) 80%),linear-gradient(0deg,var(--bg) 2%,transparent 34%)}
 .hub__in{max-width:1240px;margin:0 auto;padding:clamp(28px,5vw,72px) max(5vw,18px);display:flex;flex-direction:column;gap:clamp(28px,5vw,56px)}
 .hub__logo{width:min(220px,50vw);font-size:clamp(16px,4.6vw,22px)}
@@ -429,7 +429,7 @@ radial-gradient(70% 36% at 80% 92%,color-mix(in srgb,var(--p) 18%,transparent),t
 
 /* Admin: matchday photo behind the console, darkened toward the content */
 .console{position:relative;isolation:isolate}
-.console::before{content:"";position:fixed;inset:0;z-index:-1;background:linear-gradient(90deg,var(--bg) 0,rgba(25,25,25,.92) 30%,rgba(25,25,25,.55) 70%,rgba(25,25,25,.35)),linear-gradient(0deg,var(--bg) 0,rgba(25,25,25,0) 55%),url(../assets/img/bg-admin.webp?v=20261127d) right top/cover no-repeat}
+.console::before{content:"";position:fixed;inset:0;z-index:-1;background:linear-gradient(90deg,var(--bg) 0,rgba(25,25,25,.92) 30%,rgba(25,25,25,.55) 70%,rgba(25,25,25,.35)),linear-gradient(0deg,var(--bg) 0,rgba(25,25,25,0) 55%),url(../assets/img/bg-admin.webp?v=20261127e) right top/cover no-repeat}
 .console .main>.glow{background-color:transparent}
 
 /* ---------- Stripe: the main box of every screen runs edge to edge, square corners ---------- */
