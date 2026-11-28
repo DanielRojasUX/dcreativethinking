@@ -1,0 +1,61 @@
+/*
+EMA prototype hub. Same structure as the Kickabout League hub:
+photo background with a charcoal wash, lockup, headline, one glass card per person, a tip card.
+COLOUR and TYPE: charcoal #1E1D1B, Dionne's magenta #C8124F, one persona tint per role; Libre Baskerville for titles, DM Sans for the interface
+*/
+:root{color-scheme:dark;--bg:#1E1D1B;--bg2:#141312;--ink:#F8F3EA;--mut:rgba(248,243,234,.7);
+--line:rgba(255,255,255,.12);--line2:rgba(255,255,255,.2);--acc:#C8124F;--acc-hi:#FF6B9A;
+--glass:rgba(36,34,32,.5);--glass2:rgba(248,243,234,.08);--blur:saturate(150%) blur(22px);--r:24px;
+--spring:cubic-bezier(.2,1.25,.32,1);--ease:cubic-bezier(.3,.7,.2,1);
+--serif:'Libre Baskerville',Georgia,serif;--sans:'DM Sans',system-ui,-apple-system,'Segoe UI',sans-serif}
+*{box-sizing:border-box;min-width:0;-webkit-tap-highlight-color:transparent}
+html,body{height:100%}
+body{margin:0;background:var(--bg2);color:var(--ink);font:15px/1.5 var(--sans);overflow-x:clip;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+svg.i{width:20px;height:20px;flex:none;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+:focus-visible{outline:2px solid var(--acc-hi);outline-offset:3px;border-radius:12px}
+
+.glass{background:var(--glass);-webkit-backdrop-filter:var(--blur);backdrop-filter:var(--blur);border:1px solid var(--line);border-radius:var(--r);box-shadow:inset 0 1px 0 rgba(255,255,255,.09),0 18px 40px rgba(0,0,0,.22)}
+.col{display:flex;flex-direction:column}
+.row{display:flex;align-items:center;gap:12px}
+.h1{font:700 clamp(34px,5vw,64px)/1.05 var(--serif);letter-spacing:-.01em;margin:0}
+.h2{font:700 18px/1.2 var(--serif);margin:0}
+.small{font-size:13px;font-weight:600}
+.mut{color:var(--mut)}
+
+/* lockup */
+.lock{display:flex;align-items:center;gap:14px;margin:0}
+.lock__mark{width:64px;height:64px;display:block;flex:none}
+.lock__type{display:flex;flex-direction:column;gap:4px;line-height:1}
+.lock__type b{font:700 22px/1 var(--serif);letter-spacing:.01em}
+.lock__type span{font:600 12px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--mut)}
+
+/* tap feedback, same bounce and blur as Kickabout */
+.tap{transition:transform .32s var(--spring),filter .3s var(--ease),box-shadow .3s,border-color .3s;cursor:pointer;user-select:none;-webkit-user-select:none}
+.tap:hover{transform:translateY(-4px);border-color:var(--line2)}
+.tap:active{transform:scale(.97);filter:blur(.4px)}
+
+/* hub */
+.hub{min-height:100dvh;position:relative;isolation:isolate;overflow:hidden}
+.hub__bg{position:absolute;inset:0;z-index:-1;background:url(../assets/img/bg-hub.webp?v=20261127a) right center / cover no-repeat}
+.hub__bg::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,var(--bg) 26%,rgba(30,29,27,.62) 56%,rgba(30,29,27,.2) 86%),linear-gradient(0deg,var(--bg) 2%,transparent 38%)}
+.hub__in{max-width:1240px;margin:0 auto;padding:clamp(28px,5vw,72px) max(5vw,18px);display:flex;flex-direction:column;gap:clamp(28px,5vw,56px)}
+.hub__lead{font-size:18px;color:var(--mut);max-width:46ch;margin:0}
+
+.personas{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;align-items:stretch;max-width:1000px}
+.persona{display:flex;flex-direction:column;gap:12px;padding:20px;height:100%}
+.av{width:46px;height:46px;border-radius:50%;flex:none;display:grid;place-items:center;font:700 16px var(--serif);color:var(--bg2);background:var(--pc);border:2px solid rgba(255,255,255,.18)}
+.persona p{margin:0;color:var(--mut);font-size:14px}
+.persona__go{margin-top:auto;display:flex;align-items:center;gap:8px;font-weight:700;color:var(--pc)}
+
+.tip{max-width:760px;display:flex;align-items:center;gap:16px;padding:18px 20px}
+.tip p{margin:0}
+.tip__ic{flex:none;color:var(--acc-hi);display:grid;place-items:center}
+.tip a{color:var(--acc-hi);font-weight:700;text-decoration:underline;text-underline-offset:3px}
+
+.st{animation:st-in .7s var(--spring) both}
+@keyframes st-in{from{opacity:0;transform:translateX(46px) scale(.96);filter:blur(8px)}to{opacity:1;transform:none;filter:none}}
+
+@media (max-width:900px){.personas{grid-template-columns:repeat(2,minmax(0,1fr))}.personas>a:last-child{grid-column:1/-1}}
+@media (max-width:560px){.personas{grid-template-columns:minmax(0,1fr)}.personas>a:last-child{grid-column:auto}.hub__bg{background-position:72% 0}.hub__bg::after{background:linear-gradient(0deg,var(--bg) 48%,rgba(30,29,27,.55))}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}

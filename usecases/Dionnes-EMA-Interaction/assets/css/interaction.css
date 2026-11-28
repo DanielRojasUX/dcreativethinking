@@ -90,3 +90,5 @@
 @media (max-width: 960px) { .stack__row.stack__row--quad { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .stack__row--quad { align-items: stretch; }
 .stack__row--quad > .figure { display: flex; flex-direction: column; height: 100%; }
+
+.protos__more { margin-top: clamp(16px, 2vw, 28px); display: flex; flex-wrap: wrap; gap: 12px; }
