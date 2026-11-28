@@ -1,0 +1,89 @@
+/* =========================================
+   Sunú Home: page specific styles (built from the Kickabout League components)
+   Phone sized figures, looping motion figures with a pause control,
+   swatches, and the prototype card plus its lightbox.
+   ========================================= */
+.figure--phone { max-width: min(100%, 360px); margin-inline: auto; width: 100%; }
+.stack__row--3 > .figure--phone { max-width: 360px; }
+
+/* Motion figures */
+.vid { position: relative; aspect-ratio: 390 / 844; background: var(--panel); border: 1px solid var(--rule); overflow: hidden; }
+.vid video { display: block; width: 100%; height: 100%; object-fit: cover; }
+.vid__toggle {
+  position: absolute; right: 12px; bottom: 12px; display: inline-flex; align-items: center; gap: 6px;
+  min-height: 40px; padding: 0 14px; border: 0; background: rgba(14, 14, 14, 0.82); color: #fff;
+  font-family: var(--font-label); font-weight: 600; font-size: 0.78rem; cursor: pointer;
+}
+.vid__toggle svg { width: 14px; height: 14px; }
+.vid__toggle:hover { background: var(--cherry); }
+.vid__toggle:focus-visible { outline: 2px solid var(--cherry); outline-offset: 3px; }
+
+/* Swatches: six across, three on tablets, two on phones */
+.swatches { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: clamp(12px, 1.6vw, 24px); }
+@media (max-width: 960px) { .swatches { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .swatches { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* Four screens across, two on tablets and phones; same height in every row */
+.stack__row.stack__row--quad { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.stack__row--quad > .figure--phone { max-width: none; }
+@media (max-width: 960px) { .stack__row.stack__row--quad { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.stack__row--quad { align-items: stretch; }
+.stack__row--quad > .figure { display: flex; flex-direction: column; height: 100%; }
+
+/* Two loops side by side, centered */
+.stack__row.stack__row--pair { grid-template-columns: repeat(2, minmax(0, 360px)); justify-content: center; }
+@media (max-width: 640px) { .stack__row.stack__row--pair { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+/* Hero: flat color fields with the app, like the app itself */
+.hero--cook { background: #5B3DF5; }
+.hero--cook .hero__photo { position: absolute; inset: 0; z-index: 0; background: url('../img/home-hero-wide.webp?v=20261127g') 100% 0% / cover no-repeat; animation: cook-rise 1.4s cubic-bezier(.2, .7, .2, 1) both; }
+@keyframes cook-rise { from { transform: translateY(24px); opacity: 0; } to { transform: none; opacity: 1; } }
+.hero--cook::before { background: none; }
+.hero--cook .hero__title--answer { max-width: 13ch; }
+@media (max-width: 760px) {
+  .hero--cook .hero__photo { background-image: url('../img/home-hero-tall.webp?v=20261127g'); background-position: 50% 0%; }
+  .hero--cook::before { background: none; }
+}
+@media (prefers-reduced-motion: reduce) { .hero--cook .hero__photo { animation: none; } }
+
+/* The real Sunú logo above the title */
+.cook-lock { display: inline-flex; flex-direction: column; align-items: flex-start; gap: .7em; margin-bottom: clamp(18px, 2.2vw, 30px); color: #fff; font: 500 clamp(12px, 1.1vw, 15px)/1 'DM Sans', sans-serif; }
+.cook-lock__mark { width: clamp(170px, 16vw, 250px); height: auto; display: block; }
+.cook-lock__by { display: inline-flex; align-items: center; gap: .5em; }
+.cook-lock__by img { height: 1.5em; width: auto; display: block; }
+
+/* Prototype card: one prototype, media beside the text on wide screens */
+.protos--1 { display: grid; grid-template-columns: minmax(0, 1fr); max-width: 980px; }
+.proto-card { display: flex; flex-direction: column; border: 1px solid var(--rule); background: var(--surface, #fff); }
+.protos--1 .proto-card { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); }
+@media (max-width: 760px) { .protos--1 .proto-card { grid-template-columns: 1fr; } }
+.proto-card__media { display: block; padding: 0; border: 0; background: #5B3DF5; cursor: pointer; aspect-ratio: 4 / 5; overflow: hidden; }
+.proto-card__media img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top center; transition: transform .6s cubic-bezier(.22,1,.36,1); }
+.proto-card__media:hover img { transform: scale(1.03); }
+.proto-card__media:focus-visible { outline: 2px solid var(--cherry); outline-offset: -2px; }
+.proto-card__body { display: flex; flex-direction: column; gap: 12px; padding: clamp(20px, 3vw, 40px); flex: 1; }
+.proto-card__role { font-family: var(--font-label); font-weight: 600; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+.proto-card__name { font-family: var(--font-display); font-weight: 900; font-size: clamp(1.6rem, 2.4vw, 2.2rem); line-height: 1; text-transform: uppercase; letter-spacing: -0.02em; margin: 0; }
+.proto-card__text { margin: 0; color: var(--ink-soft); line-height: 1.55; }
+.proto-card__list { margin: 0; padding-left: 1.1em; color: var(--ink-soft); line-height: 1.6; }
+.proto-card__dot { display: inline-block; width: 10px; height: 10px; margin-right: 8px; vertical-align: 1px; }
+.proto-card .btn { margin-top: auto; align-self: flex-start; }
+.protos__more { margin-top: clamp(16px, 2vw, 28px); display: flex; flex-wrap: wrap; gap: 12px; }
+
+/* Prototype lightbox: a phone on desktop, full screen on phones */
+.proto { border: 0; padding: 0; margin: 0; width: 100vw; height: 100dvh; max-width: none; max-height: none; background: rgba(10, 10, 10, 0.92); color: #fff; }
+.proto::backdrop { background: rgba(10, 10, 10, 0.92); }
+.proto__close { position: absolute; z-index: 3; top: 16px; right: 16px; width: 44px; height: 44px; border: 0; cursor: pointer; display: grid; place-items: center; background: rgba(255,255,255,0.12); color: #fff; }
+.proto__close svg { width: 20px; height: 20px; }
+.proto__close:hover { background: var(--cherry); }
+.proto__close:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+.proto__title { position: absolute; top: 26px; left: 24px; margin: 0; font-family: var(--font-label); font-weight: 600; font-size: 0.85rem; letter-spacing: 0.04em; }
+.proto__stage { position: absolute; inset: 0; display: grid; place-items: center; }
+.proto__device { width: 393px; height: 852px; border: 12px solid #141312; border-radius: 56px; overflow: hidden; background: #F3EEE7; box-shadow: 0 40px 90px -30px rgba(0,0,0,.8); transform-origin: center; box-sizing: content-box; }
+.proto__device iframe { display: block; width: 393px; height: 852px; border: 0; }
+@media (max-width: 640px) {
+  .proto__title { display: none; }
+  .proto__close { top: calc(env(safe-area-inset-top, 0px) + 8px); right: 8px; background: rgba(14,14,14,0.7); }
+  .proto__device { width: 100vw; height: 100dvh; border: 0; border-radius: 0; box-shadow: none; transform: none !important; }
+  .proto__device iframe { width: 100%; height: 100%; }
+}

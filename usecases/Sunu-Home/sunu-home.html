@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daniel | Sunú Home</title>
+  <meta name="description" content="Sunú Home: snap your fridge and pantry, see what you can cook tonight, keep your kitchen organized and shop the stores near you in Aguascalientes. With a clickable prototype.">
+  <link rel="canonical" href="https://dcreativethinking.com/usecases/Sunu-Home/sunu-home.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Sunú Home: Product and Interaction Design">
+  <meta property="og:description" content="One photo of your fridge and pantry: what you can cook tonight, where everything keeps best and one shopping route.">
+  <meta property="og:url" content="https://dcreativethinking.com/usecases/Sunu-Home/sunu-home.html">
+  <meta property="og:image" content="https://dcreativethinking.com/usecases/Sunu-Home/assets/img/og-sunu-home.jpg?v=20261127g">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="../../assets/img/favicon.ico?v=20261024j" sizes="any">
+  <link rel="icon" type="image/svg+xml" href="../../assets/img/favicon.svg?v=20261024j">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/img/favicon-32.png?v=20261024j">
+  <link rel="apple-touch-icon" href="../../assets/img/apple-touch-icon.png?v=20261024j">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Inter+Tight:wght@800;900&family=Montserrat:wght@500;600&display=swap" rel="stylesheet">
+
+  <!-- Homepage card component (More case studies) -->
+  <link rel="stylesheet" href="../../css/my-work.css?v=20261026b">
+  <link rel="stylesheet" href="../../css/case-study.css?v=20261124g">
+  <link rel="stylesheet" href="../../css/reveal.css?v=20261026a">
+  <link rel="stylesheet" href="https://use.typekit.net/eqt4ywi.css">
+  <link rel="stylesheet" href="assets/css/sunu-home.css?v=20261127g">
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="../../portfolio/index.html">Home</a> / <a href="../../portfolio/index.html#work">Work</a> / <span>Sunú Home</span>
+    </nav>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle Dark Mode">
+      <svg id="themeIcon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      </svg>
+    </button>
+  </div>
+
+  <!-- HERO: the title answers "What difference did you make?" -->
+  <header class="hero hero--cook">
+    <div class="hero__photo" aria-hidden="true"></div>
+    <span class="chip chip--light hero__chip hero__chip--l">Case Study</span>
+    <span class="chip chip--light hero__chip hero__chip--r">Sunú Home</span>
+
+    <div class="hero__body">
+      <div>
+        <div class="cook-lock"><img class="cook-lock__mark no-lightbox" src="assets/img/sunu-logo-white.svg?v=20261127g" alt="Sunú"></div>
+        <h1 class="display hero__title hero__title--answer">One photo of your fridge, and dinner is decided.</h1>
+      </div>
+      <div class="hero__info">
+        <div><b>Role :</b> Founder, Product Design, Web and AI Systems Builder</div>
+        <div><b>Org :</b> Sunú, with D Creative Thinking</div>
+        <div><b>Product :</b> Sunú Home, a kitchen app that turns what you have into what you cook</div>
+        <div><b>Status :</b> Under testing</div>
+        <div><b>AI partner :</b> Claude</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ABSTRACT -->
+  <section class="abstract" aria-label="Abstract">
+    <div class="owner owner--stack"><span class="owner__label">Abstract</span><p class="owner__text">Every evening most homes ask the same question in front of the fridge: what can I make with what I have? Sunú Home answers it from a photo of the fridge and the pantry, starting with the food that needs using first. The same photo tells people where each thing keeps best and what is about to run out, and the grocery list builds itself, compares the stores near them in Aguascalientes and plans one route. It is a Sunú product, now under testing.</p></div>
+    <div class="metrics__grid abstract__metrics">
+      <div class="metric metric--before">
+        <div class="metric__value">Idea</div>
+        <div class="metric__label">Before</div>
+        <p class="metric__text">A question at the fridge and a set of jobs around it, with no screens yet.</p>
+      </div>
+      <div class="metric">
+        <span class="metric__icon"><svg class="icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="5" y="2" width="14" height="20" rx="2"/><path d="M12 18h.01"/></svg></span>
+        <div class="metric__value">32</div>
+        <div class="metric__label">Screens designed</div>
+        <p class="metric__text">From the sign in to the weekly email, all in one clickable prototype.</p>
+      </div>
+      <div class="metric">
+        <span class="metric__icon"><svg class="icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg></span>
+        <div class="metric__value">1</div>
+        <div class="metric__label">Photo to start</div>
+        <p class="metric__text">Recipes, storage tips and the shopping list all start from the same scan.</p>
+      </div>
+      <div class="metric">
+        <span class="metric__icon"><svg class="icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 8 6 6"/><path d="m4 14 6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="m22 22-5-10-5 10"/><path d="M14 18h6"/></svg></span>
+        <div class="metric__value">2</div>
+        <div class="metric__label">Languages, EN and ES</div>
+        <p class="metric__text">Every screen in English and Spanish, switched from the sign in or the profile.</p>
+      </div>
+    </div>
+    <div class="owner owner--stack"><span class="owner__label">My part</span><p class="owner__text">I own the product with Sunú. I defined the problem, the five jobs and the one way setup, set the bold visual direction from my own reference board, chose the type and the rule that each recipe takes the color of its dish, picked the real stores and markets, and designed the 32 screens and their motion.</p></div>
+    <div class="owner owner--stack"><span class="owner__label">AI in the process</span><p class="owner__text">Claude built the prototype in HTML from my direction, drew the flat illustrations, wrote the sample recipes and checked every screen at phone size. I reviewed it round after round and corrected it: a sign in and a one way setup instead of a welcome screen, every step required with nothing assumed, colors that follow each dish, and Sunú present in the setup and at the key moments.</p></div>
+  </section>
+
+  <!-- BRIEF -->
+  <nav class="brief brief--5" aria-label="Case study summary">
+    <div class="brief__grid">
+      <a class="brief__item" href="#question"><span class="brief__num">01</span><span class="brief__title">The Question</span><span class="brief__text">What can I make with what I have?</span></a>
+      <a class="brief__item" href="#setup"><span class="brief__num">02</span><span class="brief__title">One Way Setup</span><span class="brief__text">Seven steps, nothing assumed</span></a>
+      <a class="brief__item" href="#language"><span class="brief__num">03</span><span class="brief__title">Visual Language</span><span class="brief__text">Flat color, and each dish its own color</span></a>
+      <a class="brief__item" href="#scan"><span class="brief__num">04</span><span class="brief__title">Scan and Cook</span><span class="brief__text">From a photo to cook mode</span></a>
+      <a class="brief__item" href="#kitchen"><span class="brief__num">05</span><span class="brief__title">Organize</span><span class="brief__text">Where each thing keeps best, and why</span></a>
+      <a class="brief__item" href="#shop"><span class="brief__num">06</span><span class="brief__title">Shop</span><span class="brief__text">Real stores, the tianguis by voice, one route</span></a>
+      <a class="brief__item" href="#runout"><span class="brief__num">07</span><span class="brief__title">Running Low</span><span class="brief__text">Reminders before it runs out</span></a>
+      <a class="brief__item" href="#motion"><span class="brief__num">08</span><span class="brief__title">Motion</span><span class="brief__text">Floods, covers that open, a liquid tab bar</span></a>
+      <a class="brief__item" href="#prototype"><span class="brief__num">09</span><span class="brief__title">Prototype</span><span class="brief__text">The whole product, clickable</span></a>
+      <a class="brief__item" href="#reflection"><span class="brief__num">10</span><span class="brief__title">Reflection</span><span class="brief__text">Under testing, models next</span></a>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- 01 : THE QUESTION -->
+    <section class="sec stack" id="question">
+      <span class="chip sec__chip">01 / The Question</span>
+      <div class="stack__intro">
+        <h2 class="display display--md">The Question<br>at the Fridge</h2>
+        <ul class="points">
+          <li><strong>Every evening, the same question</strong>A fridge half full, a pantry with a little of everything and the same thought every night: what can I make with what I have? Most homes answer it by buying more, cooking the same three dishes or throwing food away at the end of the week.</li>
+          <li><strong>The idea</strong>Sunú Home answers that question from a photo. You snap the fridge, the pantry or both, and it tells you what you can cook tonight, starting with what needs using first.</li>
+          <li><strong>Three jobs around one kitchen</strong>The same photo also tells you where each thing keeps best, and what you are about to run out of. The grocery list builds itself from your recipes, compares the stores near you and plans one route.</li>
+          <li><strong>Why Sunú</strong>Sunú is a home food brand in Aguascalientes whose promise is cooking with love. Sunú Home carries that promise into the customer’s own kitchen, with Sunú recipes in the mix and a Sunú pasta tray one tap away on the nights there is no time to cook.</li>
+          <li><strong>Under testing</strong>Sunú Home is a Sunú product in testing. The prototype behaves as the live app will: real stores in Aguascalientes, real recipes and a full setup.</li>
+        </ul>
+      </div>
+      <div class="stack__row stack__row--quad">
+        <figure class="figure figure--framed figure--phone">
+          <img src="assets/img/home-home.webp?v=20261127g" alt="Home: a red card asking what can I make with what I have, with a Scan my kitchen button, and stacked cards for 6 recipes ready, cilantro, crema and tomatoes to use soon, the shopping list and the fridge score" loading="lazy" width="780" height="1688">
+          <figcaption class="figure__caption"><span>The question, as the first thing on screen.</span><span class="chip">Fig. 01</span></figcaption>
+        </figure>
+        <figure class="figure figure--framed figure--phone">
+          <img src="assets/img/home-result.webp?v=20261127g" alt="Scan complete on red: 14 ingredients found, 6 recipes you can make and 3 to use soon, with tomatoes, crema and cilantro flagged" loading="lazy" width="780" height="1688">
+          <figcaption class="figure__caption"><span>One photo, three answers.</span><span class="chip">Fig. 02</span></figcaption>
+        </figure>
+        <figure class="figure figure--framed figure--phone">
+          <img src="assets/img/home-recipe-pasta.webp?v=20261127g" alt="Creamy chipotle pasta in chipotle cream peach: 30 minutes, 3 servings, easy, and a red card reading A recipe from Sunú’s kitchen" loading="lazy" width="780" height="1688">
+          <figcaption class="figure__caption"><span>Sunú recipes live in the mix.</span><span class="chip">Fig. 03</span></figcaption>
+        </figure>
+        <figure class="figure figure--framed figure--phone">
+          <img src="assets/img/home-recipes.webp?v=20261127g" alt="For tonight: 6 things you can cook, Ready now and Missing 1 item tabs, recipe covers for green chilaquiles and huevos a la mexicana, and a Why these card" loading="lazy" width="780" height="1688">
+          <figcaption class="figure__caption"><span>What you can cook tonight, ranked.</span><span class="chip">Fig. 04</span></figcaption>
+        </figure>
+      </div>
+
+    </section>
+    <!-- 02 : ONE WAY SETUP -->
+    <section class="sec sec--gray stack" id="setup">
+      <span class="chip sec__chip">02 / One Way Setup</span>
+      <div class="stack__intro">
+        <h2 class="display display--md">One Way<br>Setup</h2>
+        <ul class="points">
+          <li><strong>Sign in, then the wizard</strong>After the splash there is one door: continue with Apple, Google or email. It leads straight into seven steps with no exits, no skips and no defaults.</li>
+          <li><strong>Nothing is assumed</strong>Every step starts empty. Continue stays locked and says what is missing, like Add your name to continue or Pick one, or None of these, until the person answers.</li>
+          <li><strong>Easy to answer</strong>Arc dials for people at home and minutes on a weekday, color tiles for restrictions and equipment, a slider for the weekly budget and real stores to pick from. Typing is only asked once, for the name.</li>
+          <li><strong>A profile that pays off</strong>The last screen turns the answers into a kitchen profile with big numbers, the restrictions as chips and the reminders to turn on, under the Sunú curve and the cocina con amor mark.</li>
+        </ul>
+      </div>
+      <div class="stack__row stack__row--quad">
+        <figure class="figure figure--framed figure--phone">
+          <img src="assets/img/home-login.webp?v=20261127g" alt="Sign in on violet with yellow and red shapes: What’s for dinner?, a short line, and Continue with Apple, Google or email, by Sunú" loading="lazy" width="780" height="1688">
+          <figcaption class="figure__caption"><span>One door in.</span><span class="chip">Fig. 05</span></figcaption>
+        </figure>
+        <figure class="figure figure--framed figure--phone">
+          <img src="assets/img/home-ob1.webp?v=20261127g" alt="Step 1 of 7: Who’s at the table?, the name Ana, an arc dial set to 3 people and kids at home set to 1" loading="lazy" width="780" height="1688">
+          <figcaption class="figure__caption"><span>Arc dial for the household.</span><span class="chip">Fig. 06</span></figcaption>
+        </figure>
+        <figure class="figure figure--framed figure--phone">
+          <img src="assets/img/home-ob2.webp?v=20261127g" alt="Step 2 of 7: Anything you don’t eat?, color tiles with No pork and Lactose free selected" loading="lazy" width="780" height="1688">
+          <figcaption class="figure__caption"><span>Color tiles; None of these is an answer too.</span><span class="chip">Fig. 07</span></figcaption>
+        </figure>
+        <figure class="figure figure--framed figure--phone">
+          <img src="assets/img/home-ob8.webp?v=20261127g" alt="The kitchen profile: Ready, Ana., 3 people at home, 30 minutes on weekdays and $2,200 a week for food, with the reminder toggles and the Sunú curve" loading="lazy" width="780" height="1688">
+          <figcaption class="figure__caption"><span>The answers, as a profile.</span><span class="chip">Fig. 08</span></figcaption>
+        </figure>
+      </div>
+      <div class="stack__row stack__row--pair">
+        <figure class="figure figure--phone">
+          <div class="vid" data-label="setup animation">
+            <video muted loop playsinline preload="metadata" poster="assets/img/home-wizard-poster.webp?v=20261127g" aria-label="Animation: the name is typed, the dial moves to 4 and back to 3, kids at home is set and Continue unlocks; on step 2 No pork and Lactose free are picked">
+              <source src="assets/video/home-wizard.mp4?v=20261127g" type="video/mp4">
+            </video>
+            <button class="vid__toggle" type="button">Play</button>
+          </div>
+          <figcaption class="figure__caption"><span>Continue unlocks only when the step is answered.</span><span class="chip">Fig. 09</span></figcaption>
+        </figure>
+        <figure class="figure figure--framed figure--phone">
+          <img src="assets/img/home-ob6.webp?v=20261127g" alt="Step 6 of 7 on yellow: Weekly food budget, $2,200 MXN in giant numbers, a slider and about $105 per person per day for 3 people" loading="lazy" width="780" height="1688">
+          <figcaption class="figure__caption"><span>The budget in giant numbers.</span><span class="chip">Fig. 10</span></figcaption>
+        </figure>
+      </div>
+
+    </section>
+    <!-- 03 : VISUAL LANGUAGE -->
+    <section class="sec stack" id="language">
+      <span class="chip sec__chip">03 / Visual Language</span>
+      <div class="stack__intro">
+        <h2 class="display display--md">Visual<br>Language</h2>
+        <ul class="points">
+          <li><strong>A bold proposal, built from references</strong>The direction came from a board of poster work: flat fields of saturated color that reach the edges, stacked rounded cards with a pill tag, one giant curve used as a container and book covers that open into the page.</li>
+          <li><strong>No photos, so color tells the dish</strong>Recipes have no pictures. Each cover is a flat poster in the dish’s own color: green for chilaquiles verdes, chipotle brown for tinga, a chipotle cream peach for the pasta, tomato orange for sopa de fideo and yolk yellow for huevos a la mexicana.</li>
+          <li><strong>Tonal pairs</strong>Text takes a deeper or lighter tone of its own field instead of plain black or white, so every card reads as one object.</li>
+          <li><strong>Type</strong>Big Shoulders Display for titles and the giant numbers, Poppins for everything else, with light lowercase lines for the questions the app asks. No italics anywhere.</li>
+          <li><strong>Sunú, where it belongs</strong>The real Sunú logo signs the sign in, every setup step, the finish screen and the weekly email. The Sunú curve appears once per screen, cropped so it never reads as a letter.</li>
+          <li><strong>English first, Spanish built in</strong>Every screen switches between English and Spanish from the sign in or the profile.</li>
+        </ul>
+      </div>
+      <div class="swatches"><figure class="pms"><div class="pms__chip" style="background:#5B3DF5"></div><figcaption class="pms__label"><span class="pms__brand">Sunú Home: Violet</span><span class="pms__code">HEX #5B3DF5</span><span class="pms__code">RGB 91 61 245</span><span class="pms__use">The main field and the profile.</span></figcaption></figure><figure class="pms"><div class="pms__chip" style="background:#F40046"></div><figcaption class="pms__label"><span class="pms__brand">Sunú: Red</span><span class="pms__code">HEX #F40046</span><span class="pms__code">RGB 244 0 70</span><span class="pms__use">The question, results and Sunú moments.</span></figcaption></figure><figure class="pms"><div class="pms__chip" style="background:#FFD447"></div><figcaption class="pms__label"><span class="pms__brand">Yolk Yellow</span><span class="pms__code">HEX #FFD447</span><span class="pms__code">RGB 255 212 71</span><span class="pms__use">Use soon, budgets and the in store list.</span></figcaption></figure><figure class="pms"><div class="pms__chip" style="background:#1E9B4F"></div><figcaption class="pms__label"><span class="pms__brand">Salsa Verde</span><span class="pms__code">HEX #1E9B4F</span><span class="pms__code">RGB 30 155 79</span><span class="pms__use">Green chilaquiles, from cover to cook mode.</span></figcaption></figure><figure class="pms"><div class="pms__chip" style="background:#9A3412"></div><figcaption class="pms__label"><span class="pms__brand">Chipotle</span><span class="pms__code">HEX #9A3412</span><span class="pms__code">RGB 154 52 18</span><span class="pms__use">Chicken tinga.</span></figcaption></figure><figure class="pms"><div class="pms__chip" style="background:#D8F25A"></div><figcaption class="pms__label"><span class="pms__brand">Lime</span><span class="pms__code">HEX #D8F25A</span><span class="pms__code">RGB 216 242 90</span><span class="pms__use">The active tab and the finish line.</span></figcaption></figure></div>
+      <div class="stack__row stack__row--quad">
+        <figure class="figure figure--framed figure--phone">
+          <img src="assets/img/home-recipes-es.webp?v=20261127g" alt="Para hoy: 6 cosas que puedes cocinar, the same screen in Spanish with the green chilaquiles verdes cover" loading="lazy" width="780" height="1688">
+          <figcaption class="figure__caption"><span>The same screen in Spanish.</span><span class="chip">Fig. 11</span></figcaption>
+        </figure>
+        <figure class="figure figure--framed figure--phone">
+          <img src="assets/img/home-recipe.webp?v=20261127g" alt="Green chilaquiles: the cover opened into the page in green with a cream wave, 20 minutes, 3 servings, easy, and the ingredients all at home" loading="lazy" width="780" height="1688">
+          <figcaption class="figure__caption"><span>The cover opens into the recipe.</span><span class="chip">Fig. 12</span></figcaption>
+        </figure>
+        <figure class="figure figure--framed figure--phone">
+          <img src="assets/img/home-cook.webp?v=20261127g" alt="Cook mode in green: step 2 of 4 as a giant 02, boil the tomatoes, serranos and a piece of onion for 8 minutes, and a running timer ring" loading="lazy" width="780" height="1688">
+          <figcaption class="figure__caption"><span>Cook mode keeps the dish’s color.</span><span class="chip">Fig. 13</span></figcaption>
+        </figure>
+        <figure class="figure figure--framed figure--phone">
+          <img src="assets/img/home-home-es.webp?v=20261127g" alt="The home in Spanish: ¿qué hago con lo que tengo?, Escanear mi cocina and 6 recetas listas" loading="lazy" width="780" height="1688">
+          <figcaption class="figure__caption"><span>Home, in Spanish.</span><span class="chip">Fig. 14</span></figcaption>
+        </figure>
+      </div>
+
+    </section>
+    <!-- 04 : SCAN AND COOK -->
+    <section class="sec sec--gray stack" id="scan">
+      <span class="chip sec__chip">04 / Scan and Cook</span>
+      <div class="stack__intro">
+        <h2 class="display display--md">Scan and<br>Cook</h2>
+        <ul class="points">
+          <li><strong>Fridge, pantry or both</strong>The camera asks for the fridge first, then moves to the pantry by itself after the first shot. Corner guides and a short hint keep every shelf in frame.</li>
+          <li><strong>Reading the kitchen</strong>A scan line sweeps the photo while each ingredient gets its box and its name. The count climbs, and the screen floods red with the result: ingredients found, recipes you can make and what to use soon.</li>
+          <li><strong>People confirm, AI proposes</strong>Nothing is cooked from a guess. The ingredient list comes back as chips to remove or add before any recipe is suggested.</li>
+          <li><strong>Ask it your way</strong>What can I make? by text or by voice, shaped by quick filters like under 30 minutes, use soon first or kid friendly. Recipes respect the profile every time.</li>
+          <li><strong>How the AI fits</strong>A vision model reads the photos and a language model plans the recipes, each behind its own layer so either can change. The current plan pairs Gemini for vision with GPT for cooking, always inside the kitchen profile.</li>
+          <li><strong>Hands busy</strong>Cook mode shows one big step at a time with its own timer and moves on when you say next. At the end you rate the dish and the leftovers go back into the kitchen.</li>
+        </ul>
+      </div>
+      <div class="stack__row stack__row--quad">
+        <figure class="figure figure--framed figure--phone">
+          <img src="assets/img/home-camera.webp?v=20261127g" alt="The camera on the fridge: Fridge, Pantry and Both tabs, a flat drawn fridge in the viewfinder with corner guides and the hint Open the door and fit every shelf" loading="lazy" width="780" height="1688">
+          <figcaption class="figure__caption"><span>Fridge first, pantry next.</span><span class="chip">Fig. 15</span></figcaption>
+        </figure>
+        <figure class="figure figure--framed figure--phone">
+          <img src="assets/img/home-analyzing.webp?v=20261127g" alt="Reading your kitchen: lime boxes on chicken breast, cilantro, tomatoes, crema, eggs, avocado and serranos, and a count at 14" loading="lazy" width="780" height="1688">
+          <figcaption class="figure__caption"><span>Each ingredient boxed and named.</span><span class="chip">Fig. 16</span></figcaption>
+        </figure>
+        <figure class="figure figure--framed figure--phone">
+          <img src="assets/img/home-confirm.webp?v=20261127g" alt="Did we get it right?: use soon chips in yellow for tomatoes, crema and cilantro, everything else as chips to remove, and an Add chip" loading="lazy" width="780" height="1688">
+          <figcaption class="figure__caption"><span>People confirm before anything is suggested.</span><span class="chip">Fig. 17</span></figcaption>
+        </figure>
+        <figure class="figure figure--framed figure--phone">
+          <img src="assets/img/home-ask.webp?v=20261127g" alt="What can I make? on violet: something quick for 3 tonight that uses the cilantro, a red mic button and filters for under 30 minutes and use soon first" loading="lazy" width="780" height="1688">
+          <figcaption class="figure__caption"><span>Ask by text or by voice.</span><span class="chip">Fig. 18</span></figcaption>
+        </figure>
+      </div>
+      <div class="stack__row stack__row--pair">
+        <figure class="figure figure--phone">
+          <div class="vid" data-label="scan animation">
+            <video muted loop playsinline preload="metadata" poster="assets/img/home-scan-poster.webp?v=20261127g" aria-label="Animation: Scan my kitchen floods the screen dark, two photos are taken, the scan finds 14 ingredients and the screen floods red with the result">
+              <source src="assets/video/home-scan.mp4?v=20261127g" type="video/mp4">
+            </video>
+            <button class="vid__toggle" type="button">Play</button>
+          </div>
+          <figcaption class="figure__caption"><span>From the question to the answer in one flow.</span><span class="chip">Fig. 19</span></figcaption>
+        </figure>
+        <figure class="figure figure--framed figure--phone">
+          <img src="assets/img/home-done.webp?v=20261127g" alt="Done. on lime: how did it turn out?, five rating circles, save leftovers turned on and a note that crema, cilantro and 6 tortillas were used" loading="lazy" width="780" height="1688">
+          <figcaption class="figure__caption"><span>Rate it; the leftovers go back in.</span><span class="chip">Fig. 20</span></figcaption>
+        </figure>
+      </div>
+
+    </section>
+    <!-- 05 : A KITCHEN THAT MAKES SENSE -->
+    <section class="sec stack" id="kitchen">
+      <span class="chip sec__chip">05 / A Kitchen That Makes Sense</span>
+      <div class="stack__intro">
+        <h2 class="display display--md">A Kitchen That<br>Makes Sense</h2>
+        <ul class="points">
+          <li><strong>A score you can raise</strong>The kitchen tab gives the fridge a score and names the few moves that would raise it.</li>
+          <li><strong>Every zone, with its why</strong>Numbered pins open a sheet per zone: what goes there and why. Raw chicken goes on the bottom shelf so nothing drips on food you eat raw; milk leaves the door because the door is the warmest spot.</li>
+          <li><strong>Before and after</strong>A slider compares the fridge as it is with the fridge as it should be, with the days of freshness each move adds.</li>
+        </ul>
+      </div>
+      <div class="stack__row stack__row--3">
+        <figure class="figure figure--framed figure--phone">
+          <img src="assets/img/home-kitchen.webp?v=20261127g" alt="Your fridge: a teal score card at 72 percent and a drawn fridge with six numbered pins" loading="lazy" width="780" height="1688">
+          <figcaption class="figure__caption"><span>Six zones, one score.</span><span class="chip">Fig. 21</span></figcaption>
+        </figure>
+        <figure class="figure figure--framed figure--phone">
+          <img src="assets/img/home-zone.webp?v=20261127g" alt="The Bottom shelf sheet: raw chicken and meat on a tray, and a red Why card explaining it is the coldest shelf and nothing drips on food you eat raw" loading="lazy" width="780" height="1688">
+          <figcaption class="figure__caption"><span>Each zone explains itself.</span><span class="chip">Fig. 22</span></figcaption>
+        </figure>
+        <figure class="figure figure--framed figure--phone">
+          <img src="assets/img/home-ba.webp?v=20261127g" alt="Before and after: the current fridge and the better layout split by a draggable handle, and +4 days of freshness on average" loading="lazy" width="780" height="1688">
+          <figcaption class="figure__caption"><span>Drag to compare.</span><span class="chip">Fig. 23</span></figcaption>
+        </figure>
+      </div>
+
+    </section>
+    <!-- 06 : SHOP SMARTER, CLOSER -->
+    <section class="sec sec--gray stack" id="shop">
+      <span class="chip sec__chip">06 / Shop Smarter, Closer</span>
+      <div class="stack__intro">
+        <h2 class="display display--md">Shop Smarter,<br>Closer</h2>
+        <ul class="points">
+          <li><strong>A list that writes itself</strong>Missing items from recipes and anything running low land on the list as tilted notes grouped by aisle, each with the reason it is there.</li>
+          <li><strong>Real stores in Aguascalientes</strong>Prices compare across Walmart Independencia, Soriana Universidad, Chedraui Asunción, La Comer Altaria, HEB Santa Mónica and Mercado Terán. Prices in the prototype are illustrative.</li>
+          <li><strong>The places with no website</strong>Tianguis and tienditas have no prices online, so people say them: tianguis on Thursdays, avocados three for twenty. The app turns the sentence into a place and its prices.</li>
+          <li><strong>One route</strong>The best mix splits the list between the market and one supermarket, then plans the stops, the time and the total. In store, the list becomes big check rows per stop.</li>
+        </ul>
+      </div>
+      <div class="stack__row stack__row--quad">
+        <figure class="figure figure--framed figure--phone">
+          <img src="assets/img/home-shop.webp?v=20261127g" alt="Your list: 7 items for about $167, a lime Compare stores button and tilted notes for avocados, white onion and cilantro" loading="lazy" width="780" height="1688">
+          <figcaption class="figure__caption"><span>The list, as notes.</span><span class="chip">Fig. 24</span></figcaption>
+        </figure>
+        <figure class="figure figure--framed figure--phone">
+          <img src="assets/img/home-compare.webp?v=20261127g" alt="Where to shop: the best mix of Mercado Terán and Walmart Independencia at $154, then each store’s total with bars" loading="lazy" width="780" height="1688">
+          <figcaption class="figure__caption"><span>The best mix, then each store.</span><span class="chip">Fig. 25</span></figcaption>
+        </figure>
+        <figure class="figure figure--framed figure--phone">
+          <img src="assets/img/home-route.webp?v=20261127g" alt="Your route: a drawn map with two numbered stops, 48 minutes, 9.2 km and $154 estimated" loading="lazy" width="780" height="1688">
+          <figcaption class="figure__caption"><span>One route for everything.</span><span class="chip">Fig. 26</span></figcaption>
+        </figure>
+        <figure class="figure figure--framed figure--phone">
+          <img src="assets/img/home-instore.webp?v=20261127g" alt="In store on yellow: 2 of 7 in giant numbers and check rows for Mercado Terán and Walmart Independencia" loading="lazy" width="780" height="1688">
+          <figcaption class="figure__caption"><span>Big rows to check off.</span><span class="chip">Fig. 27</span></figcaption>
+        </figure>
+      </div>
+      <div class="stack__row stack__row--pair">
+        <figure class="figure figure--phone">
+          <div class="vid" data-label="voice animation">
+            <video muted loop playsinline preload="metadata" poster="assets/img/home-voice-poster.webp?v=20261127g" aria-label="Animation: the voice sheet listens, the sentence about the Thursday tianguis types in, it becomes a new place card with avocados 3 for $20 and cilantro $5, and it is saved">
+              <source src="assets/video/home-voice.mp4?v=20261127g" type="video/mp4">
+            </video>
+            <button class="vid__toggle" type="button">Play</button>
+          </div>
+          <figcaption class="figure__caption"><span>A tianguis, added by voice.</span><span class="chip">Fig. 28</span></figcaption>
+        </figure>
+        <figure class="figure figure--framed figure--phone">
+          <img src="assets/img/home-voice.webp?v=20261127g" alt="The voice sheet: the sentence about the Thursday tianguis, a teal New place card and cards for avocados 3 for $20 and cilantro $5" loading="lazy" width="780" height="1688">
+          <figcaption class="figure__caption"><span>Speech becomes a place and its prices.</span><span class="chip">Fig. 29</span></figcaption>
+        </figure>
+      </div>
+
+    </section>
+    <!-- 07 : BEFORE IT RUNS OUT -->
+    <section class="sec stack" id="runout">
+      <span class="chip sec__chip">07 / Before It Runs Out</span>
+      <div class="stack__intro">
+        <h2 class="display display--md">Before It<br>Runs Out</h2>
+        <ul class="points">
+          <li><strong>Days, not guesses</strong>From each scan and how fast the home uses things, Sunú Home estimates the days left for each item and puts the list one tap away.</li>
+          <li><strong>Reminded your way</strong>Push notifications, a weekly email and an Apple Watch option, each turned on by the person in setup or in the profile.</li>
+          <li><strong>Useful, not noisy</strong>A reminder carries the price and where to buy on the way home, or the tianguis day before it happens.</li>
+        </ul>
+      </div>
+      <div class="stack__row stack__row--quad">
+        <figure class="figure figure--framed figure--phone">
+          <img src="assets/img/home-alerts.webp?v=20261127g" alt="Before it runs out: milk in 2 days, cilantro today, corn tortillas in 3 and pinto beans with the last can, with day bars and Add all to my list" loading="lazy" width="780" height="1688">
+          <figcaption class="figure__caption"><span>Days left per item.</span><span class="chip">Fig. 30</span></figcaption>
+        </figure>
+        <figure class="figure figure--framed figure--phone">
+          <img src="assets/img/home-lock.webp?v=20261127g" alt="A lock screen with two Sunú Home notifications: milk runs out in about 2 days at $29 at Walmart Independencia, and the tianguis is tomorrow" loading="lazy" width="780" height="1688">
+          <figcaption class="figure__caption"><span>The reminder carries the price and the place.</span><span class="chip">Fig. 31</span></figcaption>
+        </figure>
+        <figure class="figure figure--framed figure--phone">
+          <img src="assets/img/home-email.webp?v=20261127g" alt="The weekly email: Hi Ana, 5 meals cooked, $186 saved, 4 running low, an Open my list button and the Sunú cocina con amor mark" loading="lazy" width="780" height="1688">
+          <figcaption class="figure__caption"><span>A weekly email, signed by Sunú.</span><span class="chip">Fig. 32</span></figcaption>
+        </figure>
+        <figure class="figure figure--framed figure--phone">
+          <img src="assets/img/home-me.webp?v=20261127g" alt="The profile: the kitchen profile card with people, minutes and budget, reminder toggles and the stores" loading="lazy" width="780" height="1688">
+          <figcaption class="figure__caption"><span>Every reminder can be turned off.</span><span class="chip">Fig. 33</span></figcaption>
+        </figure>
+      </div>
+
+    </section>
+    <!-- 08 : MOTION -->
+    <section class="sec sec--gray stack" id="motion">
+      <span class="chip sec__chip">08 / Motion</span>
+      <div class="stack__intro">
+        <h2 class="display display--md">Motion</h2>
+        <ul class="points">
+          <li><strong>Floods for big moments</strong>Starting the scan, the result and the finish arrive as a color rising from the bottom of the screen, like a page being filled.</li>
+          <li><strong>Covers that open</strong>A recipe grows out of its own cover into the full page, and folds back into it on the way out.</li>
+          <li><strong>A liquid tab bar</strong>The active pill stretches across both tabs, thins and settles into the new one with a small bounce.</li>
+          <li><strong>Items in steps</strong>Every new screen slides in the direction of travel and its content arrives one piece at a time.</li>
+        </ul>
+      </div>
+      <div class="stack__row stack__row--pair">
+        <figure class="figure figure--phone">
+          <div class="vid" data-label="tab bar animation">
+            <video muted loop playsinline preload="metadata" poster="assets/img/home-tabs-poster.webp?v=20261127g" aria-label="Animation: the lime pill stretches from Cook to Kitchen, Shop, Me and back to Cook while the screens slide in the direction of travel">
+              <source src="assets/video/home-tabs.mp4?v=20261127g" type="video/mp4">
+            </video>
+            <button class="vid__toggle" type="button">Play</button>
+          </div>
+          <figcaption class="figure__caption"><span>The tab pill stretches between tabs.</span><span class="chip">Fig. 34</span></figcaption>
+        </figure>
+        <figure class="figure figure--phone">
+          <div class="vid" data-label="recipe animation">
+            <video muted loop playsinline preload="metadata" poster="assets/img/home-recipe-poster.webp?v=20261127g" aria-label="Animation: the green chilaquiles cover opens into the recipe, the page scrolls through the ingredients, Start cooking floods the screen green and the timer starts">
+              <source src="assets/video/home-recipe.mp4?v=20261127g" type="video/mp4">
+            </video>
+            <button class="vid__toggle" type="button">Play</button>
+          </div>
+          <figcaption class="figure__caption"><span>A cover opens into the recipe, then cook mode.</span><span class="chip">Fig. 35</span></figcaption>
+        </figure>
+      </div>
+
+    </section>
+    <!-- 09 : PROTOTYPE -->
+    <section class="sec stack" id="prototype">
+      <span class="chip sec__chip">09 / Prototype</span>
+      <div class="stack__intro">
+        <h2 class="display display--md">Clickable<br>Prototype</h2>
+        <p class="lead">One prototype covers the whole product, from the sign in to the weekly email, in English and Spanish.</p>
+      </div>
+      <div class="protos protos--1">
+        <article class="proto-card">
+          <button class="proto-card__media" type="button" data-proto="prototype/index.html" data-proto-name="Sunú Home · app" aria-label="Open the Sunú Home prototype"><img class="no-lightbox" src="assets/img/home-home.webp?v=20261127g" alt="" loading="lazy" width="780" height="1688"></button>
+          <div class="proto-card__body">
+            <span class="proto-card__role"><span class="proto-card__dot" style="background:#5B3DF5"></span>Home cook · app</span>
+            <h3 class="proto-card__name">Sunú Home</h3>
+            <p class="proto-card__text">Sign in, answer the seven steps, then:</p>
+            <ul class="proto-card__list">
+              <li>Scan the fridge and the pantry and confirm what it found.</li>
+              <li>Ask what you can make, open a recipe and cook it step by step.</li>
+              <li>See where everything keeps best and compare before and after.</li>
+              <li>Add a tianguis by voice, compare stores and plan the route.</li>
+              <li>Check what runs out first and how you get reminded.</li>
+            </ul>
+            <a class="btn" href="prototype/index.html" data-proto="prototype/index.html" data-proto-name="Sunú Home · app">Open the prototype</a>
+          </div>
+        </article>
+      </div>
+      <div class="protos__more">
+        <a class="btn btn--ghost" href="prototype/index.html" target="_blank" rel="noopener">Open in a new tab</a>
+      </div>
+    </section>
+
+    <!-- 10 : REFLECTION -->
+    <section class="reflection" id="reflection" style="background-image: url('assets/img/home-reflection-wide.webp?v=20261127g')">
+      <div class="reflection__inner">
+        <div class="reflection__top">
+          <span class="chip chip--light">10 / Reflection</span>
+          <span class="chip chip--light">Sunú · D Creative Thinking</span>
+        </div>
+        <h2 class="display display--lg">Looking<br>Back</h2>
+        <div class="reflection__cols">
+          <div>
+            <h3>What went well?</h3>
+            <p class="win"><svg class="icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/></svg><span><strong>One question, answered first</strong>Starting from what can I make with what I have kept the product small: every feature hangs off the same photo.</span></p>
+            <p class="win"><svg class="icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span><strong>Setup that respects people</strong>A one way setup with nothing assumed makes every recipe fit the home that answered it.</span></p>
+            <p class="win"><svg class="icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/><path d="m9 12 2 2 4-4"/></svg><span><strong>Color as the picture</strong>With no food photography, the dish’s own color carries each recipe, from its cover to cook mode.</span></p>
+            <p class="win"><svg class="icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg><span><strong>AI as a builder, not the designer</strong>Claude built and checked the prototype from my direction; the references, the flows, the rules and every correction were mine.</span></p>
+          </div>
+          <div>
+            <h3>Where it stands</h3>
+            <p class="win"><svg class="icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M9 3h6"/><path d="M10 9V3h4v6l5 9a2 2 0 0 1-1.7 3H6.7A2 2 0 0 1 5 18z"/><path d="M7 15h10"/></svg><span><strong>In testing</strong>Sunú Home is a Sunú product under testing, with the prototype behaving as the live app will.</span></p>
+            <p class="win"><svg class="icon" viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg><span><strong>Next</strong>Connecting the vision and recipe models, live store prices and the Apple Watch companion.</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- PROTOTYPE LIGHTBOX (assets/js/sunu-home.js) -->
+  <dialog class="proto" id="proto" aria-label="Clickable prototype">
+    <p class="proto__title"></p>
+    <button class="proto__close" type="button" aria-label="Close prototype"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg></button>
+    <div class="proto__stage"><div class="proto__device"><iframe src="about:blank" title="Prototype" allow="fullscreen"></iframe></div></div>
+  </dialog>
+
+  <!-- MORE CASE STUDIES (cards from js/projects.js, same component as the homepage) -->
+  <section class="more" id="more" aria-labelledby="more-title">
+    <div class="more__head">
+      <h2 id="more-title" class="display display--md">More Case<br>Studies</h2>
+      <div class="more__filters" role="tablist" aria-label="Filter case studies">
+        <button class="more__filter is-active" type="button" role="tab" aria-selected="true" data-more-filter="related">Related</button>
+        <button class="more__filter" type="button" role="tab" aria-selected="false" data-more-filter="all">View all</button>
+      </div>
+    </div>
+    <div class="more__grid" data-projects="more" data-base="../../" data-current="sunu-home"></div>
+    <div class="more__contact">
+      <ul class="more__links">
+        <li><a href="mailto:daniel@dcreativethinking.com">daniel@dcreativethinking.com</a></li>
+        <li><a href="tel:+18019219885">+1 801-921-9885</a></li>
+        <li><a href="../../assets/docs/Daniel_Rojas_Resume_2026_v2.pdf" download="Daniel_Rojas_Resume_2026.pdf">Download resume</a></li>
+      </ul>
+      <ul class="more__social" aria-label="Social profiles">
+        <li><a class="more__social-link" href="https://www.linkedin.com/in/dcreativethinking/" aria-label="LinkedIn" target="_blank" rel="noopener"><svg class="more__social-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"> <path d="M20.45 3H3.55A.55.55 0 0 0 3 3.55v16.9c0 .3.25.55.55.55h16.9c.3 0 .55-.25.55-.55V3.55A.55.55 0 0 0 20.45 3ZM8.8 18.34H5.87V9.75H8.8v8.59ZM7.34 8.47a1.7 1.7 0 1 1 0-3.4 1.7 1.7 0 0 1 0 3.4Zm11 9.87h-2.93v-4.18c0-1-.02-2.28-1.39-2.28-1.39 0-1.6 1.09-1.6 2.21v4.25H9.5V9.75h2.81v1.17h.04c.39-.74 1.35-1.52 2.77-1.52 2.97 0 3.52 1.95 3.52 4.49v4.45Z" fill="currentColor"/> </svg></a></li>
+        <li><a class="more__social-link" href="https://www.instagram.com/dani.el.ux/" aria-label="Instagram" target="_blank" rel="noopener"><svg class="more__social-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"> <path d="M12 2.16c3.2 0 3.58.02 4.85.07 1.17.06 1.8.25 2.23.42.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.84 0 3.2-.01 3.58-.07 4.85-.06 1.17-.25 1.8-.42 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42-.16-1.06.36-2.23.41-1.27.06-1.65.07-4.84.07-3.2 0-3.58-.01-4.85-.07-1.17-.06-1.8-.25-2.23-.42-.56-.22-.96-.48-1.38-.9-.42-.42-.68-.82-.9-1.38-.16-.42-.36-1.06-.41-2.23C2.17 15.58 2.16 15.2 2.16 12c0-3.2.01-3.58.07-4.85.06-1.17.25-1.8.42-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.17 8.8 2.16 12 2.16ZM12 0C8.74 0 8.33.02 7.05.07 5.78.13 4.9.33 4.14.63c-.79.31-1.46.72-2.13 1.38C1.35 2.68.94 3.35.63 4.14c-.3.77-.5 1.64-.56 2.91C.01 8.33 0 8.74 0 12s.02 3.67.07 4.95c.06 1.27.26 2.14.56 2.91.31.79.72 1.46 1.38 2.13.67.66 1.34 1.07 2.13 1.38.77.3 1.64.5 2.91.56C8.33 23.98 8.74 24 12 24s3.67-.02 4.95-.07c1.27-.06 2.14-.26 2.91-.56.79-.31 1.46-.72 2.13-1.38.66-.67 1.07-1.34 1.38-2.13.3-.77.5-1.64.56-2.91.05-1.28.07-1.69.07-4.95s-.02-3.67-.07-4.95c-.06-1.27-.26-2.14-.56-2.91a5.9 5.9 0 0 0-1.38-2.13A5.9 5.9 0 0 0 19.86.63c-.77-.3-1.64-.5-2.91-.56C15.67.02 15.26 0 12 0Zm0 5.84a6.16 6.16 0 1 0 0 12.32 6.16 6.16 0 0 0 0-12.32ZM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8Zm7.85-10.41a1.44 1.44 0 1 1-2.88 0 1.44 1.44 0 0 1 2.88 0Z" fill="currentColor"/> </svg></a></li>
+        <li><a class="more__social-link" href="https://www.behance.net/mlkmx" aria-label="Behance - mlkmx" target="_blank" rel="noopener"><svg class="more__social-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"> <path d="M8.64 7c.5 0 .95.05 1.37.15.41.1.76.26 1.05.48.29.22.52.52.68.89.16.37.24.83.24 1.37 0 .59-.12 1.08-.36 1.48-.24.39-.6.71-1.07.96.64.21 1.12.57 1.44 1.09.32.52.47 1.15.47 1.88 0 .59-.1 1.11-.31 1.54-.19.42-.47.79-.82 1.06-.36.28-.76.48-1.19.6-.44.14-.9.2-1.37.2H2V7h6.64Zm-.4 4.61c.41 0 .75-.11 1.02-.33.27-.22.39-.57.39-1.06 0-.27-.04-.5-.13-.68a.94.94 0 0 0-.36-.41 1.4 1.4 0 0 0-.51-.21c-.2-.04-.4-.06-.6-.06H4.82v2.75h3.42Zm.19 4.84c.23 0 .44-.03.65-.08.2-.05.39-.13.54-.25.16-.12.29-.28.37-.47.09-.2.14-.46.14-.78 0-.62-.16-1.06-.47-1.33-.31-.26-.72-.4-1.23-.4H4.82v3.31h3.61ZM16.13 16.47c.38.41.92.62 1.63.62.51 0 .95-.14 1.32-.43.37-.29.6-.59.68-.91h2.09c-.34 1.16-.85 1.99-1.54 2.49-.7.51-1.53.76-2.51.76-.69 0-1.3-.12-1.85-.37a4.2 4.2 0 0 1-1.4-1.04 4.7 4.7 0 0 1-.89-1.62 6.1 6.1 0 0 1-.29-2.08c0-.74.1-1.42.32-2.06.2-.6.51-1.16.91-1.63a4.2 4.2 0 0 1 1.4-1.08 4.4 4.4 0 0 1 1.81-.39c.73 0 1.37.15 1.92.47.53.31.99.75 1.34 1.28.36.54.61 1.15.76 1.84.16.68.21 1.4.17 2.15h-6.25c.03.91.24 1.59.62 2Zm2.91-5.44c-.3-.37-.81-.57-1.42-.57-.4 0-.73.08-.99.23-.27.15-.48.34-.64.56a2 2 0 0 0-.34.74c-.06.21-.1.42-.11.64h3.87c-.06-.68-.24-1.23-.54-1.6ZM14.86 7h4.9v1.2h-4.9V7Z" fill="currentColor"/> </svg></a></li>
+        <li><a class="more__social-link" href="https://www.behance.net/MalikODaniel" aria-label="Behance - MalikODaniel" target="_blank" rel="noopener"><svg class="more__social-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"> <path d="M8.64 7c.5 0 .95.05 1.37.15.41.1.76.26 1.05.48.29.22.52.52.68.89.16.37.24.83.24 1.37 0 .59-.12 1.08-.36 1.48-.24.39-.6.71-1.07.96.64.21 1.12.57 1.44 1.09.32.52.47 1.15.47 1.88 0 .59-.1 1.11-.31 1.54-.19.42-.47.79-.82 1.06-.36.28-.76.48-1.19.6-.44.14-.9.2-1.37.2H2V7h6.64Zm-.4 4.61c.41 0 .75-.11 1.02-.33.27-.22.39-.57.39-1.06 0-.27-.04-.5-.13-.68a.94.94 0 0 0-.36-.41 1.4 1.4 0 0 0-.51-.21c-.2-.04-.4-.06-.6-.06H4.82v2.75h3.42Zm.19 4.84c.23 0 .44-.03.65-.08.2-.05.39-.13.54-.25.16-.12.29-.28.37-.47.09-.2.14-.46.14-.78 0-.62-.16-1.06-.47-1.33-.31-.26-.72-.4-1.23-.4H4.82v3.31h3.61ZM16.13 16.47c.38.41.92.62 1.63.62.51 0 .95-.14 1.32-.43.37-.29.6-.59.68-.91h2.09c-.34 1.16-.85 1.99-1.54 2.49-.7.51-1.53.76-2.51.76-.69 0-1.3-.12-1.85-.37a4.2 4.2 0 0 1-1.4-1.04 4.7 4.7 0 0 1-.89-1.62 6.1 6.1 0 0 1-.29-2.08c0-.74.1-1.42.32-2.06.2-.6.51-1.16.91-1.63a4.2 4.2 0 0 1 1.4-1.08 4.4 4.4 0 0 1 1.81-.39c.73 0 1.37.15 1.92.47.53.31.99.75 1.34 1.28.36.54.61 1.15.76 1.84.16.68.21 1.4.17 2.15h-6.25c.03.91.24 1.59.62 2Zm2.91-5.44c-.3-.37-.81-.57-1.42-.57-.4 0-.73.08-.99.23-.27.15-.48.34-.64.56a2.2 2.2 0 0 0-.34.74c-.06.21-.1.42-.11.64h3.87c-.06-.68-.24-1.23-.54-1.6ZM14.86 7h4.9v1.2h-4.9V7Z" fill="currentColor"/> </svg></a></li>
+      </ul>
+    </div>
+  </section>
+
+
+  <!-- LIGHTBOX & GALLERY SCRIPT -->
+  <div id="lightbox">
+    <button id="lightbox-close" aria-label="Close Lightbox">&times;</button>
+    <button id="lightbox-prev" class="lightbox-nav" aria-label="Previous Image">&#10094;</button>
+    <img id="lightbox-img" src="" alt="Enlarged view">
+    <button id="lightbox-next" class="lightbox-nav" aria-label="Next Image">&#10095;</button>
+  </div>
+
+  <script>
+    // Theme Toggle Logic
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    const body = document.body;
+
+    if (localStorage.getItem('theme') === 'dark') {
+      body.classList.add('dark-theme');
+      setSunIcon();
+    }
+
+    themeToggle.addEventListener('click', () => {
+      body.classList.toggle('dark-theme');
+      if (body.classList.contains('dark-theme')) {
+        localStorage.setItem('theme', 'dark');
+        setSunIcon();
+      } else {
+        localStorage.setItem('theme', 'light');
+        setMoonIcon();
+      }
+    });
+
+    function setSunIcon() {
+      themeIcon.innerHTML = '<circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>';
+    }
+
+    function setMoonIcon() {
+      themeIcon.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>';
+    }
+
+    // Lightbox & Gallery Logic
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxClose = document.getElementById('lightbox-close');
+    const prevBtn = document.getElementById('lightbox-prev');
+    const nextBtn = document.getElementById('lightbox-next');
+    
+    const clickableImages = Array.from(document.querySelectorAll('main img:not(.no-lightbox)'));
+    let currentIndex = 0;
+
+    function updateLightboxImage() {
+      lightboxImg.src = clickableImages[currentIndex].src;
+    }
+
+    clickableImages.forEach((img, index) => {
+      img.addEventListener('click', () => {
+        currentIndex = index;
+        updateLightboxImage();
+        lightbox.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    const closeLightbox = () => {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    };
+
+    // Navigation Controls
+    prevBtn.addEventListener('click', (e) => {
+      e.stopPropagation(); 
+      currentIndex = (currentIndex > 0) ? currentIndex - 1 : clickableImages.length - 1;
+      updateLightboxImage();
+    });
+
+    nextBtn.addEventListener('click', (e) => {
+      e.stopPropagation(); 
+      currentIndex = (currentIndex < clickableImages.length - 1) ? currentIndex + 1 : 0;
+      updateLightboxImage();
+    });
+
+    // Close on background click
+    lightbox.addEventListener('click', (e) => {
+      if (e.target !== lightboxImg && e.target !== prevBtn && e.target !== nextBtn) {
+        closeLightbox();
+      }
+    });
+
+    lightboxClose.addEventListener('click', closeLightbox);
+
+    // Keyboard controls for Gallery & Close
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox.classList.contains('active')) return;
+      
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') {
+        currentIndex = (currentIndex > 0) ? currentIndex - 1 : clickableImages.length - 1;
+        updateLightboxImage();
+      }
+      if (e.key === 'ArrowRight') {
+        currentIndex = (currentIndex < clickableImages.length - 1) ? currentIndex + 1 : 0;
+        updateLightboxImage();
+      }
+    });
+  </script>
+  <script src="../../js/projects.js?v=20261127g"></script>
+  <script src="../../js/case-nav.js?v=20261026b"></script>
+  <script src="../../js/reveal.js?v=20261026b"></script>
+  <script src="../../js/case-depth.js?v=20261124a"></script>
+  <script src="../../js/smart-nav.js?v=20261119a"></script>
+  <script src="assets/js/sunu-home.js?v=20261127g"></script>
+</body>
+</html>

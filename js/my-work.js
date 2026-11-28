@@ -45,10 +45,18 @@
   function categoryCount(cat) {
     return cards.filter(function (c) { return inCategory(c, cat); }).length;
   }
+  /* a filter can set its own order with data-order-<filter>="1" on a card;
+     cards without it follow, in page order. All always keeps the page order. */
+  function filterRank(card) {
+    var v = card.getAttribute("data-order-" + currentFilter);
+    return v ? parseFloat(v) : 1000 + cards.indexOf(card);
+  }
   function matchingCards() {
-    return cards.filter(function (card) {
+    var list = cards.filter(function (card) {
       return currentFilter === "all" || inCategory(card, currentFilter);
     });
+    if (currentFilter !== "all") list.sort(function (x, y) { return filterRank(x) - filterRank(y); });
+    return list;
   }
 
   /* control bar: a filter tab with zero cards is not rendered (ALL always
@@ -74,6 +82,7 @@
 
     cards.forEach(function (card) {
       var pos = matches.indexOf(card);
+      card.style.order = (currentFilter === "all" || pos === -1) ? "" : String(pos);
       if (pos !== -1 && pos < visibleCount) { card.removeAttribute("hidden"); }
       else { card.setAttribute("hidden", ""); }
     });
